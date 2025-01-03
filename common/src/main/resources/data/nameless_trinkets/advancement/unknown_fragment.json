@@ -1,0 +1,32 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:unknown_fragment"
+    },
+    "title": {
+      "translate": "Let's Reroll"
+    },
+    "description": {
+      "translate": "Right Click on an Amethyst Block with a Trinket."
+    },
+    "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "unknown_fragment": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:unknown_fragment"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

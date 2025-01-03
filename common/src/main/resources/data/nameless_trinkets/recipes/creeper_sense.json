@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "TST",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:gunpowder"
+    },
+    "T": {
+      "item": "minecraft:tnt"
+    },
+    "S": {
+      "item": "nameless_trinkets:dubious_dust"
+    }
+  },
+  "result": {
+    "id": "nameless_trinkets:creeper_sense",
+    "count": 1
+  }
+}

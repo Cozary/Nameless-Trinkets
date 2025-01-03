@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:tear_of_the_sea"
+    },
+    "title": {
+      "translate": "The sea is full."
+    },
+    "description": {
+      "translate": "Obtain the Tear Of The Sea."
+    }
+  },
+  "criteria": {
+    "tear_of_the_sea": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:tear_of_the_sea"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

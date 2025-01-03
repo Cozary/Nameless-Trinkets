@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:rage_mind"
+    },
+    "title": {
+      "translate": "They can be more than 9000!"
+    },
+    "description": {
+      "translate": "Obtain the Rage Mind."
+    }
+  },
+  "criteria": {
+    "rage_mind": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:rage_mind"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

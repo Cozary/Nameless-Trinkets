@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:nelumbo"
+    },
+    "title": {
+      "translate": "It is pretty and useful."
+    },
+    "description": {
+      "translate": "Obtain the Nelumbo."
+    }
+  },
+  "criteria": {
+    "nelumbo": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:nelumbo"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

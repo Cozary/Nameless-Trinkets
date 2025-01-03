@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:experience_magnet"
+    },
+    "title": {
+      "translate": "Ready to enchant."
+    },
+    "description": {
+      "translate": "Obtain the Experience Magnet."
+    }
+  },
+  "criteria": {
+    "experience_magnet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:experience_magnet"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

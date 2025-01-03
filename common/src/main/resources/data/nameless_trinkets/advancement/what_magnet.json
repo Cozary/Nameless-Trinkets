@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:what_magnet"
+    },
+    "title": {
+      "translate": "What the **** happened?!"
+    },
+    "description": {
+      "translate": "Obtain the What Magnet."
+    }
+  },
+  "criteria": {
+    "what_magnet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:what_magnet"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

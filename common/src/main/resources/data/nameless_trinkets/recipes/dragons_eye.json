@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#W#",
+    "#S#",
+    "#W#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:ender_eye"
+    },
+    "W": {
+      "item": "minecraft:end_stone"
+    },
+    "S": {
+      "item": "nameless_trinkets:dubious_dust"
+    }
+  },
+  "result": {
+    "id": "nameless_trinkets:dragons_eye",
+    "count": 1
+  }
+}

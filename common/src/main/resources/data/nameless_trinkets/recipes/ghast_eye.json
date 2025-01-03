@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#G#",
+    "GSG",
+    "#G#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:redstone_block"
+    },
+    "G": {
+      "item": "minecraft:ghast_tear"
+    },
+    "S": {
+      "item": "nameless_trinkets:glowing_dust"
+    }
+  },
+  "result": {
+    "id": "nameless_trinkets:ghast_eye",
+    "count": 1
+  }
+}

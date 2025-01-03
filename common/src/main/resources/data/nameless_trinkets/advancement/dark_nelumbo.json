@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:dark_nelumbo"
+    },
+    "title": {
+      "translate": "This is rare."
+    },
+    "description": {
+      "translate": "Obtain the Dark Nelumbo."
+    }
+  },
+  "criteria": {
+    "dark_nelumbo": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:dark_nelumbo"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

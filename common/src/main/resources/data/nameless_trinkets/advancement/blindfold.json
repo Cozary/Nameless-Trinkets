@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:blindfold"
+    },
+    "title": {
+      "translate": "Where I am?"
+    },
+    "description": {
+      "translate": "Obtain the Blindfold."
+    }
+  },
+  "criteria": {
+    "blindfold": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:blindfold"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

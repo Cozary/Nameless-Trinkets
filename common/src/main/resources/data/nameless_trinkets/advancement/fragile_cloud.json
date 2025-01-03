@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:fragile_cloud"
+    },
+    "title": {
+      "translate": "Descending from above."
+    },
+    "description": {
+      "translate": "Obtain the Fragile Cloud."
+    }
+  },
+  "criteria": {
+    "amphibious_hands": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:fragile_cloud"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

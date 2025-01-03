@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:fate_emerald"
+    },
+    "title": {
+      "translate": "Destiny."
+    },
+    "description": {
+      "translate": "Obtain the Fate Emerald."
+    }
+  },
+  "criteria": {
+    "fate_emerald": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:fate_emerald"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

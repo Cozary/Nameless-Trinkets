@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#M#",
+    "CSC",
+    "#C#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:nether_wart"
+    },
+    "M": {
+      "item": "minecraft:magma_block"
+    },
+    "C": {
+      "item": "minecraft:stripped_warped_stem"
+    },
+    "S": {
+      "item": "nameless_trinkets:nelumbo"
+    }
+  },
+  "result": {
+    "id": "nameless_trinkets:dark_nelumbo",
+    "count": 1
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:cracked_crown"
+    },
+    "title": {
+      "translate": "From the depths..."
+    },
+    "description": {
+      "translate": "Obtain the Cracked Crown."
+    }
+  },
+  "criteria": {
+    "cracked_crown": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:cracked_crown"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

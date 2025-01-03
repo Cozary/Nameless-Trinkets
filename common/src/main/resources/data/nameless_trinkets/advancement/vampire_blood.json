@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:vampire_blood"
+    },
+    "title": {
+      "translate": "I'm stronger, but..."
+    },
+    "description": {
+      "translate": "Obtain the Vampire Blood."
+    }
+  },
+  "criteria": {
+    "vampire_blood": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:vampire_blood"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

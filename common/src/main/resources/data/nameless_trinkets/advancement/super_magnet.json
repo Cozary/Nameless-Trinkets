@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:super_magnet"
+    },
+    "title": {
+      "translate": "Now everything belongs to me."
+    },
+    "description": {
+      "translate": "Obtain the Super Magnet."
+    }
+  },
+  "criteria": {
+    "super_magnet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:super_magnet"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

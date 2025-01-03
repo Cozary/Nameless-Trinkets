@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:experience_battery"
+    },
+    "title": {
+      "translate": "The green bar grows."
+    },
+    "description": {
+      "translate": "Obtain the Experience Battery."
+    }
+  },
+  "criteria": {
+    "experience_battery": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:experience_battery"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#R#",
+    "iSg",
+    "#C#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:blackstone"
+    },
+    "R": {
+      "item": "minecraft:emerald"
+    },
+    "i": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "S": {
+      "item": "nameless_trinkets:ultimate_dust"
+    },
+    "g": {
+      "item": "minecraft:diamond"
+    },
+    "C": {
+      "item": "minecraft:coal"
+    }
+  },
+  "result": {
+    "id": "nameless_trinkets:miners_soul",
+    "count": 1
+  }
+}

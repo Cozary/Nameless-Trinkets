@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:explosion_proof_jacket"
+    },
+    "title": {
+      "translate": "Now they don't scare me."
+    },
+    "description": {
+      "translate": "Obtain the Explosion Proof Jacket."
+    }
+  },
+  "criteria": {
+    "explosion_proof_jacket": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:explosion_proof_jacket"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

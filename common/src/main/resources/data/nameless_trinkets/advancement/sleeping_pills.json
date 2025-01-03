@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:sleeping_pills"
+    },
+    "title": {
+      "translate": "They might help me."
+    },
+    "description": {
+      "translate": "Obtain the Sleeping Pills."
+    }
+  },
+  "criteria": {
+    "sleeping_pills": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:sleeping_pills"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

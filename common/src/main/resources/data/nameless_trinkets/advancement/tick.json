@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:tick"
+    },
+    "title": {
+      "translate": "It's like a straw."
+    },
+    "description": {
+      "translate": "Obtain the Tick."
+    }
+  },
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:tick"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

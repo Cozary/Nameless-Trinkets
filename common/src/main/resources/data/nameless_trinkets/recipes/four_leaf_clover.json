@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#W#",
+    "#S#",
+    "#W#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:diamond_block"
+    },
+    "W": {
+      "item": "minecraft:grass"
+    },
+    "S": {
+      "item": "nameless_trinkets:ultimate_dust"
+    }
+  },
+  "result": {
+    "id": "nameless_trinkets:four_leaf_clover",
+    "count": 1
+  }
+}

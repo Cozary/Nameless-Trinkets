@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:callus"
+    },
+    "title": {
+      "translate": "Uhhh, gross?"
+    },
+    "description": {
+      "translate": "Obtain the Callus."
+    }
+  },
+  "criteria": {
+    "callus": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:callus"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

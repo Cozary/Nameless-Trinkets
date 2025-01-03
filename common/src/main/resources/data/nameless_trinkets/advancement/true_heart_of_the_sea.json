@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:true_heart_of_the_sea"
+    },
+    "title": {
+      "translate": "Straight from the deep."
+    },
+    "description": {
+      "translate": "Obtain the True Heart Of The Sea."
+    }
+  },
+  "criteria": {
+    "true_heart_of_the_sea": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:true_heart_of_the_sea"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:scarab_amulet"
+    },
+    "title": {
+      "translate": "Something from the past."
+    },
+    "description": {
+      "translate": "Obtain the Scarab Amulet."
+    }
+  },
+  "criteria": {
+    "amphibious_hands": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:scarab_amulet"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

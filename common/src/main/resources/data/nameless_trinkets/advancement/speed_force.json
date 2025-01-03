@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:speed_force"
+    },
+    "title": {
+      "translate": "The fastest man alive."
+    },
+    "description": {
+      "translate": "Obtain the Speed Force."
+    }
+  },
+  "criteria": {
+    "speed_force": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:speed_force"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

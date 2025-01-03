@@ -1,0 +1,26 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:lucky_rock"
+    },
+    "title": {
+      "translate": "Mining the precious."
+    },
+    "description": {
+      "translate": "Obtain the Lucky Rock."
+    }
+  },
+  "criteria": {
+    "lucky_rock": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["nameless_trinkets:lucky_rock"]
+          }
+        ]
+      }
+    }
+  }
+}

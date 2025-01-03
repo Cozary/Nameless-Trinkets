@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#SP",
+    "GYG",
+    "SFS"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:dandelion"
+    },
+    "S": {
+      "item": "minecraft:sugar"
+    },
+    "P": {
+      "item": "minecraft:poppy"
+    },
+    "G": {
+      "item": "minecraft:golden_carrot"
+    },
+    "Y": {
+      "item": "nameless_trinkets:dubious_dust"
+    },
+    "F": {
+      "item": "minecraft:fermented_spider_eye"
+    }
+  },
+  "result": {
+    "id": "nameless_trinkets:sleeping_pills",
+    "count": 1
+  }
+}

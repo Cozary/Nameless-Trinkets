@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:fertilizer"
+    },
+    "title": {
+      "translate": "It grows, it grows, it grows!"
+    },
+    "description": {
+      "translate": "Obtain the Fertilizer."
+    }
+  },
+  "criteria": {
+    "fertilizer": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:fertilizer"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

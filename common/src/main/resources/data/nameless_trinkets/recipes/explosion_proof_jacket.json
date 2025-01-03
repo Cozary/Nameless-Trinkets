@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iLi",
+    "LSL",
+    "iLi"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "L": {
+      "item": "minecraft:leather_chestplate"
+    },
+    "S": {
+      "item": "nameless_trinkets:dubious_dust"
+    }
+  },
+  "result": {
+    "id": "nameless_trinkets:explosion_proof_jacket",
+    "count": 1
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:broken_ankh"
+    },
+    "title": {
+      "translate": "Dormammu i've come to bargain."
+    },
+    "description": {
+      "translate": "Obtain the Broken Ankh."
+    }
+  },
+  "criteria": {
+    "broken_ankh": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:broken_ankh"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

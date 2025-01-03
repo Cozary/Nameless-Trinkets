@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:gods_crown"
+    },
+    "title": {
+      "translate": "...to the top."
+    },
+    "description": {
+      "translate": "Obtain the God's Crown."
+    }
+  },
+  "criteria": {
+    "gods_crown": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:gods_crown"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

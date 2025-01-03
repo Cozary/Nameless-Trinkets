@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:wooden_stick"
+    },
+    "title": {
+      "translate": "IT'S A STICK"
+    },
+    "description": {
+      "translate": "Obtain the Wooden Stick."
+    }
+  },
+  "criteria": {
+    "wooden_stick": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:wooden_stick"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

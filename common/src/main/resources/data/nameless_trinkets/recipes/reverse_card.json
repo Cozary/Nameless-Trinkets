@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#i#",
+    "#S#",
+    "#i#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:shield"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "S": {
+      "item": "nameless_trinkets:ultimate_dust"
+    }
+  },
+  "result": {
+    "id": "nameless_trinkets:reverse_card",
+    "count": 1
+  }
+}

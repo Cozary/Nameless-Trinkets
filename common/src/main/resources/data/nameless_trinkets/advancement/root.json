@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:mysterious_trinket"
+    },
+    "title": {
+      "translate": "They're out there..."
+    },
+    "description": {
+      "translate": "Catch them all?"
+    },
+    "background": "minecraft:textures/gui/advancements/backgrounds/stone.png"
+  },
+  "criteria": {
+    "obtain": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "nameless_trinkets:nameless_trinkets_tag"
+          }
+        ]
+      }
+    }
+  }
+}

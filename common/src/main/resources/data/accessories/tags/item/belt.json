@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "nameless_trinkets:fractured_nullstone",
+    "nameless_trinkets:experience_magnet",
+    "nameless_trinkets:broken_magnet",
+    "nameless_trinkets:super_magnet",
+    "nameless_trinkets:what_magnet"
+  ]
+}

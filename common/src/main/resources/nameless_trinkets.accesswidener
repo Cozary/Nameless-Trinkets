@@ -1,0 +1,13 @@
+accessWidener v2 named
+accessible field net/minecraft/world/entity/vehicle/Boat deltaRotation F
+accessible field net/minecraft/world/entity/vehicle/Boat inputLeft Z
+accessible field net/minecraft/world/entity/vehicle/Boat inputRight Z
+accessible field net/minecraft/world/entity/vehicle/Boat inputUp Z
+accessible field net/minecraft/world/entity/vehicle/Boat inputDown Z
+
+accessible method net/minecraft/world/entity/monster/Ghast shouldDespawnInPeaceful ()Z
+accessible method net/minecraft/world/entity/Mob shouldDespawnInPeaceful ()Z
+accessible method net/minecraft/world/entity/monster/Monster shouldDespawnInPeaceful ()Z
+accessible method net/minecraft/world/entity/monster/Phantom shouldDespawnInPeaceful ()Z
+accessible method net/minecraft/world/entity/monster/piglin/Piglin shouldDespawnInPeaceful ()Z
+accessible method net/minecraft/world/entity/monster/Slime shouldDespawnInPeaceful ()Z

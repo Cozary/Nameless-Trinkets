@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:moon_stone"
+    },
+    "title": {
+      "translate": "What's your favorite thing about space? Mine is space."
+    },
+    "description": {
+      "translate": "Obtain the Moon Stone."
+    }
+  },
+  "criteria": {
+    "moon_stone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:moon_stone"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

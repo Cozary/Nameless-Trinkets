@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "LSL",
+    "LLL"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:bone_block"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "S": {
+      "item": "nameless_trinkets:glowing_dust"
+    }
+  },
+  "result": {
+    "id": "nameless_trinkets:fertilizer",
+    "count": 1
+  }
+}

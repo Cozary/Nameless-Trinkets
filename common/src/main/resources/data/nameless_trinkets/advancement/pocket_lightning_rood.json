@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:pocket_lightning_rod"
+    },
+    "title": {
+      "translate": "Zap zap zap"
+    },
+    "description": {
+      "translate": "Obtain the Pocket Lightning Rod."
+    }
+  },
+  "criteria": {
+    "amphibious_hands": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:pocket_lightning_rod"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

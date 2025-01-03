@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#HR",
+    "HSH",
+    "RH#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:brown_mushroom"
+    },
+    "H": {
+      "item": "minecraft:hay_block"
+    },
+    "R": {
+      "item": "minecraft:red_mushroom"
+    },
+    "S": {
+      "item": "nameless_trinkets:glowing_dust"
+    }
+  },
+  "result": {
+    "id": "nameless_trinkets:tick",
+    "count": 1
+  }
+}

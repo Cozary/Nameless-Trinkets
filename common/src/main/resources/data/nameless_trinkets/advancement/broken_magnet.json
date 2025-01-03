@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:broken_magnet"
+    },
+    "title": {
+      "translate": "Almost."
+    },
+    "description": {
+      "translate": "Obtain the Broken Magnet."
+    }
+  },
+  "criteria": {
+    "broken_magnet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:broken_magnet"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

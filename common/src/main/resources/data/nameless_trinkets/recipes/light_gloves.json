@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#W#",
+    "#S#",
+    "#W#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:gold_block"
+    },
+    "W": {
+      "item": "minecraft:diamond"
+    },
+    "S": {
+      "item": "nameless_trinkets:ultimate_dust"
+    }
+  },
+  "result": {
+    "id": "nameless_trinkets:light_gloves",
+    "count": 1
+  }
+}

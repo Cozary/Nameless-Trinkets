@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:reverse_card"
+    },
+    "title": {
+      "translate": "No thanks."
+    },
+    "description": {
+      "translate": "Obtain the Reverse Card."
+    }
+  },
+  "criteria": {
+    "reverse_card": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:reverse_card"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

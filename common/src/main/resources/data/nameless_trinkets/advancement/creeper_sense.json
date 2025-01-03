@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:creeper_sense"
+    },
+    "title": {
+      "translate": "I have problems."
+    },
+    "description": {
+      "translate": "Obtain the Creeper Sense."
+    }
+  },
+  "criteria": {
+    "creeper_sense": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:creeper_sense"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

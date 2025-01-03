@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:puffer_fish_liver"
+    },
+    "title": {
+      "translate": "I do not feel bad?"
+    },
+    "description": {
+      "translate": "Obtain the Pufferfish Liver."
+    }
+  },
+  "criteria": {
+    "puffer_fish_liver": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:puffer_fish_liver"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

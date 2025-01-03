@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:amphibious_hands"
+    },
+    "title": {
+      "translate": "Like a frog."
+    },
+    "description": {
+      "translate": "Obtain the Amphibious Hands."
+    }
+  },
+  "criteria": {
+    "amphibious_hands": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:amphibious_hands"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

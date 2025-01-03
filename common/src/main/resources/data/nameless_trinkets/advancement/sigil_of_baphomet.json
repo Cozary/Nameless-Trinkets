@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:sigil_of_baphomet"
+    },
+    "title": {
+      "translate": "Sacrifices protect me."
+    },
+    "description": {
+      "translate": "Obtain the Sigil Of Baphomet."
+    }
+  },
+  "criteria": {
+    "sigil_of_baphomet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:sigil_of_baphomet"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

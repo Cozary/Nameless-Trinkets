@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:missing_page"
+    },
+    "title": {
+      "translate": "One of many."
+    },
+    "description": {
+      "translate": "Obtain the Missing Page."
+    }
+  },
+  "criteria": {
+    "missing_page": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:missing_page"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "nameless_trinkets:unknown_fragment"
+    }
+  },
+  "result": {
+    "id": "nameless_trinkets:mysterious_trinket",
+    "count": 1
+  }
+}

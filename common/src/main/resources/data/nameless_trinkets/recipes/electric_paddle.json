@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#&#",
+    "&S&",
+    "#&#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:oak_boat"
+    },
+    "&": {
+      "item": "minecraft:redstone_block"
+    },
+    "S": {
+      "item": "nameless_trinkets:glowing_dust"
+    }
+  },
+  "result": {
+    "id": "nameless_trinkets:electric_paddle",
+    "count": 1
+  }
+}

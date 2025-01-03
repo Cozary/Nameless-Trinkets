@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:ice_cube"
+    },
+    "title": {
+      "translate": "Weeeee."
+    },
+    "description": {
+      "translate": "Obtain the Ice Cube."
+    }
+  },
+  "criteria": {
+    "ice_cube": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:ice_cube"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

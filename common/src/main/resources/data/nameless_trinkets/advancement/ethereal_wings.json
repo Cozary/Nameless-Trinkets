@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:ethereal_wings"
+    },
+    "title": {
+      "translate": "They cannot be seen."
+    },
+    "description": {
+      "translate": "Obtain the Ethereal Wings."
+    }
+  },
+  "criteria": {
+    "ethereal_wings": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:ethereal_wings"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

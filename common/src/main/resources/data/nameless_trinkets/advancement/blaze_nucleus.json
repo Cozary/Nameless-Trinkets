@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:blaze_nucleus"
+    },
+    "title": {
+      "translate": "The core is still hot."
+    },
+    "description": {
+      "translate": "Obtain the Blaze Nucleus."
+    }
+  },
+  "criteria": {
+    "blaze_nucleus": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:blaze_nucleus"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

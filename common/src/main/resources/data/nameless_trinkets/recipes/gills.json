@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "TSK",
+    " P "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:cod"
+    },
+    "T": {
+      "item": "minecraft:tropical_fish"
+    },
+    "S": {
+      "item": "nameless_trinkets:dubious_dust"
+    },
+    "K": {
+      "item": "minecraft:salmon"
+    },
+    "P": {
+      "item": "minecraft:pufferfish"
+    }
+  },
+  "result": {
+    "id": "nameless_trinkets:gills",
+    "count": 1
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:light_gloves"
+    },
+    "title": {
+      "translate": "Feels like I'm wearing nothing at all."
+    },
+    "description": {
+      "translate": "Obtain the Light Gloves."
+    }
+  },
+  "criteria": {
+    "light_gloves": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:light_gloves"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

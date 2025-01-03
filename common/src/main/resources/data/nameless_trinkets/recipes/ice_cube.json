@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#S#",
+    "SPS",
+    "#S#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:ice"
+    },
+    "S": {
+      "item": "minecraft:snow_block"
+    },
+    "P": {
+      "item": "nameless_trinkets:dubious_dust"
+    }
+  },
+  "result": {
+    "id": "nameless_trinkets:ice_cube",
+    "count": 1
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:gills"
+    },
+    "title": {
+      "translate": "Never more."
+    },
+    "description": {
+      "translate": "Obtain the Gills."
+    }
+  },
+  "criteria": {
+    "gills": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:gills"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

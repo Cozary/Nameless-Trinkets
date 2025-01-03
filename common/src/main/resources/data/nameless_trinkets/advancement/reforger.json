@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:reforger"
+    },
+    "title": {
+      "translate": "Let's fix the broken."
+    },
+    "description": {
+      "translate": "Obtain the Reforger."
+    }
+  },
+  "criteria": {
+    "reforger": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:reforger"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:miners_soul"
+    },
+    "title": {
+      "translate": "They are still looking for it."
+    },
+    "description": {
+      "translate": "Obtain the Miner's Soul."
+    }
+  },
+  "criteria": {
+    "amphibious_hands": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:miners_soul"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,79 @@
+plugins {
+    id 'multiloader-loader'
+    id 'fabric-loom'
+    id "me.modmuss50.mod-publish-plugin" version "${mod_publish_version}"
+}
+
+base {
+    archivesName = "${mod_name}-fabric-${minecraft_version}-${version_fabric}"
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    mappings loom.layered {
+        officialMojangMappings()
+        parchment("org.parchmentmc.data:parchment-${parchment_minecraft}:${parchment_version}@zip")
+    }
+    modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+
+    modImplementation("io.wispforest:accessories-fabric:${project.accessories_version}")
+    modApi "fuzs.forgeconfigapiport:forgeconfigapiport-fabric:${forge_config_api}"
+
+}
+
+loom {
+    def aw = project(':common').file("src/main/resources/${mod_id}.accesswidener")
+    if (aw.exists()) {
+        accessWidenerPath.set(aw)
+    }
+    mixin {
+        defaultRefmapName.set("${mod_id}.refmap.json")
+    }
+    runs {
+        client {
+            client()
+            setConfigName('Fabric Client')
+            ideConfigGenerated(true)
+            runDir('runs/client')
+        }
+        server {
+            server()
+            setConfigName('Fabric Server')
+            ideConfigGenerated(true)
+            runDir('runs/server')
+        }
+    }
+}
+
+publishMods {
+    file = remapJar.archiveFile
+    changelog = project(":common").file("CHANGELOG.md").text
+    type = STABLE
+    modLoaders.add("fabric")
+    displayName = "${mod_name}-fabric-${minecraft_version}-${version_fabric}"
+    dryRun = dry_run.toBoolean()
+    version = version_fabric
+
+    curseforge {
+        accessToken = providers.environmentVariable("CURSEFORGE_API_KEY")
+        projectId = curseforge_project_id
+        minecraftVersions.add(minecraft_version)
+        requires {
+            slug = "forge-config-api-port"
+            slug = "accessories"
+        }
+    }
+
+
+    modrinth {
+        accessToken = accessToken = providers.environmentVariable("MODRINTH_API_KEY")
+        projectId = modrinth_project_id
+        minecraftVersions.add(minecraft_version)
+        requires {
+            slug = "forge-config-api-port"
+            slug = "accessories"
+        }
+    }
+
+}
