@@ -31,7 +31,7 @@ public class CrackedCrown extends TrinketItem<CrackedCrown.Stats> {
     private final Map<String, List<String>> modifiers = new HashMap<>();
 
     public CrackedCrown() {
-        super(new TrinketData(null,null, Stats.class));
+        super(new TrinketData(null, null, Stats.class));
 
         INSTANCE = this;
 

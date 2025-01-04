@@ -17,7 +17,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -29,7 +28,7 @@ public class ScarabAmulet extends TrinketItem<ScarabAmulet.Stats> {
     public static ScarabAmulet INSTANCE;
 
     public ScarabAmulet() {
-        super(new TrinketData(null,null, Stats.class));
+        super(new TrinketData(null, null, Stats.class));
 
         INSTANCE = this;
     }

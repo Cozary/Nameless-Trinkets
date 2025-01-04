@@ -19,7 +19,7 @@ public class SigilOfBaphomet extends TrinketItem<SigilOfBaphomet.Stats> {
     public static SigilOfBaphomet INSTANCE;
 
     public SigilOfBaphomet() {
-        super(new TrinketData(null,null, Stats.class));
+        super(new TrinketData(null, null, Stats.class));
 
         INSTANCE = this;
     }

@@ -23,7 +23,7 @@ import static com.cozary.nameless_trinkets.init.ModTags.RECYCLABLE_TRINKETS_TAG;
 
 public class UnknownFragmentEvent {
 
-    public static void register(){
+    public static void register() {
         UseBlockCallback.EVENT.register((player, level, hand, hitResult) -> {
 
             BlockPos blockpos = hitResult.getBlockPos();

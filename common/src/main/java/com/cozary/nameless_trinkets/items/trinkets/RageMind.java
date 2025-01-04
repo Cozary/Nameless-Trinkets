@@ -29,7 +29,7 @@ public class RageMind extends TrinketItem<RageMind.Stats> {
     public static RageMind INSTANCE;
 
     public RageMind() {
-        super(new TrinketData(null,null, Stats.class));
+        super(new TrinketData(null, null, Stats.class));
 
         INSTANCE = this;
     }

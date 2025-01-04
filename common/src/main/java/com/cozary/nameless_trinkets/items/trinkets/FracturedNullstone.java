@@ -17,7 +17,7 @@ public class FracturedNullstone extends TrinketItem<FracturedNullstone.Stats> {
     public static FracturedNullstone INSTANCE;
 
     public FracturedNullstone() {
-        super(new TrinketData(null,null, Stats.class));
+        super(new TrinketData(null, null, Stats.class));
 
         INSTANCE = this;
     }

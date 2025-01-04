@@ -20,7 +20,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -35,7 +34,7 @@ public class TrueHeartOfTheSea extends TrinketItem<TrueHeartOfTheSea.Stats> {
     public static TrueHeartOfTheSea INSTANCE;
 
     public TrueHeartOfTheSea() {
-        super(new TrinketData(null,null, Stats.class));
+        super(new TrinketData(null, null, Stats.class));
 
         INSTANCE = this;
     }
@@ -88,7 +87,8 @@ public class TrueHeartOfTheSea extends TrinketItem<TrueHeartOfTheSea.Stats> {
                 config.swimSpeedMultiplier / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
 
         assert attribSpeed != null;
-        EntityUtils.applyAttributeModifier(attribSpeed, speedModifier);    }
+        EntityUtils.applyAttributeModifier(attribSpeed, speedModifier);
+    }
 
     @Override
     public void onUnequip(ItemStack stack, SlotReference reference) {

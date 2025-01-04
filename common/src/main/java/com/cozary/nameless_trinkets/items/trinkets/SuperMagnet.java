@@ -11,7 +11,6 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -22,7 +21,7 @@ public class SuperMagnet extends TrinketItem<SuperMagnet.Stats> {
     public static SuperMagnet INSTANCE;
 
     public SuperMagnet() {
-        super(new TrinketData(null,null, Stats.class));
+        super(new TrinketData(null, null, Stats.class));
 
         INSTANCE = this;
     }
@@ -46,27 +45,27 @@ public class SuperMagnet extends TrinketItem<SuperMagnet.Stats> {
 
         Level world = livingEntity.level();
 
-            List<ItemEntity> items = world.getEntitiesOfClass(ItemEntity.class, livingEntity.getBoundingBox().inflate(config.range));
-            for (ItemEntity item : items) {
-                if (!item.isAlive())
-                    continue;
+        List<ItemEntity> items = world.getEntitiesOfClass(ItemEntity.class, livingEntity.getBoundingBox().inflate(config.range));
+        for (ItemEntity item : items) {
+            if (!item.isAlive())
+                continue;
 
-                if (item.getOwner() != null && item.getOwner().equals(livingEntity.getUUID()) && item.hasPickUpDelay())
-                    continue;
+            if (item.getOwner() != null && item.getOwner().equals(livingEntity.getUUID()) && item.hasPickUpDelay())
+                continue;
 
-                if (!world.isClientSide) {
-                    item.setNoPickUpDelay();
-                    item.setPos(livingEntity.getX(), livingEntity.getY(), livingEntity.getZ());
-                }
+            if (!world.isClientSide) {
+                item.setNoPickUpDelay();
+                item.setPos(livingEntity.getX(), livingEntity.getY(), livingEntity.getZ());
+            }
+        }
+
+        List<ExperienceOrb> xporbs = world.getEntitiesOfClass(ExperienceOrb.class, livingEntity.getBoundingBox().inflate(config.range));
+        for (ExperienceOrb orb : xporbs) {
+            if (!world.isClientSide) {
+                orb.setPos(livingEntity.getX(), livingEntity.getY(), livingEntity.getZ());
             }
 
-            List<ExperienceOrb> xporbs = world.getEntitiesOfClass(ExperienceOrb.class, livingEntity.getBoundingBox().inflate(config.range));
-            for (ExperienceOrb orb : xporbs) {
-                if (!world.isClientSide) {
-                    orb.setPos(livingEntity.getX(), livingEntity.getY(), livingEntity.getZ());
-                }
-
-            }
+        }
 
     }
 

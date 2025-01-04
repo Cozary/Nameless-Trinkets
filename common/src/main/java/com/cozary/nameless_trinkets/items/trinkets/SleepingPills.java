@@ -26,7 +26,7 @@ public class SleepingPills extends TrinketItem<SleepingPills.Stats> {
     public static SleepingPills INSTANCE;
 
     public SleepingPills() {
-        super(new TrinketData(null,null, Stats.class));
+        super(new TrinketData(null, null, Stats.class));
 
         INSTANCE = this;
     }

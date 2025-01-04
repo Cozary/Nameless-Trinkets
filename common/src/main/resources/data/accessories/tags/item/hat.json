@@ -1,7 +1,7 @@
 {
-"replace": false,
-"values": [
-  "nameless_trinkets:cracked_crown",
-  "nameless_trinkets:gods_crown"
-]
+  "replace": false,
+  "values": [
+    "nameless_trinkets:cracked_crown",
+    "nameless_trinkets:gods_crown"
+  ]
 }

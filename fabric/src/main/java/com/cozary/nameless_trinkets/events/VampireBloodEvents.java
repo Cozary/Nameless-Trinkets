@@ -10,7 +10,7 @@ import net.minecraft.world.entity.player.Player;
 
 public class VampireBloodEvents {
 
-    public static void register(){
+    public static void register() {
         ServerEntityCombatEvents.AFTER_KILLED_OTHER_ENTITY.register((world, entity, killedEntity) -> {
             VampireBlood.Stats config = VampireBlood.INSTANCE.getTrinketConfig();
 

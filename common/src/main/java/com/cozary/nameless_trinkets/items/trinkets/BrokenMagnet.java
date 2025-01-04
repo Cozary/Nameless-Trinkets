@@ -8,9 +8,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -21,7 +19,7 @@ public class BrokenMagnet extends TrinketItem<BrokenMagnet.Stats> {
     public static BrokenMagnet INSTANCE;
 
     public BrokenMagnet() {
-        super(new TrinketData(null,null, Stats.class));
+        super(new TrinketData(null, null, Stats.class));
 
         INSTANCE = this;
     }
@@ -45,19 +43,19 @@ public class BrokenMagnet extends TrinketItem<BrokenMagnet.Stats> {
 
         Level world = reference.entity().level();
 
-            List<ItemEntity> items = world.getEntitiesOfClass(ItemEntity.class, reference.entity().getBoundingBox().inflate(config.range));
-            for (ItemEntity item : items) {
-                if (!item.isAlive())
-                    continue;
+        List<ItemEntity> items = world.getEntitiesOfClass(ItemEntity.class, reference.entity().getBoundingBox().inflate(config.range));
+        for (ItemEntity item : items) {
+            if (!item.isAlive())
+                continue;
 
-                if (item.getOwner() != null && item.getOwner().equals(reference.entity().getUUID()) && item.hasPickUpDelay())
-                    continue;
+            if (item.getOwner() != null && item.getOwner().equals(reference.entity().getUUID()) && item.hasPickUpDelay())
+                continue;
 
-                if (!world.isClientSide) {
-                    item.setNoPickUpDelay();
-                    item.setPos(reference.entity().getX(), reference.entity().getY(), reference.entity().getZ());
-                }
+            if (!world.isClientSide) {
+                item.setNoPickUpDelay();
+                item.setPos(reference.entity().getX(), reference.entity().getY(), reference.entity().getZ());
             }
+        }
 
     }
 

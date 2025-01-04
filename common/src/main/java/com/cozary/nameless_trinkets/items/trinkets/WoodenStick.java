@@ -17,7 +17,7 @@ public class WoodenStick extends TrinketItem<WoodenStick.Stats> {
     public static WoodenStick INSTANCE;
 
     public WoodenStick() {
-        super(new TrinketData(null,null, Stats.class));
+        super(new TrinketData(null, null, Stats.class));
 
         INSTANCE = this;
     }

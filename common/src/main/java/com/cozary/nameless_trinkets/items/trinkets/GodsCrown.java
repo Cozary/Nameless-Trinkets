@@ -32,7 +32,7 @@ public class GodsCrown extends TrinketItem<GodsCrown.Stats> {
     private final Map<String, List<String>> modifiers = new HashMap<>();
 
     public GodsCrown() {
-        super(new TrinketData(null,null, Stats.class));
+        super(new TrinketData(null, null, Stats.class));
 
         INSTANCE = this;
 

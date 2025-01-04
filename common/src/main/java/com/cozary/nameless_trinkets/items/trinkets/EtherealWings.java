@@ -18,7 +18,7 @@ public class EtherealWings extends TrinketItem<EtherealWings.Stats> {
     public static EtherealWings INSTANCE;
 
     public EtherealWings() {
-        super(new TrinketData(null,null, Stats.class));
+        super(new TrinketData(null, null, Stats.class));
 
         INSTANCE = this;
     }

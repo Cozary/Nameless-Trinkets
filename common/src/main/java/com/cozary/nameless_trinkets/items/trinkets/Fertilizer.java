@@ -18,12 +18,11 @@ import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.block.BaseCoralWallFanBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
@@ -36,52 +35,9 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
     public static Fertilizer INSTANCE;
 
     public Fertilizer() {
-        super(new TrinketData(null,null, Stats.class));
+        super(new TrinketData(null, null, Stats.class));
 
         INSTANCE = this;
-    }
-
-    @Override
-    public boolean canEquipFromUse(ItemStack stack) {
-        return true;
-    }
-
-    @Override
-    public void onEquipFromUse(ItemStack stack, SlotReference reference) {
-        reference.entity().playSound(SoundEvents.ARMOR_EQUIP_ELYTRA.value(), 1.0F, 1.0F);
-    }
-
-    @Override
-    public void tick(ItemStack stack, SlotReference reference) {
-        super.tick(stack, reference);
-
-        LivingEntity entity = reference.entity();
-        Level level = entity.level();
-
-        if (!level.isClientSide) {
-            return;
-        }
-
-        RandomSource random = level.getRandom();
-        BlockPos playerPos = entity.blockPosition();
-        BlockPos targetPos = playerPos.offset(
-                random.nextInt(5) - 3,
-                random.nextInt(3) - 2,
-                random.nextInt(5) - 3
-        );
-
-        BlockState targetState = level.getBlockState(targetPos);
-        BlockState stateBelow = level.getBlockState(playerPos.below());
-
-        if (stateBelow.is(Blocks.GRASS_BLOCK)) {
-            if (applyBonemeal(level, targetPos)) {
-                spawnGrowthParticles(level, targetPos, 3);
-            }
-        } else if (targetState.is(Blocks.WATER)) {
-            if (growWaterPlant(level, targetPos, null)) {
-                spawnGrowthParticles(level, targetPos, 3);
-            }
-        }
     }
 
     public static boolean growWaterPlant(Level level, BlockPos pos, @Nullable Direction clickedSide) {
@@ -126,7 +82,7 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
                 newState = BuiltInRegistries.BLOCK
                         .getRandomElementOf(BlockTags.UNDERWATER_BONEMEALS, random)
                         .map((block) -> {
-                            return ((Block)block.value()).defaultBlockState();
+                            return ((Block) block.value()).defaultBlockState();
                         })
                         .orElse(newState);
             }
@@ -161,6 +117,48 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
         }
     }
 
+    @Override
+    public boolean canEquipFromUse(ItemStack stack) {
+        return true;
+    }
+
+    @Override
+    public void onEquipFromUse(ItemStack stack, SlotReference reference) {
+        reference.entity().playSound(SoundEvents.ARMOR_EQUIP_ELYTRA.value(), 1.0F, 1.0F);
+    }
+
+    @Override
+    public void tick(ItemStack stack, SlotReference reference) {
+        super.tick(stack, reference);
+
+        LivingEntity entity = reference.entity();
+        Level level = entity.level();
+
+        if (!level.isClientSide) {
+            return;
+        }
+
+        RandomSource random = level.getRandom();
+        BlockPos playerPos = entity.blockPosition();
+        BlockPos targetPos = playerPos.offset(
+                random.nextInt(5) - 3,
+                random.nextInt(3) - 2,
+                random.nextInt(5) - 3
+        );
+
+        BlockState targetState = level.getBlockState(targetPos);
+        BlockState stateBelow = level.getBlockState(playerPos.below());
+
+        if (stateBelow.is(Blocks.GRASS_BLOCK)) {
+            if (applyBonemeal(level, targetPos)) {
+                spawnGrowthParticles(level, targetPos, 3);
+            }
+        } else if (targetState.is(Blocks.WATER)) {
+            if (growWaterPlant(level, targetPos, null)) {
+                spawnGrowthParticles(level, targetPos, 3);
+            }
+        }
+    }
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
