@@ -17,7 +17,7 @@ public class Callus extends TrinketItem<Callus.Stats> {
     public static Callus INSTANCE;
 
     public Callus() {
-        super(new TrinketData(null,null, Stats.class));
+        super(new TrinketData(null, null, Stats.class));
 
         INSTANCE = this;
     }

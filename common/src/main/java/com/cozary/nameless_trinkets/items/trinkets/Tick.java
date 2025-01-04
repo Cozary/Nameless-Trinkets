@@ -22,7 +22,7 @@ public class Tick extends TrinketItem<Tick.Stats> {
     public static Tick INSTANCE;
 
     public Tick() {
-        super(new TrinketData(null,null, Stats.class));
+        super(new TrinketData(null, null, Stats.class));
 
         INSTANCE = this;
     }
@@ -61,25 +61,25 @@ public class Tick extends TrinketItem<Tick.Stats> {
 
         if (!stack.isEmpty()) {
 
-                AABB targetBox = new AABB(player.position(), player.position()).inflate(config.rangeToActivate);
-                List<LivingEntity> foundTarget =
-                        player.level().getEntitiesOfClass(LivingEntity.class, targetBox, Tick::isValidTarget);
+            AABB targetBox = new AABB(player.position(), player.position()).inflate(config.rangeToActivate);
+            List<LivingEntity> foundTarget =
+                    player.level().getEntitiesOfClass(LivingEntity.class, targetBox, Tick::isValidTarget);
 
-                if (!foundTarget.isEmpty()) {
-                    for (LivingEntity livingEntity : foundTarget) {
+            if (!foundTarget.isEmpty()) {
+                for (LivingEntity livingEntity : foundTarget) {
 
-                        if ((livingEntity.getMaxHealth() > 50 && livingEntity.getHealth() > livingEntity.getMaxHealth() / 2) && player.getHealth() >= 5) {
+                    if ((livingEntity.getMaxHealth() > 50 && livingEntity.getHealth() > livingEntity.getMaxHealth() / 2) && player.getHealth() >= 5) {
 
-                            livingEntity.hurt(livingEntity.damageSources().generic(), livingEntity.getMaxHealth() * (config.entityDamagePercentage / 100));
-                            player.hurt(livingEntity.damageSources().generic(), player.getMaxHealth() * (config.playerDamagePercentage / 100));
+                        livingEntity.hurt(livingEntity.damageSources().generic(), livingEntity.getMaxHealth() * (config.entityDamagePercentage / 100));
+                        player.hurt(livingEntity.damageSources().generic(), player.getMaxHealth() * (config.playerDamagePercentage / 100));
 
-                        } else if ((livingEntity.getMaxHealth() > 50 && livingEntity.getHealth() > livingEntity.getMaxHealth() / 2) && player.getFoodData().getFoodLevel() >= 5) {
+                    } else if ((livingEntity.getMaxHealth() > 50 && livingEntity.getHealth() > livingEntity.getMaxHealth() / 2) && player.getFoodData().getFoodLevel() >= 5) {
 
-                            livingEntity.hurt(livingEntity.damageSources().generic(), livingEntity.getMaxHealth() * (config.entityDamagePercentage / 100));
-                            player.causeFoodExhaustion(player.getFoodData().getFoodLevel() * (config.playerHungerPercentage / 100));
-                        }
+                        livingEntity.hurt(livingEntity.damageSources().generic(), livingEntity.getMaxHealth() * (config.entityDamagePercentage / 100));
+                        player.causeFoodExhaustion(player.getFoodData().getFoodLevel() * (config.playerHungerPercentage / 100));
                     }
                 }
+            }
         }
     }
 

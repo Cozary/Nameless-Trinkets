@@ -17,7 +17,7 @@ public class ReverseCard extends TrinketItem<ReverseCard.Stats> {
     public static ReverseCard INSTANCE;
 
     public ReverseCard() {
-        super(new TrinketData(null,null, Stats.class));
+        super(new TrinketData(null, null, Stats.class));
 
         INSTANCE = this;
     }

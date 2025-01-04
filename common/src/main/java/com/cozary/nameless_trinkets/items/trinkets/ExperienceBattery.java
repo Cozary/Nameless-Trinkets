@@ -17,7 +17,7 @@ public class ExperienceBattery extends TrinketItem<ExperienceBattery.Stats> {
     public static ExperienceBattery INSTANCE;
 
     public ExperienceBattery() {
-        super(new TrinketData(null,null, Stats.class));
+        super(new TrinketData(null, null, Stats.class));
 
         INSTANCE = this;
     }

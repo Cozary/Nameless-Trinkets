@@ -11,7 +11,6 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -26,7 +25,7 @@ public class DragonsEye extends TrinketItem<DragonsEye.Stats> {
     public static DragonsEye INSTANCE;
 
     public DragonsEye() {
-        super(new TrinketData(null,null, Stats.class));
+        super(new TrinketData(null, null, Stats.class));
 
         INSTANCE = this;
     }
@@ -86,7 +85,6 @@ public class DragonsEye extends TrinketItem<DragonsEye.Stats> {
             }
         }
     }
-
 
 
     public static class Stats extends TrinketsStats {

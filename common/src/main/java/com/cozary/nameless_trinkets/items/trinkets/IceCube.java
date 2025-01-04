@@ -30,7 +30,7 @@ public class IceCube extends TrinketItem<IceCube.Stats> {
     public static IceCube INSTANCE;
 
     public IceCube() {
-        super(new TrinketData(null,null, Stats.class));
+        super(new TrinketData(null, null, Stats.class));
 
         INSTANCE = this;
     }

@@ -17,7 +17,7 @@ public class FourLeafClover extends TrinketItem<FourLeafClover.Stats> {
     public static FourLeafClover INSTANCE;
 
     public FourLeafClover() {
-        super(new TrinketData(null,null, Stats.class));
+        super(new TrinketData(null, null, Stats.class));
 
         INSTANCE = this;
     }

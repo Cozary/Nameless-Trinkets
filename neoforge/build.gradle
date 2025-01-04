@@ -80,7 +80,7 @@ publishMods {
         accessToken = accessToken = providers.environmentVariable("MODRINTH_API_KEY")
         projectId = modrinth_project_id
         minecraftVersions.add(minecraft_version)
-       requires {
+        requires {
             slug = "forge-config-api-port"
             slug = "accessories"
         }

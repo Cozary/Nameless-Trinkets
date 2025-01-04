@@ -29,7 +29,7 @@ public class SpeedForce extends TrinketItem<SpeedForce.Stats> {
     public static SpeedForce INSTANCE;
 
     public SpeedForce() {
-        super(new TrinketData(null,null, Stats.class));
+        super(new TrinketData(null, null, Stats.class));
 
         INSTANCE = this;
     }
@@ -75,7 +75,7 @@ public class SpeedForce extends TrinketItem<SpeedForce.Stats> {
             Vec3 vector3d = livingEntity.getDeltaMovement();
             ((ServerLevel) livingEntity.getCommandSenderWorld()).sendParticles(ParticleTypes.CLOUD, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), 5, vector3d.x * -4.0D, 0.3D, vector3d.z * -4.0D, 0.1);
         }
-        
+
         AttributeInstance attribSpeed = livingEntity.getAttribute(Attributes.MOVEMENT_SPEED);
         AttributeModifier speedModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "speed_force_movement_speed"),
                 config.speedMultiplier / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);

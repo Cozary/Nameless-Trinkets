@@ -35,6 +35,18 @@ import java.util.Random;
 @Mixin(Player.class)
 public class PlayerMixinFabric {
 
+    private static boolean isNullifiedDamageType(DamageSource source) {
+        return source.is(DamageTypes.CACTUS) ||
+                source.is(DamageTypes.FALLING_ANVIL) ||
+                source.is(DamageTypes.HOT_FLOOR) ||
+                source.is(DamageTypes.SWEET_BERRY_BUSH);
+    }
+
+    @Unique
+    private static boolean isValidTarget(LivingEntity ent) {
+        return (ent.getType() != EntityType.PLAYER) && (!ent.isInvulnerable());
+    }
+
     //AmphibiousHands
     @Inject(method = "getDestroySpeed", at = @At("RETURN"), cancellable = true)
     private void onGetDestroySpeed(BlockState state, CallbackInfoReturnable<Float> cir) {
@@ -48,7 +60,7 @@ public class PlayerMixinFabric {
 
     //BlazeNucleus
     @ModifyVariable(method = "actuallyHurt", at = @At(value = "HEAD"), argsOnly = true)
-    private float handleHurt(float damageAmount, DamageSource damageSource){
+    private float handleHurt(float damageAmount, DamageSource damageSource) {
         LivingEntity targetEntity = (LivingEntity) (Object) this;
 
         BlazeNucleus.Stats config = BlazeNucleus.INSTANCE.getTrinketConfig();
@@ -100,13 +112,6 @@ public class PlayerMixinFabric {
         }
 
         return damageAmount;
-    }
-
-    private static boolean isNullifiedDamageType(DamageSource source) {
-        return source.is(DamageTypes.CACTUS) ||
-                source.is(DamageTypes.FALLING_ANVIL) ||
-                source.is(DamageTypes.HOT_FLOOR) ||
-                source.is(DamageTypes.SWEET_BERRY_BUSH);
     }
 
     //ExplosionProofJacket
@@ -230,11 +235,6 @@ public class PlayerMixinFabric {
         }
 
         return damageAmount;
-    }
-
-    @Unique
-    private static boolean isValidTarget(LivingEntity ent) {
-        return (ent.getType() != EntityType.PLAYER) && (!ent.isInvulnerable());
     }
 
     //MoonStone

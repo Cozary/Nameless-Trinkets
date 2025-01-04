@@ -24,10 +24,11 @@ import net.minecraft.world.item.TooltipFlag;
 import java.util.List;
 
 public class FragileCloud extends TrinketItem<FragileCloud.Stats> {
+    private static final AttributeModifier SLOW_FALLING = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "slow_falling"), -0.07, AttributeModifier.Operation.ADD_VALUE); // Add -0.07 to 0.08 so we get the vanilla default of 0.01
     public static FragileCloud INSTANCE;
 
     public FragileCloud() {
-        super(new TrinketData(null,null, Stats.class));
+        super(new TrinketData(null, null, Stats.class));
 
         INSTANCE = this;
     }
@@ -41,8 +42,6 @@ public class FragileCloud extends TrinketItem<FragileCloud.Stats> {
     public void onEquipFromUse(ItemStack stack, SlotReference reference) {
         reference.entity().playSound(SoundEvents.ARMOR_EQUIP_ELYTRA.value(), 1.0F, 1.0F);
     }
-
-    private static final AttributeModifier SLOW_FALLING = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "slow_falling"), -0.07, AttributeModifier.Operation.ADD_VALUE); // Add -0.07 to 0.08 so we get the vanilla default of 0.01
 
     @Override
     public void tick(ItemStack stack, SlotReference reference) {

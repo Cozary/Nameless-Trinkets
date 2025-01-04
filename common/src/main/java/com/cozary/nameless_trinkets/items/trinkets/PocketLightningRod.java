@@ -11,7 +11,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LightningBolt;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.ChunkPos;
@@ -25,7 +24,7 @@ public class PocketLightningRod extends TrinketItem<PocketLightningRod.Stats> {
     public static PocketLightningRod INSTANCE;
 
     public PocketLightningRod() {
-        super(new TrinketData(null,null, Stats.class));
+        super(new TrinketData(null, null, Stats.class));
 
         INSTANCE = this;
     }
@@ -50,19 +49,19 @@ public class PocketLightningRod extends TrinketItem<PocketLightningRod.Stats> {
 
         Level level = reference.entity().level();
 
-            if (!level.isClientSide) {
-                boolean flag = level.isRaining();
-                if (flag && level.isThundering() && level.random.nextInt(config.thunders) == 0) {
-                        ChunkPos chunkpos = reference.entity().chunkPosition();
-                        int i = chunkpos.getMinBlockX();
-                        int j = chunkpos.getMinBlockZ();
-                        BlockPos blockpos = level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, level.getBlockRandomPos(i, 0, j, 15));
-                        LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level);
-                        assert lightningbolt != null;
-                        lightningbolt.moveTo(Vec3.atBottomCenterOf(blockpos));
-                        level.addFreshEntity(lightningbolt);
-                }
+        if (!level.isClientSide) {
+            boolean flag = level.isRaining();
+            if (flag && level.isThundering() && level.random.nextInt(config.thunders) == 0) {
+                ChunkPos chunkpos = reference.entity().chunkPosition();
+                int i = chunkpos.getMinBlockX();
+                int j = chunkpos.getMinBlockZ();
+                BlockPos blockpos = level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, level.getBlockRandomPos(i, 0, j, 15));
+                LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level);
+                assert lightningbolt != null;
+                lightningbolt.moveTo(Vec3.atBottomCenterOf(blockpos));
+                level.addFreshEntity(lightningbolt);
             }
+        }
 
     }
 

@@ -1,10 +1,12 @@
 # Changelog
 
 ### Added
+
 - Tag names have been added to the lang.
 - Spanish lang, by me. It was about time to add it.
 
 ### Changed
+
 - Slightly reworked the code for [Etheral Wings].
 - [Fate Emerald] now displays seconds instead of minutes as the time left to remove it.
 - [Lucky Rock] now spawns the item and particles from the block instead of the player.
@@ -15,5 +17,6 @@
 - [Dragon's Eye] entities' glow is now light purple.
 
 ### Fixed
+
 - [Sleeping Pills] typo fixed in description.
 

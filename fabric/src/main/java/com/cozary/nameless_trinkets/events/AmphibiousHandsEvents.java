@@ -9,7 +9,7 @@ import net.minecraft.tags.FluidTags;
 
 public class AmphibiousHandsEvents {
 
-    public static void register(){
+    public static void register() {
         ModEvents.BlockDestroySpeedCallback.EVENT.register((player, state, originalSpeed) -> {
             AmphibiousHands.Stats config = AmphibiousHands.INSTANCE.getTrinketConfig();
 

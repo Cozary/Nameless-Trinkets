@@ -15,7 +15,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 
@@ -26,7 +25,7 @@ public class TearOfTheSea extends TrinketItem<TearOfTheSea.Stats> {
     public static TearOfTheSea INSTANCE;
 
     public TearOfTheSea() {
-        super(new TrinketData(null,null, Stats.class));
+        super(new TrinketData(null, null, Stats.class));
 
         INSTANCE = this;
     }
@@ -41,7 +40,7 @@ public class TearOfTheSea extends TrinketItem<TearOfTheSea.Stats> {
         reference.entity().playSound(SoundEvents.ARMOR_EQUIP_ELYTRA.value(), 1.0F, 1.0F);
     }
 
-   @Override
+    @Override
     public void tick(ItemStack stack, SlotReference reference) {
         Stats config = TearOfTheSea.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
@@ -50,7 +49,7 @@ public class TearOfTheSea extends TrinketItem<TearOfTheSea.Stats> {
         LivingEntity livingEntity = reference.entity();
 
 
-       AttributeInstance attribSpeed = livingEntity.getAttribute(Attributes.WATER_MOVEMENT_EFFICIENCY);
+        AttributeInstance attribSpeed = livingEntity.getAttribute(Attributes.WATER_MOVEMENT_EFFICIENCY);
         AttributeModifier speedModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "tear_of_the_sea_swim_speed"),
                 config.swimSpeedMultiplier / 100, AttributeModifier.Operation.ADD_VALUE);
 

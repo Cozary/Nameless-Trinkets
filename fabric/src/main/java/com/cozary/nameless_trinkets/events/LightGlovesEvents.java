@@ -7,7 +7,7 @@ import io.wispforest.accessories.api.AccessoriesCapability;
 
 public class LightGlovesEvents {
 
-    public static void register(){
+    public static void register() {
         ModEvents.BlockDestroySpeedCallback.EVENT.register((player, state, originalSpeed) -> {
             LightGloves.Stats config = LightGloves.INSTANCE.getTrinketConfig();
 
