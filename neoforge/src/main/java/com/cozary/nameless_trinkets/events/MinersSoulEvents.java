@@ -63,7 +63,7 @@ public class MinersSoulEvents {
                 mutableEnchantments.upgrade(fortune, bonusLevel + config.extraLootingLevel);
                 fakeItemStack.set(DataComponents.ENCHANTMENTS, mutableEnchantments.toImmutable());
                 if (!(event.getState().getBlock() instanceof EntityBlock)) {
-                    LootTable loot = level.getServer().reloadableRegistries().getLootTable(event.getState().getBlock().getLootTable());
+                    LootTable loot = level.getServer().reloadableRegistries().getLootTable(event.getState().getBlock().getLootTable().get());
                     LootParams context = new LootParams.Builder((ServerLevel) level)
                             .withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(event.getPos()))
                             .withParameter(LootContextParams.TOOL, fakeItemStack)

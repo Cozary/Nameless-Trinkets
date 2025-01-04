@@ -1,17 +1,22 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
+import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.phys.AABB;
@@ -22,8 +27,11 @@ public class Tick extends TrinketItem<Tick.Stats> {
     public static Tick INSTANCE;
 
     public Tick() {
-        super(new TrinketData(null,null, Stats.class));
-
+        super(new TrinketData(new Item.Properties().stacksTo(1)
+                .setId(ResourceKey.create(Registries.ITEM,
+                        ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "tick")))
+                , null,
+                Stats.class));
         INSTANCE = this;
     }
 
@@ -61,25 +69,25 @@ public class Tick extends TrinketItem<Tick.Stats> {
 
         if (!stack.isEmpty()) {
 
-                AABB targetBox = new AABB(player.position(), player.position()).inflate(config.rangeToActivate);
-                List<LivingEntity> foundTarget =
-                        player.level().getEntitiesOfClass(LivingEntity.class, targetBox, Tick::isValidTarget);
+            AABB targetBox = new AABB(player.position(), player.position()).inflate(config.rangeToActivate);
+            List<LivingEntity> foundTarget =
+                    player.level().getEntitiesOfClass(LivingEntity.class, targetBox, Tick::isValidTarget);
 
-                if (!foundTarget.isEmpty()) {
-                    for (LivingEntity livingEntity : foundTarget) {
+            if (!foundTarget.isEmpty()) {
+                for (LivingEntity livingEntity : foundTarget) {
 
-                        if ((livingEntity.getMaxHealth() > 50 && livingEntity.getHealth() > livingEntity.getMaxHealth() / 2) && player.getHealth() >= 5) {
+                    if ((livingEntity.getMaxHealth() > 50 && livingEntity.getHealth() > livingEntity.getMaxHealth() / 2) && player.getHealth() >= 5) {
 
-                            livingEntity.hurt(livingEntity.damageSources().generic(), livingEntity.getMaxHealth() * (config.entityDamagePercentage / 100));
-                            player.hurt(livingEntity.damageSources().generic(), player.getMaxHealth() * (config.playerDamagePercentage / 100));
+                        livingEntity.hurt(livingEntity.damageSources().generic(), livingEntity.getMaxHealth() * (config.entityDamagePercentage / 100));
+                        player.hurt(livingEntity.damageSources().generic(), player.getMaxHealth() * (config.playerDamagePercentage / 100));
 
-                        } else if ((livingEntity.getMaxHealth() > 50 && livingEntity.getHealth() > livingEntity.getMaxHealth() / 2) && player.getFoodData().getFoodLevel() >= 5) {
+                    } else if ((livingEntity.getMaxHealth() > 50 && livingEntity.getHealth() > livingEntity.getMaxHealth() / 2) && player.getFoodData().getFoodLevel() >= 5) {
 
-                            livingEntity.hurt(livingEntity.damageSources().generic(), livingEntity.getMaxHealth() * (config.entityDamagePercentage / 100));
-                            player.causeFoodExhaustion(player.getFoodData().getFoodLevel() * (config.playerHungerPercentage / 100));
-                        }
+                        livingEntity.hurt(livingEntity.damageSources().generic(), livingEntity.getMaxHealth() * (config.entityDamagePercentage / 100));
+                        player.causeFoodExhaustion(player.getFoodData().getFoodLevel() * (config.playerHungerPercentage / 100));
                     }
                 }
+            }
         }
     }
 

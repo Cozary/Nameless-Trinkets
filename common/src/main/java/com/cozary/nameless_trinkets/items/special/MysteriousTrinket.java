@@ -9,14 +9,16 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -38,18 +40,22 @@ public class MysteriousTrinket extends Item {
     public MysteriousTrinket() {
         super(new Properties()
                 .rarity(Rarity.EPIC)
-                .stacksTo(64));
+                .stacksTo(64)
+                .setId(ResourceKey.create(Registries.ITEM,
+                        ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "mysterious_trinket")))
+        );
     }
 
+
     @Override
-    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand hand) {
+    public InteractionResult use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand hand) {
         ItemStack itemStack = player.getItemInHand(hand);
         Random random = new Random();
 
         level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.WOOL_BREAK, SoundSource.NEUTRAL, 0.5F, 0.4F / (player.getRandom().nextFloat() * 0.4F + 0.8F));
 
         if (!level.isClientSide) {
-            List<Holder<Item>> trinketItems = BuiltInRegistries.ITEM.getOrCreateTag(NAMELESS_TRINKETS_TAG).stream().toList();
+            List<Holder<Item>> trinketItems = BuiltInRegistries.ITEM.getOrThrow(NAMELESS_TRINKETS_TAG).stream().toList();
             Item selectedTrinket = trinketItems.get(random.nextInt(trinketItems.size())).value();
             BlockPos playerPos = player.getOnPos();
 
@@ -66,7 +72,7 @@ public class MysteriousTrinket extends Item {
             itemStack.shrink(1);
         }
 
-        return InteractionResultHolder.sidedSuccess(itemStack, level.isClientSide());
+        return InteractionResult.SUCCESS;
     }
 
     private void spawnParticles(ServerLevel serverLevel, Player player) {

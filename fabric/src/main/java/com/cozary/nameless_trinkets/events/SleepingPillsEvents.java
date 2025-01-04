@@ -9,7 +9,7 @@ import net.minecraft.world.entity.player.Player;
 
 public class SleepingPillsEvents {
 
-    public static void register(){
+    public static void register() {
         EntitySleepEvents.ALLOW_SLEEPING.register((player, sleepingPos) -> {
             SleepingPills.Stats config = SleepingPills.INSTANCE.getTrinketConfig();
 
@@ -26,5 +26,5 @@ public class SleepingPillsEvents {
             return null;
         });
     }
-    
+
 }

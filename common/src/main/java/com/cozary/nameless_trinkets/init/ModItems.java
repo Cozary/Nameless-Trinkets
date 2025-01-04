@@ -77,11 +77,11 @@ public class ModItems {
     public static RegistryObject<Item> registerWithTab(final String name, final Supplier<? extends Item> supplier) {
         RegistryObject<Item> item = ITEMS.register(name, supplier);
         CREATIVE_TAB_ITEMS.add(item);
+
         return item;
     }
 
     public static void loadClass() {
     }
-
 
 }

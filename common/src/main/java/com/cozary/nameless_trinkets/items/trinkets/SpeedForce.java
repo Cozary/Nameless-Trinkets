@@ -10,7 +10,9 @@ import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -18,6 +20,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.phys.Vec3;
@@ -29,8 +32,11 @@ public class SpeedForce extends TrinketItem<SpeedForce.Stats> {
     public static SpeedForce INSTANCE;
 
     public SpeedForce() {
-        super(new TrinketData(null,null, Stats.class));
-
+        super(new TrinketData(new Item.Properties().stacksTo(1)
+                .setId(ResourceKey.create(Registries.ITEM,
+                        ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "speed_force")))
+                , null,
+                Stats.class));
         INSTANCE = this;
     }
 
@@ -75,7 +81,7 @@ public class SpeedForce extends TrinketItem<SpeedForce.Stats> {
             Vec3 vector3d = livingEntity.getDeltaMovement();
             ((ServerLevel) livingEntity.getCommandSenderWorld()).sendParticles(ParticleTypes.CLOUD, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), 5, vector3d.x * -4.0D, 0.3D, vector3d.z * -4.0D, 0.1);
         }
-        
+
         AttributeInstance attribSpeed = livingEntity.getAttribute(Attributes.MOVEMENT_SPEED);
         AttributeModifier speedModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "speed_force_movement_speed"),
                 config.speedMultiplier / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);

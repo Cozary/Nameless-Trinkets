@@ -1,7 +1,5 @@
 package com.cozary.nameless_trinkets.events;
 
-import com.cozary.nameless_trinkets.NamelessTrinkets;
-import com.cozary.nameless_trinkets.init.ModDataComponents;
 import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.items.trinkets.BrokenAnkh;
 import io.wispforest.accessories.api.AccessoriesCapability;
@@ -28,7 +26,7 @@ public class BrokenAnkhEvents {
             if (entity instanceof Player player && !player.isSpectator()) {
                 var stack = AccessoriesCapability.get(player).getEquipped(ModItems.BROKEN_ANKH.get());
 
-                if (!stack.isEmpty() && player.isDeadOrDying() && !player.getCooldowns().isOnCooldown(stack.getFirst().stack().getItem()) && !player.level().isClientSide) {
+                if (!stack.isEmpty() && player.isDeadOrDying() && !player.getCooldowns().isOnCooldown(stack.getFirst().stack()) && !player.level().isClientSide) {
 
                     ((ServerLevel) player.getCommandSenderWorld()).sendParticles(ParticleTypes.SMOKE, player.getX(), player.getY(), player.getZ(), 100, 1D, 1D, 1D, 0.1);
                     ((ServerLevel) player.getCommandSenderWorld()).sendParticles(ParticleTypes.CAMPFIRE_COSY_SMOKE, player.getX(), player.getY(), player.getZ(), 50, 1D, 1D, 1D, 0.1);
@@ -39,7 +37,7 @@ public class BrokenAnkhEvents {
                     player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 900, 1));
                     player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 100, 1));
                     player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 800, 0));
-                    player.getCooldowns().addCooldown(stack.getFirst().stack().getItem(), config.cooldown);
+                    player.getCooldowns().addCooldown(stack.getFirst().stack(), config.cooldown);
 
                     return false;
                 }
@@ -56,7 +54,7 @@ public class BrokenAnkhEvents {
 
                     if (!stack.isEmpty()) {
 
-                        player.getCooldowns().addCooldown(stack.getFirst().stack().getItem(), getCooldown(stack.getFirst().stack()));
+                        player.getCooldowns().addCooldown(stack.getFirst().stack(), getCooldown(stack.getFirst().stack()));
                     }
                 }
             });
@@ -70,7 +68,7 @@ public class BrokenAnkhEvents {
 
                     if (!stack.isEmpty()) {
                         setCooldown(stack.getFirst().stack(),
-                                (int) (player.getCooldowns().getCooldownPercent(stack.getFirst().stack().getItem(), 0) * config.cooldown));
+                                (int) (player.getCooldowns().getCooldownPercent(stack.getFirst().stack(), 0) * config.cooldown));
                     }
                 }
             });

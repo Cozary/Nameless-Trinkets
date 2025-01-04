@@ -1,14 +1,19 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
+import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -19,8 +24,11 @@ public class CreeperSense extends TrinketItem<CreeperSense.Stats> {
     public static CreeperSense INSTANCE;
 
     public CreeperSense() {
-        super(new TrinketData(null,null, Stats.class));
-
+        super(new TrinketData(new Item.Properties().stacksTo(1)
+                .setId(ResourceKey.create(Registries.ITEM,
+                        ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "creeper_sense")))
+                , null,
+                Stats.class));
         INSTANCE = this;
     }
 

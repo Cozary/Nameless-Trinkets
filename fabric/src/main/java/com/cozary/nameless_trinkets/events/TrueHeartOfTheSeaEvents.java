@@ -8,7 +8,7 @@ import net.minecraft.tags.FluidTags;
 
 public class TrueHeartOfTheSeaEvents {
 
-    public static void register(){
+    public static void register() {
         ModEvents.BlockDestroySpeedCallback.EVENT.register((player, state, originalSpeed) -> {
             TrueHeartOfTheSea.Stats config = TrueHeartOfTheSea.INSTANCE.getTrinketConfig();
 

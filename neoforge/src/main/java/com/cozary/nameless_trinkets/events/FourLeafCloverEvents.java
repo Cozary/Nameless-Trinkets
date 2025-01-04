@@ -40,7 +40,7 @@ public class FourLeafCloverEvents {
                 if (!stack.isEmpty()) {
                     Level level = player.level();
 
-                    LootTable loot = level.getServer().reloadableRegistries().getLootTable((event.getEntity().getType().getDefaultLootTable()));
+                    LootTable loot = level.getServer().reloadableRegistries().getLootTable((event.getEntity().getType().getDefaultLootTable().get()));
                     LootParams context = new LootParams.Builder((ServerLevel) level)
                             .withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(event.getEntity().blockPosition()))
                             .withParameter(LootContextParams.THIS_ENTITY, event.getEntity())

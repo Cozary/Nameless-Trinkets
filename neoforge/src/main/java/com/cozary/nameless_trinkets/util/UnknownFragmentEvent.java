@@ -39,7 +39,7 @@ public class UnknownFragmentEvent {
             if (!level.isClientSide && blockstate.getBlock() == Blocks.AMETHYST_BLOCK) {
                 Item itemstack = ModItems.UNKNOWN_FRAGMENT.get();
 
-                List<Holder<Item>> trinketItems = BuiltInRegistries.ITEM.getOrCreateTag(RECYCLABLE_TRINKETS_TAG).stream().toList();
+                List<Holder<Item>> trinketItems = BuiltInRegistries.ITEM.getOrThrow(RECYCLABLE_TRINKETS_TAG).stream().toList();
 
                 for (Holder<Item> trinketItemHolder : trinketItems) {
                     Item trinketItem = trinketItemHolder.value();

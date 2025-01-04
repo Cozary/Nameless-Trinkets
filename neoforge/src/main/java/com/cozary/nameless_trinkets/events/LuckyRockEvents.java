@@ -40,7 +40,7 @@ public class LuckyRockEvents {
             BlockPos pos = event.getPos();
             assert itemStack != null;
             ((ServerLevel) player.getCommandSenderWorld()).sendParticles(ParticleTypes.HAPPY_VILLAGER, pos.getX(), pos.getY(), pos.getZ(), 25, 1D, 1D, 1D, 0.1);
-            ItemEntity itementity = new ItemEntity(world, pos.getX(), pos.getY() + 1, pos.getZ(), BuiltInRegistries.ITEM.get(ResourceLocation.parse(itemStack)).getDefaultInstance());
+            ItemEntity itementity = new ItemEntity(world, pos.getX(), pos.getY() + 1, pos.getZ(), BuiltInRegistries.ITEM.get(ResourceLocation.parse(itemStack)).get().value().getDefaultInstance());
             itementity.setDefaultPickUpDelay();
             world.addFreshEntity(itementity);
         }
