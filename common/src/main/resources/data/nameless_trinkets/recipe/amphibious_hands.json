@@ -6,12 +6,8 @@
     "###"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:kelp"
-    },
-    "S": {
-      "item": "nameless_trinkets:dubious_dust"
-    }
+    "#": "minecraft:kelp",
+    "S": "nameless_trinkets:dubious_dust"
   },
   "result": {
     "id": "nameless_trinkets:amphibious_hands",

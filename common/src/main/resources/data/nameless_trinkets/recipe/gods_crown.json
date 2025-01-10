@@ -1,15 +1,10 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": {
-    "item": "minecraft:netherite_ingot"
-  },
-  "base": {
-    "item": "nameless_trinkets:cracked_crown"
-  },
+  "addition": "minecraft:netherite_ingot",
+  "base": "nameless_trinkets:cracked_crown",
   "result": {
+    "count": 1,
     "id": "nameless_trinkets:gods_crown"
   },
-  "template": {
-    "item": "minecraft:netherite_upgrade_smithing_template"
-  }
+  "template": "minecraft:netherite_upgrade_smithing_template"
 }

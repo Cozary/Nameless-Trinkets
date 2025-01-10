@@ -6,15 +6,9 @@
     "#G#"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:leather"
-    },
-    "G": {
-      "item": "minecraft:golden_carrot"
-    },
-    "S": {
-      "item": "nameless_trinkets:dubious_dust"
-    }
+    "#": "minecraft:leather",
+    "G": "minecraft:golden_carrot",
+    "S": "nameless_trinkets:dubious_dust"
   },
   "result": {
     "id": "nameless_trinkets:blindfold",

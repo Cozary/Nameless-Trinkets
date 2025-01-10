@@ -6,15 +6,12 @@
     "#&#"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:glowstone"
-    },
-    "&": {
-      "item": "minecraft:lapis_block"
-    },
-    "S": {
-      "item": "nameless_trinkets:glowing_dust"
-    }
+    "#": "minecraft:glowstone"
+    ,
+    "&": "minecraft:lapis_block"
+    ,
+    "S": "nameless_trinkets:glowing_dust"
+
   },
   "result": {
     "id": "nameless_trinkets:fractured_nullstone",

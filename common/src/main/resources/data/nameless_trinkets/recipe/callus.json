@@ -6,18 +6,14 @@
     "###"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:rotten_flesh"
-    },
-    "C": {
-      "item": "minecraft:cobblestone"
-    },
-    "H": {
-      "item": "minecraft:hay_block"
-    },
-    "S": {
-      "item": "nameless_trinkets:glowing_dust"
-    }
+    "#": "minecraft:rotten_flesh"
+    ,
+    "C": "minecraft:cobblestone"
+    ,
+    "H": "minecraft:hay_block"
+    ,
+    "S": "nameless_trinkets:glowing_dust"
+
   },
   "result": {
     "id": "nameless_trinkets:callus",

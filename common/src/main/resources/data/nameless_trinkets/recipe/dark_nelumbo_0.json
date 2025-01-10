@@ -6,18 +6,14 @@
     "#C#"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:nether_wart"
-    },
-    "M": {
-      "item": "minecraft:magma_block"
-    },
-    "C": {
-      "item": "minecraft:crimson_stem"
-    },
-    "S": {
-      "item": "nameless_trinkets:dubious_dust"
-    }
+    "#": "minecraft:nether_wart"
+    ,
+    "M": "minecraft:magma_block"
+    ,
+    "C": "minecraft:crimson_stem"
+    ,
+    "S": "nameless_trinkets:dubious_dust"
+
   },
   "result": {
     "id": "nameless_trinkets:dark_nelumbo",

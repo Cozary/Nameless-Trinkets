@@ -6,21 +6,16 @@
     " G "
   ],
   "key": {
-    "#": {
-      "item": "minecraft:iron_pickaxe"
-    },
-    "g": {
-      "item": "minecraft:gold_ingot"
-    },
-    "R": {
-      "item": "minecraft:redstone_block"
-    },
-    "i": {
-      "item": "minecraft:iron_ingot"
-    },
-    "G": {
-      "item": "minecraft:gunpowder"
-    }
+    "#": "minecraft:iron_pickaxe"
+    ,
+    "g": "minecraft:gold_ingot"
+    ,
+    "R": "minecraft:redstone_block"
+    ,
+    "i": "minecraft:iron_ingot"
+    ,
+    "G": "minecraft:gunpowder"
+
   },
   "result": {
     "id": "nameless_trinkets:dubious_dust",

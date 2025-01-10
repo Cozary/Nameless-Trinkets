@@ -6,15 +6,12 @@
     "#&#"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:oak_boat"
-    },
-    "&": {
-      "item": "minecraft:redstone_block"
-    },
-    "S": {
-      "item": "nameless_trinkets:glowing_dust"
-    }
+    "#": "minecraft:oak_boat"
+    ,
+    "&": "minecraft:redstone_block"
+    ,
+    "S": "nameless_trinkets:glowing_dust"
+
   },
   "result": {
     "id": "nameless_trinkets:electric_paddle",

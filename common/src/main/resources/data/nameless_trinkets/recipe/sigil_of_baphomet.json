@@ -6,18 +6,14 @@
     "#N#"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:obsidian"
-    },
-    "W": {
-      "item": "minecraft:wither_skeleton_skull"
-    },
-    "S": {
-      "item": "nameless_trinkets:ultimate_dust"
-    },
-    "N": {
-      "item": "minecraft:netherite_scrap"
-    }
+    "#": "minecraft:obsidian"
+    ,
+    "W": "minecraft:wither_skeleton_skull"
+    ,
+    "S": "nameless_trinkets:ultimate_dust"
+    ,
+    "N": "minecraft:netherite_scrap"
+
   },
   "result": {
     "id": "nameless_trinkets:sigil_of_baphomet",

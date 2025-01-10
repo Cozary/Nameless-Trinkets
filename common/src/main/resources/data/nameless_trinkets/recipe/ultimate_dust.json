@@ -6,15 +6,12 @@
     "#S#"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:ender_eye"
-    },
-    "S": {
-      "item": "nameless_trinkets:glowing_dust"
-    },
-    "N": {
-      "item": "minecraft:netherite_scrap"
-    }
+    "#": "minecraft:ender_eye"
+    ,
+    "S": "nameless_trinkets:glowing_dust"
+    ,
+    "N": "minecraft:netherite_scrap"
+
   },
   "result": {
     "id": "nameless_trinkets:ultimate_dust",

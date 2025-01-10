@@ -1,12 +1,8 @@
 {
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
-    {
-      "item": "minecraft:pufferfish"
-    },
-    {
-      "item": "nameless_trinkets:dubious_dust"
-    }
+   "minecraft:pufferfish",
+    "nameless_trinkets:dubious_dust"
   ],
   "result": {
     "id": "nameless_trinkets:puffer_fish_liver",

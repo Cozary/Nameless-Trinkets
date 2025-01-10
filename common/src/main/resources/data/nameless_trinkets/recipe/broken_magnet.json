@@ -6,18 +6,14 @@
     "iRi"
   ],
   "key": {
-    "i": {
-      "item": "minecraft:iron_ingot"
-    },
-    "L": {
-      "item": "minecraft:lapis_lazuli"
-    },
-    "R": {
-      "item": "minecraft:redstone"
-    },
-    "S": {
-      "item": "nameless_trinkets:dubious_dust"
-    }
+    "i": "minecraft:iron_ingot"
+    ,
+    "L": "minecraft:lapis_lazuli"
+    ,
+    "R": "minecraft:redstone"
+    ,
+    "S": "nameless_trinkets:dubious_dust"
+
   },
   "result": {
     "id": "nameless_trinkets:broken_magnet",

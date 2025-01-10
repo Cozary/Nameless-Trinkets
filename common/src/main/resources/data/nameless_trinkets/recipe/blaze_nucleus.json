@@ -6,12 +6,8 @@
     "///"
   ],
   "key": {
-    "/": {
-      "item": "minecraft:blaze_rod"
-    },
-    "S": {
-      "item": "nameless_trinkets:dubious_dust"
-    }
+    "/": "minecraft:blaze_rod",
+    "S": "nameless_trinkets:dubious_dust"
   },
   "result": {
     "id": "nameless_trinkets:blaze_nucleus",

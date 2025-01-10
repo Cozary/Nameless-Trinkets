@@ -6,12 +6,10 @@
     "///"
   ],
   "key": {
-    "/": {
-      "item": "minecraft:white_wool"
-    },
-    "S": {
-      "item": "nameless_trinkets:glowing_dust"
-    }
+    "/": "minecraft:white_wool"
+    ,
+    "S": "nameless_trinkets:glowing_dust"
+
   },
   "result": {
     "id": "nameless_trinkets:fragile_cloud",

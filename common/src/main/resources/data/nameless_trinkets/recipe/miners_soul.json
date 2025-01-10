@@ -6,24 +6,18 @@
     "#C#"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:blackstone"
-    },
-    "R": {
-      "item": "minecraft:emerald"
-    },
-    "i": {
-      "item": "minecraft:lapis_lazuli"
-    },
-    "S": {
-      "item": "nameless_trinkets:ultimate_dust"
-    },
-    "g": {
-      "item": "minecraft:diamond"
-    },
-    "C": {
-      "item": "minecraft:coal"
-    }
+    "#": "minecraft:blackstone"
+    ,
+    "R": "minecraft:emerald"
+    ,
+    "i": "minecraft:lapis_lazuli"
+    ,
+    "S": "nameless_trinkets:ultimate_dust"
+    ,
+    "g": "minecraft:diamond"
+    ,
+    "C": "minecraft:coal"
+
   },
   "result": {
     "id": "nameless_trinkets:miners_soul",

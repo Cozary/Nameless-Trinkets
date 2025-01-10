@@ -6,15 +6,12 @@
     "###"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:feather"
-    },
-    "S": {
-      "item": "minecraft:sponge"
-    },
-    "K": {
-      "item": "nameless_trinkets:dubious_dust"
-    }
+    "#": "minecraft:feather"
+    ,
+    "S": "minecraft:sponge"
+    ,
+    "K": "nameless_trinkets:dubious_dust"
+
   },
   "result": {
     "id": "nameless_trinkets:moon_stone",

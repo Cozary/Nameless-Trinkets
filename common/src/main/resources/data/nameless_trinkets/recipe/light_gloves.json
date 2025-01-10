@@ -6,15 +6,12 @@
     "#W#"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:gold_block"
-    },
-    "W": {
-      "item": "minecraft:diamond"
-    },
-    "S": {
-      "item": "nameless_trinkets:ultimate_dust"
-    }
+    "#": "minecraft:gold_block"
+    ,
+    "W": "minecraft:diamond"
+    ,
+    "S": "nameless_trinkets:ultimate_dust"
+
   },
   "result": {
     "id": "nameless_trinkets:light_gloves",

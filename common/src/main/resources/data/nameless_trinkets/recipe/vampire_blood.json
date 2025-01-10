@@ -6,21 +6,16 @@
     "#Q#"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:redstone_block"
-    },
-    "C": {
-      "item": "minecraft:crying_obsidian"
-    },
-    "B": {
-      "item": "minecraft:blaze_powder"
-    },
-    "S": {
-      "item": "nameless_trinkets:glowing_dust"
-    },
-    "Q": {
-      "item": "minecraft:clock"
-    }
+    "#": "minecraft:redstone_block"
+    ,
+    "C": "minecraft:crying_obsidian"
+    ,
+    "B": "minecraft:blaze_powder"
+    ,
+    "S": "nameless_trinkets:glowing_dust"
+    ,
+    "Q": "minecraft:clock"
+
   },
   "result": {
     "id": "nameless_trinkets:vampire_blood",

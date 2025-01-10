@@ -6,15 +6,12 @@
     "#i#"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:shield"
-    },
-    "i": {
-      "item": "minecraft:iron_ingot"
-    },
-    "S": {
-      "item": "nameless_trinkets:ultimate_dust"
-    }
+    "#": "minecraft:shield"
+    ,
+    "i": "minecraft:iron_ingot"
+    ,
+    "S": "nameless_trinkets:ultimate_dust"
+
   },
   "result": {
     "id": "nameless_trinkets:reverse_card",
