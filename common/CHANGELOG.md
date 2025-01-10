@@ -1,6 +1,7 @@
 # Changelog
 
-### Changed
+### Fixed
 
-- 1.21.4 Port
+- Recipes not working
+- Trinket icon in Accessories menu not showing
 
