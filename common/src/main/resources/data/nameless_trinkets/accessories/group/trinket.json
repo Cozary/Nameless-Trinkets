@@ -1,8 +1,7 @@
 {
   "replace": false,
-  "order": 3,
+  "order": 10,
   "slots": [
-    "trinket"
   ],
-  "icon": "accessories:gui/group/misc"
+  "icon": "accessories:container/slot/group/unknown"
 }
