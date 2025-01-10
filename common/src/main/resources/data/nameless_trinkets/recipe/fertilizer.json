@@ -6,12 +6,9 @@
     "LLL"
   ],
   "key": {
-    "#": "minecraft:bone_block"
-    ,
-    "L": "minecraft:leather"
-    ,
+    "#": "minecraft:bone_block",
+    "L": "minecraft:leather",
     "S": "nameless_trinkets:glowing_dust"
-
   },
   "result": {
     "id": "nameless_trinkets:fertilizer",

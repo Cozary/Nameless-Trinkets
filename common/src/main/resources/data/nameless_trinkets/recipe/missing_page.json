@@ -6,14 +6,10 @@
     "BBB"
   ],
   "key": {
-    "#": "minecraft:rotten_flesh"
-    ,
-    "P": "minecraft:paper"
-    ,
-    "S": "nameless_trinkets:glowing_dust"
-    ,
+    "#": "minecraft:rotten_flesh",
+    "P": "minecraft:paper",
+    "S": "nameless_trinkets:glowing_dust",
     "B": "minecraft:bone"
-
   },
   "result": {
     "id": "nameless_trinkets:missing_page",

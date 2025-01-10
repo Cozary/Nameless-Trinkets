@@ -6,14 +6,10 @@
     "#G#"
   ],
   "key": {
-    "#": "nameless_trinkets:dubious_dust"
-    ,
-    "G": "minecraft:glowstone"
-    ,
-    "/": "minecraft:blaze_rod"
-    ,
+    "#": "nameless_trinkets:dubious_dust",
+    "G": "minecraft:glowstone",
+    "/": "minecraft:blaze_rod",
     "Q": "minecraft:quartz"
-
   },
   "result": {
     "id": "nameless_trinkets:glowing_dust",

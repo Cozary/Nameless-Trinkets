@@ -6,14 +6,10 @@
     "#R#"
   ],
   "key": {
-    "#": "minecraft:cobweb"
-    ,
-    "S": "minecraft:spider_eye"
-    ,
-    "R": "minecraft:string"
-    ,
+    "#": "minecraft:cobweb",
+    "S": "minecraft:spider_eye",
+    "R": "minecraft:string",
     "U": "nameless_trinkets:dubious_dust"
-
   },
   "result": {
     "id": "nameless_trinkets:spider_legs",

@@ -6,14 +6,10 @@
     "#i#"
   ],
   "key": {
-    "#": "minecraft:glass_bottle"
-    ,
-    "R": "minecraft:redstone"
-    ,
-    "S": "nameless_trinkets:glowing_dust"
-    ,
+    "#": "minecraft:glass_bottle",
+    "R": "minecraft:redstone",
+    "S": "nameless_trinkets:glowing_dust",
     "i": "minecraft:iron_ingot"
-
   },
   "result": {
     "id": "nameless_trinkets:experience_battery",

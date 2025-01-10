@@ -6,14 +6,10 @@
     "###"
   ],
   "key": {
-    "#": "minecraft:rotten_flesh"
-    ,
-    "C": "minecraft:cobblestone"
-    ,
-    "H": "minecraft:hay_block"
-    ,
+    "#": "minecraft:rotten_flesh",
+    "C": "minecraft:cobblestone",
+    "H": "minecraft:hay_block",
     "S": "nameless_trinkets:glowing_dust"
-
   },
   "result": {
     "id": "nameless_trinkets:callus",

@@ -6,12 +6,9 @@
     "#S#"
   ],
   "key": {
-    "#": "minecraft:ice"
-    ,
-    "S": "minecraft:snow_block"
-    ,
+    "#": "minecraft:ice",
+    "S": "minecraft:snow_block",
     "P": "nameless_trinkets:dubious_dust"
-
   },
   "result": {
     "id": "nameless_trinkets:ice_cube",

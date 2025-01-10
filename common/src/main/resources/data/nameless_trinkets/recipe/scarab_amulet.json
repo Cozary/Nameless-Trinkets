@@ -6,10 +6,8 @@
     "///"
   ],
   "key": {
-    "/": "minecraft:chiseled_sandstone"
-    ,
+    "/": "minecraft:chiseled_sandstone",
     "S": "nameless_trinkets:glowing_dust"
-
   },
   "result": {
     "id": "nameless_trinkets:scarab_amulet",

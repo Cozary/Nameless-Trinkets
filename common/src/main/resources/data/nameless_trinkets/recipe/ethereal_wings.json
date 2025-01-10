@@ -6,14 +6,10 @@
     "#P#"
   ],
   "key": {
-    "#": "minecraft:feather"
-    ,
-    "G": "minecraft:glass_pane"
-    ,
-    "S": "nameless_trinkets:glowing_dust"
-    ,
+    "#": "minecraft:feather",
+    "G": "minecraft:glass_pane",
+    "S": "nameless_trinkets:glowing_dust",
     "P": "minecraft:phantom_membrane"
-
   },
   "result": {
     "id": "nameless_trinkets:ethereal_wings",

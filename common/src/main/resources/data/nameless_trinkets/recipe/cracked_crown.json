@@ -6,12 +6,9 @@
     "###"
   ],
   "key": {
-    "#": "minecraft:gold_block"
-    ,
-    "N": "minecraft:netherite_scrap"
-    ,
+    "#": "minecraft:gold_block",
+    "N": "minecraft:netherite_scrap",
     "S": "nameless_trinkets:ultimate_dust"
-
   },
   "result": {
     "id": "nameless_trinkets:cracked_crown",

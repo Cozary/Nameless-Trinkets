@@ -6,16 +6,11 @@
     " P "
   ],
   "key": {
-    "#": "minecraft:cod"
-    ,
-    "T": "minecraft:tropical_fish"
-    ,
-    "S": "nameless_trinkets:dubious_dust"
-    ,
-    "K": "minecraft:salmon"
-    ,
+    "#": "minecraft:cod",
+    "T": "minecraft:tropical_fish",
+    "S": "nameless_trinkets:dubious_dust",
+    "K": "minecraft:salmon",
     "P": "minecraft:pufferfish"
-
   },
   "result": {
     "id": "nameless_trinkets:gills",

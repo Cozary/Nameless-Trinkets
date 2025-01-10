@@ -6,12 +6,9 @@
     "#W#"
   ],
   "key": {
-    "#": "minecraft:diamond_block"
-    ,
-    "W": "minecraft:short_grass"
-    ,
+    "#": "minecraft:diamond_block",
+    "W": "minecraft:short_grass",
     "S": "nameless_trinkets:ultimate_dust"
-
   },
   "result": {
     "id": "nameless_trinkets:four_leaf_clover",

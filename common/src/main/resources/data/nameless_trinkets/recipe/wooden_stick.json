@@ -6,12 +6,9 @@
     "g/g"
   ],
   "key": {
-    "g": "minecraft:gold_ingot"
-    ,
-    "/": "minecraft:stick"
-    ,
+    "g": "minecraft:gold_ingot",
+    "/": "minecraft:stick",
     "S": "nameless_trinkets:dubious_dust"
-
   },
   "result": {
     "id": "nameless_trinkets:wooden_stick",

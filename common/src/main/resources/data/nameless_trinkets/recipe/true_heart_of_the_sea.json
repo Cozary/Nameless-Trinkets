@@ -6,16 +6,11 @@
     " Y "
   ],
   "key": {
-    "#": "minecraft:heart_of_the_sea"
-    ,
-    "P": "nameless_trinkets:gills"
-    ,
-    "S": "nameless_trinkets:ultimate_dust"
-    ,
-    "M": "nameless_trinkets:tear_of_the_sea"
-    ,
+    "#": "minecraft:heart_of_the_sea",
+    "P": "nameless_trinkets:gills",
+    "S": "nameless_trinkets:ultimate_dust",
+    "M": "nameless_trinkets:tear_of_the_sea",
     "Y": "nameless_trinkets:amphibious_hands"
-
   },
   "result": {
     "id": "nameless_trinkets:true_heart_of_the_sea",

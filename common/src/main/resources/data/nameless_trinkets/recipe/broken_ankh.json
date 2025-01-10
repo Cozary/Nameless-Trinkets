@@ -6,12 +6,9 @@
     " # "
   ],
   "key": {
-    "#": "minecraft:bone"
-    ,
-    "W": "minecraft:wither_skeleton_skull"
-    ,
+    "#": "minecraft:bone",
+    "W": "minecraft:wither_skeleton_skull",
     "S": "nameless_trinkets:ultimate_dust"
-
   },
   "result": {
     "id": "nameless_trinkets:broken_ankh",

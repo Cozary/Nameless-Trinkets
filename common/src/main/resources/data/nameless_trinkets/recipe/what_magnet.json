@@ -6,18 +6,12 @@
     "iBi"
   ],
   "key": {
-    "i": "minecraft:iron_ingot"
-    ,
-    "R": "minecraft:rotten_flesh"
-    ,
-    "P": "minecraft:porkchop"
-    ,
-    "S": "nameless_trinkets:glowing_dust"
-    ,
-    "L": "minecraft:leather"
-    ,
+    "i": "minecraft:iron_ingot",
+    "R": "minecraft:rotten_flesh",
+    "P": "minecraft:porkchop",
+    "S": "nameless_trinkets:glowing_dust",
+    "L": "minecraft:leather",
     "B": "minecraft:bone"
-
   },
   "result": {
     "id": "nameless_trinkets:what_magnet",

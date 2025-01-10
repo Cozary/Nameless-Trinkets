@@ -6,14 +6,10 @@
     "iRi"
   ],
   "key": {
-    "i": "minecraft:iron_ingot"
-    ,
-    "G": "minecraft:glass_bottle"
-    ,
-    "R": "minecraft:redstone"
-    ,
+    "i": "minecraft:iron_ingot",
+    "G": "minecraft:glass_bottle",
+    "R": "minecraft:redstone",
     "S": "nameless_trinkets:dubious_dust"
-
   },
   "result": {
     "id": "nameless_trinkets:experience_magnet",

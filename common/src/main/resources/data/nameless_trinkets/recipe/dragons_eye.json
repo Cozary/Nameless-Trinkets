@@ -6,12 +6,9 @@
     "#W#"
   ],
   "key": {
-    "#": "minecraft:ender_eye"
-    ,
-    "W": "minecraft:end_stone"
-    ,
+    "#": "minecraft:ender_eye",
+    "W": "minecraft:end_stone",
     "S": "nameless_trinkets:dubious_dust"
-
   },
   "result": {
     "id": "nameless_trinkets:dragons_eye",

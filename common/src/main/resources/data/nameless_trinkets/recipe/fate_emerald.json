@@ -6,12 +6,9 @@
     "#W#"
   ],
   "key": {
-    "#": "minecraft:emerald_block"
-    ,
-    "W": "minecraft:bell"
-    ,
+    "#": "minecraft:emerald_block",
+    "W": "minecraft:bell",
     "S": "nameless_trinkets:ultimate_dust"
-
   },
   "result": {
     "id": "nameless_trinkets:fate_emerald",

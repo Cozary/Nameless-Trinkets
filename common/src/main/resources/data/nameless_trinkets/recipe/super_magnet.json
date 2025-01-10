@@ -6,16 +6,11 @@
     "iIi"
   ],
   "key": {
-    "i": "minecraft:iron_ingot"
-    ,
-    "I": "minecraft:iron_block"
-    ,
-    "L": "nameless_trinkets:experience_magnet"
-    ,
-    "S": "nameless_trinkets:broken_magnet"
-    ,
+    "i": "minecraft:iron_ingot",
+    "I": "minecraft:iron_block",
+    "L": "nameless_trinkets:experience_magnet",
+    "S": "nameless_trinkets:broken_magnet",
     "D": "nameless_trinkets:glowing_dust"
-
   },
   "result": {
     "id": "nameless_trinkets:super_magnet",

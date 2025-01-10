@@ -6,16 +6,11 @@
     " W "
   ],
   "key": {
-    "#": "minecraft:salmon"
-    ,
-    "T": "minecraft:tropical_fish"
-    ,
-    "S": "nameless_trinkets:glowing_dust"
-    ,
-    "C": "minecraft:cod"
-    ,
+    "#": "minecraft:salmon",
+    "T": "minecraft:tropical_fish",
+    "S": "nameless_trinkets:glowing_dust",
+    "C": "minecraft:cod",
     "W": "minecraft:water_bucket"
-
   },
   "result": {
     "id": "nameless_trinkets:tear_of_the_sea",

@@ -6,14 +6,10 @@
     "RH#"
   ],
   "key": {
-    "#": "minecraft:brown_mushroom"
-    ,
-    "H": "minecraft:hay_block"
-    ,
-    "R": "minecraft:red_mushroom"
-    ,
+    "#": "minecraft:brown_mushroom",
+    "H": "minecraft:hay_block",
+    "R": "minecraft:red_mushroom",
     "S": "nameless_trinkets:glowing_dust"
-
   },
   "result": {
     "id": "nameless_trinkets:tick",

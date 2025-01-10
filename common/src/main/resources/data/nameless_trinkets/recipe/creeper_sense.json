@@ -6,12 +6,9 @@
     "###"
   ],
   "key": {
-    "#": "minecraft:gunpowder"
-    ,
-    "T": "minecraft:tnt"
-    ,
+    "#": "minecraft:gunpowder",
+    "T": "minecraft:tnt",
     "S": "nameless_trinkets:dubious_dust"
-
   },
   "result": {
     "id": "nameless_trinkets:creeper_sense",

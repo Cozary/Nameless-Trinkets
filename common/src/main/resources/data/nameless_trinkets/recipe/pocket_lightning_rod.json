@@ -6,10 +6,8 @@
     "///"
   ],
   "key": {
-    "/": "minecraft:string"
-    ,
+    "/": "minecraft:string",
     "S": "nameless_trinkets:dubious_dust"
-
   },
   "result": {
     "id": "nameless_trinkets:pocket_lightning_rod",

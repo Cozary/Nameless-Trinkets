@@ -6,18 +6,12 @@
     "SFS"
   ],
   "key": {
-    "#": "minecraft:dandelion"
-    ,
-    "S": "minecraft:sugar"
-    ,
-    "P": "minecraft:poppy"
-    ,
-    "G": "minecraft:golden_carrot"
-    ,
-    "Y": "nameless_trinkets:dubious_dust"
-    ,
+    "#": "minecraft:dandelion",
+    "S": "minecraft:sugar",
+    "P": "minecraft:poppy",
+    "G": "minecraft:golden_carrot",
+    "Y": "nameless_trinkets:dubious_dust",
     "F": "minecraft:fermented_spider_eye"
-
   },
   "result": {
     "id": "nameless_trinkets:sleeping_pills",

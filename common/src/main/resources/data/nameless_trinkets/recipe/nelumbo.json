@@ -6,14 +6,10 @@
     "#O#"
   ],
   "key": {
-    "#": "minecraft:lily_pad"
-    ,
-    "S": "minecraft:sponge"
-    ,
-    "O": "minecraft:oak_log"
-    ,
+    "#": "minecraft:lily_pad",
+    "S": "minecraft:sponge",
+    "O": "minecraft:oak_log",
     "Q": "nameless_trinkets:dubious_dust"
-
   },
   "result": {
     "id": "nameless_trinkets:nelumbo",

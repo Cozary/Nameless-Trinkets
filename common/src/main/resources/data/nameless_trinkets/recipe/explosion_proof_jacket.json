@@ -6,12 +6,9 @@
     "iLi"
   ],
   "key": {
-    "i": "minecraft:iron_ingot"
-    ,
-    "L": "minecraft:leather_chestplate"
-    ,
+    "i": "minecraft:iron_ingot",
+    "L": "minecraft:leather_chestplate",
     "S": "nameless_trinkets:dubious_dust"
-
   },
   "result": {
     "id": "nameless_trinkets:explosion_proof_jacket",

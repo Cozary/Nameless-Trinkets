@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
-   "minecraft:pufferfish",
+    "minecraft:pufferfish",
     "nameless_trinkets:dubious_dust"
   ],
   "result": {

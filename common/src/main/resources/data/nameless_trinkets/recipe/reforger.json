@@ -6,12 +6,9 @@
     " I "
   ],
   "key": {
-    "#": "minecraft:gold_block"
-    ,
-    "I": "minecraft:iron_block"
-    ,
+    "#": "minecraft:gold_block",
+    "I": "minecraft:iron_block",
     "S": "nameless_trinkets:ultimate_dust"
-
   },
   "result": {
     "id": "nameless_trinkets:reforger",
