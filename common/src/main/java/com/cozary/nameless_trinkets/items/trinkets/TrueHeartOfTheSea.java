@@ -56,7 +56,9 @@ public class TrueHeartOfTheSea extends TrinketItem<TrueHeartOfTheSea.Stats> {
     }
 
     @Override
-    public void onEquip(ItemStack stack, SlotReference reference) {
+    public void tick(ItemStack stack, SlotReference reference) {
+        super.tick(stack, reference);
+
         LivingEntity livingEntity = reference.entity();
         Stats config = TrueHeartOfTheSea.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
@@ -82,6 +84,14 @@ public class TrueHeartOfTheSea extends TrinketItem<TrueHeartOfTheSea.Stats> {
         } else {
             livingEntity.setAirSupply(300);
         }
+    }
+
+    @Override
+    public void onEquip(ItemStack stack, SlotReference reference) {
+        LivingEntity livingEntity = reference.entity();
+        Stats config = TrueHeartOfTheSea.INSTANCE.getTrinketConfig();
+        if (!config.isEnable)
+            return;
 
         Level world = livingEntity.getCommandSenderWorld();
 
@@ -95,6 +105,7 @@ public class TrueHeartOfTheSea extends TrinketItem<TrueHeartOfTheSea.Stats> {
         assert attribSpeed != null;
         EntityUtils.applyAttributeModifier(attribSpeed, speedModifier);
     }
+
 
     @Override
     public void onUnequip(ItemStack stack, SlotReference reference) {
