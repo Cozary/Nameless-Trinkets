@@ -1,6 +1,5 @@
 # Changelog
 
-### Changed
+### Fixed
 
-- Rollback Accessories v1.2.12-beta -> v1.2.9-beta
-
+- Fixed a crash when AccessoriesCapability returned null.
