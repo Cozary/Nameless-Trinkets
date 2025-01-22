@@ -25,7 +25,7 @@ public class EtherealWings extends TrinketItem<EtherealWings.Stats> {
     public EtherealWings() {
         super(new TrinketData(new Item.Properties().stacksTo(1)
                 .setId(ResourceKey.create(Registries.ITEM,
-                        ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "amphibious_hands")))
+                        ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "ethereal_wings")))
                 , null,
                 Stats.class));
         INSTANCE = this;
