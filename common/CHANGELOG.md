@@ -2,4 +2,4 @@
 
 ### Fixed
 
-- Fixed a crash when AccessoriesCapability returned null.
+- [Ethereal Wings] Corrected ID name
