@@ -21,7 +21,12 @@ public class CallusEvents {
         if (!config.isEnable || !(event.getEntity() instanceof Player player))
             return;
 
-        var stack = AccessoriesCapability.get(player).getEquipped(ModItems.CALLUS.get());
+        var accessories = AccessoriesCapability.get(player);
+
+        if (accessories == null) {
+            return;
+        }
+        var stack = accessories.getEquipped(ModItems.CALLUS.get());
         if (stack.isEmpty())
             return;
 

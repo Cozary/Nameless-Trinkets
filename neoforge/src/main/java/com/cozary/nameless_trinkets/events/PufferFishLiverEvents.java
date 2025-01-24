@@ -34,8 +34,12 @@ public class PufferFishLiverEvents {
 
         if (src instanceof Player player) {
 
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.PUFFER_FISH_LIVER.get());
+            var accessories = AccessoriesCapability.get(player);
 
+            if (accessories == null) {
+                return;
+            }
+            var stack = accessories.getEquipped(ModItems.PUFFER_FISH_LIVER.get());
             if (!stack.isEmpty() && random.nextInt(100) <= config.chanceToApplyPoison) {
                 MobEffectInstance effectinstance = new MobEffectInstance(MobEffects.POISON, config.poisonTime, config.poisonLevel);
                 LivingEntity potionGo = event.getEntity();

@@ -27,8 +27,12 @@ public class RageMindEvents {
 
         if (event.getEntity() instanceof Player player) {
 
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.RAGE_MIND.get());
+            var accessories = AccessoriesCapability.get(player);
 
+            if (accessories == null) {
+                return;
+            }
+            var stack = accessories.getEquipped(ModItems.RAGE_MIND.get());
             if (!stack.isEmpty()) {
                 Entity entity = event.getSource().getEntity();
 
@@ -52,8 +56,12 @@ public class RageMindEvents {
 
         if (event.getSource().getEntity() instanceof Player player) {
 
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.RAGE_MIND.get());
+            var accessories = AccessoriesCapability.get(player);
 
+            if (accessories == null) {
+                return;
+            }
+            var stack = accessories.getEquipped(ModItems.RAGE_MIND.get());
             if (!stack.isEmpty()) {
 
                 if (stack.getFirst().stack().get(ModDataComponents.RAGE_MIND_REVENGE_TARGET.get()) != null) {

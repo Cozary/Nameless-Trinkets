@@ -49,8 +49,12 @@ public class IceCubeEvents {
 
         if (src instanceof Player player) {
 
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.ICE_CUBE.get());
+            var accessories = AccessoriesCapability.get(player);
 
+            if (accessories == null) {
+                return;
+            }
+            var stack = accessories.getEquipped(ModItems.ICE_CUBE.get());
             if (!stack.isEmpty()) {
                 MobEffectInstance effectinstance = new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, config.slownessTime, config.slownessLevel);
                 LivingEntity potionGo = event.getEntity();
@@ -74,8 +78,12 @@ public class IceCubeEvents {
 
         if (player instanceof ServerPlayer && !player.isSpectator()) {
 
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.ICE_CUBE.get());
+            var accessories = AccessoriesCapability.get(player);
 
+            if (accessories == null) {
+                return;
+            }
+            var stack = accessories.getEquipped(ModItems.ICE_CUBE.get());
             if (!stack.isEmpty() && !player.level().isClientSide) {
 
                 BlockState block = Blocks.ICE.defaultBlockState();
@@ -124,8 +132,12 @@ public class IceCubeEvents {
         if (event.getEntity() instanceof Player player && !player.isSpectator()) {
             if (event.getEntity() == player) {
 
-                var stack = AccessoriesCapability.get(player).getEquipped(ModItems.ICE_CUBE.get());
+                var accessories = AccessoriesCapability.get(player);
 
+                if (accessories == null) {
+                    return;
+                }
+                var stack = accessories.getEquipped(ModItems.ICE_CUBE.get());
                 if (!stack.isEmpty()) {
                     if (config.inmuneToFreezing) {
                         if (event.getSource().is(DamageTypeTags.IS_FREEZING)) {

@@ -23,7 +23,12 @@ public class ExperienceBatteryEvents {
         if (attackingPlayer == null)
             return;
 
-        var stack = AccessoriesCapability.get(attackingPlayer).getEquipped(ModItems.EXPERIENCE_BATTERY.get());
+        var accessories = AccessoriesCapability.get(attackingPlayer);
+
+        if (accessories == null) {
+            return;
+        }
+        var stack = accessories.getEquipped(ModItems.EXPERIENCE_BATTERY.get());
         if (stack.isEmpty() || event.getEntity() instanceof Player)
             return;
 

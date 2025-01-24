@@ -35,8 +35,12 @@ public class FourLeafCloverEvents {
         if (event.getSource().getEntity() instanceof Player player) {
             if (!player.level().isClientSide) {
 
-                var stack = AccessoriesCapability.get(player).getEquipped(ModItems.FOUR_LEAF_CLOVER.get());
+                var accessories = AccessoriesCapability.get(player);
 
+                if (accessories == null) {
+                    return;
+                }
+                var stack = accessories.getEquipped(ModItems.FOUR_LEAF_CLOVER.get());
                 if (!stack.isEmpty()) {
                     Level level = player.level();
 

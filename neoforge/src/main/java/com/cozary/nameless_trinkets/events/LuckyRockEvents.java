@@ -32,8 +32,12 @@ public class LuckyRockEvents {
         Level world = player.level();
         Random random = new Random();
 
-        var stack = AccessoriesCapability.get(player).getEquipped(ModItems.LUCKY_ROCK.get());
+        var accessories = AccessoriesCapability.get(player);
 
+        if (accessories == null) {
+            return;
+        }
+        var stack = accessories.getEquipped(ModItems.LUCKY_ROCK.get());
         if (!stack.isEmpty() && random.nextInt(100) <= config.percentageOfObtaining && event.getState() == Blocks.STONE.defaultBlockState() && !player.level().isClientSide) {
             String itemStack = config.blockList.get(random.nextInt(config.blockList.size()));
 

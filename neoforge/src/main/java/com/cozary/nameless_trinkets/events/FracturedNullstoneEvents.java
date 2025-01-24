@@ -21,8 +21,12 @@ public class FracturedNullstoneEvents {
         if (event.getEntity() instanceof Player player) {
             if (event.getEntity() == player) {
 
-                var stack = AccessoriesCapability.get(player).getEquipped(ModItems.FRACTURED_NULLSTONE.get());
+                var accessories = AccessoriesCapability.get(player);
 
+                if (accessories == null) {
+                    return;
+                }
+                var stack = accessories.getEquipped(ModItems.FRACTURED_NULLSTONE.get());
                 if (!stack.isEmpty()) {
 
                     //haha DamageTypeTag Magic doesn't exist

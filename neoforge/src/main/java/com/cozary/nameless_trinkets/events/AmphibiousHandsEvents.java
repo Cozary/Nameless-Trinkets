@@ -24,8 +24,12 @@ public class AmphibiousHandsEvents {
 
         if (!player.isSpectator()) {
 
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.AMPHIBIOUS_HANDS.get());
+            var accessories = AccessoriesCapability.get(player);
 
+            if (accessories == null) {
+                return;
+            }
+            var stack = accessories.getEquipped(ModItems.AMPHIBIOUS_HANDS.get());
             if ((!stack.isEmpty() && player.isEyeInFluidType(NeoForgeMod.WATER_TYPE.value()))) {
 
                 event.setNewSpeed(event.getOriginalSpeed() * config.miningUnderwaterSpeedMultiplier);

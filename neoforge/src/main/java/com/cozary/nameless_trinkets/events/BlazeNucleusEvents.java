@@ -28,8 +28,12 @@ public class BlazeNucleusEvents {
         if (!(src instanceof Player attacker))
             return;
 
-        var stack = AccessoriesCapability.get(attacker).getEquipped(ModItems.BLAZE_NUCLEUS.get());
+        var accessories = AccessoriesCapability.get(attacker);
 
+        if (accessories == null) {
+            return;
+        }
+        var stack = accessories.getEquipped(ModItems.BLAZE_NUCLEUS.get());
         if (!stack.isEmpty()) {
             Entity target = event.getEntity();
 
@@ -51,8 +55,12 @@ public class BlazeNucleusEvents {
         if (!(event.getEntity() instanceof Player player) || player.isSpectator())
             return;
 
-        var stack = AccessoriesCapability.get(player).getEquipped(ModItems.BLAZE_NUCLEUS.get());
+        var accessories = AccessoriesCapability.get(player);
 
+        if (accessories == null) {
+            return;
+        }
+        var stack = accessories.getEquipped(ModItems.BLAZE_NUCLEUS.get());
         if (!stack.isEmpty()) {
             if (config.fireDamageReductionPercentage < 100) {
                 if (event.getSource().is(DamageTypeTags.IS_FIRE)) {

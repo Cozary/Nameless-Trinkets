@@ -29,8 +29,12 @@ public class ReverseCardEvent {
         Random random = new Random();
         if (event.getEntity() instanceof Player player) {
 
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.REVERSE_CARD.get());
+            var accessories = AccessoriesCapability.get(player);
 
+            if (accessories == null) {
+                return;
+            }
+            var stack = accessories.getEquipped(ModItems.REVERSE_CARD.get());
             if (!stack.isEmpty() && random.nextInt(100) <= config.chanceToActivate) {
 
                 if (src != null && !(src instanceof Player) && !player.level().isClientSide) {
