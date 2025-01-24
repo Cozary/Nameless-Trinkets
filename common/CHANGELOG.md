@@ -2,4 +2,4 @@
 
 ### Fixed
 
-- [Ethereal Wings] Corrected ID name
+- AccessoriesCapability get player sometimes as null
