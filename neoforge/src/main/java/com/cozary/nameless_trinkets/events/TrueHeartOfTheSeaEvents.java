@@ -22,8 +22,12 @@ public class TrueHeartOfTheSeaEvents {
         if (!event.getEntity().isSpectator()) {
             Player player = event.getEntity();
 
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.TRUE_HEART_OF_THE_SEA.get());
+            var accessories = AccessoriesCapability.get(player);
 
+            if (accessories == null) {
+                return;
+            }
+            var stack = accessories.getEquipped(ModItems.TRUE_HEART_OF_THE_SEA.get());
             if ((!stack.isEmpty() && player.isEyeInFluidType(NeoForgeMod.WATER_TYPE.value()))) {
 
                 event.setNewSpeed(event.getOriginalSpeed() * config.miningUnderwaterSpeed);

@@ -23,8 +23,12 @@ public class LuckyRockEvents {
 
             if (player != null && !player.isSpectator()) {
 
-                var stack = AccessoriesCapability.get(player).getEquipped(ModItems.LUCKY_ROCK.get());
+                var accessories = AccessoriesCapability.get(player);
 
+                if (accessories == null) {
+                    return;
+                }
+                var stack = accessories.getEquipped(ModItems.LUCKY_ROCK.get());
                 Random random = new Random();
 
                 if (!stack.isEmpty() && random.nextInt(100) <= config.percentageOfObtaining && state == Blocks.STONE.defaultBlockState() && !world.isClientSide) {

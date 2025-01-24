@@ -56,7 +56,13 @@ public abstract class LivingEntityMixin {
 
         Entity sourceEntity = damageSource.getEntity();
         if (sourceEntity instanceof Player attacker) {
-            var stack = AccessoriesCapability.get(attacker).getEquipped(ModItems.BLAZE_NUCLEUS.get());
+
+            var accessories = AccessoriesCapability.get(attacker);
+
+            if (accessories == null) {
+                return;
+            }
+            var stack = accessories.getEquipped(ModItems.BLAZE_NUCLEUS.get());
 
             if (!stack.isEmpty()) {
                 targetEntity.setRemainingFireTicks(config.setEnemyInFireTicks);
@@ -77,8 +83,13 @@ public abstract class LivingEntityMixin {
         }
 
         if (entity instanceof Player attackingPlayer) {
-            var stack = AccessoriesCapability.get(attackingPlayer).getEquipped(ModItems.EXPERIENCE_BATTERY.get());
 
+            var accessories = AccessoriesCapability.get(attackingPlayer);
+
+            if (accessories == null) {
+                return;
+            }
+            var stack = accessories.getEquipped(ModItems.EXPERIENCE_BATTERY.get());
             if (stack.isEmpty() || livingEntity instanceof Player) {
                 return;
             }
@@ -106,7 +117,12 @@ public abstract class LivingEntityMixin {
 
         if (damageSource.getEntity() instanceof Player player && !player.isSpectator()) {
 
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.ICE_CUBE.get());
+            var accessories = AccessoriesCapability.get(player);
+
+            if (accessories == null) {
+                return damageAmount;
+            }
+            var stack = accessories.getEquipped(ModItems.ICE_CUBE.get());
 
             if (!stack.isEmpty()) {
                 MobEffectInstance effectinstance = new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, config.slownessTime, config.slownessLevel);
@@ -131,8 +147,12 @@ public abstract class LivingEntityMixin {
         if (damageSource.getEntity() instanceof Player player && !player.isSpectator()) {
 
             Random random = new Random();
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.PUFFER_FISH_LIVER.get());
+            var accessories = AccessoriesCapability.get(player);
 
+            if (accessories == null) {
+                return damageAmount;
+            }
+            var stack = accessories.getEquipped(ModItems.PUFFER_FISH_LIVER.get());
             if (!stack.isEmpty() && random.nextInt(100) <= config.chanceToApplyPoison) {
                 MobEffectInstance effectinstance = new MobEffectInstance(MobEffects.POISON, config.poisonTime, config.poisonLevel);
                 targetEntity.addEffect(effectinstance);
@@ -155,8 +175,12 @@ public abstract class LivingEntityMixin {
 
         if (damageSource.getEntity() instanceof Player player && !player.isSpectator()) {
 
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.RAGE_MIND.get());
+            var accessories = AccessoriesCapability.get(player);
 
+            if (accessories == null) {
+                return damageAmount;
+            }
+            var stack = accessories.getEquipped(ModItems.RAGE_MIND.get());
             if (!stack.isEmpty()) {
 
                 if (stack.getFirst().stack().get(ModDataComponents.RAGE_MIND_REVENGE_TARGET.get()) != null) {
@@ -193,8 +217,12 @@ public abstract class LivingEntityMixin {
 
 
         if (targetEntity instanceof Player player && !player.isSpectator()) {
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.BLAZE_NUCLEUS.get());
+            var accessories = AccessoriesCapability.get(player);
 
+            if (accessories == null) {
+                return damageAmount;
+            }
+            var stack = accessories.getEquipped(ModItems.BLAZE_NUCLEUS.get());
             if (!stack.isEmpty()) {
                 if (config.fireDamageReductionPercentage < 100) {
                     if (damageSource.is(DamageTypes.LAVA) ||
@@ -218,7 +246,12 @@ public abstract class LivingEntityMixin {
         Callus.Stats config = Callus.INSTANCE.getTrinketConfig();
 
         if (targetEntity instanceof Player player && !player.isSpectator()) {
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.CALLUS.get());
+            var accessories = AccessoriesCapability.get(player);
+
+            if (accessories == null) {
+                return damageAmount;
+            }
+            var stack = accessories.getEquipped(ModItems.CALLUS.get());
             if (!stack.isEmpty()) {
                 if (isNullifiedDamageType(damageSource)) {
                     return 0.0f;
@@ -252,8 +285,12 @@ public abstract class LivingEntityMixin {
 
         if (targetEntity instanceof Player player && !player.isSpectator()) {
 
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.EXPLOSION_PROOF_JACKET.get());
+            var accessories = AccessoriesCapability.get(player);
 
+            if (accessories == null) {
+                return damageAmount;
+            }
+            var stack = accessories.getEquipped(ModItems.EXPLOSION_PROOF_JACKET.get());
             if (!stack.isEmpty()) {
                 if (damageSource.is(DamageTypeTags.IS_EXPLOSION)) {
                     damageAmount *= (float) (1 - (config.blastDamagePercentageReduction / 100.0));
@@ -285,8 +322,12 @@ public abstract class LivingEntityMixin {
 
         if (targetEntity instanceof Player player && !player.isSpectator()) {
 
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.FRACTURED_NULLSTONE.get());
+            var accessories = AccessoriesCapability.get(player);
 
+            if (accessories == null) {
+                return damageAmount;
+            }
+            var stack = accessories.getEquipped(ModItems.FRACTURED_NULLSTONE.get());
             if (!stack.isEmpty()) {
                 //haha DamageTypeTag Magic doesn't exist
 
@@ -312,8 +353,12 @@ public abstract class LivingEntityMixin {
 
         if (targetEntity instanceof Player player && !player.isSpectator()) {
 
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.ICE_CUBE.get());
+            var accessories = AccessoriesCapability.get(player);
 
+            if (accessories == null) {
+                return damageAmount;
+            }
+            var stack = accessories.getEquipped(ModItems.ICE_CUBE.get());
             if (!stack.isEmpty()) {
                 if (config.inmuneToFreezing) {
                     if (damageSource.is(DamageTypeTags.IS_FREEZING)) {
@@ -339,7 +384,12 @@ public abstract class LivingEntityMixin {
 
         if (targetEntity instanceof Player player && !player.isSpectator()) {
 
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.MISSING_PAGE.get());
+            var accessories = AccessoriesCapability.get(player);
+
+            if (accessories == null) {
+                return damageAmount;
+            }
+            var stack = accessories.getEquipped(ModItems.MISSING_PAGE.get());
             Random random = new Random();
 
             if (!stack.isEmpty() && random.nextInt(100) <= config.activationPercentage) {
@@ -375,8 +425,12 @@ public abstract class LivingEntityMixin {
 
         if (targetEntity instanceof Player player && !player.isSpectator()) {
 
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.MOON_STONE.get());
+            var accessories = AccessoriesCapability.get(player);
 
+            if (accessories == null) {
+                return damageAmount;
+            }
+            var stack = accessories.getEquipped(ModItems.MOON_STONE.get());
             if (!stack.isEmpty()) {
                 if (damageSource.is(DamageTypeTags.IS_FALL)) {
                     return 0;
@@ -400,8 +454,12 @@ public abstract class LivingEntityMixin {
 
         if (targetEntity instanceof Player player && !player.isSpectator()) {
 
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.RAGE_MIND.get());
+            var accessories = AccessoriesCapability.get(player);
 
+            if (accessories == null) {
+                return damageAmount;
+            }
+            var stack = accessories.getEquipped(ModItems.RAGE_MIND.get());
             if (!stack.isEmpty()) {
 
                 stack.getFirst().stack().set(ModDataComponents.RAGE_MIND_REVENGE_TARGET.get(), BuiltInRegistries.ENTITY_TYPE.getKey(damageSource.getEntity().getType()).toString());
@@ -427,8 +485,12 @@ public abstract class LivingEntityMixin {
             Random random = new Random();
             Entity sourceEntity = damageSource.getEntity();
 
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.REVERSE_CARD.get());
+            var accessories = AccessoriesCapability.get(player);
 
+            if (accessories == null) {
+                return damageAmount;
+            }
+            var stack = accessories.getEquipped(ModItems.REVERSE_CARD.get());
             if (!stack.isEmpty() && random.nextInt(100) <= config.chanceToActivate) {
 
                 if (sourceEntity != null && !(sourceEntity instanceof Player) && !player.level().isClientSide) {
@@ -453,8 +515,12 @@ public abstract class LivingEntityMixin {
         }
 
         if (targetEntity instanceof Player player && !player.isSpectator()) {
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.SIGIL_OF_BAPHOMET.get());
+            var accessories = AccessoriesCapability.get(player);
 
+            if (accessories == null) {
+                return damageAmount;
+            }
+            var stack = accessories.getEquipped(ModItems.SIGIL_OF_BAPHOMET.get());
             if (!stack.isEmpty() && stack.getFirst().stack().getOrDefault(ModDataComponents.SIGIL_COUNT.get(), 0) > 0 && !player.level().isClientSide) {
                 ((ServerLevel) player.getCommandSenderWorld()).sendParticles(ParticleTypes.ENCHANT, player.getX(), player.getY(), player.getZ(), 50, 0.5D, 1D, 0.5D, 0.1);
                 return 0;
@@ -476,8 +542,12 @@ public abstract class LivingEntityMixin {
         }
 
         if (targetEntity instanceof Player player && !player.isSpectator()) {
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.WOODEN_STICK.get());
+            var accessories = AccessoriesCapability.get(player);
 
+            if (accessories == null) {
+                return damageAmount;
+            }
+            var stack = accessories.getEquipped(ModItems.WOODEN_STICK.get());
             if (!stack.isEmpty() && !player.level().isClientSide) {
                 if (!player.getCooldowns().isOnCooldown(stack.getFirst().stack())) {
                     player.getCooldowns().addCooldown(stack.getFirst().stack(), (int) config.cooldown);

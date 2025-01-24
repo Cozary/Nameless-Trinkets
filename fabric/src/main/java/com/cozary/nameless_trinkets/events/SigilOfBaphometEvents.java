@@ -19,8 +19,12 @@ public class SigilOfBaphometEvents {
 
             if (entity instanceof Player player && !player.isSpectator()) {
 
-                var stack = AccessoriesCapability.get(player).getEquipped(ModItems.SIGIL_OF_BAPHOMET.get());
+                var accessories = AccessoriesCapability.get(player);
 
+                if (accessories == null) {
+                    return;
+                }
+                var stack = accessories.getEquipped(ModItems.SIGIL_OF_BAPHOMET.get());
                 if (!stack.isEmpty() && stack.getFirst().stack().getOrDefault(ModDataComponents.SIGIL_COUNT.get(), 0) <= 10) {
                     stack.getFirst().stack().set(ModDataComponents.SIGIL_COUNT.get(), stack.getFirst().stack().getOrDefault(ModDataComponents.SIGIL_COUNT.get(), 0) + 1);
                 }

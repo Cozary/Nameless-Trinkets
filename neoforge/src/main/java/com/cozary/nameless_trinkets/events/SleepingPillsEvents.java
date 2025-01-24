@@ -23,8 +23,12 @@ public class SleepingPillsEvents {
 
         if (!player.isSpectator()) {
 
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.SLEEPING_PILLS.get());
+            var accessories = AccessoriesCapability.get(player);
 
+            if (accessories == null) {
+                return;
+            }
+            var stack = accessories.getEquipped(ModItems.SLEEPING_PILLS.get());
             if (!stack.isEmpty() && config.bedDisabled) {
                 event.setProblem(Player.BedSleepingProblem.OTHER_PROBLEM);
             }

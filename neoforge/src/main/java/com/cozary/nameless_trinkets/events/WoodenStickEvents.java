@@ -20,8 +20,12 @@ public class WoodenStickEvents {
 
         if (event.getEntity() instanceof Player player) {
 
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.WOODEN_STICK.get());
+            var accessories = AccessoriesCapability.get(player);
 
+            if (accessories == null) {
+                return;
+            }
+            var stack = accessories.getEquipped(ModItems.WOODEN_STICK.get());
             if (!stack.isEmpty() && !player.level().isClientSide) {
                 if (!player.getCooldowns().isOnCooldown(stack.getFirst().stack())) {
                     event.setNewDamage(0);

@@ -22,8 +22,12 @@ public class LightGlovesEvents {
 
         if (!player.isSpectator()) {
 
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.LIGHT_GLOVES.get());
+            var accessories = AccessoriesCapability.get(player);
 
+            if (accessories == null) {
+                return;
+            }
+            var stack = accessories.getEquipped(ModItems.LIGHT_GLOVES.get());
             if ((!stack.isEmpty() && !player.level().canSeeSky(player.blockPosition()))) {
                 event.setNewSpeed(event.getOriginalSpeed() * config.miningSpeedMultiplier);
             }

@@ -24,8 +24,12 @@ public class BrokenAnkhEvents {
             if (!config.isEnable) return true;
 
             if (entity instanceof Player player && !player.isSpectator()) {
-                var stack = AccessoriesCapability.get(player).getEquipped(ModItems.BROKEN_ANKH.get());
+                var accessories = AccessoriesCapability.get(player);
 
+                if (accessories == null) {
+                    return true;
+                }
+                var stack = accessories.getEquipped(ModItems.BROKEN_ANKH.get());
                 if (!stack.isEmpty() && player.isDeadOrDying() && !player.getCooldowns().isOnCooldown(stack.getFirst().stack()) && !player.level().isClientSide) {
 
                     ((ServerLevel) player.getCommandSenderWorld()).sendParticles(ParticleTypes.SMOKE, player.getX(), player.getY(), player.getZ(), 100, 1D, 1D, 1D, 0.1);
@@ -50,8 +54,12 @@ public class BrokenAnkhEvents {
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
             server.execute(() -> {
                 if (handler.player instanceof ServerPlayer player) {
-                    var stack = AccessoriesCapability.get(player).getEquipped(ModItems.BROKEN_ANKH.get());
+                    var accessories = AccessoriesCapability.get(player);
 
+                    if (accessories == null) {
+                        return;
+                    }
+                    var stack = accessories.getEquipped(ModItems.BROKEN_ANKH.get());
                     if (!stack.isEmpty()) {
 
                         player.getCooldowns().addCooldown(stack.getFirst().stack(), getCooldown(stack.getFirst().stack()));
@@ -64,8 +72,12 @@ public class BrokenAnkhEvents {
         ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> {
             server.execute(() -> {
                 if (handler.player instanceof ServerPlayer player) {
-                    var stack = AccessoriesCapability.get(player).getEquipped(ModItems.BROKEN_ANKH.get());
+                    var accessories = AccessoriesCapability.get(player);
 
+                    if (accessories == null) {
+                        return;
+                    }
+                    var stack = accessories.getEquipped(ModItems.BROKEN_ANKH.get());
                     if (!stack.isEmpty()) {
                         setCooldown(stack.getFirst().stack(),
                                 (int) (player.getCooldowns().getCooldownPercent(stack.getFirst().stack(), 0) * config.cooldown));

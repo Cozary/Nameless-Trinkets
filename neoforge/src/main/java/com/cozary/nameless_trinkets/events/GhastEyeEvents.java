@@ -24,8 +24,12 @@ public class GhastEyeEvents {
 
         if (event.getSource().getEntity() instanceof Player player && !player.isSpectator()) {
 
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.GHAST_EYE.get());
+            var accessories = AccessoriesCapability.get(player);
 
+            if (accessories == null) {
+                return;
+            }
+            var stack = accessories.getEquipped(ModItems.GHAST_EYE.get());
             if (!stack.isEmpty()) {
                 if (!player.hasEffect(MobEffects.REGENERATION)) {
                     player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, config.regenerationTime, config.regenerationLevel));

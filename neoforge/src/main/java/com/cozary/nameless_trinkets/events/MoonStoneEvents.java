@@ -22,8 +22,12 @@ public class MoonStoneEvents {
         if (event.getEntity() instanceof Player player) {
             if (event.getEntity() == player) {
 
-                var stack = AccessoriesCapability.get(player).getEquipped(ModItems.MOON_STONE.get());
+                var accessories = AccessoriesCapability.get(player);
 
+                if (accessories == null) {
+                    return;
+                }
+                var stack = accessories.getEquipped(ModItems.MOON_STONE.get());
                 if (!stack.isEmpty()) {
                     if (event.getSource().is(DamageTypes.FALL)) {
                         event.setNewDamage(0);

@@ -43,7 +43,12 @@ public class MinersSoulEvents {
         Player player = event.getPlayer();
 
         if (!player.level().isClientSide && !player.getAbilities().instabuild) {
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.MINERS_SOUL.get());
+            var accessories = AccessoriesCapability.get(player);
+
+            if (accessories == null) {
+                return;
+            }
+            var stack = accessories.getEquipped(ModItems.MINERS_SOUL.get());
             if (!stack.isEmpty()) {
                 Level level = player.level();
                 ItemStack itemStack = player.getMainHandItem();

@@ -22,8 +22,12 @@ public class VampireBloodEvents {
 
         if (event.getSource().getEntity() instanceof Player player) {
 
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.VAMPIRE_BLOOD.get());
+            var accessories = AccessoriesCapability.get(player);
 
+            if (accessories == null) {
+                return;
+            }
+            var stack = accessories.getEquipped(ModItems.VAMPIRE_BLOOD.get());
             if (!stack.isEmpty() && !player.level().isClientSide) {
                 ((ServerLevel) event.getEntity().getCommandSenderWorld()).sendParticles(ParticleTypes.SNEEZE, event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ(), 35, 1D, 1D, 1D, 0.1);
                 player.heal(event.getEntity().getMaxHealth() * (config.healingPercentage / 100));
