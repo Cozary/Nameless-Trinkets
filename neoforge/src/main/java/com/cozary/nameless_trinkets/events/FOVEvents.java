@@ -17,12 +17,17 @@ public class FOVEvents {
         if (!ConfigurationHandler.GENERAL.disableFOV.get()) return;
 
         Player player = event.getPlayer();
-        if (player == null) return;
 
-        var stack0 = AccessoriesCapability.get(player).getEquipped(ModItems.CRACKED_CROWN.get());
-        var stack1 = AccessoriesCapability.get(player).getEquipped(ModItems.GODS_CROWN.get());
-        var stack2 = AccessoriesCapability.get(player).getEquipped(ModItems.SCARAB_AMULET.get());
-        var stack3 = AccessoriesCapability.get(player).getEquipped(ModItems.SPEED_FORCE.get());
+        var accessories = AccessoriesCapability.get(player);
+
+        if (accessories == null) {
+            return;
+        }
+
+        var stack0 = accessories.getEquipped(ModItems.CRACKED_CROWN.get());
+        var stack1 = accessories.getEquipped(ModItems.GODS_CROWN.get());
+        var stack2 = accessories.getEquipped(ModItems.SCARAB_AMULET.get());
+        var stack3 = accessories.getEquipped(ModItems.SPEED_FORCE.get());
 
         if (!stack0.isEmpty() || !stack1.isEmpty() || !stack2.isEmpty() || !stack3.isEmpty()) {
 

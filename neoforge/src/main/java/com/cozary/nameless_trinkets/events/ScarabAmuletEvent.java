@@ -24,8 +24,12 @@ public class ScarabAmuletEvent {
             Entity entity = event.getEntity();
             if (!player.level().isClientSide) {
 
-                var stack = AccessoriesCapability.get(player).getEquipped(ModItems.SCARAB_AMULET.get());
+                var accessories = AccessoriesCapability.get(player);
 
+                if (accessories == null) {
+                    return;
+                }
+                var stack = accessories.getEquipped(ModItems.SCARAB_AMULET.get());
                 if (!stack.isEmpty() && entity instanceof Husk) {
                     event.setNewAboutToBeSetTarget(null);
                 }

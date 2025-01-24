@@ -8,6 +8,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -17,6 +18,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
@@ -37,7 +39,13 @@ public abstract class LivingEntityMixin {
 
         Entity sourceEntity = damageSource.getEntity();
         if (sourceEntity instanceof Player attacker) {
-            var stack = AccessoriesCapability.get(attacker).getEquipped(ModItems.BLAZE_NUCLEUS.get());
+
+            var accessories = AccessoriesCapability.get(attacker);
+
+            if (accessories == null) {
+                return;
+            }
+            var stack = accessories.getEquipped(ModItems.BLAZE_NUCLEUS.get());
 
             if (!stack.isEmpty()) {
                 targetEntity.setRemainingFireTicks(config.setEnemyInFireTicks);
@@ -58,8 +66,13 @@ public abstract class LivingEntityMixin {
         }
 
         if (entity instanceof Player attackingPlayer) {
-            var stack = AccessoriesCapability.get(attackingPlayer).getEquipped(ModItems.EXPERIENCE_BATTERY.get());
 
+            var accessories = AccessoriesCapability.get(attackingPlayer);
+
+            if (accessories == null) {
+                return;
+            }
+            var stack = accessories.getEquipped(ModItems.EXPERIENCE_BATTERY.get());
             if (stack.isEmpty() || livingEntity instanceof Player) {
                 return;
             }
@@ -87,7 +100,12 @@ public abstract class LivingEntityMixin {
 
         if (damageSource.getEntity() instanceof Player player && !player.isSpectator()) {
 
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.ICE_CUBE.get());
+            var accessories = AccessoriesCapability.get(player);
+
+            if (accessories == null) {
+                return damageAmount;
+            }
+            var stack = accessories.getEquipped(ModItems.ICE_CUBE.get());
 
             if (!stack.isEmpty()) {
                 MobEffectInstance effectinstance = new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, config.slownessTime, config.slownessLevel);
@@ -112,8 +130,12 @@ public abstract class LivingEntityMixin {
         if (damageSource.getEntity() instanceof Player player && !player.isSpectator()) {
 
             Random random = new Random();
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.PUFFER_FISH_LIVER.get());
+            var accessories = AccessoriesCapability.get(player);
 
+            if (accessories == null) {
+                return damageAmount;
+            }
+            var stack = accessories.getEquipped(ModItems.PUFFER_FISH_LIVER.get());
             if (!stack.isEmpty() && random.nextInt(100) <= config.chanceToApplyPoison) {
                 MobEffectInstance effectinstance = new MobEffectInstance(MobEffects.POISON, config.poisonTime, config.poisonLevel);
                 targetEntity.addEffect(effectinstance);
@@ -136,8 +158,12 @@ public abstract class LivingEntityMixin {
 
         if (damageSource.getEntity() instanceof Player player && !player.isSpectator()) {
 
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.RAGE_MIND.get());
+            var accessories = AccessoriesCapability.get(player);
 
+            if (accessories == null) {
+                return damageAmount;
+            }
+            var stack = accessories.getEquipped(ModItems.RAGE_MIND.get());
             if (!stack.isEmpty()) {
 
                 if (stack.getFirst().stack().get(ModDataComponents.RAGE_MIND_REVENGE_TARGET.get()) != null) {

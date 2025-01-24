@@ -26,8 +26,12 @@ public class MobMixin {
         if (target instanceof Player player) {
             if (!player.level().isClientSide) {
 
-                var stack = AccessoriesCapability.get(player).getEquipped(ModItems.SCARAB_AMULET.get());
+                var accessories = AccessoriesCapability.get(player);
 
+                if (accessories == null) {
+                    return;
+                }
+                var stack = accessories.getEquipped(ModItems.SCARAB_AMULET.get());
                 if (!stack.isEmpty() && attackerEntity instanceof Husk) {
                     ci.cancel();
                 }

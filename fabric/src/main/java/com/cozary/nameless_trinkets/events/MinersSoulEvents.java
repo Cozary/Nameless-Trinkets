@@ -32,8 +32,12 @@ public class MinersSoulEvents {
             if (!config.isEnable) return;
 
             if (player != null && !player.isSpectator()) {
-                var stack = AccessoriesCapability.get(player).getEquipped(ModItems.MINERS_SOUL.get());
+                var accessories = AccessoriesCapability.get(player);
 
+                if (accessories == null) {
+                    return;
+                }
+                var stack = accessories.getEquipped(ModItems.MINERS_SOUL.get());
                 if (!stack.isEmpty()) {
                     ItemStack itemStack = player.getMainHandItem();
                     ItemStack fakeItemStack = new ItemStack(itemStack.getItem());

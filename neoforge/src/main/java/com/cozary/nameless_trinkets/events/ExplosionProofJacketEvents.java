@@ -33,8 +33,12 @@ public class ExplosionProofJacketEvents {
                 Level world = player.level();
                 ItemStack itemStack = Items.TNT.getDefaultInstance();
 
-                var stack = AccessoriesCapability.get(player).getEquipped(ModItems.EXPLOSION_PROOF_JACKET.get());
+                var accessories = AccessoriesCapability.get(player);
 
+                if (accessories == null) {
+                    return;
+                }
+                var stack = accessories.getEquipped(ModItems.EXPLOSION_PROOF_JACKET.get());
                 if (!stack.isEmpty()) {
                     if (event.getSource().is(DamageTypeTags.IS_EXPLOSION)) {
                         event.setNewDamage(event.getOriginalDamage() * (1 - config.blastDamagePercentageReduction) * 100);

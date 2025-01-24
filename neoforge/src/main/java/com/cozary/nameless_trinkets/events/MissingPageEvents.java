@@ -37,8 +37,12 @@ public class MissingPageEvents {
         Random random = new Random();
         if (event.getEntity() instanceof Player player) {
 
-            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.MISSING_PAGE.get());
+            var accessories = AccessoriesCapability.get(player);
 
+            if (accessories == null) {
+                return;
+            }
+            var stack = accessories.getEquipped(ModItems.MISSING_PAGE.get());
             if (!stack.isEmpty() && random.nextInt(100) <= config.activationPercentage) {
 
                 AABB targetBox = new AABB(player.position(), player.position()).inflate(config.radiusInBlocks);
