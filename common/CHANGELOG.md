@@ -1,6 +1,5 @@
 # Changelog
 
-### Changed
+### Fixed
 
-- 1.21.1 Port
-
+- AccessoriesCapability get player sometimes as null
