@@ -31,7 +31,7 @@ public class CallusEvents {
             return;
 
         var source = event.getSource();
-        float newDamage = event.getOriginalDamage();
+        float newDamage = event.getNewDamage();
 
         if (isNullifiedDamageType(source)) {
             newDamage = 0;
