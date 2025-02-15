@@ -142,7 +142,7 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
         LivingEntity entity = reference.entity();
         Level level = entity.level();
 
-        if (!level.isClientSide) {
+        if (level.isClientSide) {
             return;
         }
 
