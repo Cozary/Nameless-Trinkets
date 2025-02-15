@@ -2,4 +2,4 @@
 
 ### Fixed
 
-- AccessoriesCapability get player sometimes as null
+- [Callus] The damage reduction calculation was using the original damage instead of the damage calculated after everything was applied.
