@@ -279,8 +279,14 @@ public class PlayerMixinFabric {
 
             if (!stack.isEmpty()) {
 
-                stack.getFirst().stack().set(ModDataComponents.RAGE_MIND_REVENGE_TARGET.get(), BuiltInRegistries.ENTITY_TYPE.getKey(damageSource.getEntity().getType()).toString());
-
+                Entity sourceEntity = damageSource.getEntity();
+                if (sourceEntity != null) {
+                    var entityType = sourceEntity.getType();
+                    if (entityType != null) {
+                        String entityKey = BuiltInRegistries.ENTITY_TYPE.getKey(entityType).toString();
+                        stack.getFirst().stack().set(ModDataComponents.RAGE_MIND_REVENGE_TARGET.get(), entityKey);
+                    }
+                }
             }
         }
 

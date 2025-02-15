@@ -38,7 +38,11 @@ public class RageMindEvents {
 
                 if (entity instanceof LivingEntity) {
 
-                    stack.getFirst().stack().set(ModDataComponents.RAGE_MIND_REVENGE_TARGET.get(), BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()).toString());
+                    var entityType = entity.getType();
+                    if (entityType != null) {
+                        String entityKey = BuiltInRegistries.ENTITY_TYPE.getKey(entityType).toString();
+                        stack.getFirst().stack().set(ModDataComponents.RAGE_MIND_REVENGE_TARGET.get(), entityKey);
+                    }
                 }
             }
         }
