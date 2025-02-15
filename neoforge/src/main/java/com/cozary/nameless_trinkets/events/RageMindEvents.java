@@ -33,17 +33,23 @@ public class RageMindEvents {
             if (accessories == null) {
                 return;
             }
+
             var stack = accessories.getEquipped(ModItems.RAGE_MIND.get());
             if (!stack.isEmpty()) {
                 Entity entity = event.getSource().getEntity();
 
                 if (entity instanceof LivingEntity) {
 
-                    stack.getFirst().stack().set(ModDataComponents.RAGE_MIND_REVENGE_TARGET.get(), BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()).toString());
+                    var entityType = entity.getType();
+                    if (entityType != null) {
+                        String entityKey = BuiltInRegistries.ENTITY_TYPE.getKey(entityType).toString();
+                        stack.getFirst().stack().set(ModDataComponents.RAGE_MIND_REVENGE_TARGET.get(), entityKey);
+                    }
                 }
             }
         }
     }
+
 
     @SubscribeEvent
     public static void dealDamage(LivingDamageEvent.Pre event) {
