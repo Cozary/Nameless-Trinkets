@@ -24,6 +24,9 @@ import net.minecraft.world.scores.PlayerTeam;
 import net.minecraft.world.scores.Scoreboard;
 
 import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class RageMind extends TrinketItem<RageMind.Stats> {
     public static RageMind INSTANCE;
@@ -43,6 +46,9 @@ public class RageMind extends TrinketItem<RageMind.Stats> {
             return;
 
         if (!(reference.entity() instanceof Player player))
+            return;
+
+        if(player.level().isClientSide)
             return;
 
         if (stack.get(ModDataComponents.RAGE_MIND_REVENGE_TARGET.get()) != null) {
