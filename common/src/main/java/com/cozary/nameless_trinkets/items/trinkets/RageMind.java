@@ -76,25 +76,27 @@ public class RageMind extends TrinketItem<RageMind.Stats> {
                         LivingEntity livingRevengeTarget = (LivingEntity) revengeTarget;
 
                         MobEffectInstance effectinstance = new MobEffectInstance(MobEffects.GLOWING, 20, 20);
-                        Scoreboard scoreboard = player.getScoreboard();
 
-                        if (!scoreboard.getTeamNames().contains("rageMindRevengeTargets"))
-                            scoreboard.addPlayerTeam("rageMindRevengeTargets");
+                        // Scoreboard scoreboard = player.getScoreboard();
 
-                        PlayerTeam playerteam = player.level().getScoreboard().getPlayerTeam("rageMindRevengeTargets");
+                        // if (!scoreboard.getTeamNames().contains("rageMindRevengeTargets"))
+                        //     scoreboard.addPlayerTeam("rageMindRevengeTargets");
 
-                        if (playerteam == null)
-                            return;
+                        // PlayerTeam playerteam = player.level().getScoreboard().getPlayerTeam("rageMindRevengeTargets");
 
-                        scoreboard.addPlayerToTeam(livingRevengeTarget.getStringUUID(), playerteam);
-                        playerteam.setColor(ChatFormatting.RED);
+                        // if (playerteam == null)
+                        //     return;
+
+                        // scoreboard.addPlayerToTeam(livingRevengeTarget.getStringUUID(), playerteam);
+                        // playerteam.setColor(ChatFormatting.RED);
+
                         livingRevengeTarget.addEffect(effectinstance);
                     }
                 }
-
             }
         }
     }
+
 
 
     @Override
