@@ -1,0 +1,62 @@
+site_name: Nameless Trinkets Wiki
+site_url: https://mydomain.org/mysite
+theme:
+  name: material
+  palette:
+    primary: cyan
+
+nav:
+  - Home: index.md
+  - Getting more slots: slots.md
+  - How to obtain trinkets: obtaining.md
+  - Recycling Trinkets: recycle.md
+  - Tags: tags.md
+  - Trinkets:
+    - Amphibious Hands: trinkets/amphibious_hands.md
+    - Blindfold: trinkets/blindfold.md
+    - Blaze Nucleus: trinkets/blaze_nucleus.md
+    - Broken Ankh: trinkets/broken_ankh.md
+    - Broken Magnet: trinkets/broken_magnet.md
+    - Callus: trinkets/callus.md
+    - Cracked Crown: trinkets/cracked_crown.md
+    - Creeper Sense: trinkets/creeper_sense.md
+    - Dark Nelumbo: trinkets/dark_nelumbo.md
+    - Dragon's Eye: trinkets/dragons_eye.md
+    - Electric Paddle: trinkets/electric_paddle.md
+    - Ethereal Wings: trinkets/ethereal_wings.md
+    - Explosion Proof Jacket: trinkets/explosion_proof_jacket.md
+    - Experiencie Battery: trinkets/experience_battery.md
+    - Experience Magnet: trinkets/experience_magnet.md
+    - Fate Emerald: trinkets/fate_emerald.md
+    - Fertilizer: trinkets/fertilizer.md
+    - Four Leaf Clover: trinkets/four_leaf_clover.md
+    - Fragile Cloud: trinkets/fragile_cloud.md
+    - Fractured Nullstone: trinkets/fractured_nullstone.md
+    - Ghast Eye: trinkets/ghast_eye.md
+    - Gills: trinkets/gills.md
+    - God's Crown: trinkets/gods_crown.md
+    - Ice Cube: trinkets/ice_cube.md
+    - Light Gloves: trinkets/light_gloves.md
+    - Lucky Rock: trinkets/lucky_rock.md
+    - Miner's Soul: trinkets/miners_soul.md
+    - Missing Page: trinkets/missing_page.md
+    - Moon Stone: trinkets/moon_stone.md
+    - Nelumbo: trinkets/nelumbo.md
+    - Puffer Fish Liver: trinkets/puffer_fish_liver.md
+    - Pocket Lightning Rod: trinkets/pocket_lightning_rod.md
+    - Rage Mind: trinkets/rage_mind.md
+    - Reforger: trinkets/reforger.md
+    - Reverse Card: trinkets/reverse_card.md
+    - Scarab Amulet: trinkets/scarab_amulet.md
+    - Sigil Of Baphomet: trinkets/sigil_of_baphomet.md
+    - Sleeping Pills: trinkets/sleeping_pills.md
+    - Speed Force: trinkets/speed_force.md
+    - Spider Legs: trinkets/spider_legs.md
+    - Super Magnet: trinkets/super_magnet.md
+    - Tear Of The Sea: trinkets/tear_of_the_sea.md
+    - Tick: trinkets/tick.md
+    - True Heart Of The Sea: trinkets/true_heart_of_the_sea.md
+    - Vampire Blood: trinkets/vampire_blood.md
+    - What...? Magnet: trinkets/what_magnet.md
+    - Wooden Stick: trinkets/wooden_stick.md
+  - FAQ: faq.md
