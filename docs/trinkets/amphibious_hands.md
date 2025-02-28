@@ -12,4 +12,4 @@ The **Amphibious Hands** trinket grants the following effect:
 ## Notes:
 - The **Amphibious Hands** trinket works only when the player is submerged in water, as checked by the `player.isEyeInFluidType` method.
 
-- FOV settings are changed from `nameless-trinkets-common-tmol`.
+- FOV settings are changed from `nameless-trinkets-common.tmol`.
