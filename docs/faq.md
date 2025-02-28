@@ -18,6 +18,8 @@
 
 ### Why don't trinkets appear in certain chests?
 > **Answer:**  
+> These chests may have their own Loot Table or a lower drop rate than you want. You can use DataPacks to modify this:
+
 > *(Pre-1.7.x)*
 
 > - 1.20: TBD
