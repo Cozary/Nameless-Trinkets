@@ -1,7 +1,7 @@
 # Missing Page  
 
 ## How it works  
-The **Missing Page  ** trinket grants the following effect:
+The **Missing Page** trinket grants the following effect:
 
 - When you take damage from an entity you may deal a percentage of its maximum life as damage to nearby entities.  
 

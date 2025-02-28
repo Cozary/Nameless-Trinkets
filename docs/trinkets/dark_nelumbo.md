@@ -12,4 +12,4 @@ The **Dark Nelumbo** trinket grants the following effects:
 - **Is Enable**: Determines whether the trinket's effect is active or not.
 
 ## Notes:
--You will still take damage from the lava.
+- You will still take damage from the lava.

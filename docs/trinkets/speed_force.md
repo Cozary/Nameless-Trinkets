@@ -11,4 +11,4 @@ The **Speed Force** trinket grants the following effect:
 
 ## Notes: 
 - It also generates **cloud particles** around the player as they move, visually representing the speed boost.
-- FOV settings are changed from `nameless-trinkets-common-tmol`.
+- FOV settings are changed from `nameless-trinkets-common.tmol`.

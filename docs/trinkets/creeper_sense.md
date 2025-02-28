@@ -3,7 +3,7 @@
 ## How it works:
 The **Creeper Sense** trinket grants the following effect:
 
--It triggers an explosion when the player crouches.
+- It triggers an explosion when the player crouches.
 
 ## Configuration:
 - **Is Enable**: Determines whether the trinket's effect is active or not.  

@@ -12,4 +12,4 @@ The **Scarab Amulet** trinket grants the following effects:
 - **Speed Multiplier**: Determina la velocidad extra que se le aplica.
 
 ## Notes:
-- FOV settings are changed from `nameless-trinkets-common-tmol`.
+- FOV settings are changed from `nameless-trinkets-common.tmol`.
