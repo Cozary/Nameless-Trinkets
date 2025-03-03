@@ -1,0 +1,10 @@
+name: Other
+description: Any other type of issue or question
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: What do you want to ask or report?
+    validations:
+      required: true

@@ -1,0 +1,63 @@
+name: Crash Report
+description: Report a crash
+labels: ["type: bug"]
+body:
+  - type: dropdown
+    id: loader
+    attributes:
+      label: Mod Loader
+      description: Which mod loader are you using?
+      options:
+        - NeoForge
+        - Fabric
+        - Forge
+    validations:
+      required: true
+
+  - type: input
+    id: loader_version
+    attributes:
+      label: Loader Version
+      description: Which version of the loader are you using?
+      placeholder: x.x.x
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Mod Version
+      description: Which version of the mod are you using?
+      placeholder: x.x.x
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe the bug and what happens.
+      placeholder: "Example: When I place a block, it disappears."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: How can this bug be reproduced?
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: input
+    id: log
+    attributes:
+      label: Crash Log
+      description: Use https://mclo.gs (or similar) to share your crash log.
+      placeholder: https://mclo.gs
+    validations:
+      required: true
