@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:lucky_rock"
     },
     "title": {
-      "translate": "Mining the precious."
+      "translate": "advancements.nameless_trinkets.lucky_rock.title"
     },
     "description": {
-      "translate": "Obtain the Lucky Rock."
+      "translate": "advancements.nameless_trinkets.lucky_rock.description"
     }
   },
   "criteria": {

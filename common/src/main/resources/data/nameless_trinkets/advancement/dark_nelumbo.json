@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:dark_nelumbo"
     },
     "title": {
-      "translate": "This is rare."
+      "translate": "advancements.nameless_trinkets.dark_nelumbo.title"
     },
     "description": {
-      "translate": "Obtain the Dark Nelumbo."
+      "translate": "advancements.nameless_trinkets.dark_nelumbo.description"
     }
   },
   "criteria": {

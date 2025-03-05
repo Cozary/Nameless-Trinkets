@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:amphibious_hands"
     },
     "title": {
-      "translate": "Like a frog."
+      "translate": "advancements.nameless_trinkets.amphibious_hands.title"
     },
     "description": {
-      "translate": "Obtain the Amphibious Hands."
+      "translate": "advancements.nameless_trinkets.amphibious_hands.description"
     }
   },
   "criteria": {

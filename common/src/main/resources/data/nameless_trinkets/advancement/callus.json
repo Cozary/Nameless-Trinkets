@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:callus"
     },
     "title": {
-      "translate": "Uhhh, gross?"
+      "translate": "advancements.nameless_trinkets.callus.title"
     },
     "description": {
-      "translate": "Obtain the Callus."
+      "translate": "advancements.nameless_trinkets.callus.description"
     }
   },
   "criteria": {

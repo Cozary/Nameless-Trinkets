@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:blaze_nucleus"
     },
     "title": {
-      "translate": "The core is still hot."
+      "translate": "advancements.nameless_trinkets.blaze_nucleus.title"
     },
     "description": {
-      "translate": "Obtain the Blaze Nucleus."
+      "translate": "advancements.nameless_trinkets.blaze_nucleus.description"
     }
   },
   "criteria": {

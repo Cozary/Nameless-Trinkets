@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:blindfold"
     },
     "title": {
-      "translate": "Where I am?"
+      "translate": "advancements.nameless_trinkets.blindfold.title"
     },
     "description": {
-      "translate": "Obtain the Blindfold."
+      "translate": "advancements.nameless_trinkets.blindfold.description"
     }
   },
   "criteria": {

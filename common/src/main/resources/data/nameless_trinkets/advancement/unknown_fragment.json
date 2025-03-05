@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:unknown_fragment"
     },
     "title": {
-      "translate": "Let's Reroll"
+      "translate": "advancements.nameless_trinkets.unknown_fragment.title"
     },
     "description": {
-      "translate": "Right Click on an Amethyst Block with a Trinket."
+      "translate": "advancements.nameless_trinkets.unknown_fragment.description"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
     "show_toast": true,

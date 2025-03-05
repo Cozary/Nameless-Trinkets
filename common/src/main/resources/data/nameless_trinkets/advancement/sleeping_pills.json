@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:sleeping_pills"
     },
     "title": {
-      "translate": "They might help me."
+      "translate": "advancements.nameless_trinkets.sleeping_pills.title"
     },
     "description": {
-      "translate": "Obtain the Sleeping Pills."
+      "translate": "advancements.nameless_trinkets.sleeping_pills.description"
     }
   },
   "criteria": {

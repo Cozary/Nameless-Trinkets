@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:tick"
     },
     "title": {
-      "translate": "It's like a straw."
+      "translate": "advancements.nameless_trinkets.tick.title"
     },
     "description": {
-      "translate": "Obtain the Tick."
+      "translate": "advancements.nameless_trinkets.tick.description"
     }
   },
   "criteria": {

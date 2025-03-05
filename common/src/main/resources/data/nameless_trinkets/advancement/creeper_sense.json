@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:creeper_sense"
     },
     "title": {
-      "translate": "I have problems."
+      "translate": "advancements.nameless_trinkets.creeper_sense.title"
     },
     "description": {
-      "translate": "Obtain the Creeper Sense."
+      "translate": "advancements.nameless_trinkets.creeper_sense.description"
     }
   },
   "criteria": {

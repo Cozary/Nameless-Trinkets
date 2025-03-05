@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:ghast_eye"
     },
     "title": {
-      "translate": "Did it hurt?"
+      "translate": "advancements.nameless_trinkets.ghast_eye.title"
     },
     "description": {
-      "translate": "Obtain the Ghast Eye."
+      "translate": "advancements.nameless_trinkets.ghast_eye.description"
     }
   },
   "criteria": {

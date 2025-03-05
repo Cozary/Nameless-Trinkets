@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:fragile_cloud"
     },
     "title": {
-      "translate": "Descending from above."
+      "translate": "advancements.nameless_trinkets.fragile_cloud.title"
     },
     "description": {
-      "translate": "Obtain the Fragile Cloud."
+      "translate": "advancements.nameless_trinkets.fragile_cloud.description"
     }
   },
   "criteria": {

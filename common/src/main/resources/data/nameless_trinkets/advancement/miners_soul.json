@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:miners_soul"
     },
     "title": {
-      "translate": "They are still looking for it."
+      "translate": "advancements.nameless_trinkets.miners_soul.title"
     },
     "description": {
-      "translate": "Obtain the Miner's Soul."
+      "translate": "advancements.nameless_trinkets.miners_soul.description"
     }
   },
   "criteria": {

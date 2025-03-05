@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:fate_emerald"
     },
     "title": {
-      "translate": "Destiny."
+      "translate": "advancements.nameless_trinkets.fate_emerald.title"
     },
     "description": {
-      "translate": "Obtain the Fate Emerald."
+      "translate": "advancements.nameless_trinkets.fate_emerald.description"
     }
   },
   "criteria": {

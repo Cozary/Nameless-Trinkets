@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:fertilizer"
     },
     "title": {
-      "translate": "It grows, it grows, it grows!"
+      "translate": "advancements.nameless_trinkets.fertilizer.title"
     },
     "description": {
-      "translate": "Obtain the Fertilizer."
+      "translate": "advancements.nameless_trinkets.fertilizer.description"
     }
   },
   "criteria": {

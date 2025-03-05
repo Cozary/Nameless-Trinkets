@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:dragons_eye"
     },
     "title": {
-      "translate": "Enemy."
+      "translate": "advancements.nameless_trinkets.dragons_eye.title"
     },
     "description": {
-      "translate": "Obtain the Dragon's Eye."
+      "translate": "advancements.nameless_trinkets.dragons_eye.description"
     }
   },
   "criteria": {
