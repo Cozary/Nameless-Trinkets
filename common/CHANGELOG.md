@@ -1,5 +1,5 @@
 # Changelog
 
-### Removed
+### Fixed
 
-- [Rage Mind] Temporarily removed the application of red color to entities.
+- [True Heart Of The Sea] Not working properly.
