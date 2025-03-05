@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:ethereal_wings"
     },
     "title": {
-      "translate": "They cannot be seen."
+      "translate": "advancements.nameless_trinkets.ethereal_wings.title"
     },
     "description": {
-      "translate": "Obtain the Ethereal Wings."
+      "translate": "advancements.nameless_trinkets.ethereal_wings.description"
     }
   },
   "criteria": {

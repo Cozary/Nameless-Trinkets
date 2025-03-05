@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:wooden_stick"
     },
     "title": {
-      "translate": "IT'S A STICK"
+      "translate": "advancements.nameless_trinkets.wooden_stick.title"
     },
     "description": {
-      "translate": "Obtain the Wooden Stick."
+      "translate": "advancements.nameless_trinkets.wooden_stick.description"
     }
   },
   "criteria": {

@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:gods_crown"
     },
     "title": {
-      "translate": "...to the top."
+      "translate": "advancements.nameless_trinkets.gods_crown.title"
     },
     "description": {
-      "translate": "Obtain the God's Crown."
+      "translate": "advancements.nameless_trinkets.gods_crown.description"
     }
   },
   "criteria": {

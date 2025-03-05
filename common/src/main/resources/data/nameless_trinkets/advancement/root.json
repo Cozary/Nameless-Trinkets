@@ -4,10 +4,10 @@
       "id": "nameless_trinkets:mysterious_trinket"
     },
     "title": {
-      "translate": "They're out there..."
+      "translate": "advancements.nameless_trinkets.root.title"
     },
     "description": {
-      "translate": "Catch them all?"
+      "translate": "advancements.nameless_trinkets.root.description"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png"
   },

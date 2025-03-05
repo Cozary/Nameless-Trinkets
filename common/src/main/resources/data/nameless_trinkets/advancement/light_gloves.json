@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:light_gloves"
     },
     "title": {
-      "translate": "Feels like I'm wearing nothing at all."
+      "translate": "advancements.nameless_trinkets.light_gloves.title"
     },
     "description": {
-      "translate": "Obtain the Light Gloves."
+      "translate": "advancements.nameless_trinkets.light_gloves.description"
     }
   },
   "criteria": {

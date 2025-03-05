@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:reforger"
     },
     "title": {
-      "translate": "Let's fix the broken."
+      "translate": "advancements.nameless_trinkets.reforger.title"
     },
     "description": {
-      "translate": "Obtain the Reforger."
+      "translate": "advancements.nameless_trinkets.reforger.description"
     }
   },
   "criteria": {

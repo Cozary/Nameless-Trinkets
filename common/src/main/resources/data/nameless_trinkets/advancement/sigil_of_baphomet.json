@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:sigil_of_baphomet"
     },
     "title": {
-      "translate": "Sacrifices protect me."
+      "translate": "advancements.nameless_trinkets.sigil_of_baphomet.title"
     },
     "description": {
-      "translate": "Obtain the Sigil Of Baphomet."
+      "translate": "advancements.nameless_trinkets.sigil_of_baphomet.description"
     }
   },
   "criteria": {

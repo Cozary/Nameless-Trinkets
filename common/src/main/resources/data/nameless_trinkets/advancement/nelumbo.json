@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:nelumbo"
     },
     "title": {
-      "translate": "It is pretty and useful."
+      "translate": "advancements.nameless_trinkets.nelumbo.title"
     },
     "description": {
-      "translate": "Obtain the Nelumbo."
+      "translate": "advancements.nameless_trinkets.nelumbo.description"
     }
   },
   "criteria": {

@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:broken_magnet"
     },
     "title": {
-      "translate": "Almost."
+      "translate": "advancements.nameless_trinkets.broken_magnet.title"
     },
     "description": {
-      "translate": "Obtain the Broken Magnet."
+      "translate": "advancements.nameless_trinkets.broken_magnet.description"
     }
   },
   "criteria": {

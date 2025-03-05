@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:super_magnet"
     },
     "title": {
-      "translate": "Now everything belongs to me."
+      "translate": "advancements.nameless_trinkets.super_magnet.title"
     },
     "description": {
-      "translate": "Obtain the Super Magnet."
+      "translate": "advancements.nameless_trinkets.super_magnet.description"
     }
   },
   "criteria": {

@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:cracked_crown"
     },
     "title": {
-      "translate": "From the depths..."
+      "translate": "advancements.nameless_trinkets.cracked_crown.title"
     },
     "description": {
-      "translate": "Obtain the Cracked Crown."
+      "translate": "advancements.nameless_trinkets.cracked_crown.description"
     }
   },
   "criteria": {

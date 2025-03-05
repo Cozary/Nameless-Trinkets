@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:vampire_blood"
     },
     "title": {
-      "translate": "I'm stronger, but..."
+      "translate": "advancements.nameless_trinkets.vampire_blood.title"
     },
     "description": {
-      "translate": "Obtain the Vampire Blood."
+      "translate": "advancements.nameless_trinkets.vampire_blood.description"
     }
   },
   "criteria": {

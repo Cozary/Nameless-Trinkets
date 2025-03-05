@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:explosion_proof_jacket"
     },
     "title": {
-      "translate": "Now they don't scare me."
+      "translate": "advancements.nameless_trinkets.explosion_proof_jacket.title"
     },
     "description": {
-      "translate": "Obtain the Explosion Proof Jacket."
+      "translate": "advancements.nameless_trinkets.explosion_proof_jacket.description"
     }
   },
   "criteria": {

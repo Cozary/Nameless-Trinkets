@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:four_leaf_clover"
     },
     "title": {
-      "translate": "I feel lucky, yeah."
+      "translate": "advancements.nameless_trinkets.four_leaf_clover.title"
     },
     "description": {
-      "translate": "Obtain the Four Leaf Clover."
+      "translate": "advancements.nameless_trinkets.four_leaf_clover.description"
     }
   },
   "criteria": {

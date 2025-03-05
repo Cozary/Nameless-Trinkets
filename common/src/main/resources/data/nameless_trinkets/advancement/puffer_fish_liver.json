@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:puffer_fish_liver"
     },
     "title": {
-      "translate": "I do not feel bad?"
+      "translate": "advancements.nameless_trinkets.puffer_fish_liver.title"
     },
     "description": {
-      "translate": "Obtain the Pufferfish Liver."
+      "translate": "advancements.nameless_trinkets.puffer_fish_liver.description"
     }
   },
   "criteria": {

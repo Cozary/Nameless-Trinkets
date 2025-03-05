@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:true_heart_of_the_sea"
     },
     "title": {
-      "translate": "Straight from the deep."
+      "translate": "advancements.nameless_trinkets.true_heart_of_the_sea.title"
     },
     "description": {
-      "translate": "Obtain the True Heart Of The Sea."
+      "translate": "advancements.nameless_trinkets.true_heart_of_the_sea.description"
     }
   },
   "criteria": {
