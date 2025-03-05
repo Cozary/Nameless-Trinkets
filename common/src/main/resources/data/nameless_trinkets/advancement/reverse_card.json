@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:reverse_card"
     },
     "title": {
-      "translate": "No thanks."
+      "translate": "advancements.nameless_trinkets.reverse_card.title"
     },
     "description": {
-      "translate": "Obtain the Reverse Card."
+      "translate": "advancements.nameless_trinkets.reverse_card.description"
     }
   },
   "criteria": {

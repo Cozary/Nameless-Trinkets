@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:scarab_amulet"
     },
     "title": {
-      "translate": "Something from the past."
+      "translate": "advancements.nameless_trinkets.scarab_amulet.title"
     },
     "description": {
-      "translate": "Obtain the Scarab Amulet."
+      "translate": "advancements.nameless_trinkets.scarab_amulet.description"
     }
   },
   "criteria": {

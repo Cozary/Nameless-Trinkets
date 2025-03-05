@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:fractured_nullstone"
     },
     "title": {
-      "translate": "Still."
+      "translate": "advancements.nameless_trinkets.fractured_nullstone.title"
     },
     "description": {
-      "translate": "Obtain the Fractured Nullstone."
+      "translate": "advancements.nameless_trinkets.fractured_nullstone.description"
     }
   },
   "criteria": {

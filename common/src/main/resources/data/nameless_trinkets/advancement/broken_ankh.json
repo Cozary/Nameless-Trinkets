@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:broken_ankh"
     },
     "title": {
-      "translate": "Dormammu i've come to bargain."
+      "translate": "advancements.nameless_trinkets.broken_ankh.title"
     },
     "description": {
-      "translate": "Obtain the Broken Ankh."
+      "translate": "advancements.nameless_trinkets.broken_ankh.description"
     }
   },
   "criteria": {

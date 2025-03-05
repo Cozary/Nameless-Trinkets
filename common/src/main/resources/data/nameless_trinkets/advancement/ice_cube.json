@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:ice_cube"
     },
     "title": {
-      "translate": "Weeeee."
+      "translate": "advancements.nameless_trinkets.ice_cube.title"
     },
     "description": {
-      "translate": "Obtain the Ice Cube."
+      "translate": "advancements.nameless_trinkets.ice_cube.description"
     }
   },
   "criteria": {

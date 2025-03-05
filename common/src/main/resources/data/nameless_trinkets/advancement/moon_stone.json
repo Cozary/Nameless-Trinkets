@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:moon_stone"
     },
     "title": {
-      "translate": "What's your favorite thing about space? Mine is space."
+      "translate": "advancements.nameless_trinkets.moon_stone.title"
     },
     "description": {
-      "translate": "Obtain the Moon Stone."
+      "translate": "advancements.nameless_trinkets.moon_stone.description"
     }
   },
   "criteria": {

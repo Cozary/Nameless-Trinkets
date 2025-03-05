@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:experience_battery"
     },
     "title": {
-      "translate": "The green bar grows."
+      "translate": "advancements.nameless_trinkets.experience_battery.title"
     },
     "description": {
-      "translate": "Obtain the Experience Battery."
+      "translate": "advancements.nameless_trinkets.experience_battery.description"
     }
   },
   "criteria": {

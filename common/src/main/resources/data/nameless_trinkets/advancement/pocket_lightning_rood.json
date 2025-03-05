@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:pocket_lightning_rod"
     },
     "title": {
-      "translate": "Zap zap zap"
+      "translate": "advancements.nameless_trinkets.pocket_lightning_rod.title"
     },
     "description": {
-      "translate": "Obtain the Pocket Lightning Rod."
+      "translate": "advancements.nameless_trinkets.pocket_lightning_rod.description"
     }
   },
   "criteria": {

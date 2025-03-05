@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:spider_legs"
     },
     "title": {
-      "translate": "Like Spiderman."
+      "translate": "advancements.nameless_trinkets.spider_legs.title"
     },
     "description": {
-      "translate": "Obtain the Spider Legs."
+      "translate": "advancements.nameless_trinkets.spider_legs.description"
     }
   },
   "criteria": {

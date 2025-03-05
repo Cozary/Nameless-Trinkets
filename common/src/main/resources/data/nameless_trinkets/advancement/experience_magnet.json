@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:experience_magnet"
     },
     "title": {
-      "translate": "Ready to enchant."
+      "translate": "advancements.nameless_trinkets.experience_magnet.title"
     },
     "description": {
-      "translate": "Obtain the Experience Magnet."
+      "translate": "advancements.nameless_trinkets.experience_magnet.description"
     }
   },
   "criteria": {

@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:tear_of_the_sea"
     },
     "title": {
-      "translate": "The sea is full."
+      "translate": "advancements.nameless_trinkets.tear_of_the_sea.title"
     },
     "description": {
-      "translate": "Obtain the Tear Of The Sea."
+      "translate": "advancements.nameless_trinkets.tear_of_the_sea.description"
     }
   },
   "criteria": {

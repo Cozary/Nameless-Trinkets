@@ -5,10 +5,10 @@
       "id": "nameless_trinkets:gills"
     },
     "title": {
-      "translate": "Never more."
+      "translate": "advancements.nameless_trinkets.gills.title"
     },
     "description": {
-      "translate": "Obtain the Gills."
+      "translate": "advancements.nameless_trinkets.gills.description"
     }
   },
   "criteria": {
