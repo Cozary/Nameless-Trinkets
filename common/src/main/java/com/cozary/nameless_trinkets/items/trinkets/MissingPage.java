@@ -49,7 +49,7 @@ public class MissingPage extends TrinketItem<MissingPage.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
-        public int activationPercentage = 25;
+        public float activationPercentage = 25.0f;
         public float radiusInBlocks = 25.0F;
         public float percentageOfDamage = 20.0F;
         public boolean isEnable = true;

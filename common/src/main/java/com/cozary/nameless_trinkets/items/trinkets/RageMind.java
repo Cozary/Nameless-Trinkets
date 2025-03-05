@@ -20,13 +20,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.phys.AABB;
-import net.minecraft.world.scores.PlayerTeam;
-import net.minecraft.world.scores.Scoreboard;
 
 import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 public class RageMind extends TrinketItem<RageMind.Stats> {
     public static RageMind INSTANCE;
@@ -118,7 +113,7 @@ public class RageMind extends TrinketItem<RageMind.Stats> {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.rage_mind_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
             if (Screen.hasShiftDown()) {
                 tooltip.add(Component.translatable("tooltip.nameless_trinkets.rage_mind_1").withStyle(ChatFormatting.GOLD));
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.rage_mind_2", config.damageMultiplier).withStyle(ChatFormatting.GOLD));
+                tooltip.add(Component.translatable("tooltip.nameless_trinkets.rage_mind_2", config.damageMultiplierPercentage + "%").withStyle(ChatFormatting.GOLD));
             } else {
                 tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
             }
@@ -126,7 +121,7 @@ public class RageMind extends TrinketItem<RageMind.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
-        public float damageMultiplier = 1.5F;
+        public float damageMultiplierPercentage = 150.0F;
         public float range = 50;
         public boolean isEnable = true;
     }

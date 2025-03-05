@@ -24,7 +24,7 @@ public class MixinVillagerTrade {
         if (!config.isEnable)
             return;
 
-        int discountBoost = config.discountPercentage;
+        int discountBoost = config.discountBoost;
 
         var stack = AccessoriesCapability.get(player).getEquipped(ModItems.FATE_EMERALD.get());
 

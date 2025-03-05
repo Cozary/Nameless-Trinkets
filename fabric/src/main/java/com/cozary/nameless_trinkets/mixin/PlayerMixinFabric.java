@@ -166,7 +166,7 @@ public class PlayerMixinFabric {
                 //haha DamageTypeTag Magic doesn't exist
 
                 if (damageSource.type().msgId().equals("indirectMagic") || damageSource.type().msgId().equals("magic")) {
-                    return damageAmount * config.magicDamageReduction;
+                    return damageAmount * (config.magicDamageReductionPercentage/100);
                 }
             }
         }
