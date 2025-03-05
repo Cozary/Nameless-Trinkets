@@ -8,7 +8,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -18,7 +17,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
@@ -78,7 +76,7 @@ public abstract class LivingEntityMixin {
             }
 
             int originalExperience = livingEntity.getExperienceReward((ServerLevel) livingEntity.level(), entity);
-            int bonusExperience = (int) (originalExperience * config.experienceMultiplier);
+            int bonusExperience = (int) (originalExperience * (config.extraExperiencePercentage/100));
 
             if (bonusExperience > 0) {
                 livingEntity.level().addFreshEntity(new ExperienceOrb((ServerLevel) livingEntity.level(), livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), bonusExperience));
@@ -179,7 +177,7 @@ public abstract class LivingEntityMixin {
                     Class<? extends LivingEntity> classEntity = (Class<? extends LivingEntity>) entity.getClass();
 
                     if (targetEntity.getClass() == classEntity) {
-                        return damageAmount * config.damageMultiplier;
+                        return damageAmount * config.damageMultiplierPercentage;
                     }
                 }
 

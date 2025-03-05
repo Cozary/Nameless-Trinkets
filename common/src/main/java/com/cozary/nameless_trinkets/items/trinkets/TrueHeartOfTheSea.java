@@ -94,7 +94,7 @@ public class TrueHeartOfTheSea extends TrinketItem<TrueHeartOfTheSea.Stats> {
 
         AttributeInstance attribSpeed = livingEntity.getAttribute(Attributes.WATER_MOVEMENT_EFFICIENCY);
         AttributeModifier speedModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "true_heart_of_the_sea_swim_speed"),
-                config.swimSpeedMultiplier / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
+                config.swimSpeedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
 
         assert attribSpeed != null;
         EntityUtils.applyAttributeModifier(attribSpeed, speedModifier);
@@ -105,7 +105,7 @@ public class TrueHeartOfTheSea extends TrinketItem<TrueHeartOfTheSea.Stats> {
     public void onUnequip(ItemStack stack, SlotReference reference) {
         EntityUtils.removeAttributeModifier(Objects.requireNonNull(reference.entity().getAttribute(Attributes.WATER_MOVEMENT_EFFICIENCY)),
                 new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "true_heart_of_the_sea_swim_speed"),
-                        trinketConfig.swimSpeedMultiplier / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+                        trinketConfig.swimSpeedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
     }
 
     @Override
@@ -116,10 +116,10 @@ public class TrueHeartOfTheSea extends TrinketItem<TrueHeartOfTheSea.Stats> {
         } else {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.true_heart_of_the_sea_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
             if (Screen.hasShiftDown()) {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.true_heart_of_the_sea_1", config.swimSpeedMultiplier + "%").withStyle(ChatFormatting.GOLD));
+                tooltip.add(Component.translatable("tooltip.nameless_trinkets.true_heart_of_the_sea_1", config.swimSpeedMultiplierPercentage + "%").withStyle(ChatFormatting.GOLD));
                 tooltip.add(Component.translatable("tooltip.nameless_trinkets.true_heart_of_the_sea_2").withStyle(ChatFormatting.GOLD));
                 tooltip.add(Component.translatable("tooltip.nameless_trinkets.true_heart_of_the_sea_3").withStyle(ChatFormatting.GOLD));
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.true_heart_of_the_sea_4", config.miningUnderwaterSpeed).withStyle(ChatFormatting.GOLD));
+                tooltip.add(Component.translatable("tooltip.nameless_trinkets.true_heart_of_the_sea_4", config.miningUnderwaterSpeedPercentage + "%").withStyle(ChatFormatting.GOLD));
             } else {
                 tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
             }
@@ -128,11 +128,11 @@ public class TrueHeartOfTheSea extends TrinketItem<TrueHeartOfTheSea.Stats> {
 
 
     public static class Stats extends TrinketsStats {
-        public float miningUnderwaterSpeed = 3.0F;
+        public float miningUnderwaterSpeedPercentage = 300.0F;
         public float chokingDamage = 1.5F;
         public boolean blindnessWhenChoking = true;
         public int airReductionSpeed = 5;
-        public double swimSpeedMultiplier = 100;
+        public double swimSpeedMultiplierPercentage = 100.0f;
         public boolean isEnable = true;
 
     }

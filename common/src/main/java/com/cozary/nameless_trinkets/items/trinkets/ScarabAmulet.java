@@ -51,7 +51,7 @@ public class ScarabAmulet extends TrinketItem<ScarabAmulet.Stats> {
         } else {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.scarab_amulet_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
             if (Screen.hasShiftDown()) {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.scarab_amulet_1", config.speedMultiplier + "%").withStyle(ChatFormatting.GOLD));
+                tooltip.add(Component.translatable("tooltip.nameless_trinkets.scarab_amulet_1", config.speedMultiplierPercentage + "%").withStyle(ChatFormatting.GOLD));
                 tooltip.add(Component.translatable("tooltip.nameless_trinkets.scarab_amulet_2").withStyle(ChatFormatting.GOLD));
                 tooltip.add(Component.translatable("tooltip.nameless_trinkets.scarab_amulet_3").withStyle(ChatFormatting.GRAY));
             } else {
@@ -75,7 +75,7 @@ public class ScarabAmulet extends TrinketItem<ScarabAmulet.Stats> {
 
         AttributeInstance attribSpeed = livingEntity.getAttribute(Attributes.MOVEMENT_SPEED);
         AttributeModifier speedModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "scarab_amulet_movement_speed"),
-                config.speedMultiplier / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
+                config.speedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
 
         assert attribSpeed != null;
         if (livingEntity.level().getBlockState(getBlockPosBelowThatAffectsMyMovement(livingEntity)).is(BlockTags.SAND)) {
@@ -83,7 +83,7 @@ public class ScarabAmulet extends TrinketItem<ScarabAmulet.Stats> {
         } else {
             EntityUtils.removeAttributeModifier(Objects.requireNonNull(reference.entity().getAttribute(Attributes.MOVEMENT_SPEED)),
                     new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "scarab_amulet_movement_speed"),
-                            config.speedMultiplier / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+                            config.speedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
         }
     }
 
@@ -95,12 +95,12 @@ public class ScarabAmulet extends TrinketItem<ScarabAmulet.Stats> {
     public void onUnequip(ItemStack stack, SlotReference reference) {
         EntityUtils.removeAttributeModifier(Objects.requireNonNull(reference.entity().getAttribute(Attributes.MOVEMENT_SPEED)),
                 new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "scarab_amulet_movement_speed"),
-                        trinketConfig.speedMultiplier / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+                        trinketConfig.speedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
     }
 
 
     public static class Stats extends TrinketsStats {
-        public float speedMultiplier = 110;
+        public float speedMultiplierPercentage = 110.0f;
         public boolean isEnable = true;
 
     }

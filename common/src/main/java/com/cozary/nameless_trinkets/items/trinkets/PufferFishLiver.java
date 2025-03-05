@@ -66,7 +66,7 @@ public class PufferFishLiver extends TrinketItem<PufferFishLiver.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
-        public int chanceToApplyPoison = 30;
+        public float chanceToApplyPoison = 30.0f;
         public int poisonTime = 100;
         public int poisonLevel = 1;
         public boolean isEnable = true;

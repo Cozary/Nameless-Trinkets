@@ -51,7 +51,7 @@ public class TearOfTheSea extends TrinketItem<TearOfTheSea.Stats> {
 
         AttributeInstance attribSpeed = livingEntity.getAttribute(Attributes.WATER_MOVEMENT_EFFICIENCY);
         AttributeModifier speedModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "tear_of_the_sea_swim_speed"),
-                config.swimSpeedMultiplier / 100, AttributeModifier.Operation.ADD_VALUE);
+                config.swimSpeedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_VALUE);
 
         assert attribSpeed != null;
         EntityUtils.applyAttributeModifier(attribSpeed, speedModifier);
@@ -62,7 +62,7 @@ public class TearOfTheSea extends TrinketItem<TearOfTheSea.Stats> {
     public void onUnequip(ItemStack stack, SlotReference reference) {
         EntityUtils.removeAttributeModifier(Objects.requireNonNull(reference.entity().getAttribute(Attributes.WATER_MOVEMENT_EFFICIENCY)),
                 new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "tear_of_the_sea_swim_speed"),
-                        trinketConfig.swimSpeedMultiplier / 100, AttributeModifier.Operation.ADD_VALUE));
+                        trinketConfig.swimSpeedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_VALUE));
     }
 
     @Override
@@ -73,7 +73,7 @@ public class TearOfTheSea extends TrinketItem<TearOfTheSea.Stats> {
         } else {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.tear_of_the_sea_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
             if (Screen.hasShiftDown()) {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.tear_of_the_sea_1", config.swimSpeedMultiplier + "%").withStyle(ChatFormatting.GOLD));
+                tooltip.add(Component.translatable("tooltip.nameless_trinkets.tear_of_the_sea_1", config.swimSpeedMultiplierPercentage + "%").withStyle(ChatFormatting.GOLD));
             } else {
                 tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
                 tooltip.add(Component.translatable(ChatFormatting.GRAY + "Suggested By: JayOnline_"));
@@ -83,7 +83,7 @@ public class TearOfTheSea extends TrinketItem<TearOfTheSea.Stats> {
 
 
     public static class Stats extends TrinketsStats {
-        public double swimSpeedMultiplier = 50;
+        public double swimSpeedMultiplierPercentage = 50.0f;
         public boolean isEnable = true;
 
     }

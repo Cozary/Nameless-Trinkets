@@ -32,7 +32,7 @@ public class AmphibiousHandsEvents {
             var stack = accessories.getEquipped(ModItems.AMPHIBIOUS_HANDS.get());
             if ((!stack.isEmpty() && player.isEyeInFluidType(NeoForgeMod.WATER_TYPE.value()))) {
 
-                event.setNewSpeed(event.getOriginalSpeed() * config.miningUnderwaterSpeedMultiplier);
+                event.setNewSpeed(event.getOriginalSpeed() * (config.miningUnderwaterSpeedPercentage /100));
             }
 
         }

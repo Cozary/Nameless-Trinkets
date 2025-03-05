@@ -40,7 +40,7 @@ public class ElectricPaddle extends TrinketItem<ElectricPaddle.Stats> {
         } else {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.electric_paddle_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
             if (Screen.hasShiftDown()) {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.electric_paddle_1", config.boatSpeedMultiplierPercentage).withStyle(ChatFormatting.GOLD));
+                tooltip.add(Component.translatable("tooltip.nameless_trinkets.electric_paddle_1", config.boatSpeedMultiplierPercentage + "%").withStyle(ChatFormatting.GOLD));
             } else {
                 tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
             }
