@@ -120,9 +120,9 @@ public class VampireBlood extends TrinketItem<VampireBlood.Stats> {
 
 
     public static class Stats extends TrinketsStats {
-        public double damageMultiplierPercentage = 150;
-        public float healingPercentage = 10;
-        public double sunDamage = 2.0;
+        public double damageMultiplierPercentage = 150.0f;
+        public float healingPercentage = 10.0f;
+        public double sunDamage = 2.0f;
         public boolean isEnable = true;
 
     }

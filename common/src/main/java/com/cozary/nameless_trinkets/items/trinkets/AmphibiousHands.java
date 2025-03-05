@@ -49,7 +49,7 @@ public class AmphibiousHands extends TrinketItem<AmphibiousHands.Stats> {
         } else {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.amphibious_hands_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
             if (Screen.hasShiftDown()) {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.amphibious_hands_1", config.miningUnderwaterSpeedMultiplier).withStyle(ChatFormatting.GOLD));
+                tooltip.add(Component.translatable("tooltip.nameless_trinkets.amphibious_hands_1", config.miningUnderwaterSpeedPercentage + "%").withStyle(ChatFormatting.GOLD));
             } else {
                 tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
             }
@@ -57,7 +57,7 @@ public class AmphibiousHands extends TrinketItem<AmphibiousHands.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
-        public float miningUnderwaterSpeedMultiplier = 1.5F;
+        public float miningUnderwaterSpeedPercentage = 150.0f;
         public boolean isEnable = true;
     }
 

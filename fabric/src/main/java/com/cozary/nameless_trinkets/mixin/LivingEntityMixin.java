@@ -95,7 +95,7 @@ public abstract class LivingEntityMixin {
             }
 
             int originalExperience = livingEntity.getExperienceReward((ServerLevel) livingEntity.level(), entity);
-            int bonusExperience = (int) (originalExperience * config.experienceMultiplier);
+            int bonusExperience = (int) (originalExperience * (config.extraExperiencePercentage/100));
 
             if (bonusExperience > 0) {
                 livingEntity.level().addFreshEntity(new ExperienceOrb((ServerLevel) livingEntity.level(), livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), bonusExperience));
@@ -196,7 +196,7 @@ public abstract class LivingEntityMixin {
                     Class<? extends LivingEntity> classEntity = (Class<? extends LivingEntity>) entity.getClass();
 
                     if (targetEntity.getClass() == classEntity) {
-                        return damageAmount * config.damageMultiplier;
+                        return damageAmount * config.damageMultiplierPercentage;
                     }
                 }
 
@@ -332,7 +332,7 @@ public abstract class LivingEntityMixin {
                 //haha DamageTypeTag Magic doesn't exist
 
                 if (damageSource.type().msgId().equals("indirectMagic") || damageSource.type().msgId().equals("magic")) {
-                    return damageAmount * config.magicDamageReduction;
+                    return damageAmount * (config.magicDamageReductionPercentage/100);
                 }
             }
         }

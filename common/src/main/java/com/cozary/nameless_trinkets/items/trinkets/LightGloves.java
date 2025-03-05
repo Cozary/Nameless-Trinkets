@@ -48,7 +48,7 @@ public class LightGloves extends TrinketItem<LightGloves.Stats> {
         } else {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.light_gloves_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
             if (Screen.hasShiftDown()) {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.light_gloves_1", config.miningSpeedMultiplier).withStyle(ChatFormatting.GOLD));
+                tooltip.add(Component.translatable("tooltip.nameless_trinkets.light_gloves_1", config.miningSpeedPercentage + "%").withStyle(ChatFormatting.GOLD));
             } else {
                 tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
                 tooltip.add(Component.translatable(ChatFormatting.GRAY + "Suggested By: emu"));
@@ -57,7 +57,7 @@ public class LightGloves extends TrinketItem<LightGloves.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
-        public float miningSpeedMultiplier = 2.0F;
+        public float miningSpeedPercentage = 200.0F;
         public boolean isEnable = true;
 
     }

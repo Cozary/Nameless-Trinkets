@@ -187,20 +187,20 @@ public class CrackedCrown extends TrinketItem<CrackedCrown.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
-        public double percentageExtraMaxHealth = 50;
-        public double percentageExtraSpeed = 50;
-        public double percentageExtraFlySpeed = 0;
-        public double percentageExtraAttack = 50;
-        public double percentageExtraArmor = 50;
-        public double percentageExtraAttackSpeed = 50;
-        public double percentageExtraArmorToughness = 50;
-        public double percentageExtraAttackKnockback = 50;
-        public double percentageExtraKnockbackResistance = 50;
-        public double percentageExtraLuck = 50;
-        public double percentageExtraSwimSpeed = 0;
-        public double percentageExtraBlockReach = 0;
-        public double percentageExtraEntityReach = 0;
-        public double percentageExtraStepHeightAddition = 0;
+        public double percentageExtraMaxHealth = 50.0f;
+        public double percentageExtraSpeed = 50.0f;
+        public double percentageExtraFlySpeed = 0.0f;
+        public double percentageExtraAttack = 50.0f;
+        public double percentageExtraArmor = 50.0f;
+        public double percentageExtraAttackSpeed = 50.0f;
+        public double percentageExtraArmorToughness = 50.0f;
+        public double percentageExtraAttackKnockback = 50.0f;
+        public double percentageExtraKnockbackResistance = 50.0f;
+        public double percentageExtraLuck = 50.0f;
+        public double percentageExtraSwimSpeed = 0.0f;
+        public double percentageExtraBlockReach = 0.0f;
+        public double percentageExtraEntityReach = 0.0f;
+        public double percentageExtraStepHeightAddition = 0.0f;
 
         public boolean isEnable = true;
     }

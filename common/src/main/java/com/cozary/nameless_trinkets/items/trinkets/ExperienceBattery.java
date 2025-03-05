@@ -55,7 +55,7 @@ public class ExperienceBattery extends TrinketItem<ExperienceBattery.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
-        public float experienceMultiplier = 1.5F;
+        public float extraExperiencePercentage = 150.0F;
         public boolean isEnable = true;
 
     }

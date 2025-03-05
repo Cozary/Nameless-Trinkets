@@ -56,7 +56,7 @@ public class ReverseCard extends TrinketItem<ReverseCard.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
-        public int chanceToActivate = 50;
+        public float chanceToActivate = 50.0f;
         public boolean isEnable = true;
 
     }

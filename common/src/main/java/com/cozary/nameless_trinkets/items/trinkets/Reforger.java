@@ -46,7 +46,7 @@ public class Reforger extends TrinketItem<Reforger.Stats> {
 
                 if (itemstack.isDamaged()) {
                     if (player.tickCount % (config.repairSpeedSeconds * 20) == 0) {
-                        int x = Math.min(config.repairCuantity, itemstack.getDamageValue());
+                        int x = Math.min(config.repairQuantity, itemstack.getDamageValue());
                         itemstack.setDamageValue(itemstack.getDamageValue() - x);
                     }
                 }
@@ -82,7 +82,7 @@ public class Reforger extends TrinketItem<Reforger.Stats> {
 
     public static class Stats extends TrinketsStats {
         public int repairSpeedSeconds = 10;
-        public int repairCuantity = 1;
+        public int repairQuantity = 1;
         public boolean isEnable = true;
 
     }

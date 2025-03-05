@@ -58,7 +58,7 @@ public class SpeedForce extends TrinketItem<SpeedForce.Stats> {
         } else {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.speed_force_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
             if (Screen.hasShiftDown()) {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.speed_force_1", config.speedMultiplier + "%").withStyle(ChatFormatting.GOLD));
+                tooltip.add(Component.translatable("tooltip.nameless_trinkets.speed_force_1", config.speedMultiplierPercentage + "%").withStyle(ChatFormatting.GOLD));
                 tooltip.add(Component.translatable("tooltip.nameless_trinkets.speed_force_2").withStyle(ChatFormatting.GOLD));
             } else {
                 tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
@@ -84,7 +84,7 @@ public class SpeedForce extends TrinketItem<SpeedForce.Stats> {
 
         AttributeInstance attribSpeed = livingEntity.getAttribute(Attributes.MOVEMENT_SPEED);
         AttributeModifier speedModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "speed_force_movement_speed"),
-                config.speedMultiplier / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
+                config.speedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
 
         assert attribSpeed != null;
         EntityUtils.applyAttributeModifier(attribSpeed, speedModifier);
@@ -94,12 +94,12 @@ public class SpeedForce extends TrinketItem<SpeedForce.Stats> {
     public void onUnequip(ItemStack stack, SlotReference reference) {
         EntityUtils.removeAttributeModifier(Objects.requireNonNull(reference.entity().getAttribute(Attributes.MOVEMENT_SPEED)),
                 new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "speed_force_movement_speed"),
-                        trinketConfig.speedMultiplier / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+                        trinketConfig.speedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
     }
 
 
     public static class Stats extends TrinketsStats {
-        public double speedMultiplier = 200.0;
+        public double speedMultiplierPercentage = 200.0f;
         public boolean isEnable = true;
 
     }
