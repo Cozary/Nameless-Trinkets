@@ -292,6 +292,17 @@
   "advancements.nameless_trinkets.dragons_eye.title": "Enemy.",
   "advancements.nameless_trinkets.dragons_eye.description": "Obtain the Dragon's Eye.",
   "advancements.nameless_trinkets.four_leaf_clover.title": "I feel lucky, yeah.",
-  "advancements.nameless_trinkets.four_leaf_clover.description": "Obtain the Four Leaf Clover."
-
+  "advancements.nameless_trinkets.four_leaf_clover.description": "Obtain the Four Leaf Clover.",
+  "tooltip.nameless_trinkets.shrinking_veil_lore": "Mini me!",
+  "tooltip.nameless_trinkets.titans_mark_lore": "Me. Big.",
+  "tooltip.nameless_trinkets.shrinking_veil_1": "-%1$s size.",
+  "tooltip.nameless_trinkets.shrinking_veil_2": "+%1$s speed.",
+  "tooltip.nameless_trinkets.titans_mark_1": "+%1$s size.",
+  "tooltip.nameless_trinkets.titans_mark_2": "+%1$s attack damage.",
+  "advancements.nameless_trinkets.shrinking_veil.title": "Small but mighty.",
+  "advancements.nameless_trinkets.shrinking_veil.description": "Obtain the Shrinking Veil.",
+  "advancements.nameless_trinkets.titans_mark.title": "Titan's Legacy.",
+  "advancements.nameless_trinkets.titans_mark.description": "Obtain the Titans Mark.",
+  "item.nameless_trinkets.shrinking_veil": "Shrinking Veil",
+  "item.nameless_trinkets.titans_mark": "Titan's Mark"
 }

@@ -65,6 +65,9 @@ public class ModItems {
     public static final RegistryObject<Item> TRUE_HEART_OF_THE_SEA = registerWithTab("true_heart_of_the_sea", TrueHeartOfTheSea::new);
     public static final RegistryObject<Item> TEAR_OF_THE_SEA = registerWithTab("tear_of_the_sea", TearOfTheSea::new);
 
+    public static final RegistryObject<Item> SHRINKING_VEIL = registerWithTab("shrinking_veil", ShrinkingVeil::new);
+    public static final RegistryObject<Item> TITANS_MARK = registerWithTab("titans_mark", TitansMark::new);
+
     //Recycling
     public static final RegistryObject<Item> MYSTERIOUS_TRINKET = registerWithTab("mysterious_trinket", MysteriousTrinket::new);
     public static final RegistryObject<Item> UNKNOWN_FRAGMENT = registerWithTab("unknown_fragment", UnknownFragment::new);
