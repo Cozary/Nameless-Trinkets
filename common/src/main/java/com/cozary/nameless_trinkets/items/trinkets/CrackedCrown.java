@@ -75,7 +75,7 @@ public class CrackedCrown extends TrinketItem<CrackedCrown.Stats> {
         reference.entity().playSound(SoundEvents.ARMOR_EQUIP_ELYTRA.value(), 1.0F, 1.0F);
     }
 
-    @Override
+/*    @Override
     public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
         Stats config = INSTANCE.getTrinketConfig();
         if (!config.isEnable) {
@@ -91,7 +91,46 @@ public class CrackedCrown extends TrinketItem<CrackedCrown.Stats> {
         } else {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
         }
+    }*/
+
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
+        Stats config = INSTANCE.getTrinketConfig();
+        if (!config.isEnable) {
+            tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
+            return;
+        }
+
+        tooltip.add(Component.translatable("tooltip.nameless_trinkets.cracked_crown_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
+
+        if (Screen.hasShiftDown()) {
+            Map<String, Double> stats = new HashMap<>();
+            stats.put("Max Health", config.percentageExtraMaxHealth);
+            stats.put("Movement Speed", config.percentageExtraSpeed);
+            stats.put("Flying Speed", config.percentageExtraFlySpeed);
+            stats.put("Attack Damage", config.percentageExtraAttack);
+            stats.put("Armor", config.percentageExtraArmor);
+            stats.put("Attack Speed", config.percentageExtraAttackSpeed);
+            stats.put("Armor Toughness", config.percentageExtraArmorToughness);
+            stats.put("Attack Knockback", config.percentageExtraAttackKnockback);
+            stats.put("Knockback Resistance", config.percentageExtraKnockbackResistance);
+            stats.put("Luck", config.percentageExtraLuck);
+            stats.put("Swim Speed", config.percentageExtraSwimSpeed);
+            stats.put("Block Reach", config.percentageExtraBlockReach);
+            stats.put("Entity Reach", config.percentageExtraEntityReach);
+            stats.put("Step Height Addition", config.percentageExtraStepHeightAddition);
+
+            for (Map.Entry<String, Double> entry : stats.entrySet()) {
+                if (entry.getValue() > 0) {
+                    tooltip.add(Component.translatable(entry.getKey()).append(" +" + entry.getValue() + "%").withStyle(ChatFormatting.GOLD));
+                }
+            }
+
+        } else {
+            tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
+        }
     }
+
 
     @Override
     public void onEquip(ItemStack stack, SlotReference reference) {
