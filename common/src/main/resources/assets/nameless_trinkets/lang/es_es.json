@@ -292,5 +292,18 @@
   "advancements.nameless_trinkets.dragons_eye.title": "Enemigo.",
   "advancements.nameless_trinkets.dragons_eye.description": "Obtén el Ojo de Dragón.",
   "advancements.nameless_trinkets.four_leaf_clover.title": "Me siento afortunado, sí.",
-  "advancements.nameless_trinkets.four_leaf_clover.description": "Obtén el Trébol de Cuatro Hojas."
+  "advancements.nameless_trinkets.four_leaf_clover.description": "Obtén el Trébol de Cuatro Hojas.",
+
+  "tooltip.nameless_trinkets.shrinking_veil_lore": "¡Mini Yo¡",
+  "tooltip.nameless_trinkets.titans_mark_lore": "Yo. Grande.",
+  "tooltip.nameless_trinkets.shrinking_veil_1": "-%1$s tamaño.",
+  "tooltip.nameless_trinkets.shrinking_veil_2": "+%1$s velocidad.",
+  "tooltip.nameless_trinkets.titans_mark_1": "+%1$s tamaño.",
+  "tooltip.nameless_trinkets.titans_mark_2": "+%1$s daño de ataque.",
+  "advancements.nameless_trinkets.shrinking_veil.title": "Pequeño pero matón.",
+  "advancements.nameless_trinkets.shrinking_veil.description": "Obtén el Velo Menguante.",
+  "advancements.nameless_trinkets.titans_mark.title": "El legado del titán.",
+  "advancements.nameless_trinkets.titans_mark.description": "Obtén la Marca Del Titán.",
+  "item.nameless_trinkets.shrinking_veil": "Velo Menguante",
+  "item.nameless_trinkets.titans_mark": "Marca Del Titán"
 }

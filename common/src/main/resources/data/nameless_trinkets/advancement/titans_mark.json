@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:titans_mark"
+    },
+    "title": {
+      "translate": "advancements.nameless_trinkets.titans_mark.title"
+    },
+    "description": {
+      "translate": "advancements.nameless_trinkets.titans_mark.description"
+    }
+  },
+  "criteria": {
+    "amphibious_hands": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:titans_mark"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

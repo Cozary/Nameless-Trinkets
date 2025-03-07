@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " L ",
+    "FSF",
+    " L "
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "F": {
+      "item": "minecraft:feather"
+    },
+    "S": {
+      "item": "nameless_trinkets:dubious_dust"
+    }
+  },
+  "result": {
+    "item": "nameless_trinkets:shrinking_veil",
+    "count": 1
+  }
+}
