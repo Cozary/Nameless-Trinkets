@@ -77,12 +77,30 @@ public class GodsCrown extends TrinketItem<GodsCrown.Stats> {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
         } else {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.gods_crown_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
-            if (Screen.hasShiftDown()) {
-                if ((config.percentageExtraAttack + config.percentageExtraAttackKnockback + config.percentageExtraAttackSpeed + config.percentageExtraMaxHealth + config.percentageExtraSpeed) / 5 == 120) {
-                    tooltip.add(Component.translatable("tooltip.nameless_trinkets.gods_crown_1").withStyle(ChatFormatting.GOLD));
-                } else {
-                    tooltip.add(Component.translatable("tooltip.nameless_trinkets.gods_crown_2").withStyle(ChatFormatting.GOLD));
-                }
+
+                if (Screen.hasShiftDown()) {
+                    Map<String, Double> stats = new HashMap<>();
+                    stats.put("Max Health", config.percentageExtraMaxHealth);
+                    stats.put("Movement Speed", config.percentageExtraSpeed);
+                    stats.put("Flying Speed", config.percentageExtraFlySpeed);
+                    stats.put("Attack Damage", config.percentageExtraAttack);
+                    stats.put("Armor", config.percentageExtraArmor);
+                    stats.put("Attack Speed", config.percentageExtraAttackSpeed);
+                    stats.put("Armor Toughness", config.percentageExtraArmorToughness);
+                    stats.put("Attack Knockback", config.percentageExtraAttackKnockback);
+                    stats.put("Knockback Resistance", config.percentageExtraKnockbackResistance);
+                    stats.put("Luck", config.percentageExtraLuck);
+                    stats.put("Swim Speed", config.percentageExtraSwimSpeed);
+                    stats.put("Block Reach", config.percentageExtraBlockReach);
+                    stats.put("Entity Reach", config.percentageExtraEntityReach);
+                    stats.put("Step Height Addition", config.percentageExtraStepHeightAddition);
+
+                    for (Map.Entry<String, Double> entry : stats.entrySet()) {
+                        if (entry.getValue() > 0) {
+                            tooltip.add(Component.translatable(entry.getKey()).append(" +" + entry.getValue() + "%").withStyle(ChatFormatting.GOLD));
+                        }
+                    }
+
             } else {
                 tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
             }
@@ -149,7 +167,7 @@ public class GodsCrown extends TrinketItem<GodsCrown.Stats> {
             case "gods_crown_attack_damage" -> config.percentageExtraAttack;
             case "gods_crown_armor" -> config.percentageExtraArmor;
             case "gods_crown_attack_speed" -> config.percentageExtraAttackSpeed;
-            case "gods_crown_armor_thougness" -> config.percentageExtraArmorThougness;
+            case "gods_crown_armor_thougness" -> config.percentageExtraArmorToughness;
             case "gods_crown_attack_knockback" -> config.percentageExtraAttackKnockback;
             case "gods_crown_knockback_resistance" -> config.percentageExtraKnockbackResistance;
             case "gods_crown_luck" -> config.percentageExtraLuck;
@@ -190,7 +208,7 @@ public class GodsCrown extends TrinketItem<GodsCrown.Stats> {
         public double percentageExtraAttack = 120.0f;
         public double percentageExtraArmor = 120.0f;
         public double percentageExtraAttackSpeed = 120.0f;
-        public double percentageExtraArmorThougness = 120.0f;
+        public double percentageExtraArmorToughness = 120.0f;
         public double percentageExtraAttackKnockback = 120.0f;
         public double percentageExtraKnockbackResistance = 120.0f;
         public double percentageExtraLuck = 120.0f;
