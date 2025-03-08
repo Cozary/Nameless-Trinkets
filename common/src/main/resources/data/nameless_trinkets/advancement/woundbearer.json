@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:woundbearer"
+    },
+    "title": {
+      "translate": "advancements.nameless_trinkets.woundbearer.title"
+    },
+    "description": {
+      "translate": "advancements.nameless_trinkets.woundbearer.description"
+    }
+  },
+  "criteria": {
+    "amphibious_hands": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:woundbearer"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

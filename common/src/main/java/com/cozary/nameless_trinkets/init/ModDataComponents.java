@@ -28,6 +28,12 @@ public class ModDataComponents {
                     .build()
     );
 
+    public static final RegistryObject<DataComponentType<Float>> WOUNDBEARER_DAMAGE = DATA_COMPONENTS.register("woundbearer_damage",
+            () -> DataComponentType.<Float>builder()
+                    .persistent(Codec.FLOAT)
+                    .build()
+    );
+
     public static void loadClass() {
     }
 }
