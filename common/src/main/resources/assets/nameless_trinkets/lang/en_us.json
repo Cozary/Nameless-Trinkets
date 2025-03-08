@@ -304,5 +304,8 @@
   "advancements.nameless_trinkets.titans_mark.title": "Titan's Legacy.",
   "advancements.nameless_trinkets.titans_mark.description": "Obtain the Titans Mark.",
   "item.nameless_trinkets.shrinking_veil": "Shrinking Veil",
-  "item.nameless_trinkets.titans_mark": "Titan's Mark"
+  "item.nameless_trinkets.titans_mark": "Titan's Mark",
+  "item.nameless_trinkets.woundbearer": "Woundbearer",
+  "tooltip.nameless_trinkets.woundbearer_lore": "They only increase...",
+  "tooltip.nameless_trinkets.woundbearer_1": "+%1$s increased damage."
 }

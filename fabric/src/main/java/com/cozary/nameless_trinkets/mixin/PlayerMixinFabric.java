@@ -369,4 +369,29 @@ public class PlayerMixinFabric {
 
         return damageAmount;
     }
+
+    //Woundbearer
+    @ModifyVariable(method = "actuallyHurt", at = @At(value = "HEAD"), argsOnly = true)
+    private float savePlayerDamageIncrement(float damageAmount, DamageSource damageSource) {
+        LivingEntity targetEntity = (LivingEntity) (Object) this;
+
+        Woundbearer.Stats config = Woundbearer.INSTANCE.getTrinketConfig();
+
+        if (!config.isEnable) {
+            return damageAmount;
+        }
+
+        if (targetEntity instanceof Player player && !player.isSpectator()) {
+            var stack = AccessoriesCapability.get(player).getEquipped(ModItems.WOODEN_STICK.get());
+
+            if (!stack.isEmpty() && !player.level().isClientSide) {
+                float damageIncrement = damageAmount * (config.damageConversionPercentage/100);
+
+                stack.getFirst().stack().set(ModDataComponents.WOUNDBEARER_DAMAGE.get(), stack.getFirst().stack().getOrDefault(ModDataComponents.WOUNDBEARER_DAMAGE.get(),0).floatValue() + damageIncrement);
+
+            }
+        }
+
+        return damageAmount;
+    }
 }
