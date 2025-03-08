@@ -67,6 +67,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> SHRINKING_VEIL = registerWithTab("shrinking_veil", ShrinkingVeil::new);
     public static final RegistryObject<Item> TITANS_MARK = registerWithTab("titans_mark", TitansMark::new);
+    public static final RegistryObject<Item> WOUNDBEARER = registerWithTab("woundbearer", Woundbearer::new);
 
     //Recycling
     public static final RegistryObject<Item> MYSTERIOUS_TRINKET = registerWithTab("mysterious_trinket", MysteriousTrinket::new);

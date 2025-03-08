@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "nameless_trinkets:explosion_proof_jacket"
+    "nameless_trinkets:explosion_proof_jacket",
+    "nameless_trinkets:woundbearer"
   ]
 }

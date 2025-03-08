@@ -305,5 +305,9 @@
   "advancements.nameless_trinkets.titans_mark.title": "El legado del titán.",
   "advancements.nameless_trinkets.titans_mark.description": "Obtén la Marca Del Titán.",
   "item.nameless_trinkets.shrinking_veil": "Velo Menguante",
-  "item.nameless_trinkets.titans_mark": "Marca Del Titán"
+  "item.nameless_trinkets.titans_mark": "Marca Del Titán",
+  "item.nameless_trinkets.woundbearer": "Portaheridas",
+  "tooltip.nameless_trinkets.woundbearer_lore": "Solo aumentan...",
+  "tooltip.nameless_trinkets.woundbearer_1": "+%1$s daño aumentado."
+
 }
