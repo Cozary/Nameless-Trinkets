@@ -3,8 +3,11 @@ package com.cozary.nameless_trinkets;
 
 import com.cozary.nameless_trinkets.config.TrinketConfigs;
 import com.cozary.nameless_trinkets.init.ModCodec;
+import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.init.ModTabs;
 import com.cozary.nameless_trinkets.utils.ConfigurationHandler;
+import com.cozary.nameless_trinkets.utils.RemoveRendering;
+import io.wispforest.accessories.api.client.AccessoriesRendererRegistry;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -25,10 +28,12 @@ public class NamelessTrinketsNeoForge {
         ModCodec.init(eventBus);
 
         container.registerConfig(ModConfig.Type.COMMON, ConfigurationHandler.spec);
+
     }
 
     private void setup(final FMLCommonSetupEvent event) {
         TrinketConfigs.loadClass();
+        RemoveRendering.noRenderingList();
     }
 
 }
