@@ -4,6 +4,7 @@ import com.cozary.nameless_trinkets.config.TrinketConfigs;
 import com.cozary.nameless_trinkets.events.*;
 import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.utils.ConfigurationHandler;
+import com.cozary.nameless_trinkets.utils.RemoveRendering;
 import fuzs.forgeconfigapiport.fabric.api.neoforge.v4.NeoForgeConfigRegistry;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
@@ -194,5 +195,7 @@ public class NamelessTrinketsFabric implements ModInitializer {
         });
 
         TrinketConfigs.loadClass();
+        RemoveRendering.noRenderingList();
+
     }
 }
