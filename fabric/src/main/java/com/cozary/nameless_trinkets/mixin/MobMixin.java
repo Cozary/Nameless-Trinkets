@@ -1,5 +1,6 @@
 package com.cozary.nameless_trinkets.mixin;
 
+import com.cozary.nameless_trinkets.init.ModEvents;
 import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.items.trinkets.ScarabAmulet;
 import io.wispforest.accessories.api.AccessoriesCapability;
@@ -15,28 +16,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Mob.class)
 public class MobMixin {
 
-    //ScarabAmulet
+    //Cancel mob current target.
     @Inject(method = "setTarget", at = @At("HEAD"), cancellable = true)
     private void preventHuskTargeting(LivingEntity target, CallbackInfo ci) {
         Mob attackerEntity = (Mob) (Object) this;
-        ScarabAmulet.Stats config = ScarabAmulet.INSTANCE.getTrinketConfig();
-        if (!config.isEnable)
-            return;
-
-        if (target instanceof Player player) {
-            if (!player.level().isClientSide) {
-
-                var accessories = AccessoriesCapability.get(player);
-
-                if (accessories == null) {
-                    return;
-                }
-                var stack = accessories.getEquipped(ModItems.SCARAB_AMULET.get());
-                if (!stack.isEmpty() && attackerEntity instanceof Husk) {
-                    ci.cancel();
-                }
-            }
-
+        if (!ModEvents.TargetingCallback.EVENT.invoker().canTarget(attackerEntity, target)) {
+            ci.cancel();
         }
     }
 }
