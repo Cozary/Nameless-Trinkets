@@ -154,16 +154,30 @@ public class NamelessTrinketsFabric implements ModInitializer {
         NeoForgeConfigRegistry.INSTANCE.register(NamelessTrinkets.MOD_ID, ModConfig.Type.COMMON, ConfigurationHandler.spec);
 
         AmphibiousHandsEvents.register();
+        BlazeNucleusEvents.register();
         BrokenAnkhEvents.register();
+        CallusEvents.register();
+        ExperienceBatteryEvents.register();
+        ExplosionProofJacketEvents.register();
         FourLeafCloverEvents.register();
+        FracturedNullstoneEvents.register();
         GhastEyeEvents.register();
+        IceCubeEvents.register();
         LightGlovesEvents.register();
         LuckyRockEvents.register();
         MinersSoulEvents.register();
+        MissingPageEvents.register();
+        MoonStoneEvents.register();
+        PufferFishLiverEvents.register();
+        RageMindEvents.register();
+        ReverseCardEvents.register();
+        ScarabAmuletEvents.register();
         SigilOfBaphometEvents.register();
         SleepingPillsEvents.register();
         TrueHeartOfTheSeaEvents.register();
         VampireBloodEvents.register();
+        WoodenStickEvents.register();
+        WoundbearerEvents.register();
         UnknownFragmentEvent.register();
 
         LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) -> {
