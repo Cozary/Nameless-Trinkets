@@ -1,9 +1,12 @@
 package com.cozary.nameless_trinkets.init;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
+import com.cozary.nameless_trinkets.utils.TrinketBundleContents;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.item.BundleItem;
+import net.minecraft.world.item.component.BundleContents;
 
 
 public class ModDataComponents {
@@ -33,6 +36,12 @@ public class ModDataComponents {
                     .persistent(Codec.FLOAT)
                     .build()
     );
+
+
+    public static final RegistryObject<DataComponentType<TrinketBundleContents>> TRINKET_BUNDLE_CONTENTS = DATA_COMPONENTS.register("trinket_bundle_contents",
+            () -> {
+                return DataComponentType.<TrinketBundleContents>builder().persistent(TrinketBundleContents.CODEC).networkSynchronized(TrinketBundleContents.STREAM_CODEC).cacheEncoding().build();
+    });
 
     public static void loadClass() {
     }
