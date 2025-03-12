@@ -3,9 +3,12 @@ package com.cozary.nameless_trinkets.init;
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.items.special.*;
 import com.cozary.nameless_trinkets.items.trinkets.*;
+import com.cozary.nameless_trinkets.utils.TrinketBundleContents;
 import com.google.common.collect.Sets;
+import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 
 import java.util.LinkedHashSet;
 import java.util.function.Supplier;
@@ -68,6 +71,8 @@ public class ModItems {
     public static final RegistryObject<Item> SHRINKING_VEIL = registerWithTab("shrinking_veil", ShrinkingVeil::new);
     public static final RegistryObject<Item> TITANS_MARK = registerWithTab("titans_mark", TitansMark::new);
     public static final RegistryObject<Item> WOUNDBEARER = registerWithTab("woundbearer", Woundbearer::new);
+
+    public static final RegistryObject<Item> TRINKET_BUNDLE = registerWithTab("trinket_bundle", TrinketBundle::new);
 
     //Recycling
     public static final RegistryObject<Item> MYSTERIOUS_TRINKET = registerWithTab("mysterious_trinket", MysteriousTrinket::new);

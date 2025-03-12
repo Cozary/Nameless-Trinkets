@@ -11,3 +11,6 @@ accessible method net/minecraft/world/entity/monster/Monster shouldDespawnInPeac
 accessible method net/minecraft/world/entity/monster/Phantom shouldDespawnInPeaceful ()Z
 accessible method net/minecraft/world/entity/monster/piglin/Piglin shouldDespawnInPeaceful ()Z
 accessible method net/minecraft/world/entity/monster/Slime shouldDespawnInPeaceful ()Z
+
+extendable class net/minecraft/world/item/component/BundleContents
+mutable field net/minecraft/world/item/component/BundleContents items Ljava/util/List;
