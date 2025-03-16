@@ -71,6 +71,7 @@ public class ModItems {
     public static final RegistryObject<Item> SHRINKING_VEIL = registerWithTab("shrinking_veil", ShrinkingVeil::new);
     public static final RegistryObject<Item> TITANS_MARK = registerWithTab("titans_mark", TitansMark::new);
     public static final RegistryObject<Item> WOUNDBEARER = registerWithTab("woundbearer", Woundbearer::new);
+    public static final RegistryObject<Item> DYINGSTAR = registerWithTab("dying_star", DyingStar::new);
 
     public static final RegistryObject<Item> TRINKET_BUNDLE = registerWithTab("trinket_bundle", TrinketBundle::new);
 
