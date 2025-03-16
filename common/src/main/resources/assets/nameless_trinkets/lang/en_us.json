@@ -307,5 +307,9 @@
   "item.nameless_trinkets.titans_mark": "Titan's Mark",
   "item.nameless_trinkets.woundbearer": "Woundbearer",
   "tooltip.nameless_trinkets.woundbearer_lore": "They only increase...",
-  "tooltip.nameless_trinkets.woundbearer_1": "+%1$s increased damage."
+  "tooltip.nameless_trinkets.woundbearer_1": "+%1$s increased damage.",
+  "tooltip.nameless_trinkets.dying_star_lore": "Surviving forever...",
+  "tooltip.nameless_trinkets.dying_star_1": "Feed me trinkets...",
+  "tooltip.nameless_trinkets.hold_ctrl_l": "Hold Ctrl Left For Extra Info",
+  "message.nameless_trinkets.dying_star_all_maxed": "The Dying Star Is Satiated"
 }

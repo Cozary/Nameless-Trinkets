@@ -308,6 +308,10 @@
   "item.nameless_trinkets.titans_mark": "Marca Del Titán",
   "item.nameless_trinkets.woundbearer": "Portaheridas",
   "tooltip.nameless_trinkets.woundbearer_lore": "Solo aumentan...",
-  "tooltip.nameless_trinkets.woundbearer_1": "+%1$s daño aumentado."
+  "tooltip.nameless_trinkets.woundbearer_1": "+%1$s daño aumentado.",
+  "tooltip.nameless_trinkets.dying_star_lore": "Sobreviviendo para siempre...",
+  "tooltip.nameless_trinkets.dying_star_1": "Dame de comer trinkets...",
+  "tooltip.nameless_trinkets.hold_ctrl_l": "Mantén CTRL Izquierdo para obtener información adicional",
+  "message.nameless_trinkets.dying_star_all_maxed": "La Estrella Moribunda Está Saciada"
 
 }
