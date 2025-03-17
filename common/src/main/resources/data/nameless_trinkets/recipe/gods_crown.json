@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": {
-    "item": "minecraft:netherite_ingot"
+    "item": "minecraft:nether_star"
   },
   "base": {
     "item": "nameless_trinkets:cracked_crown"
