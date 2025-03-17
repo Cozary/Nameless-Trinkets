@@ -104,6 +104,7 @@ public class SleepingPills extends TrinketItem<SleepingPills.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
+        public float fabricLootTableChance = 0.01f;
         public int nightVisionTime = 1200;
         public int weaknessTime = 1200;
         public double phantomRange = 2.0F;

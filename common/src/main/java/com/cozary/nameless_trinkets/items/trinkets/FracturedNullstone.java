@@ -56,6 +56,7 @@ public class FracturedNullstone extends TrinketItem<FracturedNullstone.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
+        public float fabricLootTableChance = 0.005f;
         public float magicDamageReductionPercentage = 50.0f;
         public boolean isEnable = true;
 

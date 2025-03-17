@@ -55,6 +55,7 @@ public class ExperienceBattery extends TrinketItem<ExperienceBattery.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
+        public float fabricLootTableChance = 0.005f;
         public float extraExperiencePercentage = 150.0F;
         public boolean isEnable = true;
 

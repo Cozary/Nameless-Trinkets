@@ -57,6 +57,7 @@ public class LuckyRock extends TrinketItem<LuckyRock.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
+        public float fabricLootTableChance = 0.01f;
         public float percentageOfObtaining = 5.0f;
         public List<String> blockList = Arrays.asList("minecraft:coal", "minecraft:diamond", "minecraft:iron_ingot", "minecraft:gold_ingot", "minecraft:emerald", "minecraft:redstone", "minecraft:flint", "minecraft:lapis_lazuli", "minecraft:glowstone_dust");
         public boolean isEnable = true;

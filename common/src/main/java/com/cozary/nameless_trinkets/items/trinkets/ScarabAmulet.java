@@ -106,6 +106,7 @@ public class ScarabAmulet extends TrinketItem<ScarabAmulet.Stats> {
 
 
     public static class Stats extends TrinketsStats {
+        public float fabricLootTableChance = 0.005f;
         public float speedMultiplierPercentage = 110.0f;
         public boolean isEnable = true;
 

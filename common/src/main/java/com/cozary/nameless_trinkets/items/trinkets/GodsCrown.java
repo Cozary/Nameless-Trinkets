@@ -209,6 +209,7 @@ public class GodsCrown extends TrinketItem<GodsCrown.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
+        public float fabricLootTableChance = 0.001f;
         public double percentageExtraMaxHealth = 120.0f;
         public double percentageExtraSpeed = 120.0f;
         public double percentageExtraFlySpeed = 0.0f;

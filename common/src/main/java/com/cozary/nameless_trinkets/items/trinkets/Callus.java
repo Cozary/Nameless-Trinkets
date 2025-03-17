@@ -58,6 +58,7 @@ public class Callus extends TrinketItem<Callus.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
+        public float fabricLootTableChance = 0.005f;
         public float fallDamageReductionPercentage = 10.0F;
         public float generalDamageReductionPercentage = 5.0F;
         public boolean isEnable = true;

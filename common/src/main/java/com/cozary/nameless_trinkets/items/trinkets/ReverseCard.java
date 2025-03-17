@@ -56,6 +56,7 @@ public class ReverseCard extends TrinketItem<ReverseCard.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
+        public float fabricLootTableChance = 0.0025f;
         public float chanceToActivate = 50.0f;
         public boolean isEnable = true;
 

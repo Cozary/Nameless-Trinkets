@@ -65,6 +65,7 @@ public class ExplosionProofJacket extends TrinketItem<ExplosionProofJacket.Stats
     }
 
     public static class Stats extends TrinketsStats {
+        public float fabricLootTableChance = 0.01f;
         public float blastDamagePercentageReduction = 30.0F;
         public boolean isEnable = true;
 

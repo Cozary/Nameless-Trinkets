@@ -65,6 +65,7 @@ public class DarkNelumbo extends TrinketItem<DarkNelumbo.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
+        public float fabricLootTableChance = 0.01f;
         public boolean isEnable = true;
 
     }

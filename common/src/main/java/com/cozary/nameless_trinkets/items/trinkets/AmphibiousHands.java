@@ -57,6 +57,7 @@ public class AmphibiousHands extends TrinketItem<AmphibiousHands.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
+        public float fabricLootTableChance = 0.01f;
         public float miningUnderwaterSpeedPercentage = 150.0f;
         public boolean isEnable = true;
     }
