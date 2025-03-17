@@ -227,19 +227,19 @@ public class CrackedCrown extends TrinketItem<CrackedCrown.Stats> {
 
     public static class Stats extends TrinketsStats {
         public float fabricLootTableChance = 0.0025f;
-        public double percentageExtraMaxHealth = 50.0f;
-        public double percentageExtraSpeed = 50.0f;
-        public double percentageExtraFlySpeed = 0.0f;
-        public double percentageExtraAttack = 50.0f;
-        public double percentageExtraArmor = 50.0f;
-        public double percentageExtraAttackSpeed = 50.0f;
-        public double percentageExtraArmorToughness = 50.0f;
-        public double percentageExtraAttackKnockback = 50.0f;
-        public double percentageExtraKnockbackResistance = 50.0f;
-        public double percentageExtraLuck = 50.0f;
-        public double percentageExtraSwimSpeed = 0.0f;
-        public double percentageExtraBlockReach = 0.0f;
-        public double percentageExtraEntityReach = 0.0f;
+        public double percentageExtraMaxHealth = 15.0f;
+        public double percentageExtraSpeed = 10.0f;
+        public double percentageExtraFlySpeed = 5.0f;
+        public double percentageExtraAttack = 15.0f;
+        public double percentageExtraArmor = 10.0f;
+        public double percentageExtraAttackSpeed = 10.0f;
+        public double percentageExtraArmorToughness = 5.0f;
+        public double percentageExtraAttackKnockback = 5.0f;
+        public double percentageExtraKnockbackResistance = 10.0f;
+        public double percentageExtraLuck = 15.0f;
+        public double percentageExtraSwimSpeed = 10.0f;
+        public double percentageExtraBlockReach = 10.0f;
+        public double percentageExtraEntityReach = 10.0f;
         public double percentageExtraStepHeightAddition = 0.0f;
 
         public boolean isEnable = true;
