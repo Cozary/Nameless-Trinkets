@@ -10,7 +10,6 @@ public final class ConfigurationHandler {
 
     public static class General {
         public final ModConfigSpec.IntValue slotProbability;
-        public final ModConfigSpec.BooleanValue speedForceParticles;
         public final ModConfigSpec.BooleanValue getFragments;
         public final ModConfigSpec.IntValue trinketSlots;
         public final ModConfigSpec.BooleanValue disableFOV;
@@ -19,10 +18,6 @@ public final class ConfigurationHandler {
         public General(ModConfigSpec.Builder builder) {
             builder.push("New Trinket Slot Probability");
             slotProbability = builder.defineInRange("newSlotProbability", 10, 0, 100);
-            builder.pop();
-
-            builder.push("Speed Force Particles");
-            speedForceParticles = builder.define("showParticles", true);
             builder.pop();
 
             builder.push("Fragments from Trinket Destruction");
