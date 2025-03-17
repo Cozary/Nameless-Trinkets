@@ -138,6 +138,7 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
     @Override
     public void tick(ItemStack stack, SlotReference reference) {
         super.tick(stack, reference);
+        Stats config = Fertilizer.INSTANCE.getTrinketConfig();
 
         LivingEntity entity = reference.entity();
         Level level = entity.level();
@@ -154,16 +155,19 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
                 random.nextInt(5) - 3
         );
 
-        BlockState targetState = level.getBlockState(targetPos);
-        BlockState stateBelow = level.getBlockState(playerPos.below());
+        int effectInterval = config.effectIntervalInTicks;
+        if (entity.tickCount % effectInterval == 0) {
+            BlockState targetState = level.getBlockState(targetPos);
+            BlockState stateBelow = level.getBlockState(playerPos.below());
 
-        if (stateBelow.is(Blocks.GRASS_BLOCK)) {
-            if (applyBonemeal(level, targetPos)) {
-                spawnGrowthParticles(level, targetPos, 3);
-            }
-        } else if (targetState.is(Blocks.WATER)) {
-            if (growWaterPlant(level, targetPos, null)) {
-                spawnGrowthParticles(level, targetPos, 3);
+            if (stateBelow.is(Blocks.GRASS_BLOCK)) {
+                if (applyBonemeal(level, targetPos)) {
+                    spawnGrowthParticles(level, targetPos, 3);
+                }
+            } else if (targetState.is(Blocks.WATER)) {
+                if (growWaterPlant(level, targetPos, null)) {
+                    spawnGrowthParticles(level, targetPos, 3);
+                }
             }
         }
     }
@@ -185,6 +189,7 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
 
     public static class Stats extends TrinketsStats {
         public float fabricLootTableChance = 0.005f;
+        public int effectIntervalInTicks = 100;
         public boolean isEnable = true;
 
     }
