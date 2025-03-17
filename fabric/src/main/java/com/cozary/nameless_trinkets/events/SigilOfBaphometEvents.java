@@ -33,8 +33,8 @@ public class SigilOfBaphometEvents {
                 }
                 var stack = accessories.getEquipped(ModItems.SIGIL_OF_BAPHOMET.get());
 
-                if (!stack.isEmpty() && stack.getFirst().stack().getOrDefault(ModDataComponents.SIGIL_COUNT.get(), 0) <= 10) {
-                    stack.getFirst().stack().set(ModDataComponents.SIGIL_COUNT.get(), stack.getFirst().stack().getOrDefault(ModDataComponents.SIGIL_COUNT.get(), 0) + 1);
+                if (!stack.isEmpty() && stack.getFirst().stack().getOrDefault(ModDataComponents.SIGIL_COUNT.get(), 0) <= config.invulnerabilityMaxTimeInTicks) {
+                    stack.getFirst().stack().set(ModDataComponents.SIGIL_COUNT.get(), stack.getFirst().stack().getOrDefault(ModDataComponents.SIGIL_COUNT.get(), 0) + config.invulnerabilityAddTimeInTicks);
                 }
             }
         });
