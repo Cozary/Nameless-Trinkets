@@ -203,20 +203,21 @@ public class GodsCrown extends TrinketItem<GodsCrown.Stats> {
 
     public static class Stats extends TrinketsStats {
         public float fabricLootTableChance = 0.001f;
-        public double percentageExtraMaxHealth = 120.0f;
-        public double percentageExtraSpeed = 120.0f;
-        public double percentageExtraFlySpeed = 0.0f;
-        public double percentageExtraAttack = 120.0f;
-        public double percentageExtraArmor = 120.0f;
-        public double percentageExtraAttackSpeed = 120.0f;
-        public double percentageExtraArmorToughness = 120.0f;
-        public double percentageExtraAttackKnockback = 120.0f;
-        public double percentageExtraKnockbackResistance = 120.0f;
-        public double percentageExtraLuck = 120.0f;
-        public double percentageExtraSwimSpeed = 0.0f;
-        public double percentageExtraBlockReach = 0.0f;
-        public double percentageExtraEntityReach = 0.0f;
+        public double percentageExtraMaxHealth = 50.0f;
+        public double percentageExtraSpeed = 25.0f;
+        public double percentageExtraFlySpeed = 15.0f;
+        public double percentageExtraAttack = 40.0f;
+        public double percentageExtraArmor = 30.0f;
+        public double percentageExtraAttackSpeed = 25.0f;
+        public double percentageExtraArmorToughness = 20.0f;
+        public double percentageExtraAttackKnockback = 15.0f;
+        public double percentageExtraKnockbackResistance = 30.0f;
+        public double percentageExtraLuck = 50.0f;
+        public double percentageExtraSwimSpeed = 25.0f;
+        public double percentageExtraBlockReach = 25.0f;
+        public double percentageExtraEntityReach = 25.0f;
         public double percentageExtraStepHeightAddition = 0.0f;
+
         public boolean isEnable = true;
     }
 
