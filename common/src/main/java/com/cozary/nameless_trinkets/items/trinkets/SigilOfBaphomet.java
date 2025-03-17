@@ -59,9 +59,9 @@ public class SigilOfBaphomet extends TrinketItem<SigilOfBaphomet.Stats> {
         } else {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.sigil_of_baphomet_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
             if (Screen.hasShiftDown()) {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.sigil_of_baphomet_1").withStyle(ChatFormatting.GOLD));
+                tooltip.add(Component.translatable("tooltip.nameless_trinkets.sigil_of_baphomet_1", config.invulnerabilityAddTimeInTicks/20).withStyle(ChatFormatting.GOLD));
                 tooltip.add(Component.translatable("tooltip.nameless_trinkets.sigil_of_baphomet_2").withStyle(ChatFormatting.GOLD));
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.sigil_of_baphomet_3").withStyle(ChatFormatting.GOLD));
+                tooltip.add(Component.translatable("tooltip.nameless_trinkets.sigil_of_baphomet_3", config.invulnerabilityMaxTimeInTicks/20).withStyle(ChatFormatting.GOLD));
             } else {
                 tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
             }
@@ -70,6 +70,9 @@ public class SigilOfBaphomet extends TrinketItem<SigilOfBaphomet.Stats> {
 
     public static class Stats extends TrinketsStats {
         public float fabricLootTableChance = 0.0025f;
+        public int invulnerabilityAddTimeInTicks = 20;
+        public int invulnerabilityMaxTimeInTicks = 200;
+
         public boolean isEnable = true;
 
     }
