@@ -121,6 +121,7 @@ public class RageMind extends TrinketItem<RageMind.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
+        public float fabricLootTableChance = 0.0025f;
         public float damageMultiplierPercentage = 150.0F;
         public float range = 50;
         public boolean isEnable = true;

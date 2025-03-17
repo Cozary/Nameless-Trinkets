@@ -73,6 +73,7 @@ public class Reforger extends TrinketItem<Reforger.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
+        public float fabricLootTableChance = 0.0025f;
         public int repairSpeedSeconds = 10;
         public int repairQuantity = 1;
         public boolean isEnable = true;

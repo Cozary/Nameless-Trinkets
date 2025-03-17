@@ -72,6 +72,7 @@ public class ExperienceMagnet extends TrinketItem<ExperienceMagnet.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
+        public float fabricLootTableChance = 0.01f;
         public float range = 25.0F;
         public boolean isEnable = true;
 

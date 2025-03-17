@@ -70,6 +70,7 @@ public class SpiderLegs extends TrinketItem<SpiderLegs.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
+        public float fabricLootTableChance = 0.01f;
         public float climbSpeed = 0.1F;
         public boolean isEnable = true;
 

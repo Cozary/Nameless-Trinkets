@@ -91,6 +91,7 @@ public class GhastEye extends TrinketItem<GhastEye.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
+        public float fabricLootTableChance = 0.005f;
         public float extraHearts = 20.0F;
         public int regenerationTime = 200;
         public int regenerationExtraTime = 60;
