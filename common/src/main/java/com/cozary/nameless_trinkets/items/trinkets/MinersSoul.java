@@ -49,6 +49,7 @@ public class MinersSoul extends TrinketItem<MinersSoul.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
+        public float fabricLootTableChance = 0.0025f;
         public int extraLootingLevel = 1;
         public boolean isEnable = true;
 

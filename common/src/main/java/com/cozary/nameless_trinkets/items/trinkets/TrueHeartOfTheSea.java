@@ -128,6 +128,7 @@ public class TrueHeartOfTheSea extends TrinketItem<TrueHeartOfTheSea.Stats> {
 
 
     public static class Stats extends TrinketsStats {
+        public float fabricLootTableChance = 0.0025f;
         public float miningUnderwaterSpeedPercentage = 300.0F;
         public float chokingDamage = 1.5F;
         public boolean blindnessWhenChoking = true;

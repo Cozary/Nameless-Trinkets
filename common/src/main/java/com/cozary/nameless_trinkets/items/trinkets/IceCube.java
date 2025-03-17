@@ -111,6 +111,7 @@ public class IceCube extends TrinketItem<IceCube.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
+        public float fabricLootTableChance = 0.01f;
         public int slownessTime = 200;
         public int slownessLevel = 1;
         public int frostWalkerLevel = 3;

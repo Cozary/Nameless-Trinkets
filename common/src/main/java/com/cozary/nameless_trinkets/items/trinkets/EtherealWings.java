@@ -76,6 +76,7 @@ public class EtherealWings extends TrinketItem<EtherealWings.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
+        public float fabricLootTableChance = 0.005f;
         public float flyingSpeed = 0.01F;
         public boolean isEnable = true;
 

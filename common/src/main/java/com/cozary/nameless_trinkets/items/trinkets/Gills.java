@@ -94,6 +94,7 @@ public class Gills extends TrinketItem<Gills.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
+        public float fabricLootTableChance = 0.01f;
         public float chokingDamage = 2.0F;
         public boolean blindnessWhenChoking = true;
         public int airReductionSpeed = 7;

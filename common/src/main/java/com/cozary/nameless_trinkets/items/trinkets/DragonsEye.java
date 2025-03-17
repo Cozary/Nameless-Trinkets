@@ -88,6 +88,7 @@ public class DragonsEye extends TrinketItem<DragonsEye.Stats> {
 
 
     public static class Stats extends TrinketsStats {
+        public float fabricLootTableChance = 0.01f;
         public float radius = 20.0F;
         public boolean blindness = true;
         public boolean isEnable = true;

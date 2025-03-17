@@ -1,6 +1,7 @@
 package com.cozary.nameless_trinkets.utils;
 
 import com.cozary.nameless_trinkets.init.ModItems;
+import com.cozary.nameless_trinkets.items.trinkets.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,6 +9,57 @@ import java.util.Arrays;
 public class TierList {
 
     public static ArrayList<ArrayList<Object>> trinketList = new ArrayList<>(Arrays.asList(
+            new ArrayList<>(Arrays.asList(GodsCrown.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.GODS_CROWN.get())),
+            new ArrayList<>(Arrays.asList(ReverseCard.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.REVERSE_CARD.get())),
+            new ArrayList<>(Arrays.asList(BrokenAnkh.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.BROKEN_ANKH.get())),
+            new ArrayList<>(Arrays.asList(RageMind.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.RAGE_MIND.get())),
+            new ArrayList<>(Arrays.asList(CrackedCrown.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.CRACKED_CROWN.get())),
+            new ArrayList<>(Arrays.asList(SigilOfBaphomet.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.SIGIL_OF_BAPHOMET.get())),
+            new ArrayList<>(Arrays.asList(TrueHeartOfTheSea.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.TRUE_HEART_OF_THE_SEA.get())),
+            new ArrayList<>(Arrays.asList(Reforger.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.REFORGER.get())),
+            new ArrayList<>(Arrays.asList(FateEmerald.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.FATE_EMERALD.get())),
+            new ArrayList<>(Arrays.asList(LightGloves.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.LIGHT_GLOVES.get())),
+            new ArrayList<>(Arrays.asList(FourLeafClover.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.FOUR_LEAF_CLOVER.get())),
+            new ArrayList<>(Arrays.asList(MinersSoul.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.MINERS_SOUL.get())),
+            new ArrayList<>(Arrays.asList(MissingPage.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.MISSING_PAGE.get())),
+            new ArrayList<>(Arrays.asList(ExperienceBattery.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.EXPERIENCE_BATTERY.get())),
+            new ArrayList<>(Arrays.asList(SuperMagnet.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.SUPER_MAGNET.get())),
+            new ArrayList<>(Arrays.asList(WhatMagnet.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.WHAT_MAGNET.get())),
+            new ArrayList<>(Arrays.asList(Callus.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.CALLUS.get())),
+            new ArrayList<>(Arrays.asList(SpeedForce.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.SPEED_FORCE.get())),
+            new ArrayList<>(Arrays.asList(VampireBlood.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.VAMPIRE_BLOOD.get())),
+            new ArrayList<>(Arrays.asList(Tick.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.TICK.get())),
+            new ArrayList<>(Arrays.asList(GhastEye.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.GHAST_EYE.get())),
+            new ArrayList<>(Arrays.asList(Fertilizer.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.FERTILIZER.get())),
+            new ArrayList<>(Arrays.asList(TearOfTheSea.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.TEAR_OF_THE_SEA.get())),
+            new ArrayList<>(Arrays.asList(EtherealWings.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.ETHEREAL_WINGS.get())),
+            new ArrayList<>(Arrays.asList(ElectricPaddle.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.ELECTRIC_PADDLE.get())),
+            new ArrayList<>(Arrays.asList(FracturedNullstone.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.FRACTURED_NULLSTONE.get())),
+            new ArrayList<>(Arrays.asList(FragileCloud.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.FRAGILE_CLOUD.get())),
+            new ArrayList<>(Arrays.asList(ScarabAmulet.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.SCARAB_AMULET.get())),
+            new ArrayList<>(Arrays.asList(ExperienceMagnet.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.EXPERIENCE_MAGNET.get())),
+            new ArrayList<>(Arrays.asList(BrokenMagnet.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.BROKEN_MAGNET.get())),
+            new ArrayList<>(Arrays.asList(LuckyRock.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.LUCKY_ROCK.get())),
+            new ArrayList<>(Arrays.asList(PufferFishLiver.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.PUFFER_FISH_LIVER.get())),
+            new ArrayList<>(Arrays.asList(Blindfold.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.BLINDFOLD.get())),
+            new ArrayList<>(Arrays.asList(ExplosionProofJacket.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.EXPLOSION_PROOF_JACKET.get())),
+            new ArrayList<>(Arrays.asList(WoodenStick.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.WOODEN_STICK.get())),
+            new ArrayList<>(Arrays.asList(BlazeNucleus.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.BLAZE_NUCLEUS.get())),
+            new ArrayList<>(Arrays.asList(IceCube.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.ICE_CUBE.get())),
+            new ArrayList<>(Arrays.asList(CreeperSense.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.CREEPER_SENSE.get())),
+            new ArrayList<>(Arrays.asList(AmphibiousHands.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.AMPHIBIOUS_HANDS.get())),
+            new ArrayList<>(Arrays.asList(Gills.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.GILLS.get())),
+            new ArrayList<>(Arrays.asList(MoonStone.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.MOON_STONE.get())),
+            new ArrayList<>(Arrays.asList(SleepingPills.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.SLEEPING_PILLS.get())),
+            new ArrayList<>(Arrays.asList(Nelumbo.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.NELUMBO.get())),
+            new ArrayList<>(Arrays.asList(DarkNelumbo.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.DARK_NELUMBO.get())),
+            new ArrayList<>(Arrays.asList(SpiderLegs.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.SPIDER_LEGS.get())),
+            new ArrayList<>(Arrays.asList(DragonsEye.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.DRAGONS_EYE.get())),
+            new ArrayList<>(Arrays.asList(PocketLightningRod.INSTANCE.getTrinketConfig().fabricLootTableChance, ModItems.POCKET_LIGHTNING_ROD.get()))
+    ));
+
+
+/*    public static ArrayList<ArrayList<Object>> trinketList = new ArrayList<>(Arrays.asList(
             new ArrayList<>(Arrays.asList(0.001, ModItems.GODS_CROWN.get())),
             new ArrayList<>(Arrays.asList(0.0025, ModItems.REVERSE_CARD.get())),
             new ArrayList<>(Arrays.asList(0.0025, ModItems.BROKEN_ANKH.get())),
@@ -55,6 +107,6 @@ public class TierList {
             new ArrayList<>(Arrays.asList(0.01, ModItems.SPIDER_LEGS.get())),
             new ArrayList<>(Arrays.asList(0.01, ModItems.DRAGONS_EYE.get())),
             new ArrayList<>(Arrays.asList(0.01, ModItems.POCKET_LIGHTNING_ROD.get()))
-    ));
+    ));*/
 
 }

@@ -71,17 +71,14 @@ public class LootTableHandler {
                         LootTable.Builder lootTableBuilder = LootTable.lootTable();
 
                         for (ArrayList<Object> objects : TierList.trinketList) {
-                            double chance = (double) objects.get(0);
-                            @SuppressWarnings("unchecked")
-                            List<Item> items = (List<Item>) objects.get(1);
+                            float chance = (float) objects.get(0);
+                            Item items = (Item) objects.get(1);
 
                             LootPool.Builder poolBuilder = LootPool.lootPool()
                                     .setRolls(ConstantValue.exactly(1))
-                                    .when(LootItemRandomChanceCondition.randomChance((float) chance));
+                                    .when(LootItemRandomChanceCondition.randomChance(chance));
 
-                            for (Item item : items) {
-                                poolBuilder.add(LootItem.lootTableItem(item));
-                            }
+                                poolBuilder.add(LootItem.lootTableItem(items));
 
                             lootTableBuilder.withPool(poolBuilder);
                             tableBuilder.pool(poolBuilder.build());
