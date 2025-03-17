@@ -76,7 +76,7 @@ public class SpeedForce extends TrinketItem<SpeedForce.Stats> {
         LivingEntity livingEntity = reference.entity();
 
 
-        if (!livingEntity.level().isClientSide && !stack.isEmpty() && ConfigurationHandler.GENERAL.speedForceParticles.get()) {
+        if (!livingEntity.level().isClientSide && !stack.isEmpty() && config.speedForceParticles) {
 
             Vec3 vector3d = livingEntity.getDeltaMovement();
             ((ServerLevel) livingEntity.getCommandSenderWorld()).sendParticles(ParticleTypes.CLOUD, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), 5, vector3d.x * -4.0D, 0.3D, vector3d.z * -4.0D, 0.1);
@@ -101,6 +101,7 @@ public class SpeedForce extends TrinketItem<SpeedForce.Stats> {
     public static class Stats extends TrinketsStats {
         public float fabricLootTableChance = 0.005f;
         public double speedMultiplierPercentage = 200.0f;
+        public boolean speedForceParticles = true;
         public boolean isEnable = true;
 
     }
