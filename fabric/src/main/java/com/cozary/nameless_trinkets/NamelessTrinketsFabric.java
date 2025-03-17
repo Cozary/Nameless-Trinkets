@@ -56,6 +56,7 @@ public class NamelessTrinketsFabric implements ModInitializer {
         BlazeNucleusEvents.register();
         BrokenAnkhEvents.register();
         CallusEvents.register();
+        DarkNelumboEvents.register();
         ExperienceBatteryEvents.register();
         ExplosionProofJacketEvents.register();
         FourLeafCloverEvents.register();
