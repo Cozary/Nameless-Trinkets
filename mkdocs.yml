@@ -4,6 +4,25 @@ theme:
   name: material
   palette:
     primary: cyan
+  icon:
+    admonition:
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/squirrel-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
 
 nav:
   - Home: index.md
@@ -12,6 +31,7 @@ nav:
   - Recycling Trinkets: recycle.md
   - Tags: tags.md
   - Common Config: common_config.md
+  - Loot Tables: loot_tables.md
   - Trinkets:
     - Amphibious Hands: trinkets/amphibious_hands.md
     - Blindfold: trinkets/blindfold.md
