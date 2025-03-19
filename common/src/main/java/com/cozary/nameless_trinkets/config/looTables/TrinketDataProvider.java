@@ -13,7 +13,7 @@ public class TrinketDataProvider {
 
     public static List<List<Object>> getTrinketList() {
         return new ArrayList<>(Arrays.asList(
-                List.of(0.001, ModItems.GODS_CROWN.get()),
+                //List.of(0.001, ModItems.GODS_CROWN.get()),
                 List.of(0.0025, ModItems.REVERSE_CARD.get()),
                 List.of(0.0025, ModItems.BROKEN_ANKH.get()),
                 List.of(0.0025, ModItems.RAGE_MIND.get()),
