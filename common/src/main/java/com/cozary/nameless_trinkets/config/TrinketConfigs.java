@@ -99,7 +99,7 @@ public class TrinketConfigs {
         trinketItem.setTrinketConfig(data.getConfig());
     }
 
-    private static String getItemName(TrinketItem<?> trinketItem) {
+    public static String getItemName(TrinketItem<?> trinketItem) {
         return ModItems.CREATIVE_TAB_ITEMS.stream()
                 .filter(item -> item.get() == trinketItem)
                 .findFirst()

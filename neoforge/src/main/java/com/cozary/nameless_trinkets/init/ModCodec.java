@@ -1,3 +1,4 @@
+/*
 package com.cozary.nameless_trinkets.init;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
@@ -25,3 +26,4 @@ public class ModCodec {
         LOOT_MODIFIER_SERIALIZERS.register(eventBus);
     }
 }
+*/

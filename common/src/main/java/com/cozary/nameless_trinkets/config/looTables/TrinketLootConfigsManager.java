@@ -1,12 +1,10 @@
-package com.cozary.nameless_trinkets.config;
+package com.cozary.nameless_trinkets.config.looTables;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
-import com.cozary.nameless_trinkets.init.ModItems;
-import com.google.gson.reflect.TypeToken;
+import com.cozary.nameless_trinkets.config.ConfigUtils;
+import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.level.storage.loot.BuiltInLootTables;
-import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.item.Item;
 
 import java.io.IOException;
@@ -15,6 +13,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.*;
+
+import static com.cozary.nameless_trinkets.config.TrinketConfigs.getItemName;
 
 public class TrinketLootConfigsManager {
 
@@ -27,18 +27,40 @@ public class TrinketLootConfigsManager {
 
     public static void loadConfigs() {
         try {
-            if (Files.exists(CONFIG_PATH)) {
-                configs.clear();
-                try (DirectoryStream<Path> stream = Files.newDirectoryStream(CONFIG_PATH, "*.json")) {
-                    for (Path path : stream) {
-                        TrinketLootConfig config = ConfigUtils.readConfig(path, TrinketLootConfig.class);
-                        configs.add(config);
-                    }
+            Files.createDirectories(CONFIG_PATH);
+            configs.clear();
+
+            Set<String> loadedItemIds = new HashSet<>();
+            try (DirectoryStream<Path> stream = Files.newDirectoryStream(CONFIG_PATH, "*.json")) {
+                for (Path path : stream) {
+                    TrinketLootConfig config = ConfigUtils.readConfig(path, TrinketLootConfig.class);
+                    configs.add(config);
+                    loadedItemIds.add(config.getItemId());
                 }
-            } else {
-                generateDefaultConfigs();
+            }
+
+            List<ResourceLocation> defaultLootTables = TrinketDataProvider.LOOT_TABLES.stream()
+                    .map(ResourceKey::location)
+                    .toList();
+
+            boolean missingConfigs = false;
+
+            for (var entry : TrinketDataProvider.getTrinketList()) {
+                double chance = (double) entry.get(0);
+                Item item = (Item) entry.get(1);
+                String itemName = getItemName((TrinketItem<?>) item);
+
+                if (!loadedItemIds.contains(itemName)) {
+                    TrinketLootConfig newConfig = new TrinketLootConfig(itemName, chance, defaultLootTables);
+                    configs.add(newConfig);
+                    missingConfigs = true;
+                }
+            }
+
+            if (missingConfigs) {
                 saveConfigs();
             }
+
         } catch (Exception e) {
             NamelessTrinkets.LOG.error("Failed to load TrinketLootConfigs, generating defaults.", e);
             backupCorruptedConfigs();
@@ -46,6 +68,7 @@ public class TrinketLootConfigsManager {
             saveConfigs();
         }
     }
+
 
 
     public static void saveConfigs() {
@@ -72,8 +95,9 @@ public class TrinketLootConfigsManager {
         TrinketDataProvider.getTrinketList().forEach(entry -> {
             double chance = (double) entry.get(0);
             Item item = (Item) entry.get(1);
+            String itemName = getItemName((TrinketItem<?>) item);
 
-            configs.add(new TrinketLootConfig(item.getDescriptionId(), chance, defaultLootTables));
+            configs.add(new TrinketLootConfig(itemName, chance, defaultLootTables));
         });
     }
 
