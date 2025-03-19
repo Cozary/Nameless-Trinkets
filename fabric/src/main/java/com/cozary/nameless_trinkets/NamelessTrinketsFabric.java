@@ -32,7 +32,7 @@ public class NamelessTrinketsFabric implements ModInitializer {
         NeoForgeConfigRegistry.INSTANCE.register(NamelessTrinkets.MOD_ID, ModConfig.Type.COMMON, ConfigurationHandler.spec);
 
         eventLoad();
-        iteMGroupLoad();
+        itemGroupLoad();
 
         LootTableHandler.modifyLootTable();
 
@@ -72,7 +72,7 @@ public class NamelessTrinketsFabric implements ModInitializer {
         UnknownFragmentEvent.register();
     }
 
-    private void iteMGroupLoad(){
+    private void itemGroupLoad(){
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ITEM_GROUP, FabricItemGroup.builder()
                 .title(Component.translatable("itemGroup.nameless_trinkets"))
                 .icon(() -> new ItemStack(ModItems.MYSTERIOUS_TRINKET.get()))
