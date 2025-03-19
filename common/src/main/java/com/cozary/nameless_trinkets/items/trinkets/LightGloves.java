@@ -49,7 +49,6 @@ public class LightGloves extends TrinketItem<LightGloves.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
-        public float fabricLootTableChance = 0.0025f;
         public float miningSpeedPercentage = 200.0F;
         public boolean isEnable = true;
 

@@ -86,7 +86,6 @@ public class MoonStone extends TrinketItem<MoonStone.Stats> {
 
 
     public static class Stats extends TrinketsStats {
-        public float fabricLootTableChance = 0.01f;
         public double gravityValue = -0.07;
         public boolean isEnable = true;
 

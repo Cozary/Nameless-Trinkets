@@ -69,7 +69,6 @@ public class SigilOfBaphomet extends TrinketItem<SigilOfBaphomet.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
-        public float fabricLootTableChance = 0.0025f;
         public int invulnerabilityAddTimeInTicks = 20;
         public int invulnerabilityMaxTimeInTicks = 200;
 

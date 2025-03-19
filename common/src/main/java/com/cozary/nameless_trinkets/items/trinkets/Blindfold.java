@@ -69,7 +69,6 @@ public class Blindfold extends TrinketItem<Blindfold.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
-        public float fabricLootTableChance = 0.01f;
         public boolean isEnable = true;
 
     }
