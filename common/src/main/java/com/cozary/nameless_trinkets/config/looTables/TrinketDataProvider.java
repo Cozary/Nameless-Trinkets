@@ -1,4 +1,4 @@
-package com.cozary.nameless_trinkets.config;
+package com.cozary.nameless_trinkets.config.looTables;
 
 import com.cozary.nameless_trinkets.init.ModItems;
 import net.minecraft.resources.ResourceKey;
