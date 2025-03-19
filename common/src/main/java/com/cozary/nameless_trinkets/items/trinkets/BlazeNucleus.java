@@ -61,7 +61,6 @@ public class BlazeNucleus extends TrinketItem<BlazeNucleus.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
-        public float fabricLootTableChance = 0.01f;
         public int setEnemyInFireTicks = 300;
         public float fireDamageReductionPercentage = 80.0F;
         public boolean isEnable = true;

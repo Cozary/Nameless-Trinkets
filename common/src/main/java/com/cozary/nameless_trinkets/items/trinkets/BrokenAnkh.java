@@ -67,7 +67,6 @@ public class BrokenAnkh extends TrinketItem<BrokenAnkh.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
-        public float fabricLootTableChance = 0.0025f;
         public int cooldown = 36000;
         public boolean isEnable = true;
 

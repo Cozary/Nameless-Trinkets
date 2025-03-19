@@ -56,7 +56,6 @@ public class ElectricPaddle extends TrinketItem<ElectricPaddle.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
-        public float fabricLootTableChance = 0.005f;
         public float boatSpeedMultiplierPercentage = 100;
         public boolean isEnable = true;
 

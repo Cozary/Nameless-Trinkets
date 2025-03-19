@@ -89,7 +89,6 @@ public class TearOfTheSea extends TrinketItem<TearOfTheSea.Stats> {
 
 
     public static class Stats extends TrinketsStats {
-        public float fabricLootTableChance = 0.005f;
         public double swimSpeedMultiplierPercentage = 50.0f;
         public boolean isEnable = true;
 

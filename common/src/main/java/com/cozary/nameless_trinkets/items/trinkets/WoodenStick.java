@@ -57,7 +57,6 @@ public class WoodenStick extends TrinketItem<WoodenStick.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
-        public float fabricLootTableChance = 0.01f;
         public float cooldown = 200;
         public boolean isEnable = true;
 

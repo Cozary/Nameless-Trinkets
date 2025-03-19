@@ -114,7 +114,6 @@ public class FateEmerald extends TrinketItem<FateEmerald.Stats> {
 
 
     public static class Stats extends TrinketsStats {
-        public float fabricLootTableChance = 0.0025f;
         public int discountBoost = 100;
         public float timeUntilUnequip = 0;
         public float hungerExhaustionRate = 0.1F;

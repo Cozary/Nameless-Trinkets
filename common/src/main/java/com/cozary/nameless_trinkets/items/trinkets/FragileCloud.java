@@ -110,7 +110,6 @@ public class FragileCloud extends TrinketItem<FragileCloud.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
-        public float fabricLootTableChance = 0.005f;
         public boolean isEnable = true;
 
     }

@@ -110,7 +110,6 @@ public class Tick extends TrinketItem<Tick.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
-        public float fabricLootTableChance = 0.005f;
         public float rangeToActivate = 25.0F;
         public float entityDamagePercentage = 1.0F;
         public float playerDamagePercentage = 5.0F;

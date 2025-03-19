@@ -56,7 +56,6 @@ public class FourLeafClover extends TrinketItem<FourLeafClover.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
-        public float fabricLootTableChance = 0.0025f;
         public int extraLoots = 2;
         public boolean isEnable = true;
 

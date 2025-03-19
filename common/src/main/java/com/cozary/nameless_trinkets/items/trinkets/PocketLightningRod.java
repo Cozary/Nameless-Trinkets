@@ -89,7 +89,6 @@ public class PocketLightningRod extends TrinketItem<PocketLightningRod.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
-        public float fabricLootTableChance = 0.01f;
         public int thunders = 100;
         public boolean isEnable = true;
 
