@@ -27,19 +27,22 @@ public class NamelessTrinketsFabric implements ModInitializer {
 
     @Override
     public void onInitialize() {
-
-        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ITEM_GROUP, FabricItemGroup.builder()
-                .title(Component.translatable("itemGroup.nameless_trinkets"))
-                .icon(() -> new ItemStack(ModItems.MYSTERIOUS_TRINKET.get()))
-                .displayItems((parameters, output) -> ModItems.CREATIVE_TAB_ITEMS.forEach((item) -> output.accept(item.get())))
-                .build()
-        );
-
-
         NamelessTrinkets.init();
 
         NeoForgeConfigRegistry.INSTANCE.register(NamelessTrinkets.MOD_ID, ModConfig.Type.COMMON, ConfigurationHandler.spec);
 
+        eventLoad();
+        iteMGroupLoad();
+
+        LootTableHandler.modifyLootTable();
+
+        TrinketConfigs.loadClass();
+        TrinketLootConfigsManager.loadConfigs();
+        RemoveRendering.noRenderingList();
+
+    }
+
+    private void eventLoad(){
         AmphibiousHandsEvents.register();
         BlazeNucleusEvents.register();
         BrokenAnkhEvents.register();
@@ -67,12 +70,15 @@ public class NamelessTrinketsFabric implements ModInitializer {
         WoodenStickEvents.register();
         WoundbearerEvents.register();
         UnknownFragmentEvent.register();
-
-        LootTableHandler.modifyLootTable();
-
-        TrinketConfigs.loadClass();
-        TrinketLootConfigsManager.loadConfigs();
-        RemoveRendering.noRenderingList();
-
     }
+
+    private void iteMGroupLoad(){
+        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ITEM_GROUP, FabricItemGroup.builder()
+                .title(Component.translatable("itemGroup.nameless_trinkets"))
+                .icon(() -> new ItemStack(ModItems.MYSTERIOUS_TRINKET.get()))
+                .displayItems((parameters, output) -> ModItems.CREATIVE_TAB_ITEMS.forEach((item) -> output.accept(item.get())))
+                .build()
+        );
+    }
+
 }
