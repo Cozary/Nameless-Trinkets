@@ -84,7 +84,6 @@ public class SuperMagnet extends TrinketItem<SuperMagnet.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
-        public float fabricLootTableChance = 0.005f;
         public double range = 50.0;
         public boolean isEnable = true;
 

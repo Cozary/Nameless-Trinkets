@@ -93,7 +93,6 @@ public class SpeedForce extends TrinketItem<SpeedForce.Stats> {
 
 
     public static class Stats extends TrinketsStats {
-        public float fabricLootTableChance = 0.005f;
         public double speedMultiplierPercentage = 200.0f;
         public boolean speedForceParticles = true;
         public boolean isEnable = true;

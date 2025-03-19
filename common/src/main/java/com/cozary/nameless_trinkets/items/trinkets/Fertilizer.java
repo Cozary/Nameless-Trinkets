@@ -180,7 +180,6 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
-        public float fabricLootTableChance = 0.005f;
         public int effectIntervalInTicks = 100;
         public boolean isEnable = true;
 

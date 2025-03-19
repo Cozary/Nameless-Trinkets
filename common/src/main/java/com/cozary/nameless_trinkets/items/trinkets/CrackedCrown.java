@@ -219,7 +219,6 @@ public class CrackedCrown extends TrinketItem<CrackedCrown.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
-        public float fabricLootTableChance = 0.0025f;
         public double percentageExtraMaxHealth = 15.0f;
         public double percentageExtraSpeed = 10.0f;
         public double percentageExtraFlySpeed = 5.0f;

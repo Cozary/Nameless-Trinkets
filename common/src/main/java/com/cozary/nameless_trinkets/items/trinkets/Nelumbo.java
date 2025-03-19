@@ -57,7 +57,6 @@ public class Nelumbo extends TrinketItem<Nelumbo.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
-        public float fabricLootTableChance = 0.01f;
         public boolean isEnable = true;
 
     }
