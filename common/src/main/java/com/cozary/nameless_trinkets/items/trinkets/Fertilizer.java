@@ -173,6 +173,7 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.fertilizer_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
             if (Screen.hasShiftDown()) {
                 tooltip.add(Component.translatable("tooltip.nameless_trinkets.fertilizer_1").withStyle(ChatFormatting.GOLD));
+                tooltip.add(Component.translatable("tooltip.nameless_trinkets.fertilizer_2").withStyle(ChatFormatting.GOLD));
             } else {
                 tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
             }
