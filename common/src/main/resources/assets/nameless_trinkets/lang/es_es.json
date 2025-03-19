@@ -312,6 +312,7 @@
   "tooltip.nameless_trinkets.dying_star_lore": "Sobreviviendo para siempre...",
   "tooltip.nameless_trinkets.dying_star_1": "Dame de comer trinkets...",
   "tooltip.nameless_trinkets.hold_ctrl_l": "Mantén CTRL Izquierdo para obtener información adicional",
-  "message.nameless_trinkets.dying_star_all_maxed": "La Estrella Moribunda Está Saciada"
+  "message.nameless_trinkets.dying_star_all_maxed": "La Estrella Moribunda Está Saciada",
+  "tooltip.nameless_trinkets.fertilizer_2": "Se activa cada %1$s ticks."
 
 }
