@@ -1,3 +1,4 @@
+/*
 package com.cozary.nameless_trinkets.codecs;
 
 import com.mojang.serialization.MapCodec;
@@ -45,3 +46,4 @@ public class AddSingleTrinketModifier extends LootModifier {
 
 
 
+*/

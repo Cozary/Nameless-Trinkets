@@ -1,9 +1,7 @@
-package com.cozary.nameless_trinkets.config;
+package com.cozary.nameless_trinkets.config.looTables;
 
 import com.google.gson.annotations.SerializedName;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.level.storage.loot.LootTable;
 
 import java.util.List;
 

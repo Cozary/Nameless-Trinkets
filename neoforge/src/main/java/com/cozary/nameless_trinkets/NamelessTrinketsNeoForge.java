@@ -1,8 +1,7 @@
 package com.cozary.nameless_trinkets;
 
-
 import com.cozary.nameless_trinkets.config.TrinketConfigs;
-import com.cozary.nameless_trinkets.init.ModCodec;
+import com.cozary.nameless_trinkets.config.looTables.TrinketLootConfigsManager;
 import com.cozary.nameless_trinkets.init.ModDataComponents;
 import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.init.ModTabs;
@@ -37,13 +36,14 @@ public class NamelessTrinketsNeoForge {
         NamelessTrinkets.init();
 
         ModTabs.init(eventBus);
-        ModCodec.init(eventBus);
+        //ModCodec.init(eventBus);
 
         container.registerConfig(ModConfig.Type.COMMON, ConfigurationHandler.spec);
 
     }
 
     private void setup(final FMLCommonSetupEvent event) {
+        TrinketLootConfigsManager.loadConfigs();
         TrinketConfigs.loadClass();
         RemoveRendering.noRenderingList();
     }
