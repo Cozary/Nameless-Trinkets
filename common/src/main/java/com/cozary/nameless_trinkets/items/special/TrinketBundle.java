@@ -182,7 +182,7 @@ public class TrinketBundle extends BundleItem {
         TrinketBundleContents bundlecontents = (TrinketBundleContents)itemStack.get((DataComponentType)ModDataComponents.TRINKET_BUNDLE_CONTENTS.get());
         if (bundlecontents != null) {
             int i = Mth.mulAndTruncate(bundlecontents.weight(), 64);
-            tooltipComponents.add(Component.translatable("item.minecraft.bundle.fullness", new Object[]{i, 64}).withStyle(ChatFormatting.GRAY));
+            tooltipComponents.add(Component.translatable("item.minecraft.bundle.fullness", new Object[]{i, 4}).withStyle(ChatFormatting.GRAY));
         }
 
     }
