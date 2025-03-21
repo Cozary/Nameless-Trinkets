@@ -47,16 +47,4 @@ public class NamelessTrinketsNeoForge {
         TrinketConfigs.loadClass();
         RemoveRendering.noRenderingList();
     }
-
-    //Todo Can do in common i think? And extract it idk
-    @EventBusSubscriber(modid = NamelessTrinkets.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = {Dist.CLIENT})
-    public static class ClientModEvents {
-        @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event) {
-            ItemProperties.register((Item)ModItems.TRINKET_BUNDLE.get(), ResourceLocation.fromNamespaceAndPath("minecraft", "filled"), (stack, p_174626_, p_174627_, p_174628_) -> {
-                return ((TrinketBundleContents) Objects.requireNonNull((TrinketBundleContents)stack.get((DataComponentType) ModDataComponents.TRINKET_BUNDLE_CONTENTS.get()))).weight().floatValue() * 64.0F;
-            });
-        }
-    }
-
 }
