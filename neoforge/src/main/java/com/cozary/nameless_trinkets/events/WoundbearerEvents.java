@@ -3,7 +3,6 @@ package com.cozary.nameless_trinkets.events;
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.init.ModDataComponents;
 import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.items.trinkets.WoodenStick;
 import com.cozary.nameless_trinkets.items.trinkets.Woundbearer;
 import io.wispforest.accessories.api.AccessoriesCapability;
 import net.minecraft.world.entity.player.Player;
@@ -29,9 +28,9 @@ public class WoundbearerEvents {
             }
             var stack = accessories.getEquipped(ModItems.WOUNDBEARER.get());
             if (!stack.isEmpty() && !player.level().isClientSide) {
-                float damageIncrement = event.getNewDamage() * (config.damageConversionPercentage/100);
+                float damageIncrement = event.getNewDamage() * (config.damageConversionPercentage / 100);
 
-                stack.getFirst().stack().set(ModDataComponents.WOUNDBEARER_DAMAGE.get(), stack.getFirst().stack().getOrDefault(ModDataComponents.WOUNDBEARER_DAMAGE.get(),0).floatValue() + damageIncrement);
+                stack.getFirst().stack().set(ModDataComponents.WOUNDBEARER_DAMAGE.get(), stack.getFirst().stack().getOrDefault(ModDataComponents.WOUNDBEARER_DAMAGE.get(), 0).floatValue() + damageIncrement);
             }
         }
     }

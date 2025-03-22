@@ -40,7 +40,6 @@ public class ExplosionProofJacket extends TrinketItem<ExplosionProofJacket.Stats
     public boolean canBeHurtBy(DamageSource damageSource) {
         return !damageSource.is(DamageTypes.EXPLOSION);
     }*/
-
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
         Stats config = ExplosionProofJacket.INSTANCE.getTrinketConfig();

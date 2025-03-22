@@ -32,7 +32,7 @@ public class FracturedNullstoneEvents {
                     //haha DamageTypeTag Magic doesn't exist
 
                     if (event.getSource().type().msgId().equals("indirectMagic") || event.getSource().type().msgId().equals("magic")) {
-                        event.setNewDamage(event.getOriginalDamage() * (config.magicDamageReductionPercentage/100));
+                        event.setNewDamage(event.getOriginalDamage() * (config.magicDamageReductionPercentage / 100));
                     }
                 }
             }

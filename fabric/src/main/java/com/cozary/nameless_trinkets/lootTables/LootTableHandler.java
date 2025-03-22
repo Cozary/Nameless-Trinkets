@@ -1,24 +1,17 @@
 package com.cozary.nameless_trinkets.lootTables;
 
-import com.cozary.nameless_trinkets.NamelessTrinkets;
-import com.cozary.nameless_trinkets.config.looTables.TrinketDataProvider;
 import com.cozary.nameless_trinkets.config.looTables.TrinketLootConfig;
 import com.cozary.nameless_trinkets.config.looTables.TrinketLootConfigsManager;
 import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.init.RegistryObject;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.level.storage.loot.*;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 import static com.cozary.nameless_trinkets.config.TrinketConfigs.getItemName;

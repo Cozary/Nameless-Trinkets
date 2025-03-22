@@ -2,11 +2,9 @@ package com.cozary.nameless_trinkets.events;
 
 import com.cozary.nameless_trinkets.init.ModEvents;
 import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.items.trinkets.BlazeNucleus;
 import com.cozary.nameless_trinkets.items.trinkets.ExperienceBattery;
 import io.wispforest.accessories.api.AccessoriesCapability;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.player.Player;
 
@@ -33,7 +31,7 @@ public class ExperienceBatteryEvents {
                 }
 
                 int originalExperience = livingEntity.getExperienceReward((ServerLevel) livingEntity.level(), entity);
-                int bonusExperience = (int) (originalExperience * (1 - (config.extraExperiencePercentage/100)));
+                int bonusExperience = (int) (originalExperience * (1 - (config.extraExperiencePercentage / 100)));
 
                 if (bonusExperience > 0) {
                     livingEntity.level().addFreshEntity(new ExperienceOrb((ServerLevel) livingEntity.level(), livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), bonusExperience));

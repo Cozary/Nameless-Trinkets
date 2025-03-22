@@ -51,7 +51,7 @@ public class Woundbearer extends TrinketItem<Woundbearer.Stats> {
         } else {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.woundbearer_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
             if (Screen.hasShiftDown()) {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.woundbearer_1", String.format("%.2f", stack.getOrDefault(ModDataComponents.WOUNDBEARER_DAMAGE.get(),0).floatValue())).withStyle(ChatFormatting.GOLD));
+                tooltip.add(Component.translatable("tooltip.nameless_trinkets.woundbearer_1", String.format("%.2f", stack.getOrDefault(ModDataComponents.WOUNDBEARER_DAMAGE.get(), 0).floatValue())).withStyle(ChatFormatting.GOLD));
             } else {
                 tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
             }
@@ -70,9 +70,9 @@ public class Woundbearer extends TrinketItem<Woundbearer.Stats> {
         if (world.isClientSide())
             return;
 
-        float damageIncrement = stack.getOrDefault(ModDataComponents.WOUNDBEARER_DAMAGE.get(),0).floatValue();
+        float damageIncrement = stack.getOrDefault(ModDataComponents.WOUNDBEARER_DAMAGE.get(), 0).floatValue();
 
-        if(damageIncrement > 0){
+        if (damageIncrement > 0) {
 
             AttributeInstance attributeDamage = livingEntity.getAttribute(Attributes.ATTACK_DAMAGE);
             AttributeModifier damageModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "woundbearer_attack_damage"),
@@ -87,8 +87,8 @@ public class Woundbearer extends TrinketItem<Woundbearer.Stats> {
     @Override
     public void onUnequip(ItemStack stack, SlotReference reference) {
 
-        float damageIncrement = stack.getOrDefault(ModDataComponents.WOUNDBEARER_DAMAGE.get(),0).floatValue();
-        if(damageIncrement > 0) {
+        float damageIncrement = stack.getOrDefault(ModDataComponents.WOUNDBEARER_DAMAGE.get(), 0).floatValue();
+        if (damageIncrement > 0) {
             EntityUtils.removeAttributeModifier(Objects.requireNonNull(reference.entity().getAttribute(Attributes.ATTACK_DAMAGE)),
                     new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "woundbearer_attack_damage"),
                             damageIncrement, AttributeModifier.Operation.ADD_VALUE));

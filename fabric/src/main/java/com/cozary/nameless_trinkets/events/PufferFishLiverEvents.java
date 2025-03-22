@@ -2,7 +2,6 @@ package com.cozary.nameless_trinkets.events;
 
 import com.cozary.nameless_trinkets.init.ModEvents;
 import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.items.trinkets.IceCube;
 import com.cozary.nameless_trinkets.items.trinkets.PufferFishLiver;
 import io.wispforest.accessories.api.AccessoriesCapability;
 import net.minecraft.world.effect.MobEffectInstance;

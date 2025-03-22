@@ -33,7 +33,7 @@ public class ExperienceBatteryEvents {
             return;
 
 
-        float experienceMultiplier = (config.extraExperiencePercentage/100);
+        float experienceMultiplier = (config.extraExperiencePercentage / 100);
         int originalExperience = event.getOriginalExperience();
         int bonusExperience = (int) (originalExperience * experienceMultiplier);
 
