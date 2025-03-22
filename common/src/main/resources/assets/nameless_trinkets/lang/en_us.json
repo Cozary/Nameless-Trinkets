@@ -312,5 +312,5 @@
   "tooltip.nameless_trinkets.dying_star_1": "Feed me trinkets...",
   "tooltip.nameless_trinkets.hold_ctrl_l": "Hold Ctrl Left For Extra Info",
   "message.nameless_trinkets.dying_star_all_maxed": "The Dying Star Is Satiated",
-  "tooltip.nameless_trinkets.fertilizer_2": "Triggers every %1$s ticks."
+  "tooltip.nameless_trinkets.fertilizer_2": "Triggers every %1$s seconds."
 }
