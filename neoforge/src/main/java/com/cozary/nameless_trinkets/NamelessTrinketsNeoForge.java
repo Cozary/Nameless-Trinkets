@@ -36,7 +36,6 @@ public class NamelessTrinketsNeoForge {
         NamelessTrinkets.init();
 
         ModTabs.init(eventBus);
-        //ModCodec.init(eventBus);
 
         container.registerConfig(ModConfig.Type.COMMON, ConfigurationHandler.spec);
 
