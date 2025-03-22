@@ -50,14 +50,17 @@ public class TrinketBundleContents extends BundleContents {
     static Fraction getWeight(ItemStack itemStack) {
         return Fraction.getFraction(1, 64);
     }
+
     @Override
     public ItemStack getItemUnsafe(int index) {
         return (ItemStack)this.items.get(index);
     }
+
     @Override
     public Stream<ItemStack> itemCopyStream() {
         return this.items.stream().map(ItemStack::copy);
     }
+
     @Override
     public Iterable<ItemStack> items() {
         return this.items;
@@ -66,22 +69,27 @@ public class TrinketBundleContents extends BundleContents {
     public List<ItemStack> itemList() {
         return this.items;
     }
+
     @Override
     public Iterable<ItemStack> itemsCopy() {
         return Lists.transform(this.items, ItemStack::copy);
     }
+
     @Override
     public int size() {
         return this.items.size();
     }
+
     @Override
     public Fraction weight() {
         return this.weight;
     }
+
     @Override
     public boolean isEmpty() {
         return this.items.isEmpty();
     }
+
     @Override
     public boolean equals(Object other) {
         if (this == other) {
@@ -98,10 +106,12 @@ public class TrinketBundleContents extends BundleContents {
             return var10000;
         }
     }
+
     @Override
     public int hashCode() {
         return ItemStack.hashStackList(this.items);
     }
+
     @Override
     public String toString() {
         return "TrinketBundleContents" + String.valueOf(this.items);

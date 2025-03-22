@@ -322,6 +322,6 @@
   "item.nameless_trinkets.resonant_heart": "Resonant Heart",
   "item.nameless_trinkets.dying_star": "Dying Star",
   "advancements.nameless_trinkets.dying_star.title": "Hungry",
-  "advancements.nameless_trinkets.dying_star.description": "Obtain the Dying Star"
-
+  "advancements.nameless_trinkets.dying_star.description": "Obtain the Dying Star",
+  "item.nameless_trinkets.trinket_bundle": "Trinket Bundle"
 }
