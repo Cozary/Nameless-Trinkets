@@ -36,16 +36,17 @@ public class ResonantHeart extends TrinketItem<ResonantHeart.Stats> {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        //tooltip.add(Component.translatable("tooltip.nameless_trinkets.nelumbo_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
+        Stats config = ResonantHeart.INSTANCE.getTrinketConfig();
+        tooltip.add(Component.translatable("tooltip.nameless_trinkets.resonant_heart_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
         if (Screen.hasShiftDown()) {
-            //tooltip.add(Component.translatable("tooltip.nameless_trinkets.nelumbo_1").withStyle(ChatFormatting.GOLD));
+            tooltip.add(Component.translatable("tooltip.nameless_trinkets.resonant_heart_1", config.chanceToActivateProbability + "%").withStyle(ChatFormatting.GOLD));
         } else {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
         }
     }
 
     public static class Stats extends TrinketsStats {
-        public float chanceToActivateProbability = 25.0f;
+        public float chanceToActivateProbability = 10.0f;
         public boolean isEnable = true;
     }
 }

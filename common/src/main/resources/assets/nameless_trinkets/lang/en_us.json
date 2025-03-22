@@ -312,5 +312,16 @@
   "tooltip.nameless_trinkets.dying_star_1": "Feed me trinkets...",
   "tooltip.nameless_trinkets.hold_ctrl_l": "Hold Ctrl Left For Extra Info",
   "message.nameless_trinkets.dying_star_all_maxed": "The Dying Star Is Satiated",
-  "tooltip.nameless_trinkets.fertilizer_2": "Triggers every %1$s seconds."
+  "tooltip.nameless_trinkets.fertilizer_2": "Triggers every %1$s seconds.",
+  "advancements.nameless_trinkets.woundbearer.title": "Infinite pain",
+  "advancements.nameless_trinkets.woundbearer.description": "Obtain the Woundbearer.",
+  "tooltip.nameless_trinkets.resonant_heart_lore": "It still beats.",
+  "tooltip.nameless_trinkets.resonant_heart_1": "When taking damage you have a %1$s chance to release a Sonic Boom.",
+  "advancements.nameless_trinkets.resonant_heart.title": "Still alive.",
+  "advancements.nameless_trinkets.resonant_heart.description": "Obtain the Resonant Heart",
+  "item.nameless_trinkets.resonant_heart": "Resonant Heart",
+  "item.nameless_trinkets.dying_star": "Dying Star",
+  "advancements.nameless_trinkets.dying_star.title": "Hungry",
+  "advancements.nameless_trinkets.dying_star.description": "Obtain the Dying Star"
+
 }
