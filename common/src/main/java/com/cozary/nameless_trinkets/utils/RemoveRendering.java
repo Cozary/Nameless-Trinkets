@@ -56,5 +56,7 @@ public class RemoveRendering {
         AccessoriesRendererRegistry.registerNoRenderer(ModItems.SHRINKING_VEIL.get());
         AccessoriesRendererRegistry.registerNoRenderer(ModItems.TITANS_MARK.get());
         AccessoriesRendererRegistry.registerNoRenderer(ModItems.WOUNDBEARER.get());
+        AccessoriesRendererRegistry.registerNoRenderer(ModItems.RESONANT_HEART.get());
+        AccessoriesRendererRegistry.registerNoRenderer(ModItems.DYING_STAR.get());
   }
 }

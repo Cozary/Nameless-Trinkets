@@ -14,6 +14,7 @@ public class TrinketDataProvider {
     public static List<List<Object>> getTrinketList() {
         return new ArrayList<>(Arrays.asList(
                 //List.of(0.001, ModItems.GODS_CROWN.get()),
+                //List.of(0.001, ModItems.DYING_STAR.get()),
                 List.of(0.0025, ModItems.REVERSE_CARD.get()),
                 List.of(0.0025, ModItems.BROKEN_ANKH.get()),
                 List.of(0.0025, ModItems.RAGE_MIND.get()),
@@ -41,6 +42,7 @@ public class TrinketDataProvider {
                 List.of(0.005, ModItems.FRACTURED_NULLSTONE.get()),
                 List.of(0.005, ModItems.FRAGILE_CLOUD.get()),
                 List.of(0.005, ModItems.SCARAB_AMULET.get()),
+                List.of(0.005, ModItems.RESONANT_HEART.get()),
                 List.of(0.01, ModItems.EXPERIENCE_MAGNET.get()),
                 List.of(0.01, ModItems.BROKEN_MAGNET.get()),
                 List.of(0.01, ModItems.LUCKY_ROCK.get()),
@@ -59,7 +61,10 @@ public class TrinketDataProvider {
                 List.of(0.01, ModItems.DARK_NELUMBO.get()),
                 List.of(0.01, ModItems.SPIDER_LEGS.get()),
                 List.of(0.01, ModItems.DRAGONS_EYE.get()),
-                List.of(0.01, ModItems.POCKET_LIGHTNING_ROD.get())
+                List.of(0.01, ModItems.POCKET_LIGHTNING_ROD.get()),
+                List.of(0.01, ModItems.SHRINKING_VEIL.get()),
+                List.of(0.01, ModItems.TITANS_MARK.get()),
+                List.of(0.01, ModItems.WOUNDBEARER.get())
         ));
     }
 

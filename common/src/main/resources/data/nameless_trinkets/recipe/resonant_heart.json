@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#S#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:sculk_sensor"
+    },
+    "S": {
+      "item": "nameless_trinkets:glowing_dust"
+    }
+  },
+  "result": {
+    "id": "nameless_trinkets:resonant_heart",
+    "count": 1
+  }
+}
