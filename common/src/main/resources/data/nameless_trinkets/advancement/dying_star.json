@@ -1,0 +1,28 @@
+{
+  "parent": "nameless_trinkets:root",
+  "display": {
+    "icon": {
+      "id": "nameless_trinkets:dying_star"
+    },
+    "title": {
+      "translate": "advancements.nameless_trinkets.dying_star.title"
+    },
+    "description": {
+      "translate": "advancements.nameless_trinkets.dying_star.description"
+    }
+  },
+  "criteria": {
+    "amphibious_hands": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nameless_trinkets:amphibious_hands"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

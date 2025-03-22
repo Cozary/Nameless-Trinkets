@@ -313,6 +313,17 @@
   "tooltip.nameless_trinkets.dying_star_1": "Dame de comer trinkets...",
   "tooltip.nameless_trinkets.hold_ctrl_l": "Mantén CTRL Izquierdo para obtener información adicional",
   "message.nameless_trinkets.dying_star_all_maxed": "La Estrella Moribunda Está Saciada",
-  "tooltip.nameless_trinkets.fertilizer_2": "Se activa cada %1$s segundos."
+  "tooltip.nameless_trinkets.fertilizer_2": "Se activa cada %1$s segundos.",
+  "advancements.nameless_trinkets.woundbearer.title": "Dolor infinito",
+  "advancements.nameless_trinkets.woundbearer.description": "Obtén el Portaheridas.",
+  "tooltip.nameless_trinkets.resonant_heart_lore": "Todavía palpita.",
+  "tooltip.nameless_trinkets.resonant_heart_1": "Al recibir daño tienes un %1$s de posibilidades de liberar un Sonic Boom.",
+  "advancements.nameless_trinkets.resonant_heart.title": "Todavía vive.",
+  "advancements.nameless_trinkets.resonant_heart.description": "Obtén el Corazón Resonante.",
+  "item.nameless_trinkets.resonant_heart": "Corazón Resonante",
+  "item.nameless_trinkets.dying_star": "Estrella Moribunda",
+  "advancements.nameless_trinkets.dying_star.title": "Hambrienta",
+  "advancements.nameless_trinkets.dying_star.description": "Obtén la Estrella Moribunda."
+
 
 }
