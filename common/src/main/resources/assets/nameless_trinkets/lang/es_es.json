@@ -323,7 +323,8 @@
   "item.nameless_trinkets.resonant_heart": "Corazón Resonante",
   "item.nameless_trinkets.dying_star": "Estrella Moribunda",
   "advancements.nameless_trinkets.dying_star.title": "Hambrienta",
-  "advancements.nameless_trinkets.dying_star.description": "Obtén la Estrella Moribunda."
+  "advancements.nameless_trinkets.dying_star.description": "Obtén la Estrella Moribunda.",
+  "item.nameless_trinkets.trinket_bundle": "Trinket Bundle"
 
 
 }

@@ -58,19 +58,14 @@ import org.apache.commons.lang3.math.Fraction;
  * ehe{@link net.minecraft.world.item.BundleItem}
  */
 public class TrinketBundle extends BundleItem {
-    private static final int BAR_COLOR = Mth.color(0.4F, 0.4F, 1.0F);
+    private static final int BAR_COLOR = Mth.color(1.0F, 0.4F, 0.4F);
 
     public TrinketBundle() {
         super(new Properties()
                 .stacksTo(1)
                 .rarity(Rarity.RARE)
-                .component((DataComponentType)ModDataComponents.TRINKET_BUNDLE_CONTENTS.get(), TrinketBundleContents.EMPTY));
+                .component(ModDataComponents.TRINKET_BUNDLE_CONTENTS.get(), TrinketBundleContents.EMPTY));
     }
-
-/*    public static float getFullnessDisplay(ItemStack p_150767_) {
-        TrinketBundleContents bundlecontents = (TrinketBundleContents)p_150767_.getOrDefault((DataComponentType) ModDataComponents.TRINKET_BUNDLE_CONTENTS.get(), TrinketBundleContents.EMPTY);
-        return bundlecontents.weight().floatValue();
-    }*/
 
     @Override
     public boolean overrideStackedOnOther(ItemStack itemStack, Slot slot, ClickAction clickAction, Player player) {
@@ -95,7 +90,7 @@ public class TrinketBundle extends BundleItem {
                     }
                 }
 
-                itemStack.set((DataComponentType)ModDataComponents.TRINKET_BUNDLE_CONTENTS.get(), bundlecontents$mutable.toImmutable());
+                itemStack.set(ModDataComponents.TRINKET_BUNDLE_CONTENTS.get(), bundlecontents$mutable.toImmutable());
                 return true;
             }
         } else {
@@ -124,7 +119,7 @@ public class TrinketBundle extends BundleItem {
                     }
                 }
 
-                itemStack.set((DataComponentType)ModDataComponents.TRINKET_BUNDLE_CONTENTS.get(), bundlecontents$mutable.toImmutable());
+                itemStack.set(ModDataComponents.TRINKET_BUNDLE_CONTENTS.get(), bundlecontents$mutable.toImmutable());
                 return true;
             }
         } else {
@@ -146,13 +141,13 @@ public class TrinketBundle extends BundleItem {
 
     @Override
     public boolean isBarVisible(ItemStack itemStack) {
-        TrinketBundleContents bundlecontents = (TrinketBundleContents)itemStack.getOrDefault((DataComponentType)ModDataComponents.TRINKET_BUNDLE_CONTENTS.get(), TrinketBundleContents.EMPTY);
+        TrinketBundleContents bundlecontents = itemStack.getOrDefault(ModDataComponents.TRINKET_BUNDLE_CONTENTS.get(), TrinketBundleContents.EMPTY);
         return bundlecontents.weight().compareTo(Fraction.ZERO) > 0;
     }
 
     @Override
     public int getBarWidth(ItemStack itemStack) {
-        TrinketBundleContents bundlecontents = (TrinketBundleContents)itemStack.getOrDefault((DataComponentType)ModDataComponents.TRINKET_BUNDLE_CONTENTS.get(), TrinketBundleContents.EMPTY);
+        TrinketBundleContents bundlecontents = itemStack.getOrDefault(ModDataComponents.TRINKET_BUNDLE_CONTENTS.get(), TrinketBundleContents.EMPTY);
         return (int)Math.min(bundlecontents.weight().doubleValue() * 64.0D * (13.0D / (double)64), 13.0D);
     }
 
@@ -164,7 +159,7 @@ public class TrinketBundle extends BundleItem {
     private static boolean dropContents(ItemStack itemStack, Player player) {
         TrinketBundleContents bundlecontents = (TrinketBundleContents)itemStack.get((DataComponentType)ModDataComponents.TRINKET_BUNDLE_CONTENTS.get());
         if (bundlecontents != null && !bundlecontents.isEmpty()) {
-            itemStack.set((DataComponentType)ModDataComponents.TRINKET_BUNDLE_CONTENTS.get(), TrinketBundleContents.EMPTY);
+            itemStack.set(ModDataComponents.TRINKET_BUNDLE_CONTENTS.get(), TrinketBundleContents.EMPTY);
             if (player instanceof ServerPlayer) {
                 bundlecontents.itemsCopy().forEach((p_327106_) -> {
                     player.drop(p_327106_, true);
@@ -182,7 +177,7 @@ public class TrinketBundle extends BundleItem {
         TrinketBundleContents bundlecontents = (TrinketBundleContents)itemStack.get((DataComponentType)ModDataComponents.TRINKET_BUNDLE_CONTENTS.get());
         if (bundlecontents != null) {
             int i = Mth.mulAndTruncate(bundlecontents.weight(), 64);
-            tooltipComponents.add(Component.translatable("item.minecraft.bundle.fullness", new Object[]{i, 4}).withStyle(ChatFormatting.GRAY));
+            tooltipComponents.add(Component.translatable("item.minecraft.bundle.fullness", new Object[]{i, 64}).withStyle(ChatFormatting.GRAY));
         }
 
     }
@@ -213,8 +208,4 @@ public class TrinketBundle extends BundleItem {
     private void playDropContentsSound(Entity entity) {
         entity.playSound(SoundEvents.BUNDLE_DROP_CONTENTS, 0.8F, 0.8F + entity.level().getRandom().nextFloat() * 0.4F);
     }
-
- /*   public static boolean isEmpty(ItemStack itemStack) {
-        return ((TrinketBundleContents)Objects.requireNonNull((TrinketBundleContents)itemStack.getComponents().get((DataComponentType)ModDataComponents.TRINKET_BUNDLE_CONTENTS.get()))).isEmpty();
-    }*/
 }
