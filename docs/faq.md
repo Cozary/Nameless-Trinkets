@@ -16,23 +16,6 @@
 > **Answer:**  
 > Yes, both the number of trinket slots and the Mysterious Trinket percentage can be adjusted via the configuration files.
 
-### Why don't trinkets appear in certain chests?
-> **Answer:**  
-> These chests may have their own Loot Table or a lower drop rate than you want. You can use DataPacks to modify this:
-
-> *(Pre-1.7.x)*
-
-> - 1.20: TBD
-> - 1.19.x: TBD
-
-> *(Post-1.8.x)*
-
-> - TBD
-
-> *(Post-1.21)*
-
-> - TBD
-
 ### Can trinket recipes be disabled?
 > **Answer:**  
 > Yes, you can modify or disable trinket recipes using [CraftTweaker](https://www.curseforge.com/minecraft/mc-mods/crafttweaker) mod.
