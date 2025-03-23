@@ -27,3 +27,4 @@ The **God's Crown** trinket grants the following effect:
 ## Note:
 - In the settings, some attributes have the value 0.
 - To disable FOV modification, go to `nameless_trinkets-common.toml`.
+- Does not appear in chests.

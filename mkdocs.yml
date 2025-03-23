@@ -33,6 +33,7 @@ nav:
   - Common Config: common_config.md
   - Loot Tables: loot_tables.md
   - Trinkets:
+    - Trinket Bundle: trinkets/trinket_bundle.md
     - Amphibious Hands: trinkets/amphibious_hands.md
     - Blindfold: trinkets/blindfold.md
     - Blaze Nucleus: trinkets/blaze_nucleus.md
@@ -82,5 +83,8 @@ nav:
     - Wooden Stick: trinkets/wooden_stick.md
     - Shrinking Veil: trinkets/shrinking_veil.md
     - Titan's Mark: trinkets/titans_mark.md
+    - Woundbearer: trinkets/woundbearer.md
+    - Dying Star: trinkets/dying_star.md
+    - Resonant Heart: trinkets/resonant_heart.md
 
   - FAQ: faq.md

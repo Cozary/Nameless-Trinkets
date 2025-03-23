@@ -8,5 +8,5 @@ The **Titan's Mark** trinket grants the following effects:
 
 ## Configuration:
 - **Is Enable**: Determines whether the trinket's effect is active or not.
-- **extraScalePercentage**: The percentage by which the player's size is increased.
-- **attackDamagePercentage**: The percentage of extra attack damage.
+- **Extra Scale Percentage**: The percentage by which the player's size is increased.
+- **Attack Damage Percentage**: The percentage of extra attack damage.
