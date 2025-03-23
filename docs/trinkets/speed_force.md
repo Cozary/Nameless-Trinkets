@@ -7,7 +7,7 @@ The **Speed Force** trinket grants the following effect:
 
 ## Configuration:
 - **Is Enable**: Determines whether the trinket's effect is active or not.  
-- **Speed Multiplier**: The percentage increase in the player's movement speed.
+- **Speed Multiplier Percentage**: The percentage increase in the player's movement speed.
 
 ## Notes: 
 - It also generates **cloud particles** around the player as they move, visually representing the speed boost.

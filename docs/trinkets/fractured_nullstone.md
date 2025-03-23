@@ -7,4 +7,4 @@ The **Fractured Nullstone** trinket grants the following effect:
 
 ## Configuration:
 - **Is Enable**: Determines whether the trinket's effect is active or not.  
-- **Magic Damage Reduction**: Determines the percentage by which magic damage is reduced.
+- **Magic Damage Reduction Percentage**: Determines the percentage by which magic damage is reduced.

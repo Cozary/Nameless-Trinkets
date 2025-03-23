@@ -9,7 +9,7 @@ The **Rage Mind** trinket grants the following effects:
 
 ## Configuration:
 - **Is Enable**: Determines whether the trinket's effect is active or not.  
-- **Damage Multiplier**: Controls how much more damage the player deals to the revenge target.
+- **Damage Multiplier Percentage**: Controls how much more damage the player deals to the revenge target.
 - **Range**: The effective range in blocks for detecting and applying effects to revenge targets.
 
 ## Notes:

@@ -9,7 +9,7 @@ The **Scarab Amulet** trinket grants the following effects:
 
 ## Configuration:
 - **Is Enable**: Determines whether the trinket's effect is active or not.  
-- **Speed Multiplier**: Determina la velocidad extra que se le aplica.
+- **Speed ​​Multiplier Percentage**: Determines the extra speed applied.
 
 ## Notes:
 - FOV settings are changed from `nameless-trinkets-common.tmol`.

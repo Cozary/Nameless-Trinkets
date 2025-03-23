@@ -10,9 +10,9 @@ The **True Heart Of The Sea** trinket grants the following effects:
 
 ## Configuration:
 - **Is Enable**: Determines whether the trinket's effect is active or not.  
-- **Mining Underwater Speed**: The multiplier applied to the player's mining speed while underwater.
+- **Mining Underwater Speed Percentage**: The percentage increase applied to the player's mining speed while underwater.
 - **Blindness When Choking**: Whether the player receives Blindness when their air supply reaches 0.
 - **Choking Damage**: The amount of damage dealt to the player when their air supply reaches 0.
 - **Air Reduction Speed**: The speed at which the air supply decreases when not in water or when in a bubble column.
-- **Swim Speed Multiplier**: The percentage increase to the player's swim speed efficiency.
+- **Swim Speed Multiplier Percentage**: The percentage increase to the player's swim speed efficiency.
 

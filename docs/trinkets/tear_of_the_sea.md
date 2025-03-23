@@ -7,4 +7,4 @@ The **Tear Of The Sea** trinket grants the following effect:
 	
 ## Configuration:
 - **Is Enable**: Determines whether the trinket's effect is active or not.  
-- **Swim Speed Multiplier**: The percentage increase to the player's swim speed efficiency.
+- **Swim Speed Multiplier Percentage**: The percentage increase to the player's swim speed efficiency.
