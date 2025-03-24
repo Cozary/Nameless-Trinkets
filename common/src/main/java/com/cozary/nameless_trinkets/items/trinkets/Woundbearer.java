@@ -96,7 +96,7 @@ public class Woundbearer extends TrinketItem<Woundbearer.Stats> {
     }
 
     public static class Stats extends TrinketsStats {
-        public float damageConversionPercentage = 10.0f;
+        public float damageConversionPercentage = 1.0f;
         public boolean isEnable = true;
     }
 
