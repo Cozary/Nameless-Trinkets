@@ -73,6 +73,7 @@ public class TrinketDataProvider {
                 List.of(0.0025, ModItems.LIGHT_GLOVES.get()),
                 List.of(0.0025, ModItems.FOUR_LEAF_CLOVER.get()),
                 List.of(0.0025, ModItems.MINERS_SOUL.get()),
+                List.of(0.0025, ModItems.WOUNDBEARER.get()),
                 List.of(0.005, ModItems.MISSING_PAGE.get()),
                 List.of(0.005, ModItems.EXPERIENCE_BATTERY.get()),
                 List.of(0.005, ModItems.SUPER_MAGNET.get()),
@@ -110,8 +111,7 @@ public class TrinketDataProvider {
                 List.of(0.01, ModItems.DRAGONS_EYE.get()),
                 List.of(0.01, ModItems.POCKET_LIGHTNING_ROD.get()),
                 List.of(0.01, ModItems.SHRINKING_VEIL.get()),
-                List.of(0.01, ModItems.TITANS_MARK.get()),
-                List.of(0.01, ModItems.WOUNDBEARER.get())
+                List.of(0.01, ModItems.TITANS_MARK.get())
         ));
     }
 }
