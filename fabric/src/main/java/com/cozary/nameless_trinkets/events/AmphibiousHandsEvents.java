@@ -24,7 +24,7 @@ public class AmphibiousHandsEvents {
                 }
                 var stack = accessories.getEquipped(ModItems.AMPHIBIOUS_HANDS.get());
                 if (!stack.isEmpty() && player.isEyeInFluid(FluidTags.WATER)) {
-                    return originalSpeed * (config.miningUnderwaterSpeedPercentage /100);
+                    return originalSpeed * (config.miningUnderwaterSpeedPercentage / 100);
                 }
             }
             return originalSpeed;

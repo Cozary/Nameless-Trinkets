@@ -82,7 +82,7 @@ public class ShrinkingVeil extends TrinketItem<ShrinkingVeil.Stats> {
         AttributeInstance attribSpeed = livingEntity.getAttribute(Attributes.MOVEMENT_SPEED);
         AttributeModifier speedModifier = new AttributeModifier(
                 ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "shrinking_veil_speed"),
-                trinketConfig.speedPercentage/100,
+                trinketConfig.speedPercentage / 100,
                 AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
 
         assert attribSpeed != null;
@@ -102,7 +102,7 @@ public class ShrinkingVeil extends TrinketItem<ShrinkingVeil.Stats> {
         EntityUtils.removeAttributeModifier(Objects.requireNonNull(livingEntity.getAttribute(Attributes.MOVEMENT_SPEED)),
                 new AttributeModifier(
                         ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "shrinking_veil_speed"),
-                        trinketConfig.speedPercentage/100,
+                        trinketConfig.speedPercentage / 100,
                         AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
     }
 

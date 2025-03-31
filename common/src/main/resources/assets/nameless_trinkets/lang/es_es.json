@@ -194,7 +194,6 @@
   "accessories.slot.trinket": "Trinket",
   "tag.item.nameless_trinkets.nameless_trinkets_tag": "Nameless Trinkets Tag",
   "tag.item.nameless_trinkets.recyclable_trinkets_tag": "Reciclaje Nameless Trinkets Tag",
-
   "advancements.nameless_trinkets.unknown_fragment.title": "¡Vamos a repetir!",
   "advancements.nameless_trinkets.unknown_fragment.description": "Haz clic derecho en un Nloque de Amatista con un Trinket.",
   "advancements.nameless_trinkets.root.title": "Están ahí afuera...",
@@ -281,7 +280,7 @@
   "advancements.nameless_trinkets.miners_soul.description": "Obtén la Alma Minera.",
   "advancements.nameless_trinkets.pocket_lightning_rod.title": "Zap zap zap",
   "advancements.nameless_trinkets.pocket_lightning_rod.description": "Obtén el Pararrayos de Bolsillo.",
-    "advancements.nameless_trinkets.fragile_cloud.title": "Descendiendo desde arriba.",
+  "advancements.nameless_trinkets.fragile_cloud.title": "Descendiendo desde arriba.",
   "advancements.nameless_trinkets.fragile_cloud.description": "Obtén la Nube Frágil.",
   "advancements.nameless_trinkets.scarab_amulet.title": "Algo del pasado.",
   "advancements.nameless_trinkets.scarab_amulet.description": "Obtén el Amuleto Escarabajo.",
@@ -293,7 +292,6 @@
   "advancements.nameless_trinkets.dragons_eye.description": "Obtén el Ojo de Dragón.",
   "advancements.nameless_trinkets.four_leaf_clover.title": "Me siento afortunado, sí.",
   "advancements.nameless_trinkets.four_leaf_clover.description": "Obtén el Trébol de Cuatro Hojas.",
-
   "tooltip.nameless_trinkets.shrinking_veil_lore": "¡Mini Yo¡",
   "tooltip.nameless_trinkets.titans_mark_lore": "Yo. Grande.",
   "tooltip.nameless_trinkets.shrinking_veil_1": "-%1$s tamaño.",
@@ -325,6 +323,4 @@
   "advancements.nameless_trinkets.dying_star.title": "Hambrienta",
   "advancements.nameless_trinkets.dying_star.description": "Obtén la Estrella Moribunda.",
   "item.nameless_trinkets.trinket_bundle": "Trinket Bundle"
-
-
 }

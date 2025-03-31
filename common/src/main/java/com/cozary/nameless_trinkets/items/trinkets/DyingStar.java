@@ -16,19 +16,18 @@ import net.minecraft.core.component.DataComponentType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.SlotAccess;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ClickAction;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
@@ -36,8 +35,8 @@ import java.util.*;
 import static com.cozary.nameless_trinkets.init.ModTags.NAMELESS_TRINKETS_TAG;
 
 public class DyingStar extends TrinketItem<DyingStar.Stats> {
-    public static DyingStar INSTANCE;
     private static final Random random = new Random();
+    public static DyingStar INSTANCE;
 
     public DyingStar() {
         super(new TrinketData(null, null, DyingStar.Stats.class));
@@ -110,7 +109,7 @@ public class DyingStar extends TrinketItem<DyingStar.Stats> {
         if (world.isClientSide())
             return;
 
-        for(int i = 0; i < AttributeSelector.values().length; i++) {
+        for (int i = 0; i < AttributeSelector.values().length; i++) {
 
             AttributeSelector attributeSelector = AttributeSelector.values()[i];
 
@@ -120,7 +119,7 @@ public class DyingStar extends TrinketItem<DyingStar.Stats> {
             if (attributeIncrement > 0) {
 
                 AttributeInstance attributeDamage = livingEntity.getAttribute(attributeSelector.getAttributeHolder());
-                AttributeModifier attributeModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dying_star_" + attributeSelector.getAttributeHolder().getRegisteredName().replace(".","_").replace(":","_")),
+                AttributeModifier attributeModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dying_star_" + attributeSelector.getAttributeHolder().getRegisteredName().replace(".", "_").replace(":", "_")),
                         attributeIncrement, AttributeModifier.Operation.ADD_VALUE);
 
                 assert attributeDamage != null;
@@ -133,14 +132,14 @@ public class DyingStar extends TrinketItem<DyingStar.Stats> {
     @Override
     public void onUnequip(ItemStack stack, SlotReference reference) {
 
-        for(int i = 0; i < AttributeSelector.values().length; i++) {
+        for (int i = 0; i < AttributeSelector.values().length; i++) {
 
             AttributeSelector attributeSelector = AttributeSelector.values()[i];
 
             float attributeIncrement = stack.getOrDefault(attributeSelector.getDataComponentType(), 0.0f);
             if (attributeIncrement > 0) {
                 EntityUtils.removeAttributeModifier(Objects.requireNonNull(reference.entity().getAttribute(attributeSelector.getAttributeHolder())),
-                        new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dying_star_" + attributeSelector.getAttributeHolder().getRegisteredName().replace(".","_").replace(":","_")),
+                        new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dying_star_" + attributeSelector.getAttributeHolder().getRegisteredName().replace(".", "_").replace(":", "_")),
                                 attributeIncrement, AttributeModifier.Operation.ADD_VALUE));
             }
         }
@@ -155,14 +154,13 @@ public class DyingStar extends TrinketItem<DyingStar.Stats> {
         } else {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.dying_star_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
             if (Screen.hasShiftDown()) {
-                if(Minecraft.getInstance().player.tickCount % 5 == 0){
+                if (Minecraft.getInstance().player.tickCount % 5 == 0) {
                     tooltip.add(Component.translatable("tooltip.nameless_trinkets.dying_star_1").withStyle(ChatFormatting.GOLD, ChatFormatting.ITALIC));
-                } else{
+                } else {
                     tooltip.add(Component.translatable("tooltip.nameless_trinkets.dying_star_1").withStyle(ChatFormatting.GOLD, ChatFormatting.OBFUSCATED));
 
                 }
-            } else
-            if (InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), InputConstants.KEY_LCONTROL)) {
+            } else if (InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), InputConstants.KEY_LCONTROL)) {
                 Map<String, Float> stats = new HashMap<>();
                 stats.put("Max Health: +", stack.getOrDefault(ModDataComponents.DYING_STAR_MAX_HEALTH.get(), 0.0f));
                 stats.put("Movement Speed: +", stack.getOrDefault(ModDataComponents.DYING_STAR_MOVEMENT_SPEED.get(), 0.0f));
@@ -190,7 +188,7 @@ public class DyingStar extends TrinketItem<DyingStar.Stats> {
 
                 for (Map.Entry<String, Float> entry : stats.entrySet()) {
 
-                        tooltip.add(Component.translatable(entry.getKey() + entry.getValue()).withStyle(ChatFormatting.GOLD));
+                    tooltip.add(Component.translatable(entry.getKey() + entry.getValue()).withStyle(ChatFormatting.GOLD));
 
                 }
             } else {
@@ -198,10 +196,6 @@ public class DyingStar extends TrinketItem<DyingStar.Stats> {
                 tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_ctrl_l"));
             }
         }
-    }
-
-    public static class Stats extends TrinketsStats {
-        public boolean isEnable = true;
     }
 
     public enum AttributeSelector {
@@ -242,9 +236,13 @@ public class DyingStar extends TrinketItem<DyingStar.Stats> {
             this.maxIncrease = maxIncrease;
         }
 
-        public Holder<Attribute> getAttributeHolder(){return attributeHolder;}
+        public Holder<Attribute> getAttributeHolder() {
+            return attributeHolder;
+        }
 
-        public DataComponentType<Float> getDataComponentType(){return dataComponentType;}
+        public DataComponentType<Float> getDataComponentType() {
+            return dataComponentType;
+        }
 
         public Float getMaxValue() {
             return maxValue;
@@ -257,6 +255,10 @@ public class DyingStar extends TrinketItem<DyingStar.Stats> {
         public Float getMaxIncrease() {
             return maxIncrease;
         }
+    }
+
+    public static class Stats extends TrinketsStats {
+        public boolean isEnable = true;
     }
 
 }

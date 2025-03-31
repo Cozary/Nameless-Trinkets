@@ -42,7 +42,7 @@ public class NamelessTrinketsFabric implements ModInitializer {
 
     }
 
-    private void eventLoad(){
+    private void eventLoad() {
         AmphibiousHandsEvents.register();
         BlazeNucleusEvents.register();
         BrokenAnkhEvents.register();
@@ -72,7 +72,7 @@ public class NamelessTrinketsFabric implements ModInitializer {
         UnknownFragmentEvent.register();
     }
 
-    private void itemGroupLoad(){
+    private void itemGroupLoad() {
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ITEM_GROUP, FabricItemGroup.builder()
                 .title(Component.translatable("itemGroup.nameless_trinkets"))
                 .icon(() -> new ItemStack(ModItems.MYSTERIOUS_TRINKET.get()))

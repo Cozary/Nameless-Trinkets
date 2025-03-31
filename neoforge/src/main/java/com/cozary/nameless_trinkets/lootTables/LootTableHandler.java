@@ -11,7 +11,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -22,8 +21,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.LootTableLoadEvent;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 import static com.cozary.nameless_trinkets.config.TrinketConfigs.getItemName;
@@ -31,43 +28,43 @@ import static com.cozary.nameless_trinkets.config.TrinketConfigs.getItemName;
 @EventBusSubscriber(modid = NamelessTrinkets.MOD_ID)
 public class LootTableHandler {
 
-        @SubscribeEvent(priority = EventPriority.NORMAL)
-        public static void onLootTableLoad(LootTableLoadEvent event) {
-            ResourceLocation tableId = event.getName();
+    @SubscribeEvent(priority = EventPriority.NORMAL)
+    public static void onLootTableLoad(LootTableLoadEvent event) {
+        ResourceLocation tableId = event.getName();
 
-            for (ResourceKey<LootTable> lootTableKey : TrinketDataProvider.LOOT_TABLES) {
-                if (lootTableKey.location().equals(tableId))
+        for (ResourceKey<LootTable> lootTableKey : TrinketDataProvider.LOOT_TABLES) {
+            if (lootTableKey.location().equals(tableId))
+                return;
+
+            for (TrinketLootConfig config : TrinketLootConfigsManager.getConfigs()) {
+
+                if (!config.getLootTables().contains(tableId))
                     return;
 
-                for (TrinketLootConfig config : TrinketLootConfigsManager.getConfigs()) {
+                Optional<RegistryObject<Item>> optionalItem = ModItems.CREATIVE_TAB_ITEMS.stream()
+                        .filter(item -> getItemName((TrinketItem<?>) item.get()).equals(config.getItemId()))
+                        .findFirst();
 
-                    if (!config.getLootTables().contains(tableId))
-                        return;
+                if (optionalItem.isEmpty())
+                    return;
 
-                    Optional<RegistryObject<Item>> optionalItem = ModItems.CREATIVE_TAB_ITEMS.stream()
-                            .filter(item -> getItemName((TrinketItem<?>) item.get()).equals(config.getItemId()))
-                            .findFirst();
+                Item item = optionalItem.get().get();
+                float chance = (float) config.getChance();
 
-                    if (optionalItem.isEmpty())
-                        return;
+                String poolName = "nameless_trinkets_pool_" + BuiltInRegistries.ITEM.getKey(item).getPath();
+                if (event.getTable().getPool(poolName) != null)
+                    return;
 
-                    Item item = optionalItem.get().get();
-                    float chance = (float) config.getChance();
+                LootPool pool = LootPool.lootPool()
+                        .setRolls(ConstantValue.exactly(1))
+                        .when(LootItemRandomChanceCondition.randomChance(chance))
+                        .add(LootItem.lootTableItem(item))
+                        .name(poolName)
+                        .build();
 
-                    String poolName = "nameless_trinkets_pool_" + BuiltInRegistries.ITEM.getKey(item).getPath();
-                    if (event.getTable().getPool(poolName) != null)
-                        return;
-
-                    LootPool pool = LootPool.lootPool()
-                            .setRolls(ConstantValue.exactly(1))
-                            .when(LootItemRandomChanceCondition.randomChance(chance))
-                            .add(LootItem.lootTableItem(item))
-                            .name(poolName)
-                            .build();
-
-                    event.getTable().addPool(pool);
-                }
+                event.getTable().addPool(pool);
             }
         }
+    }
 
 }
