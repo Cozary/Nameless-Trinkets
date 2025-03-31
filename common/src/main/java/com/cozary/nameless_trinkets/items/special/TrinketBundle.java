@@ -1,18 +1,23 @@
 package com.cozary.nameless_trinkets.items.special;
 
+import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.init.ModDataComponents;
 import com.cozary.nameless_trinkets.utils.TrinketBundleContents;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
+import net.minecraft.util.ARGB;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.SlotAccess;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -35,10 +40,6 @@ import net.minecraft.core.component.DataComponentType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.stats.Stats;
-import net.minecraft.util.Mth;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.SlotAccess;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -58,11 +59,13 @@ import org.apache.commons.lang3.math.Fraction;
  * ehe{@link net.minecraft.world.item.BundleItem}
  */
 public class TrinketBundle extends BundleItem {
-    private static final int BAR_COLOR = Mth.color(1.0F, 0.4F, 0.4F);
+    private static final int BAR_COLOR = ARGB.colorFromFloat(1.0F, 0.4F, 0.4F, 0.4F);
 
     public TrinketBundle() {
         super(new Properties()
                 .stacksTo(1)
+                .setId(ResourceKey.create(Registries.ITEM,
+                        ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "trinket_bundle")))
                 .rarity(Rarity.RARE)
                 .component(ModDataComponents.TRINKET_BUNDLE_CONTENTS.get(), TrinketBundleContents.EMPTY));
     }
@@ -128,14 +131,14 @@ public class TrinketBundle extends BundleItem {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
+    public InteractionResult use(Level level, Player player, InteractionHand interactionHand) {
         ItemStack itemstack = player.getItemInHand(interactionHand);
         if (dropContents(itemstack, player)) {
             this.playDropContentsSound(player);
             player.awardStat(Stats.ITEM_USED.get(this));
-            return InteractionResultHolder.sidedSuccess(itemstack, level.isClientSide());
+            return InteractionResult.SUCCESS;
         } else {
-            return InteractionResultHolder.fail(itemstack);
+            return InteractionResult.FAIL;
         }
     }
 

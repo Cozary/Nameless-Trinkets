@@ -6,15 +6,9 @@
     "XIX"
   ],
   "key": {
-    "I": {
-      "item": "minecraft:redstone"
-    },
-    "X": {
-      "item": "minecraft:gunpowder"
-    },
-    "S": {
-      "item": "nameless_trinkets:dubious_dust"
-    }
+    "I": "minecraft:redstone",
+    "X": "minecraft:gunpowder",
+    "S": "nameless_trinkets:dubious_dust"
   },
   "result": {
     "id": "nameless_trinkets:titans_mark",

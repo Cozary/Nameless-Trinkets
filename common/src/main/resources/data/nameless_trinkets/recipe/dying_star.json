@@ -6,12 +6,8 @@
     "###"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:nether_star"
-    },
-    "S": {
-      "item": "nameless_trinkets:ultimate_dust"
-    }
+    "#": "minecraft:nether_star",
+    "S": "nameless_trinkets:ultimate_dust"
   },
   "result": {
     "id": "nameless_trinkets:dying_star",

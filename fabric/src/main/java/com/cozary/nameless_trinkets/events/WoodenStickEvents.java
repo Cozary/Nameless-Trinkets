@@ -23,17 +23,15 @@ public class WoodenStickEvents {
             }
 
             if (targetEntity instanceof Player player && !player.isSpectator()) {
-
                 var accessories = AccessoriesCapability.get(player);
 
                 if (accessories == null) {
                     return damageAmount;
                 }
                 var stack = accessories.getEquipped(ModItems.WOODEN_STICK.get());
-
                 if (!stack.isEmpty() && !player.level().isClientSide) {
-                    if (!player.getCooldowns().isOnCooldown(stack.getFirst().stack().getItem())) {
-                        player.getCooldowns().addCooldown(stack.getFirst().stack().getItem(), (int) config.cooldown);
+                    if (!player.getCooldowns().isOnCooldown(stack.getFirst().stack())) {
+                        player.getCooldowns().addCooldown(stack.getFirst().stack(), (int) config.cooldown);
                         return 0;
                     }
                 }

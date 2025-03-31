@@ -9,7 +9,6 @@ import com.cozary.nameless_trinkets.utils.ConfigurationHandler;
 import com.cozary.nameless_trinkets.utils.RemoveRendering;
 import com.cozary.nameless_trinkets.utils.TrinketBundleContents;
 import io.wispforest.accessories.api.client.AccessoriesRendererRegistry;
-import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;

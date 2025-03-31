@@ -8,7 +8,9 @@ import com.cozary.nameless_trinkets.utils.EntityUtils;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
@@ -27,7 +29,9 @@ public class ShrinkingVeil extends TrinketItem<ShrinkingVeil.Stats> {
     public static ShrinkingVeil INSTANCE;
 
     public ShrinkingVeil() {
-        super(new TrinketData(null, null, Stats.class));
+        super(new TrinketData(new Item.Properties().stacksTo(1)
+                .setId(ResourceKey.create(Registries.ITEM,
+                        ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "shrinking_veil"))), null, Stats.class));
 
         INSTANCE = this;
     }

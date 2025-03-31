@@ -6,15 +6,9 @@
     "#X#"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:blaze_rod"
-    },
-    "S": {
-      "item": "nameless_trinkets:ultimate_dust"
-    },
-    "X": {
-      "item": "minecraft:netherite_ingot"
-    }
+    "#": "minecraft:blaze_rod",
+    "S": "nameless_trinkets:ultimate_dust",
+    "X": "minecraft:netherite_ingot"
   },
   "result": {
     "id": "nameless_trinkets:woundbearer",

@@ -11,6 +11,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -33,7 +34,6 @@ public class RageMindEvents {
                     return damageAmount;
                 }
                 var stack = accessories.getEquipped(ModItems.RAGE_MIND.get());
-
                 if (!stack.isEmpty()) {
 
                     if (stack.getFirst().stack().get(ModDataComponents.RAGE_MIND_REVENGE_TARGET.get()) != null) {
@@ -42,9 +42,9 @@ public class RageMindEvents {
 
                         ResourceLocation resourceLocation = ResourceLocation.parse(entityString);
 
-                        EntityType<?> entityType = BuiltInRegistries.ENTITY_TYPE.get(resourceLocation);
+                        EntityType<?> entityType = BuiltInRegistries.ENTITY_TYPE.get(resourceLocation).get().value();
 
-                        Entity entity = entityType.create(player.level());
+                        Entity entity = entityType.create(player.level(), EntitySpawnReason.SPAWN_ITEM_USE);
 
                         Class<? extends LivingEntity> classEntity = (Class<? extends LivingEntity>) entity.getClass();
 

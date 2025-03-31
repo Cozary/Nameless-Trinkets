@@ -6,14 +6,9 @@
     " L "
   ],
   "key": {
-    "L": {
-      "item": "minecraft:leather"
-    },
-    "F": {
-      "item": "minecraft:feather"
-    },
-    "S": {
-      "item": "nameless_trinkets:dubious_dust"
+    "L": "minecraft:leather",
+    "F": "minecraft:feather",
+    "S": "nameless_trinkets:dubious_dust"
     }
   },
   "result": {
