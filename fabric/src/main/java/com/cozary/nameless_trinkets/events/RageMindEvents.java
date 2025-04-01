@@ -49,7 +49,7 @@ public class RageMindEvents {
                         Class<? extends LivingEntity> classEntity = (Class<? extends LivingEntity>) entity.getClass();
 
                         if (targetEntity.getClass() == classEntity) {
-                            return damageAmount * config.damageMultiplierPercentage;
+                            return damageAmount * (config.damageMultiplierPercentage/100);
                         }
                     }
 

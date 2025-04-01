@@ -92,7 +92,7 @@ public class RageMindEvents {
                     }
 
                     if (event.getEntity().getClass() == classEntity) {
-                        event.setNewDamage(event.getOriginalDamage() * config.damageMultiplierPercentage);
+                        event.setNewDamage(event.getOriginalDamage() * (config.damageMultiplierPercentage/100));
                     }
                 }
 
