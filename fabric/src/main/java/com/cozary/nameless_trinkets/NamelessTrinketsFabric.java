@@ -60,6 +60,7 @@ public class NamelessTrinketsFabric implements ModInitializer {
         MissingPageEvents.register();
         MoonStoneEvents.register();
         PufferFishLiverEvents.register();
+        ResonantHeartEvents.register();
         RageMindEvents.register();
         ReverseCardEvents.register();
         ScarabAmuletEvents.register();
