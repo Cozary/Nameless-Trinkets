@@ -56,6 +56,10 @@ public class DyingStar extends TrinketItem<DyingStar.Stats> {
 
     @Override
     public boolean overrideOtherStackedOnMe(ItemStack stack, ItemStack other, Slot slot, ClickAction action, Player player, SlotAccess access) {
+        Stats config = DyingStar.INSTANCE.getTrinketConfig();
+        if (!config.isEnable)
+            return false;
+
         applyRandomStat(other, stack, player);
         return super.overrideOtherStackedOnMe(stack, other, slot, action, player, access);
     }
@@ -99,7 +103,7 @@ public class DyingStar extends TrinketItem<DyingStar.Stats> {
 
     @Override
     public void tick(ItemStack stack, SlotReference reference) {
-        Woundbearer.Stats config = Woundbearer.INSTANCE.getTrinketConfig();
+        Stats config = DyingStar.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return;
 
@@ -147,7 +151,7 @@ public class DyingStar extends TrinketItem<DyingStar.Stats> {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        AmphibiousHands.Stats config = AmphibiousHands.INSTANCE.getTrinketConfig();
+        Stats config = DyingStar.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable) {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
