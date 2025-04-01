@@ -63,7 +63,7 @@ public class FateEmerald extends TrinketItem<FateEmerald.Stats> {
         if (!config.isEnable)
             return;
 
-        config.timeUntilUnequip = 1200;
+        config.resetTimerFlag = false;
     }
 
     @Override
@@ -107,7 +107,7 @@ public class FateEmerald extends TrinketItem<FateEmerald.Stats> {
 
     public static class Stats extends TrinketsStats {
         public int discountBoost = 100;
-        public float timeUntilUnequip = 0;
+        public float timeUntilUnequip = 1200;
         public float hungerExhaustionRate = 0.1F;
         public boolean isEnable = true;
         float backupTimeUntilUnequip = 0;
