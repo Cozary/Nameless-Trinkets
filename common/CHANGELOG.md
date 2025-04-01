@@ -11,3 +11,4 @@
 - [Dying Star] The corresponding tooltip was not displayed when it was disabled and "isEnabled" was not being taken from the corresponding trinket.
 - [Fate Emerald] not taking into account the value of the "timeUntilUnequip" config.
 - [Rage Mind] Not applying the "damageMultiplierPercentage" value correctly.
+- [Shrinking Veil] typo in recipe-
