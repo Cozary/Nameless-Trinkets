@@ -132,8 +132,9 @@ public class DyingStar extends TrinketItem<DyingStar.Stats> {
                 AttributeModifier attributeModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dying_star_" + attributeSelector.getAttributeHolder().getRegisteredName().replace(".","_").replace(":","_")),
                         attributeIncrement, AttributeModifier.Operation.ADD_VALUE);
 
-                assert attributeDamage != null;
-                EntityUtils.applyAttributeModifier(attributeDamage, attributeModifier);
+                if(attributeDamage != null && attributeModifier != null) {
+                    EntityUtils.applyAttributeModifier(attributeDamage, attributeModifier);
+                }
             }
         }
 
@@ -148,9 +149,14 @@ public class DyingStar extends TrinketItem<DyingStar.Stats> {
 
             float attributeIncrement = stack.getOrDefault(attributeSelector.getDataComponentType(), 0.0f);
             if (attributeIncrement > 0) {
-                EntityUtils.removeAttributeModifier(Objects.requireNonNull(reference.entity().getAttribute(attributeSelector.getAttributeHolder())),
-                        new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dying_star_" + attributeSelector.getAttributeHolder().getRegisteredName().replace(".","_").replace(":","_")),
-                                attributeIncrement, AttributeModifier.Operation.ADD_VALUE));
+
+                AttributeInstance attributeDamage = reference.entity().getAttribute(attributeSelector.getAttributeHolder());
+                AttributeModifier attributeModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dying_star_" + attributeSelector.getAttributeHolder().getRegisteredName().replace(".", "_").replace(":", "_")),
+                        attributeIncrement, AttributeModifier.Operation.ADD_VALUE);
+
+                if(attributeDamage != null && attributeModifier != null) {
+                    EntityUtils.removeAttributeModifier(attributeDamage, attributeModifier);
+                }
             }
         }
     }
