@@ -83,11 +83,11 @@ public class MysteriousTrinket extends Item {
     private void maybeAddTrinketSlot(Player player, Random random) {
         double maxSlots = ConfigurationHandler.GENERAL.trinketSlots.get();
         var map = HashMultimap.<String, AttributeModifier>create();
-        int currentSlotsQuantity = AccessoriesCapability.get(player).getSlotModifiers().get("trinket_slot").size();
+        int currentSlotsQuantity = AccessoriesCapability.get(player).getSlotModifiers().get("trinket").size();
 
         if (random.nextInt(100) <= ConfigurationHandler.GENERAL.slotProbability.get()) {
             if (currentSlotsQuantity < maxSlots) {
-                map.put("trinket", new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "additional_trinkets"), 1, AttributeModifier.Operation.ADD_VALUE));
+                map.put("trinket", new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "additional_trinkets_" + currentSlotsQuantity), 1, AttributeModifier.Operation.ADD_VALUE));
                 AccessoriesCapability.get(player).addPersistentSlotModifiers(map);
             }
         }
