@@ -1,17 +1,21 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
+import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.List;
 
@@ -46,12 +50,15 @@ public class CreeperSense extends TrinketItem<CreeperSense.Stats> {
             return;
         }
 
-        if (player.isCrouching()) {
+        BlockPos posAbove = player.blockPosition().above().above();
+        BlockState blockAbove = player.level().getBlockState(posAbove);
+
+        if (blockAbove.isAir() && player.isCrouching()) {
             player.level().explode(null, player.getX(), player.getY(), player.getZ(), config.explosionLevel, Level.ExplosionInteraction.NONE);
             player.setShiftKeyDown(false);
         }
-    }
 
+    }
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
