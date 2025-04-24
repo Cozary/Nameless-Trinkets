@@ -13,7 +13,6 @@ public final class ConfigurationHandler {
         public final ModConfigSpec.BooleanValue getFragments;
         public final ModConfigSpec.IntValue trinketSlots;
         public final ModConfigSpec.BooleanValue disableFOV;
-        public final ModConfigSpec.IntValue startingSlotQuantity;
 
         public General(ModConfigSpec.Builder builder) {
             builder.push("New Trinket Slot Probability");
@@ -26,7 +25,6 @@ public final class ConfigurationHandler {
 
             builder.push("Trinket Slot Settings");
             trinketSlots = builder.defineInRange("maxTrinketSlots", 2, 0, 99);
-            startingSlotQuantity = builder.defineInRange("startingSlotQuantity", 1, 0, 99);
             builder.pop();
 
             builder.push("FOV Disable Settings");
