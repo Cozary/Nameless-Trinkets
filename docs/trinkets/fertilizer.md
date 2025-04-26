@@ -10,4 +10,5 @@ The **Fertilizer** trinket grants the following effect:
 
 ## Notes:
 - Growth particles are spawned to indicate successful activation.
+- It works both on *land* and in *water*.
 
