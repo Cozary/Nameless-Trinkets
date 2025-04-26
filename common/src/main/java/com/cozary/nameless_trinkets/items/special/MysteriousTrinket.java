@@ -87,7 +87,7 @@ public class MysteriousTrinket extends Item {
     }
 
     //Todo re-add
-    private void maybeAddTrinketSlot(Player player, Random random) {
+    /*private void maybeAddTrinketSlot(Player player, Random random) {
         double maxSlots = ConfigurationHandler.GENERAL.trinketSlots.get();
         var map = HashMultimap.<String, AttributeModifier>create();
         int currentSlotsQuantity = AccessoriesCapability.get(player).getSlotModifiers().get("trinket").size();
@@ -98,7 +98,7 @@ public class MysteriousTrinket extends Item {
                 AccessoriesCapability.get(player).addPersistentSlotModifiers(map);
             }
         }
-    }
+    }*/
 
     @Override
     public void appendHoverText(@NotNull ItemStack stack, @Nullable TooltipContext context, @NotNull List<Component> tooltip, @NotNull TooltipFlag flagIn) {
