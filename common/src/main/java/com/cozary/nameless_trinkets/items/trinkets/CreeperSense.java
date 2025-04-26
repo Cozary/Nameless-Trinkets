@@ -1,6 +1,5 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
-import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
@@ -14,7 +13,6 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.List;

@@ -7,7 +7,8 @@
 ### Removed
 
 - [Config] startingSlotQuantity is no longer used.
-- [Config] slotProbability and trinketSlots ya que no tienen uso al deshabilitar la funcionalidad de [Mysterious Trinket].
+- [Config] slotProbability and trinketSlots ya que no tienen uso al deshabilitar la funcionalidad
+  de [Mysterious Trinket].
 - [Mysterious Trinket] no longer da trinket slots extra al usarse.
 
 ### Fixed
