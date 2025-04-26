@@ -1,6 +1,6 @@
 {
   "replace": false,
-  "amount": 1,
+  "amount": 2,
   "operation": "set",
   "icon": "accessories:container/slot/cape"
 }
