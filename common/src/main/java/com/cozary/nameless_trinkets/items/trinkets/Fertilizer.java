@@ -62,7 +62,6 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
 
         for (int i = 0; i < 128; ++i) {
             BlockPos currentPos = pos;
-            BlockState newState = Blocks.SEAGRASS.defaultBlockState();
 
             for (int j = 0; j < i / 16; ++j) {
                 currentPos = currentPos.offset(
@@ -70,13 +69,21 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
                         (random.nextInt(3) - 1) * random.nextInt(3) / 2,
                         random.nextInt(3) - 1
                 );
-                if (level.getBlockState(currentPos).isCollisionShapeFullBlock(level, currentPos)) {
-                    continue;
+
+                if (!level.getBlockState(currentPos).is(Blocks.WATER) && !level.getBlockState(currentPos).is(Blocks.KELP) && !level.getBlockState(currentPos).is(Blocks.KELP_PLANT)) {
+                    break;
                 }
             }
 
-            if (applyBiomeModifiers(level, currentPos, random, clickedSide, newState)) {
+            BlockState state = level.getBlockState(currentPos);
+
+            if (state.is(Blocks.KELP) || state.is(Blocks.KELP_PLANT)) {
+                growKelp(level, currentPos);
                 success = true;
+            } else if (state.is(Blocks.WATER) && level.getFluidState(currentPos).getAmount() == 8) {
+                if (applyBiomeModifiers(level, currentPos, random, clickedSide, Blocks.SEAGRASS.defaultBlockState())) {
+                    success = true;
+                }
             }
         }
 
@@ -89,9 +96,7 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
             if (random.nextInt(4) == 0) {
                 newState = BuiltInRegistries.BLOCK
                         .getRandomElementOf(BlockTags.UNDERWATER_BONEMEALS, random)
-                        .map((block) -> {
-                            return ((Block) block.value()).defaultBlockState();
-                        })
+                        .map((block) -> ((Block) block.value()).defaultBlockState())
                         .orElse(newState);
             }
         }
@@ -100,7 +105,15 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
             level.setBlock(pos, newState, 3);
             return true;
         }
+
         return false;
+    }
+
+    private static void growKelp(Level level, BlockPos pos) {
+        BlockPos abovePos = pos.above();
+        if (level.getBlockState(abovePos).is(Blocks.WATER) && level.getFluidState(abovePos).getAmount() == 8) {
+            level.setBlock(abovePos, Blocks.KELP_PLANT.defaultBlockState(), 3);
+        }
     }
 
     private static boolean applyBonemeal(Level level, BlockPos pos) {
@@ -155,7 +168,7 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
                 random.nextInt(5) - 3
         );
 
-        int effectInterval = config.effectIntervalInTicks;
+        int effectInterval = 1;//
         if (entity.tickCount % effectInterval == 0) {
             BlockState targetState = level.getBlockState(targetPos);
             BlockState stateBelow = level.getBlockState(playerPos.below());
