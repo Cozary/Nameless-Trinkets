@@ -22,7 +22,7 @@ public class LightGlovesEvents {
                 }
                 var stack = accessories.getEquipped(ModItems.LIGHT_GLOVES.get());
                 if ((!stack.isEmpty() && !player.level().canSeeSky(player.blockPosition()))) {
-                    return originalSpeed * (config.miningSpeedPercentage/100);
+                    return originalSpeed * (config.miningSpeedPercentage / 100);
                 }
             }
             return originalSpeed;

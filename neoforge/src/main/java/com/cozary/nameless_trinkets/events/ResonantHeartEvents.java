@@ -3,7 +3,6 @@ package com.cozary.nameless_trinkets.events;
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.items.trinkets.ResonantHeart;
-import com.cozary.nameless_trinkets.items.trinkets.ReverseCard;
 import io.wispforest.accessories.api.AccessoriesCapability;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
@@ -13,8 +12,6 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.monster.warden.Warden;
-import net.minecraft.world.entity.monster.warden.WardenAi;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
@@ -38,7 +35,7 @@ public class ResonantHeartEvents {
         Random random = new Random();
         if (event.getEntity() instanceof Player player) {
 
-            if(player.level().isClientSide)
+            if (player.level().isClientSide)
                 return;
 
             var accessories = AccessoriesCapability.get(player);

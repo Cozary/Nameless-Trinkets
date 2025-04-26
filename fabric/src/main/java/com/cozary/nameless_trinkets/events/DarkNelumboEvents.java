@@ -9,7 +9,7 @@ import net.minecraft.world.entity.player.Player;
 
 public class DarkNelumboEvents {
 
-    public static void register(){
+    public static void register() {
         ModEvents.DamageModifyCallback.EVENT.register((targetEntity, damageSource, amount) -> {
             DarkNelumbo.Stats config = DarkNelumbo.INSTANCE.getTrinketConfig();
             if (!config.isEnable) return amount;

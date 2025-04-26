@@ -30,7 +30,7 @@ public class TrueHeartOfTheSeaEvents {
             var stack = accessories.getEquipped(ModItems.TRUE_HEART_OF_THE_SEA.get());
             if ((!stack.isEmpty() && player.isEyeInFluidType(NeoForgeMod.WATER_TYPE.value()))) {
 
-                event.setNewSpeed(event.getOriginalSpeed() * (config.miningUnderwaterSpeedPercentage/100));
+                event.setNewSpeed(event.getOriginalSpeed() * (config.miningUnderwaterSpeedPercentage / 100));
             }
         }
     }

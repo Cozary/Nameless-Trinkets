@@ -51,7 +51,7 @@ public class RageMind extends TrinketItem<RageMind.Stats> {
         if (!(reference.entity() instanceof Player player))
             return;
 
-        if(player.level().isClientSide)
+        if (player.level().isClientSide)
             return;
 
         if (stack.get(ModDataComponents.RAGE_MIND_REVENGE_TARGET.get()) != null) {
@@ -99,7 +99,6 @@ public class RageMind extends TrinketItem<RageMind.Stats> {
             }
         }
     }
-
 
 
     @Override

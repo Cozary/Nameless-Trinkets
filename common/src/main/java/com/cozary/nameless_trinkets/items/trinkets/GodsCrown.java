@@ -85,28 +85,28 @@ public class GodsCrown extends TrinketItem<GodsCrown.Stats> {
         } else {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.gods_crown_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
 
-                if (Screen.hasShiftDown()) {
-                    Map<String, Double> stats = new HashMap<>();
-                    stats.put("Max Health", config.percentageExtraMaxHealth);
-                    stats.put("Movement Speed", config.percentageExtraSpeed);
-                    stats.put("Flying Speed", config.percentageExtraFlySpeed);
-                    stats.put("Attack Damage", config.percentageExtraAttack);
-                    stats.put("Armor", config.percentageExtraArmor);
-                    stats.put("Attack Speed", config.percentageExtraAttackSpeed);
-                    stats.put("Armor Toughness", config.percentageExtraArmorToughness);
-                    stats.put("Attack Knockback", config.percentageExtraAttackKnockback);
-                    stats.put("Knockback Resistance", config.percentageExtraKnockbackResistance);
-                    stats.put("Luck", config.percentageExtraLuck);
-                    stats.put("Swim Speed", config.percentageExtraSwimSpeed);
-                    stats.put("Block Reach", config.percentageExtraBlockReach);
-                    stats.put("Entity Reach", config.percentageExtraEntityReach);
-                    stats.put("Step Height Addition", config.percentageExtraStepHeightAddition);
+            if (Screen.hasShiftDown()) {
+                Map<String, Double> stats = new HashMap<>();
+                stats.put("Max Health", config.percentageExtraMaxHealth);
+                stats.put("Movement Speed", config.percentageExtraSpeed);
+                stats.put("Flying Speed", config.percentageExtraFlySpeed);
+                stats.put("Attack Damage", config.percentageExtraAttack);
+                stats.put("Armor", config.percentageExtraArmor);
+                stats.put("Attack Speed", config.percentageExtraAttackSpeed);
+                stats.put("Armor Toughness", config.percentageExtraArmorToughness);
+                stats.put("Attack Knockback", config.percentageExtraAttackKnockback);
+                stats.put("Knockback Resistance", config.percentageExtraKnockbackResistance);
+                stats.put("Luck", config.percentageExtraLuck);
+                stats.put("Swim Speed", config.percentageExtraSwimSpeed);
+                stats.put("Block Reach", config.percentageExtraBlockReach);
+                stats.put("Entity Reach", config.percentageExtraEntityReach);
+                stats.put("Step Height Addition", config.percentageExtraStepHeightAddition);
 
-                    for (Map.Entry<String, Double> entry : stats.entrySet()) {
-                        if (entry.getValue() > 0) {
-                            tooltip.add(Component.translatable(entry.getKey()).append(" +" + entry.getValue() + "%").withStyle(ChatFormatting.GOLD));
-                        }
+                for (Map.Entry<String, Double> entry : stats.entrySet()) {
+                    if (entry.getValue() > 0) {
+                        tooltip.add(Component.translatable(entry.getKey()).append(" +" + entry.getValue() + "%").withStyle(ChatFormatting.GOLD));
                     }
+                }
 
             } else {
                 tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));

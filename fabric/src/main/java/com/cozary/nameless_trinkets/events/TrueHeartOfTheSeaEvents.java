@@ -23,7 +23,7 @@ public class TrueHeartOfTheSeaEvents {
                 }
                 var stack = accessories.getEquipped(ModItems.TRUE_HEART_OF_THE_SEA.get());
                 if (!stack.isEmpty() && player.isEyeInFluid(FluidTags.WATER)) {
-                    return originalSpeed * (config.miningUnderwaterSpeedPercentage/100);
+                    return originalSpeed * (config.miningUnderwaterSpeedPercentage / 100);
                 }
             }
             return originalSpeed;

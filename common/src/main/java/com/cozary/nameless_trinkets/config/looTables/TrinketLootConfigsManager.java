@@ -3,8 +3,8 @@ package com.cozary.nameless_trinkets.config.looTables;
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.config.ConfigUtils;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 
 import java.io.IOException;
@@ -68,7 +68,6 @@ public class TrinketLootConfigsManager {
             saveConfigs();
         }
     }
-
 
 
     public static void saveConfigs() {

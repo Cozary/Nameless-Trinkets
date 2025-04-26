@@ -1,16 +1,9 @@
 package com.cozary.nameless_trinkets.events;
 
-import com.cozary.nameless_trinkets.init.ModDataComponents;
 import com.cozary.nameless_trinkets.init.ModEvents;
 import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.items.trinkets.RageMind;
 import com.cozary.nameless_trinkets.items.trinkets.ScarabAmulet;
 import io.wispforest.accessories.api.AccessoriesCapability;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Husk;
 import net.minecraft.world.entity.player.Player;
 

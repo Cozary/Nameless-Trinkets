@@ -3,13 +3,10 @@ package com.cozary.nameless_trinkets.events;
 import com.cozary.nameless_trinkets.init.ModDataComponents;
 import com.cozary.nameless_trinkets.init.ModEvents;
 import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.items.trinkets.BlazeNucleus;
-import com.cozary.nameless_trinkets.items.trinkets.MoonStone;
 import com.cozary.nameless_trinkets.items.trinkets.RageMind;
 import io.wispforest.accessories.api.AccessoriesCapability;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
@@ -49,7 +46,7 @@ public class RageMindEvents {
                         Class<? extends LivingEntity> classEntity = (Class<? extends LivingEntity>) entity.getClass();
 
                         if (targetEntity.getClass() == classEntity) {
-                            return damageAmount * (config.damageMultiplierPercentage/100);
+                            return damageAmount * (config.damageMultiplierPercentage / 100);
                         }
                     }
 
