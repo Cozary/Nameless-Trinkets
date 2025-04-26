@@ -126,7 +126,7 @@ public class DyingStar extends TrinketItem<DyingStar.Stats> {
                 AttributeModifier attributeModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dying_star_" + attributeSelector.getAttributeHolder().getRegisteredName().replace(".", "_").replace(":", "_")),
                         attributeIncrement, AttributeModifier.Operation.ADD_VALUE);
 
-                if(attributeDamage != null && attributeModifier != null) {
+                if (attributeDamage != null && attributeModifier != null) {
                     EntityUtils.applyAttributeModifier(attributeDamage, attributeModifier);
                 }
             }
@@ -148,7 +148,7 @@ public class DyingStar extends TrinketItem<DyingStar.Stats> {
                 AttributeModifier attributeModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dying_star_" + attributeSelector.getAttributeHolder().getRegisteredName().replace(".", "_").replace(":", "_")),
                         attributeIncrement, AttributeModifier.Operation.ADD_VALUE);
 
-                if(attributeDamage != null && attributeModifier != null) {
+                if (attributeDamage != null && attributeModifier != null) {
                     EntityUtils.removeAttributeModifier(attributeDamage, attributeModifier);
                 }
             }
