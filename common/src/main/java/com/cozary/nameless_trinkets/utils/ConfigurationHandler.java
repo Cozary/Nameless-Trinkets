@@ -9,23 +9,26 @@ public final class ConfigurationHandler {
     public static final ModConfigSpec spec = BUILDER.build();
 
     public static class General {
-        public final ModConfigSpec.IntValue slotProbability;
+        //public final ModConfigSpec.IntValue slotProbability;
         public final ModConfigSpec.BooleanValue getFragments;
-        public final ModConfigSpec.IntValue trinketSlots;
+        //public final ModConfigSpec.IntValue trinketSlots;
         public final ModConfigSpec.BooleanValue disableFOV;
 
         public General(ModConfigSpec.Builder builder) {
+            /*
             builder.push("New Trinket Slot Probability");
             slotProbability = builder.defineInRange("newSlotProbability", 10, 0, 100);
             builder.pop();
-
+            */
             builder.push("Fragments from Trinket Destruction");
             getFragments = builder.define("getFragments", true);
             builder.pop();
 
+            /*
             builder.push("Trinket Slot Settings");
             trinketSlots = builder.defineInRange("maxTrinketSlots", 2, 0, 99);
             builder.pop();
+            */
 
             builder.push("FOV Disable Settings");
             disableFOV = builder.define("disableFOV", false);

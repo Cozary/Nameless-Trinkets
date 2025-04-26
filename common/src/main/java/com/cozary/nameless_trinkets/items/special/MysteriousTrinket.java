@@ -57,7 +57,7 @@ public class MysteriousTrinket extends Item {
                 ServerLevel serverLevel = (ServerLevel) player.getCommandSenderWorld();
                 spawnParticles(serverLevel, player);
                 spawnItemEntity(serverLevel, selectedTrinket, playerPos);
-                maybeAddTrinketSlot(player, random);
+                //maybeAddTrinketSlot(player, random);
             }
         }
 
@@ -80,6 +80,7 @@ public class MysteriousTrinket extends Item {
         level.addFreshEntity(itemEntity);
     }
 
+    //Todo re-add
     private void maybeAddTrinketSlot(Player player, Random random) {
         double maxSlots = ConfigurationHandler.GENERAL.trinketSlots.get();
         var map = HashMultimap.<String, AttributeModifier>create();
