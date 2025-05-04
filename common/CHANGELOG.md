@@ -2,8 +2,10 @@
 
 ### Changed
 
+- LivingDamageEvent.Pre replaced by LivingIncomingDamageEvent
+
 ### Removed
 
 ### Fixed
 
-- [Fertilizer] reañadido effectIntervalInTicks en su funcion correspondiente.
+- [Fertilizer] re-added effectIntervalInTicks to its corresponding function.
