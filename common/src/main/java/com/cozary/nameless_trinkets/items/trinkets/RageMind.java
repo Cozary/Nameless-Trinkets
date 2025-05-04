@@ -20,6 +20,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.scores.PlayerTeam;
+import net.minecraft.world.scores.Scoreboard;
 
 import java.util.List;
 
@@ -65,6 +67,14 @@ public class RageMind extends TrinketItem<RageMind.Stats> {
 
             List<LivingEntity> foundTarget = (List<LivingEntity>) player.level().getEntitiesOfClass(classEntity, targetBox);
 
+            Scoreboard scoreboard = player.getScoreboard();
+
+            PlayerTeam playerTeam = scoreboard.getPlayerTeam("rageMindRevengeTargets");
+            if (playerTeam == null) {
+                playerTeam = scoreboard.addPlayerTeam("rageMindRevengeTargets");
+                playerTeam.setColor(ChatFormatting.DARK_RED);
+            }
+
             if (!foundTarget.isEmpty()) {
                 for (Entity revengeTarget : foundTarget) {
                     if (revengeTarget instanceof LivingEntity) {
@@ -72,18 +82,7 @@ public class RageMind extends TrinketItem<RageMind.Stats> {
 
                         MobEffectInstance effectinstance = new MobEffectInstance(MobEffects.GLOWING, 20, 20);
 
-                        // Scoreboard scoreboard = player.getScoreboard();
-
-                        // if (!scoreboard.getTeamNames().contains("rageMindRevengeTargets"))
-                        //     scoreboard.addPlayerTeam("rageMindRevengeTargets");
-
-                        // PlayerTeam playerteam = player.level().getScoreboard().getPlayerTeam("rageMindRevengeTargets");
-
-                        // if (playerteam == null)
-                        //     return;
-
-                        // scoreboard.addPlayerToTeam(livingRevengeTarget.getStringUUID(), playerteam);
-                        // playerteam.setColor(ChatFormatting.RED);
+                        scoreboard.addPlayerToTeam(entity.getStringUUID(), playerTeam);
 
                         livingRevengeTarget.addEffect(effectinstance);
                     }
