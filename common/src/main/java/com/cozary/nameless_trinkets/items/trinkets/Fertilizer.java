@@ -160,7 +160,7 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
                 random.nextInt(5) - 3
         );
 
-        int effectInterval = 1;//
+        int effectInterval = config.effectIntervalInTicks;
         if (entity.tickCount % effectInterval == 0) {
             BlockState targetState = level.getBlockState(targetPos);
             BlockState stateBelow = level.getBlockState(playerPos.below());
