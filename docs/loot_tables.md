@@ -1,6 +1,6 @@
 This section covers how you can modify the loot tables that change the spawn frequency and location of trinkets.
 
-From versions +1.21.x-1.1.x, this can be modified from the configuration found at 📂 `config/nameless_trinkets/trinket_loot_configs`.
+From versions **+1.21.x-1.1.x**, this can be modified from the configuration found at 📂 `config/nameless_trinkets/trinket_loot_configs`.
 
 ??? warning "Other Versions"
 
@@ -18,3 +18,7 @@ From versions +1.21.x-1.1.x, this can be modified from the configuration found a
 
     ??? info "Post-1.21"
         - [1.21.x](https://github.com/Cozary/Nameless-Trinkets/tree/1.21/datapacks/%2B1.21.x)
+
+??? info "Fabric"
+
+    There is no way to edit loot tables in Fabric before version **1.21.x-1.1.x**.
