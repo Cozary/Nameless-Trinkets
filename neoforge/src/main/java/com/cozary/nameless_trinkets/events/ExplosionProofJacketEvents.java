@@ -14,12 +14,13 @@ import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 
 @EventBusSubscriber(modid = NamelessTrinkets.MOD_ID)
 public class ExplosionProofJacketEvents {
 
     @SubscribeEvent
-    public static void handleExplosionDamageReduction(LivingDamageEvent.Pre event) {
+    public static void handleExplosionDamageReduction(LivingIncomingDamageEvent event) {
 
         ExplosionProofJacket.Stats config = ExplosionProofJacket.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
@@ -41,7 +42,7 @@ public class ExplosionProofJacketEvents {
                 var stack = accessories.getEquipped(ModItems.EXPLOSION_PROOF_JACKET.get());
                 if (!stack.isEmpty()) {
                     if (event.getSource().is(DamageTypeTags.IS_EXPLOSION)) {
-                        event.setNewDamage(event.getOriginalDamage() * (1 - config.blastDamagePercentageReduction) * 100);
+                        event.setAmount(event.getOriginalAmount() * (1 - config.blastDamagePercentageReduction) * 100);
                         BlockPos pos = player.blockPosition();
                         ItemEntity itementity = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), itemStack);
                         itementity.setDefaultPickUpDelay();

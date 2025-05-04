@@ -12,12 +12,13 @@ import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 
 @EventBusSubscriber(modid = NamelessTrinkets.MOD_ID)
 public class BlazeNucleusEvents {
 
     @SubscribeEvent
-    public static void setFireEntity(LivingDamageEvent.Pre event) {
+    public static void setFireEntity(LivingIncomingDamageEvent event) {
         BlazeNucleus.Stats config = BlazeNucleus.INSTANCE.getTrinketConfig();
         DamageSource source = event.getSource();
         Entity src = source.getEntity();
@@ -46,7 +47,7 @@ public class BlazeNucleusEvents {
     }
 
     @SubscribeEvent
-    public static void blazeNucleusImmune(LivingDamageEvent.Pre event) {
+    public static void blazeNucleusImmune(LivingIncomingDamageEvent event) {
         BlazeNucleus.Stats config = BlazeNucleus.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable)
@@ -64,7 +65,7 @@ public class BlazeNucleusEvents {
         if (!stack.isEmpty()) {
             if (config.fireDamageReductionPercentage < 100) {
                 if (event.getSource().is(DamageTypeTags.IS_FIRE)) {
-                    event.setNewDamage(event.getOriginalDamage() * (1 - (config.fireDamageReductionPercentage / 100)));
+                    event.setAmount(event.getOriginalAmount() * (1 - (config.fireDamageReductionPercentage / 100)));
                 }
             }
         }

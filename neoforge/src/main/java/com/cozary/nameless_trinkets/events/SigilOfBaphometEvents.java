@@ -12,6 +12,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 
 @EventBusSubscriber(modid = NamelessTrinkets.MOD_ID)
 public class SigilOfBaphometEvents {
@@ -37,7 +38,7 @@ public class SigilOfBaphometEvents {
     }
 
     @SubscribeEvent
-    public static void grantSigilImmunityOnDamage(LivingDamageEvent.Pre event) {
+    public static void grantSigilImmunityOnDamage(LivingIncomingDamageEvent event) {
         SigilOfBaphomet.Stats config = SigilOfBaphomet.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return;
@@ -53,7 +54,7 @@ public class SigilOfBaphometEvents {
                 var stack = accessories.getEquipped(ModItems.SIGIL_OF_BAPHOMET.get());
                 if (!stack.isEmpty() && stack.getFirst().stack().getOrDefault(ModDataComponents.SIGIL_COUNT.get(), 0) > 0 && !player.level().isClientSide) {
                     ((ServerLevel) player.getCommandSenderWorld()).sendParticles(ParticleTypes.ENCHANT, player.getX(), player.getY(), player.getZ(), 50, 0.5D, 1D, 0.5D, 0.1);
-                    event.setNewDamage(0);
+                    event.setCanceled(true);
                 }
 
             }

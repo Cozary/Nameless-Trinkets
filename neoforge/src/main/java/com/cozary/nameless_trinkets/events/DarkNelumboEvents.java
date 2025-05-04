@@ -8,12 +8,13 @@ import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 
 @EventBusSubscriber(modid = NamelessTrinkets.MOD_ID)
 public class DarkNelumboEvents {
 
     @SubscribeEvent
-    public static void blazeNucleusImmune(LivingDamageEvent.Pre event) {
+    public static void blazeNucleusImmune(LivingIncomingDamageEvent event) {
         DarkNelumbo.Stats config = DarkNelumbo.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable)
@@ -31,7 +32,7 @@ public class DarkNelumboEvents {
         if (!stack.isEmpty()) {
             if (config.cancelLavaDamage) {
                 if (event.getSource().type().msgId().equals("lava")) {
-                    event.setNewDamage(0);
+                    event.setCanceled(true);
                 }
             }
         }

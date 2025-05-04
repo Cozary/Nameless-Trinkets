@@ -9,12 +9,13 @@ import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 
 @EventBusSubscriber(modid = NamelessTrinkets.MOD_ID)
 public class MoonStoneEvents {
 
     @SubscribeEvent
-    public static void MoonStoneDamage(LivingDamageEvent.Pre event) {
+    public static void MoonStoneDamage(LivingIncomingDamageEvent event) {
         MoonStone.Stats config = MoonStone.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return;
@@ -30,7 +31,7 @@ public class MoonStoneEvents {
                 var stack = accessories.getEquipped(ModItems.MOON_STONE.get());
                 if (!stack.isEmpty()) {
                     if (event.getSource().is(DamageTypes.FALL)) {
-                        event.setNewDamage(0);
+                        event.setCanceled(true);
                     }
                 }
             }
