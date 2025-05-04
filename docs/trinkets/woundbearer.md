@@ -8,3 +8,6 @@ The **Woundbearer** trinket grants the following effect:
 ## Configuration:
 - **Is Enable**: Determines whether the trinket's effect is active or not.
 - **Damage Conversion Percentage**: The percentage of how much damage is dealt to the player is stored in the trinket.
+
+## Notes
+- There is a limit to the maximum damage the trinket can store which is 3.4028235 × 10^38. A lot.
