@@ -49,6 +49,7 @@ public class ResonantHeart extends TrinketItem<ResonantHeart.Stats> {
 
     public static class Stats extends TrinketsStats {
         public float chanceToActivateProbability = 10.0f;
+        public float sonicBoomDamage = 10.0f;
         public boolean isEnable = true;
     }
 }
