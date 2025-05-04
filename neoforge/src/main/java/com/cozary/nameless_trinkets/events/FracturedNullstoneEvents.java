@@ -8,12 +8,13 @@ import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 
 @EventBusSubscriber(modid = NamelessTrinkets.MOD_ID)
 public class FracturedNullstoneEvents {
 
     @SubscribeEvent
-    public static void reduceMagicDamage(LivingDamageEvent.Pre event) {
+    public static void reduceMagicDamage(LivingIncomingDamageEvent event) {
         FracturedNullstone.Stats config = FracturedNullstone.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return;
@@ -32,7 +33,7 @@ public class FracturedNullstoneEvents {
                     //haha DamageTypeTag Magic doesn't exist
 
                     if (event.getSource().type().msgId().equals("indirectMagic") || event.getSource().type().msgId().equals("magic")) {
-                        event.setNewDamage(event.getOriginalDamage() * (config.magicDamageReductionPercentage / 100));
+                        event.setAmount(event.getOriginalAmount() * (config.magicDamageReductionPercentage / 100));
                     }
                 }
             }

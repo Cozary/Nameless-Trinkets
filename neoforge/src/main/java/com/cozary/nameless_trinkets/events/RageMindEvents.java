@@ -14,12 +14,13 @@ import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 
 @EventBusSubscriber(modid = NamelessTrinkets.MOD_ID)
 public class RageMindEvents {
 
     @SubscribeEvent
-    public static void getEntity(LivingDamageEvent.Pre event) {
+    public static void getEntity(LivingIncomingDamageEvent event) {
         RageMind.Stats config = RageMind.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable)
@@ -49,7 +50,7 @@ public class RageMindEvents {
     }
 
     @SubscribeEvent
-    public static void dealDamage(LivingDamageEvent.Pre event) {
+    public static void dealDamage(LivingIncomingDamageEvent event) {
         RageMind.Stats config = RageMind.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable)
@@ -89,7 +90,7 @@ public class RageMindEvents {
                     }
 
                     if (event.getEntity().getClass() == classEntity) {
-                        event.setNewDamage(event.getOriginalDamage() * (config.damageMultiplierPercentage / 100));
+                        event.setAmount(event.getOriginalAmount() * (config.damageMultiplierPercentage / 100));
                     }
                 }
 

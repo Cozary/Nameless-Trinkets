@@ -10,12 +10,13 @@ import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 
 @EventBusSubscriber(modid = NamelessTrinkets.MOD_ID)
 public class CallusEvents {
 
     @SubscribeEvent
-    public static void applyCallusDamageReduction(LivingDamageEvent.Pre event) {
+    public static void applyCallusDamageReduction(LivingIncomingDamageEvent event) {
         Callus.Stats config = Callus.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable || !(event.getEntity() instanceof Player player))
@@ -31,7 +32,7 @@ public class CallusEvents {
             return;
 
         var source = event.getSource();
-        float newDamage = event.getNewDamage();
+        float newDamage = event.getAmount();
 
         if (isNullifiedDamageType(source)) {
             newDamage = 0;
@@ -41,7 +42,7 @@ public class CallusEvents {
             newDamage *= (float) (1 - (config.generalDamageReductionPercentage / 100.0));
         }
 
-        event.setNewDamage(newDamage);
+        event.setAmount(newDamage);
     }
 
     private static boolean isNullifiedDamageType(DamageSource source) {

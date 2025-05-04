@@ -8,12 +8,13 @@ import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 
 @EventBusSubscriber(modid = NamelessTrinkets.MOD_ID)
 public class WoodenStickEvents {
 
     @SubscribeEvent
-    public static void cancelWoodenStick(LivingDamageEvent.Pre event) {
+    public static void cancelWoodenStick(LivingIncomingDamageEvent event) {
         WoodenStick.Stats config = WoodenStick.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return;
@@ -28,7 +29,7 @@ public class WoodenStickEvents {
             var stack = accessories.getEquipped(ModItems.WOODEN_STICK.get());
             if (!stack.isEmpty() && !player.level().isClientSide) {
                 if (!player.getCooldowns().isOnCooldown(stack.getFirst().stack().getItem())) {
-                    event.setNewDamage(0);
+                    event.setCanceled(true);
                     player.getCooldowns().addCooldown(stack.getFirst().stack().getItem(), (int) config.cooldown);
                 }
             }

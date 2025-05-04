@@ -9,12 +9,13 @@ import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 
 @EventBusSubscriber(modid = NamelessTrinkets.MOD_ID)
 public class WoundbearerEvents {
 
     @SubscribeEvent
-    public static void savePlayerDamageIncrement(LivingDamageEvent.Pre event) {
+    public static void savePlayerDamageIncrement(LivingIncomingDamageEvent event) {
         Woundbearer.Stats config = Woundbearer.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return;
@@ -28,7 +29,7 @@ public class WoundbearerEvents {
             }
             var stack = accessories.getEquipped(ModItems.WOUNDBEARER.get());
             if (!stack.isEmpty() && !player.level().isClientSide) {
-                float damageIncrement = event.getNewDamage() * (config.damageConversionPercentage / 100);
+                float damageIncrement = event.getAmount() * (config.damageConversionPercentage / 100);
 
                 stack.getFirst().stack().set(ModDataComponents.WOUNDBEARER_DAMAGE.get(), stack.getFirst().stack().getOrDefault(ModDataComponents.WOUNDBEARER_DAMAGE.get(), 0).floatValue() + damageIncrement);
             }

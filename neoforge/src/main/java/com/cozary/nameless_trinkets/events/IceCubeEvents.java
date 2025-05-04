@@ -28,6 +28,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.util.BlockSnapshot;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
 import static net.neoforged.neoforge.event.EventHooks.onBlockPlace;
@@ -120,7 +121,7 @@ public class IceCubeEvents {
     }
 
     @SubscribeEvent
-    public static void negateFreezeDamage(LivingDamageEvent.Pre event) {
+    public static void negateFreezeDamage(LivingIncomingDamageEvent event) {
         IceCube.Stats config = IceCube.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable)
@@ -141,7 +142,7 @@ public class IceCubeEvents {
                 if (!stack.isEmpty()) {
                     if (config.inmuneToFreezing) {
                         if (event.getSource().is(DamageTypeTags.IS_FREEZING)) {
-                            event.setNewDamage(0);
+                            event.setCanceled(true);
                         }
                     }
                 }
