@@ -56,6 +56,8 @@ public class ResonantHeartEvents {
     }
 
     public static void launchSonicBoom(Player player, Entity src, Level level) {
+        ResonantHeart.Stats config = ResonantHeart.INSTANCE.getTrinketConfig();
+
         Vec3 origin = player.position().add(0.0, player.getEyeHeight() * 0.5, 0.0);
         Vec3 targetPos = src.position().add(0.0, src.getBbHeight() * 0.5, 0.0);
         Vec3 vecToTarget = targetPos.subtract(origin);
@@ -72,7 +74,7 @@ public class ResonantHeartEvents {
         serverLevel.playSound(null, player.blockPosition(), SoundEvents.WARDEN_SONIC_BOOM, player.getSoundSource(), 3.0F, 1.0F);
 
         if (src instanceof LivingEntity target) {
-            boolean damaged = target.hurt(serverLevel.damageSources().sonicBoom(player), 10.0F);
+            boolean damaged = target.hurt(serverLevel.damageSources().sonicBoom(player), config.sonicBoomDamage);
             if (damaged) {
                 double knockbackResist = target.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE);
                 double verticalKb = 0.5 * (1.0 - knockbackResist);
