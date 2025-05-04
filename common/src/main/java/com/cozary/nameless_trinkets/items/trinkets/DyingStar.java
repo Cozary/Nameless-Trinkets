@@ -208,29 +208,31 @@ public class DyingStar extends TrinketItem<DyingStar.Stats> {
         }
     }
 
+    static Stats config = DyingStar.INSTANCE.getTrinketConfig();
+
     public enum AttributeSelector {
-        ARMOR(Attributes.ARMOR, ModDataComponents.DYING_STAR_ARMOR.get(), 30.0f, 0.01f, 0.02f),
-        ARMOR_TOUGHNESS(Attributes.ARMOR_TOUGHNESS, ModDataComponents.DYING_STAR_ARMOR_TOUGHNESS.get(), 20.0f, 0.01f, 0.02f),
-        ATTACK_DAMAGE(Attributes.ATTACK_DAMAGE, ModDataComponents.DYING_STAR_ATTACK_DAMAGE.get(), 2048.0f, 0.009f, 0.01f),
-        ATTACK_KNOCKBACK(Attributes.ATTACK_KNOCKBACK, ModDataComponents.DYING_STAR_ATTACK_KNOCKBACK.get(), 5.0f, 0.01f, 0.02f),
-        ATTACK_SPEED(Attributes.ATTACK_SPEED, ModDataComponents.DYING_STAR_ATTACK_SPEED.get(), 1024.0f, 0.01f, 0.04f),
-        BLOCK_BREAK_SPEED(Attributes.BLOCK_BREAK_SPEED, ModDataComponents.DYING_STAR_BLOCK_BREAK_SPEED.get(), 1024.0f, 0.009f, 0.01f),
-        BLOCK_INTERACTION_RANGE(Attributes.BLOCK_INTERACTION_RANGE, ModDataComponents.DYING_STAR_BLOCK_INTERACTION_RANGE.get(), 1.0f, 0.01f, 0.045f),
-        EXPLOSION_KNOCKBACK_RESISTANCE(Attributes.EXPLOSION_KNOCKBACK_RESISTANCE, ModDataComponents.DYING_STAR_EXPLOSION_KNOCKBACK_RESISTANCE.get(), 1.0f, 0.01f, 0.02f),
-        ENTITY_INTERACTION_RANGE(Attributes.ENTITY_INTERACTION_RANGE, ModDataComponents.DYING_STAR_ENTITY_INTERACTION_RANGE.get(), 64.0f, 0.01f, 0.03f),
-        FALL_DAMAGE_MULTIPLIER(Attributes.FALL_DAMAGE_MULTIPLIER, ModDataComponents.DYING_STAR_FALL_DAMAGE_MULTIPLIER.get(), 100.0f, 0.009f, 0.01f),
-        FLYING_SPEED(Attributes.FLYING_SPEED, ModDataComponents.DYING_STAR_FLYING_SPEED.get(), 1024.0f, 0.0001f, 0.0004f),
-        KNOCKBACK_RESISTANCE(Attributes.KNOCKBACK_RESISTANCE, ModDataComponents.DYING_STAR_KNOCKBACK_RESISTANCE.get(), 1.0f, 0.01f, 0.02f),
-        LUCK(Attributes.LUCK, ModDataComponents.DYING_STAR_LUCK.get(), 1024.0f, 0.009f, 0.01f),
-        MAX_ABSORPTION(Attributes.MAX_ABSORPTION, ModDataComponents.DYING_STAR_MAX_ABSORPTION.get(), 2048.0f, 0.01f, 0.02f),
-        MAX_HEALTH(Attributes.MAX_HEALTH, ModDataComponents.DYING_STAR_MAX_HEALTH.get(), 1024.0f, 0.01f, 0.2f),
-        MINING_EFFICIENCY(Attributes.MINING_EFFICIENCY, ModDataComponents.DYING_STAR_MINING_EFFICIENCY.get(), 1024.0f, 0.01f, 0.02f),
-        MOVEMENT_SPEED(Attributes.MOVEMENT_SPEED, ModDataComponents.DYING_STAR_MOVEMENT_SPEED.get(), 1024.0f, 0.001f, 0.007f),
-        OXYGEN_BONUS(Attributes.OXYGEN_BONUS, ModDataComponents.DYING_STAR_OXYGEN_BONUS.get(), 1024.0f, 0.01f, 0.02f),
-        SNEAKING_SPEED(Attributes.SNEAKING_SPEED, ModDataComponents.DYING_STAR_SNEAKING_SPEED.get(), 1.0f, 0.001f, 0.003f),
-        SUBMERGED_MINING_SPEED(Attributes.SUBMERGED_MINING_SPEED, ModDataComponents.DYING_STAR_SUBMERGED_MINING_SPEED.get(), 20.0f, 0.001f, 0.002f),
-        SWEEPING_DAMAGE_RATIO(Attributes.SWEEPING_DAMAGE_RATIO, ModDataComponents.DYING_STAR_SWEEPING_DAMAGE_RATIO.get(), 1.0f, 0.01f, 0.02f),
-        WATER_MOVEMENT_EFFICIENCY(Attributes.WATER_MOVEMENT_EFFICIENCY, ModDataComponents.DYING_STAR_WATER_MOVEMENT_EFFICIENCY.get(), 1.0f, 0.01f, 0.02f);
+        ARMOR(Attributes.ARMOR, ModDataComponents.DYING_STAR_ARMOR.get(), config.armorMaxValue, config.armorMinIncrease, config.armorMaxIncrease),
+        ARMOR_TOUGHNESS(Attributes.ARMOR_TOUGHNESS, ModDataComponents.DYING_STAR_ARMOR_TOUGHNESS.get(), config.armorToughnessMaxValue, config.armorToughnessMinIncrease, config.armorToughnessMaxIncrease),
+        ATTACK_DAMAGE(Attributes.ATTACK_DAMAGE, ModDataComponents.DYING_STAR_ATTACK_DAMAGE.get(), config.attackDamageMaxValue, config.attackDamageMinIncrease, config.attackDamageMaxIncrease),
+        ATTACK_KNOCKBACK(Attributes.ATTACK_KNOCKBACK, ModDataComponents.DYING_STAR_ATTACK_KNOCKBACK.get(), config.attackKnockbackMaxValue, config.attackKnockbackMinIncrease, config.attackKnockbackMaxIncrease),
+        ATTACK_SPEED(Attributes.ATTACK_SPEED, ModDataComponents.DYING_STAR_ATTACK_SPEED.get(), config.attackSpeedMaxValue, config.attackSpeedMinIncrease, config.attackSpeedMaxIncrease),
+        BLOCK_BREAK_SPEED(Attributes.BLOCK_BREAK_SPEED, ModDataComponents.DYING_STAR_BLOCK_BREAK_SPEED.get(), config.blockBreakSpeedMaxValue, config.blockBreakSpeedMinIncrease, config.blockBreakSpeedMaxIncrease),
+        BLOCK_INTERACTION_RANGE(Attributes.BLOCK_INTERACTION_RANGE, ModDataComponents.DYING_STAR_BLOCK_INTERACTION_RANGE.get(), config.blockInteractionRangeMaxValue, config.blockInteractionRangeMinIncrease, config.blockInteractionRangeMaxIncrease),
+        EXPLOSION_KNOCKBACK_RESISTANCE(Attributes.EXPLOSION_KNOCKBACK_RESISTANCE, ModDataComponents.DYING_STAR_EXPLOSION_KNOCKBACK_RESISTANCE.get(), config.explosionKnockbackResistanceMaxValue, config.explosionKnockbackResistanceMinIncrease, config.explosionKnockbackResistanceMaxIncrease),
+        ENTITY_INTERACTION_RANGE(Attributes.ENTITY_INTERACTION_RANGE, ModDataComponents.DYING_STAR_ENTITY_INTERACTION_RANGE.get(), config.entityInteractionRangeMaxValue, config.entityInteractionRangeMinIncrease, config.entityInteractionRangeMaxIncrease),
+        FALL_DAMAGE_MULTIPLIER(Attributes.FALL_DAMAGE_MULTIPLIER, ModDataComponents.DYING_STAR_FALL_DAMAGE_MULTIPLIER.get(), config.fallDamageMultiplierMaxValue, config.fallDamageMultiplierMinIncrease, config.fallDamageMultiplierMaxIncrease),
+        FLYING_SPEED(Attributes.FLYING_SPEED, ModDataComponents.DYING_STAR_FLYING_SPEED.get(), config.flyingSpeedMaxValue, config.flyingSpeedMinIncrease, config.flyingSpeedMaxIncrease),
+        KNOCKBACK_RESISTANCE(Attributes.KNOCKBACK_RESISTANCE, ModDataComponents.DYING_STAR_KNOCKBACK_RESISTANCE.get(), config.knockbackResistanceMaxValue, config.knockbackResistanceMinIncrease, config.knockbackResistanceMaxIncrease),
+        LUCK(Attributes.LUCK, ModDataComponents.DYING_STAR_LUCK.get(), config.luckMaxValue, config.luckMinIncrease, config.luckMaxIncrease),
+        MAX_ABSORPTION(Attributes.MAX_ABSORPTION, ModDataComponents.DYING_STAR_MAX_ABSORPTION.get(), config.maxAbsorptionMaxValue, config.maxAbsorptionMinIncrease, config.maxAbsorptionMaxIncrease),
+        MAX_HEALTH(Attributes.MAX_HEALTH, ModDataComponents.DYING_STAR_MAX_HEALTH.get(), config.maxHealthMaxValue, config.maxHealthMinIncrease, config.maxHealthMaxIncrease),
+        MINING_EFFICIENCY(Attributes.MINING_EFFICIENCY, ModDataComponents.DYING_STAR_MINING_EFFICIENCY.get(), config.miningEfficiencyMaxValue, config.miningEfficiencyMinIncrease, config.miningEfficiencyMaxIncrease),
+        MOVEMENT_SPEED(Attributes.MOVEMENT_SPEED, ModDataComponents.DYING_STAR_MOVEMENT_SPEED.get(), config.movementSpeedMaxValue, config.movementSpeedMinIncrease, config.movementSpeedMaxIncrease),
+        OXYGEN_BONUS(Attributes.OXYGEN_BONUS, ModDataComponents.DYING_STAR_OXYGEN_BONUS.get(), config.oxygenBonusMaxValue, config.oxygenBonusMinIncrease, config.oxygenBonusMaxIncrease),
+        SNEAKING_SPEED(Attributes.SNEAKING_SPEED, ModDataComponents.DYING_STAR_SNEAKING_SPEED.get(), config.sneakingSpeedMaxValue, config.sneakingSpeedMinIncrease, config.sneakingSpeedMaxIncrease),
+        SUBMERGED_MINING_SPEED(Attributes.SUBMERGED_MINING_SPEED, ModDataComponents.DYING_STAR_SUBMERGED_MINING_SPEED.get(), config.submergedMiningSpeedMaxValue, config.submergedMiningSpeedMinIncrease, config.submergedMiningSpeedMaxIncrease),
+        SWEEPING_DAMAGE_RATIO(Attributes.SWEEPING_DAMAGE_RATIO, ModDataComponents.DYING_STAR_SWEEPING_DAMAGE_RATIO.get(), config.sweepingDamageRatioMaxValue, config.sweepingDamageRatioMinIncrease, config.sweepingDamageRatioMaxIncrease),
+        WATER_MOVEMENT_EFFICIENCY(Attributes.WATER_MOVEMENT_EFFICIENCY, ModDataComponents.DYING_STAR_WATER_MOVEMENT_EFFICIENCY.get(), config.waterMovementEfficiencyMaxValue, config.waterMovementEfficiencyMinIncrease, config.waterMovementEfficiencyMaxIncrease);
 
         private final Holder<Attribute> attributeHolder;
         private final DataComponentType<Float> dataComponentType;
@@ -269,6 +271,95 @@ public class DyingStar extends TrinketItem<DyingStar.Stats> {
 
     public static class Stats extends TrinketsStats {
         public boolean isEnable = true;
+
+        public float armorMaxValue = 30.0f;
+        public float armorMinIncrease = 0.01f;
+        public float armorMaxIncrease = 0.02f;
+
+        public float armorToughnessMaxValue = 20.0f;
+        public float armorToughnessMinIncrease = 0.01f;
+        public float armorToughnessMaxIncrease = 0.02f;
+
+        public float attackDamageMaxValue = 2048.0f;
+        public float attackDamageMinIncrease = 0.009f;
+        public float attackDamageMaxIncrease = 0.01f;
+
+        public float attackKnockbackMaxValue = 5.0f;
+        public float attackKnockbackMinIncrease = 0.01f;
+        public float attackKnockbackMaxIncrease = 0.02f;
+
+        public float attackSpeedMaxValue = 1024.0f;
+        public float attackSpeedMinIncrease = 0.01f;
+        public float attackSpeedMaxIncrease = 0.04f;
+
+        public float blockBreakSpeedMaxValue = 1024.0f;
+        public float blockBreakSpeedMinIncrease = 0.009f;
+        public float blockBreakSpeedMaxIncrease = 0.01f;
+
+        public float blockInteractionRangeMaxValue = 1.0f;
+        public float blockInteractionRangeMinIncrease = 0.01f;
+        public float blockInteractionRangeMaxIncrease = 0.045f;
+
+        public float explosionKnockbackResistanceMaxValue = 1.0f;
+        public float explosionKnockbackResistanceMinIncrease = 0.01f;
+        public float explosionKnockbackResistanceMaxIncrease = 0.02f;
+
+        public float entityInteractionRangeMaxValue = 64.0f;
+        public float entityInteractionRangeMinIncrease = 0.01f;
+        public float entityInteractionRangeMaxIncrease = 0.03f;
+
+        public float fallDamageMultiplierMaxValue = 100.0f;
+        public float fallDamageMultiplierMinIncrease = 0.009f;
+        public float fallDamageMultiplierMaxIncrease = 0.01f;
+
+        public float flyingSpeedMaxValue = 1024.0f;
+        public float flyingSpeedMinIncrease = 0.0001f;
+        public float flyingSpeedMaxIncrease = 0.0004f;
+
+        public float knockbackResistanceMaxValue = 1.0f;
+        public float knockbackResistanceMinIncrease = 0.01f;
+        public float knockbackResistanceMaxIncrease = 0.02f;
+
+        public float luckMaxValue = 1024.0f;
+        public float luckMinIncrease = 0.009f;
+        public float luckMaxIncrease = 0.01f;
+
+        public float maxAbsorptionMaxValue = 2048.0f;
+        public float maxAbsorptionMinIncrease = 0.01f;
+        public float maxAbsorptionMaxIncrease = 0.02f;
+
+        public float maxHealthMaxValue = 1024.0f;
+        public float maxHealthMinIncrease = 0.01f;
+        public float maxHealthMaxIncrease = 0.2f;
+
+        public float miningEfficiencyMaxValue = 1024.0f;
+        public float miningEfficiencyMinIncrease = 0.01f;
+        public float miningEfficiencyMaxIncrease = 0.02f;
+
+        public float movementSpeedMaxValue = 1024.0f;
+        public float movementSpeedMinIncrease = 0.001f;
+        public float movementSpeedMaxIncrease = 0.007f;
+
+        public float oxygenBonusMaxValue = 1024.0f;
+        public float oxygenBonusMinIncrease = 0.01f;
+        public float oxygenBonusMaxIncrease = 0.02f;
+
+        public float sneakingSpeedMaxValue = 1.0f;
+        public float sneakingSpeedMinIncrease = 0.001f;
+        public float sneakingSpeedMaxIncrease = 0.003f;
+
+        public float submergedMiningSpeedMaxValue = 20.0f;
+        public float submergedMiningSpeedMinIncrease = 0.001f;
+        public float submergedMiningSpeedMaxIncrease = 0.002f;
+
+        public float sweepingDamageRatioMaxValue = 1.0f;
+        public float sweepingDamageRatioMinIncrease = 0.01f;
+        public float sweepingDamageRatioMaxIncrease = 0.02f;
+
+        public float waterMovementEfficiencyMaxValue = 1.0f;
+        public float waterMovementEfficiencyMinIncrease = 0.01f;
+        public float waterMovementEfficiencyMaxIncrease = 0.02f;
     }
+
 
 }
