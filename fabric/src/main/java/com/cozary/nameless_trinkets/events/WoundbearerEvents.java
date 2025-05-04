@@ -28,8 +28,14 @@ public class WoundbearerEvents {
                 if (!stack.isEmpty() && !player.level().isClientSide) {
                     float damageIncrement = damageAmount * (config.damageConversionPercentage / 100);
 
-                    stack.getFirst().stack().set(ModDataComponents.WOUNDBEARER_DAMAGE.get(), stack.getFirst().stack().getOrDefault(ModDataComponents.WOUNDBEARER_DAMAGE.get(), 0).floatValue() + damageIncrement);
+                    float currentDamage = stack.getFirst().stack().getOrDefault(ModDataComponents.WOUNDBEARER_DAMAGE.get(), 0f);
 
+                    float newDamage = currentDamage + damageIncrement;
+                    if (Float.isInfinite(newDamage) || newDamage > Float.MAX_VALUE) {
+                        newDamage = Float.MAX_VALUE;
+                    }
+
+                    stack.getFirst().stack().set(ModDataComponents.WOUNDBEARER_DAMAGE.get(), newDamage);
                 }
             }
 
