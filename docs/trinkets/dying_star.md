@@ -39,3 +39,4 @@ The **Dying Star** trinket grants the following effect:
 
 ## Notes:
 - Pressing **Left Ctrl** on the trinket's tooltip will show you all the attributes and their values.
+- Does not appear in chests.
