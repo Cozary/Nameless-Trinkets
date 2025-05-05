@@ -12,3 +12,4 @@ The **Explosion Proof Jacket** trinket grants the following effects:
 
 ## Notes:
 - The dropped **TNT** item is **invulnerable**.
+- The explosions detected are those under the `is_explosion` tag.
