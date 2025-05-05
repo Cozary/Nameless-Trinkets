@@ -21,8 +21,8 @@ public class NamelessTrinkets {
         NamelessTrinkets.LOG.info("LOADER NEO{} ", Services.PLATFORM.isModLoaded("neoforge"));
         NamelessTrinkets.LOG.info("LOADER FAB{} ", Services.PLATFORM.isModLoaded("fabric"));*/
 
-
-        ModItems.loadClass();
+        if(!Services.PLATFORM.isModLoaded("curios"))
+            ModItems.loadClass();
         ModTags.loadClass();
         ModDataComponents.loadClass();
     }
