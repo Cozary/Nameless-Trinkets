@@ -187,7 +187,7 @@
   "tooltip.nameless_trinkets.dragons_eye_lore": "The enemies will perish.",
   "tooltip.nameless_trinkets.dragons_eye_1": "You spot hostile mobs within %1$s blocks of you.",
   "tooltip.nameless_trinkets.four_leaf_clover_lore": "LUCKY",
-  "tooltip.nameless_trinkets.four_leaf_clover_1": "You get %1$s times more loot.",
+  "tooltip.nameless_trinkets.four_leaf_clover_1": "You get %1$s times more loot from entities.",
   "tooltip.nameless_trinkets.isDisabled": "This trinket is disabled.",
   "itemGroup.nameless_trinkets": "Nameless Trinkets",
   "accessories.slot_group.nameless_trinkets:trinket": "Trinket",

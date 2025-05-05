@@ -187,7 +187,7 @@
   "tooltip.nameless_trinkets.dragons_eye_lore": "Los enemigos perecerán.",
   "tooltip.nameless_trinkets.dragons_eye_1": "Ves enemigos hostiles a %1$s bloques de ti.",
   "tooltip.nameless_trinkets.four_leaf_clover_lore": "SUERTE",
-  "tooltip.nameless_trinkets.four_leaf_clover_1": "Obtienes %1$s veces más de botín.",
+  "tooltip.nameless_trinkets.four_leaf_clover_1": "Obtienes %1$s veces más de botín de las entidades.",
   "tooltip.nameless_trinkets.isDisabled": "Este Trinket está deshabilitado.",
   "itemGroup.nameless_trinkets": "Nameless Trinkets",
   "accessories.slot_group.nameless_trinkets:trinket": "Trinket",
