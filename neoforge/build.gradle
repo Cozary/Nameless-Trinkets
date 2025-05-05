@@ -50,8 +50,6 @@ repositories {
 
 dependencies {
     implementation("io.wispforest:accessories-neoforge:${project.accessories_version}")
-
-    api "fuzs.forgeconfigapiport:forgeconfigapiport-neoforge:${forge_config_api}"
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
@@ -69,7 +67,7 @@ publishMods {
         accessToken = providers.environmentVariable("CURSEFORGE_API_KEY")
         projectId = curseforge_project_id
         minecraftVersions.add(minecraft_version)
-        requires("forge-config-api-port-fabric", "accessories")
+        requires("accessories")
     }
 
 
@@ -77,6 +75,6 @@ publishMods {
         accessToken = accessToken = providers.environmentVariable("MODRINTH_API_KEY")
         projectId = modrinth_project_id
         minecraftVersions.add(minecraft_version)
-        requires("forge-config-api-port", "accessories")
+        requires("accessories")
     }
 }

@@ -1,13 +1,12 @@
 package com.cozary.nameless_trinkets;
 
 import com.cozary.nameless_trinkets.config.TrinketConfigs;
+import com.cozary.nameless_trinkets.config.common.CommonConfigManager;
 import com.cozary.nameless_trinkets.config.looTables.TrinketLootConfigsManager;
 import com.cozary.nameless_trinkets.events.*;
 import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.lootTables.LootTableHandler;
-import com.cozary.nameless_trinkets.config.general.ConfigurationHandler;
 import com.cozary.nameless_trinkets.utils.RemoveRendering;
-import fuzs.forgeconfigapiport.fabric.api.neoforge.v4.NeoForgeConfigRegistry;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.core.Registry;
@@ -18,7 +17,6 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.neoforged.fml.config.ModConfig;
 
 
 public class NamelessTrinketsFabric implements ModInitializer {
@@ -29,8 +27,6 @@ public class NamelessTrinketsFabric implements ModInitializer {
     public void onInitialize() {
         NamelessTrinkets.init();
 
-        NeoForgeConfigRegistry.INSTANCE.register(NamelessTrinkets.MOD_ID, ModConfig.Type.COMMON, ConfigurationHandler.spec);
-
         eventLoad();
         itemGroupLoad();
 
@@ -38,6 +34,7 @@ public class NamelessTrinketsFabric implements ModInitializer {
 
         TrinketConfigs.loadClass();
         TrinketLootConfigsManager.loadConfigs();
+        CommonConfigManager.loadConfig();
         RemoveRendering.noRenderingList();
 
     }

@@ -1,14 +1,14 @@
 package com.cozary.nameless_trinkets.events;
 
 import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.config.general.ConfigurationHandler;
+import com.cozary.nameless_trinkets.config.common.CommonConfigManager;
 import io.wispforest.accessories.api.AccessoriesCapability;
 import net.minecraft.world.entity.player.Player;
 
 public class FOVHandler {
 
     public static float onFOVUpdate(Player player, float originalFov) {
-        if (!ConfigurationHandler.getConfig().isDisableFOV()) return originalFov;
+        if (!CommonConfigManager.getConfig().isDisableFOV()) return originalFov;
 
         var accessories = AccessoriesCapability.get(player);
 

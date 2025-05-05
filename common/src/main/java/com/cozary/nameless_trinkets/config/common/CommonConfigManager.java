@@ -1,4 +1,4 @@
-package com.cozary.nameless_trinkets.config.general;
+package com.cozary.nameless_trinkets.config.common;
 
 import com.cozary.nameless_trinkets.config.ConfigUtils;
 
@@ -6,16 +6,16 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public final class ConfigurationHandler {
+public final class CommonConfigManager {
 
     private static final Path CONFIG_PATH = Path.of("config", "nameless_trinkets-common.json");
-    private static GeneralConfig config = new GeneralConfig();
+    private static CommonConfig config = new CommonConfig();
 
     public static void loadConfig() {
         try {
             Files.createDirectories(CONFIG_PATH.getParent());
 
-            GeneralConfig read = ConfigUtils.readConfig(CONFIG_PATH, GeneralConfig.class);
+            CommonConfig read = ConfigUtils.readConfig(CONFIG_PATH, CommonConfig.class);
             if (read != null) {
                 config = read;
             } else {
@@ -35,7 +35,7 @@ public final class ConfigurationHandler {
         }
     }
 
-    public static GeneralConfig getConfig() {
+    public static CommonConfig getConfig() {
         return config;
     }
 }

@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.events;
 
 import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.config.general.ConfigurationHandler;
+import com.cozary.nameless_trinkets.config.common.CommonConfigManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
@@ -27,7 +27,7 @@ public class UnknownFragmentHandler {
     public static void onBlockUse(Player player, Level level, BlockPos blockPos, InteractionHand interactionHand) {
         BlockState blockstate = level.getBlockState(blockPos);
 
-        if (ConfigurationHandler.getConfig().isGetFragments()) {
+        if (CommonConfigManager.getConfig().isGetFragments()) {
             if (!level.isClientSide && blockstate.getBlock() == Blocks.AMETHYST_BLOCK) {
                 Item itemstack = ModItems.UNKNOWN_FRAGMENT.get();
 

@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.mixin;
 
 import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.config.general.ConfigurationHandler;
+import com.cozary.nameless_trinkets.config.common.CommonConfigManager;
 import io.wispforest.accessories.api.AccessoriesCapability;
 import net.minecraft.client.player.AbstractClientPlayer;
 import org.spongepowered.asm.mixin.Mixin;
@@ -16,7 +16,7 @@ public abstract class AbstractClientPlayerMixin {
     private void modifyFieldOfView(CallbackInfoReturnable<Float> cir) {
         AbstractClientPlayer player = (AbstractClientPlayer) (Object) this;
 
-        if (ConfigurationHandler.getConfig().isDisableFOV())
+        if (CommonConfigManager.getConfig().isDisableFOV())
             return;
 
         var accessories = AccessoriesCapability.get(player);
