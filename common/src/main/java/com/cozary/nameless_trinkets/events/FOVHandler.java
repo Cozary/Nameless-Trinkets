@@ -8,7 +8,7 @@ import net.minecraft.world.entity.player.Player;
 public class FOVHandler {
 
     public static float onFOVUpdate(Player player, float originalFov) {
-        if (!ConfigurationHandler.GENERAL.disableFOV.get()) return originalFov;
+        if (!ConfigurationHandler.getConfig().isDisableFOV()) return originalFov;
 
         var accessories = AccessoriesCapability.get(player);
 
