@@ -20,28 +20,9 @@ public class ReverseCardEvent {
 
     @SubscribeEvent
     public static void reverseDamage(LivingDamageEvent.Post event) {
-        ReverseCard.Stats config = ReverseCard.INSTANCE.getTrinketConfig();
-        if (!config.isEnable)
-            return;
 
-        DamageSource source = event.getSource();
-        Entity src = source.getEntity();
-        Random random = new Random();
         if (event.getEntity() instanceof Player player) {
-
-            var accessories = AccessoriesCapability.get(player);
-
-            if (accessories == null) {
-                return;
-            }
-            var stack = accessories.getEquipped(ModItems.REVERSE_CARD.get());
-            if (!stack.isEmpty() && random.nextInt(100) <= config.chanceToActivate) {
-
-                if (src != null && !(src instanceof Player) && !player.level().isClientSide) {
-                    ((ServerLevel) src.getCommandSenderWorld()).sendParticles(ParticleTypes.WITCH, src.getX(), src.getY(), src.getZ(), 35, 1D, 1D, 1D, 0.1);
-                    src.hurt(src.damageSources().generic(), event.getOriginalDamage());
-                }
-            }
+            ReverseCardHandler.reverseDamage(player, event.getSource(), event.getOriginalDamage());
         }
     }
 

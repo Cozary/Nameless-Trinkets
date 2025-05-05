@@ -14,25 +14,9 @@ public class SleepingPillsEvents {
 
     @SubscribeEvent
     public static void preventSleep(CanPlayerSleepEvent event) {
-        SleepingPills.Stats config = SleepingPills.INSTANCE.getTrinketConfig();
 
-        if (!config.isEnable)
-            return;
+                event.setProblem(SleepingPillsHandler.preventSleep(event.getEntity()));
 
-        Player player = event.getEntity();
-
-        if (!player.isSpectator()) {
-
-            var accessories = AccessoriesCapability.get(player);
-
-            if (accessories == null) {
-                return;
-            }
-            var stack = accessories.getEquipped(ModItems.SLEEPING_PILLS.get());
-            if (!stack.isEmpty() && config.bedDisabled) {
-                event.setProblem(Player.BedSleepingProblem.OTHER_PROBLEM);
-            }
-        }
     }
 
 }

@@ -11,28 +11,11 @@ public class MoonStoneEvents {
 
     public static void register() {
         ModEvents.DamageModifyCallback.EVENT.register((targetEntity, damageSource, amount) -> {
-            MoonStone.Stats config = MoonStone.INSTANCE.getTrinketConfig();
-
-            if (!config.isEnable) {
-                return amount;
-            }
-
-            if (targetEntity instanceof Player player && !player.isSpectator()) {
-
-                var accessories = AccessoriesCapability.get(player);
-
-                if (accessories == null) {
-                    return amount;
-                }
-                var stack = accessories.getEquipped(ModItems.MOON_STONE.get());
-
-                if (!stack.isEmpty()) {
-                    if (damageSource.is(DamageTypeTags.IS_FALL)) {
-                        return 0;
-                    }
-                }
-            }
-
+           if(targetEntity instanceof Player player){
+               if (MoonStoneHandler.moonStoneFallDamage(player, damageSource)){
+                   return 0.0f;
+               }
+           }
             return amount;
         });
     }

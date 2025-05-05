@@ -12,23 +12,8 @@ public class VampireBloodEvents {
 
     public static void register() {
         ServerEntityCombatEvents.AFTER_KILLED_OTHER_ENTITY.register((world, entity, killedEntity) -> {
-            VampireBlood.Stats config = VampireBlood.INSTANCE.getTrinketConfig();
-
-            if (!config.isEnable)
-                return;
-
-            if (entity instanceof Player player && !player.isSpectator()) {
-
-                var accessories = AccessoriesCapability.get(player);
-
-                if (accessories == null) {
-                    return;
-                }
-                var stack = accessories.getEquipped(ModItems.VAMPIRE_BLOOD.get());
-                if (!stack.isEmpty() && !player.level().isClientSide) {
-                    ((ServerLevel) killedEntity.getCommandSenderWorld()).sendParticles(ParticleTypes.SNEEZE, killedEntity.getX(), killedEntity.getY(), killedEntity.getZ(), 35, 1D, 1D, 1D, 0.1);
-                    player.heal(killedEntity.getMaxHealth() * (config.healingPercentage / 100));
-                }
+            if(entity instanceof Player player){
+                VampireBloodHandler.function(player, killedEntity);
             }
         });
     }

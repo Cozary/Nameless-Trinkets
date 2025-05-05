@@ -14,32 +14,13 @@ public class ExperienceBatteryEvents {
 
     @SubscribeEvent
     public static void handleExperienceDrop(LivingExperienceDropEvent event) {
-        ExperienceBattery.Stats config = ExperienceBattery.INSTANCE.getTrinketConfig();
+        Player player = event.getAttackingPlayer();
 
-        if (!config.isEnable)
-            return;
-
-        Player attackingPlayer = event.getAttackingPlayer();
-        if (attackingPlayer == null)
-            return;
-
-        var accessories = AccessoriesCapability.get(attackingPlayer);
-
-        if (accessories == null) {
-            return;
-        }
-        var stack = accessories.getEquipped(ModItems.EXPERIENCE_BATTERY.get());
-        if (stack.isEmpty() || event.getEntity() instanceof Player)
-            return;
-
-
-        float experienceMultiplier = (config.extraExperiencePercentage / 100);
         int originalExperience = event.getOriginalExperience();
-        int bonusExperience = (int) (originalExperience * experienceMultiplier);
 
-        if (bonusExperience > 0) {
+        ExperienceBatteryHandler.handleExperienceDrop(player, event.getEntity(), originalExperience, bonusExperience -> {
             event.setDroppedExperience(event.getDroppedExperience() + bonusExperience);
-        }
+        });
     }
 
 

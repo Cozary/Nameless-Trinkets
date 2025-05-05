@@ -15,26 +15,9 @@ public class DarkNelumboEvents {
 
     @SubscribeEvent
     public static void blazeNucleusImmune(LivingIncomingDamageEvent event) {
-        DarkNelumbo.Stats config = DarkNelumbo.INSTANCE.getTrinketConfig();
-
-        if (!config.isEnable)
+       if (!(event.getEntity() instanceof Player player))
             return;
 
-        if (!(event.getEntity() instanceof Player player) || player.isSpectator())
-            return;
-
-        var accessories = AccessoriesCapability.get(player);
-
-        if (accessories == null) {
-            return;
-        }
-        var stack = accessories.getEquipped(ModItems.DARK_NELUMBO.get());
-        if (!stack.isEmpty()) {
-            if (config.cancelLavaDamage) {
-                if (event.getSource().type().msgId().equals("lava")) {
-                    event.setCanceled(true);
-                }
-            }
-        }
+        event.setCanceled(DarkNelumboHandler.blazeNucleusImmune(player, event.getSource()));
     }
 }

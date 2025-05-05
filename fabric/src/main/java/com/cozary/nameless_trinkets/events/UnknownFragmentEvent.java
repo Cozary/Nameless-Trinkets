@@ -25,37 +25,7 @@ public class UnknownFragmentEvent {
 
     public static void register() {
         UseBlockCallback.EVENT.register((player, level, hand, hitResult) -> {
-
-            BlockPos blockpos = hitResult.getBlockPos();
-            BlockState blockstate = level.getBlockState(blockpos);
-
-            if (player != null && ConfigurationHandler.GENERAL.getFragments.get()) {
-                if (!level.isClientSide && blockstate.getBlock() == Blocks.AMETHYST_BLOCK) {
-                    Item itemstack = ModItems.UNKNOWN_FRAGMENT.get();
-
-                    List<Holder<Item>> trinketItems = BuiltInRegistries.ITEM.getOrCreateTag(RECYCLABLE_TRINKETS_TAG).stream().toList();
-
-                    for (Holder<Item> trinketItemHolder : trinketItems) {
-                        Item trinketItem = trinketItemHolder.value();
-
-                        if (player.getMainHandItem().getItem() == trinketItem) {
-                            ItemStack itemstack1 = player.getItemInHand(hand);
-                            itemstack1.shrink(1);
-                            level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_BREAK, SoundSource.NEUTRAL, 0.5F, 0.4F / (player.getRandom().nextFloat() * 0.4F + 0.8F));
-
-                            ((ServerLevel) player.getCommandSenderWorld()).sendParticles(ParticleTypes.ENCHANT, blockpos.getX() + 0.5, blockpos.getY(), blockpos.getZ() + 0.5, 200, 1D, 1D, 1D, 0.1);
-                            ((ServerLevel) player.getCommandSenderWorld()).sendParticles(ParticleTypes.GLOW, blockpos.getX() + 0.5, blockpos.getY(), blockpos.getZ() + 0.5, 100, 1D, 1D, 1D, 0.1);
-
-                            BlockPos pos = player.blockPosition();
-                            ItemEntity itementity = new ItemEntity(level, pos.getX(), pos.getY() + 1, pos.getZ(), itemstack.getDefaultInstance());
-                            itementity.setDefaultPickUpDelay();
-                            level.addFreshEntity(itementity);
-
-                            return InteractionResult.PASS;
-                        }
-                    }
-                }
-            }
+            UnknownFragmentHandler.onBlockUse(player, level, hitResult.getBlockPos(), hand);
             return InteractionResult.PASS;
         });
     }

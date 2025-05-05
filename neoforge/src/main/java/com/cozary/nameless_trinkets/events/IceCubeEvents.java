@@ -38,9 +38,6 @@ public class IceCubeEvents {
 
     @SubscribeEvent
     public static void applySlowEffect(LivingDamageEvent.Post event) {
-        IceCube.Stats config = IceCube.INSTANCE.getTrinketConfig();
-        if (!config.isEnable)
-            return;
 
         if (!(event.getSource().getEntity() instanceof Player))
             return;
@@ -50,103 +47,20 @@ public class IceCubeEvents {
 
         if (src instanceof Player player) {
 
-            var accessories = AccessoriesCapability.get(player);
+            IceCubeHandler.applySlowEffect(player, (LivingEntity) event.getSource().getEntity());
 
-            if (accessories == null) {
-                return;
-            }
-            var stack = accessories.getEquipped(ModItems.ICE_CUBE.get());
-            if (!stack.isEmpty()) {
-                MobEffectInstance effectinstance = new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, config.slownessTime, config.slownessLevel);
-                LivingEntity potionGo = event.getEntity();
-                potionGo.addEffect(effectinstance);
-            }
-        }
-    }
-
-    @SubscribeEvent
-    public static void placeFrostedIce(PlayerTickEvent.Pre event) {
-        IceCube.Stats config = IceCube.INSTANCE.getTrinketConfig();
-        if (!config.isEnable)
-            return;
-
-        if (!(event.getEntity() instanceof Player))
-            return;
-
-        Player player = event.getEntity();
-        BlockPos pos = player.blockPosition();
-        Level world = player.level();
-
-        if (player instanceof ServerPlayer && !player.isSpectator()) {
-
-            var accessories = AccessoriesCapability.get(player);
-
-            if (accessories == null) {
-                return;
-            }
-            var stack = accessories.getEquipped(ModItems.ICE_CUBE.get());
-            if (!stack.isEmpty() && !player.level().isClientSide) {
-
-                BlockState block = Blocks.ICE.defaultBlockState();
-                ((ServerLevel) player.getCommandSenderWorld()).sendParticles(new BlockParticleOption(ParticleTypes.BLOCK, block), player.getX(), player.getY(), player.getZ(), 1, 0.5D, 1D, 0.5D, 0.1);
-
-                if (player.onGround()) {
-
-                    BlockState blockstate = Blocks.FROSTED_ICE.defaultBlockState();
-                    float f = (float) Math.min(16, 2 + config.frostWalkerLevel);
-                    BlockPos.MutableBlockPos blockpos$mutable = new BlockPos.MutableBlockPos();
-
-                    for (BlockPos blockpos : BlockPos.betweenClosed(pos.offset((int) -f, (int) -1.0D, (int) -f), pos.offset((int) f, (int) -1.0D, (int) f))) {
-                        if (blockpos.closerToCenterThan(player.position(), f)) {
-
-                            blockpos$mutable.set(blockpos.getX(), blockpos.getY() + 1, blockpos.getZ());
-                            BlockState blockstate1 = world.getBlockState(blockpos$mutable);
-
-                            if (blockstate1.isAir()) {
-
-                                BlockState blockstate2 = world.getBlockState(blockpos);
-                                boolean isFull = blockstate2.getBlock() == Blocks.WATER && blockstate2.getValue(LiquidBlock.LEVEL) == 0;
-
-                                if (blockstate2 == FrostedIceBlock.meltsInto() && isFull && blockstate.canSurvive(world, blockpos) && world.isUnobstructed(blockstate, blockpos, CollisionContext.empty()) && !onBlockPlace(player, BlockSnapshot.create(world.dimension(), world, blockpos), Direction.UP)) {
-
-                                    world.setBlockAndUpdate(blockpos, blockstate);
-                                    world.scheduleTick(blockpos, Blocks.FROSTED_ICE, Mth.nextInt(player.getRandom(), 60, 120));
-                                }
-                            }
-                        }
-                    }
-                }
-            }
         }
     }
 
     @SubscribeEvent
     public static void negateFreezeDamage(LivingIncomingDamageEvent event) {
-        IceCube.Stats config = IceCube.INSTANCE.getTrinketConfig();
 
-        if (!config.isEnable)
-            return;
+        if (event.getEntity() instanceof Player player) {
 
-        if (!(event.getEntity() instanceof Player))
-            return;
+                            event.setCanceled(IceCubeHandler.negateFreezeDamage(player, event.getSource()));
 
-        if (event.getEntity() instanceof Player player && !player.isSpectator()) {
-            if (event.getEntity() == player) {
-
-                var accessories = AccessoriesCapability.get(player);
-
-                if (accessories == null) {
-                    return;
-                }
-                var stack = accessories.getEquipped(ModItems.ICE_CUBE.get());
-                if (!stack.isEmpty()) {
-                    if (config.inmuneToFreezing) {
-                        if (event.getSource().is(DamageTypeTags.IS_FREEZING)) {
-                            event.setCanceled(true);
                         }
-                    }
-                }
-            }
-        }
     }
+
+
 }

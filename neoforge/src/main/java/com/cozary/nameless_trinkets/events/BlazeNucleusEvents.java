@@ -18,57 +18,18 @@ import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 public class BlazeNucleusEvents {
 
     @SubscribeEvent
-    public static void setFireEntity(LivingIncomingDamageEvent event) {
-        BlazeNucleus.Stats config = BlazeNucleus.INSTANCE.getTrinketConfig();
-        DamageSource source = event.getSource();
-        Entity src = source.getEntity();
-
-        if (!config.isEnable)
-            return;
-
-        if (!(src instanceof Player attacker))
-            return;
-
-        var accessories = AccessoriesCapability.get(attacker);
-
-        if (accessories == null) {
-            return;
-        }
-        var stack = accessories.getEquipped(ModItems.BLAZE_NUCLEUS.get());
-        if (!stack.isEmpty()) {
-            Entity target = event.getEntity();
-
-            if (target instanceof LivingEntity livingTarget) {
-                livingTarget.setRemainingFireTicks(config.setEnemyInFireTicks);
-            }
-
-            attacker.clearFire();
-        }
+    public static void setFireEntity(LivingDamageEvent.Pre event) {
+        Entity src = event.getSource().getEntity();
+        Entity target = event.getEntity();
+        float modified = BlazeNucleusHandler.onAttackerHit(src, target, event.getOriginalDamage());
+        event.setNewDamage(modified);
     }
 
     @SubscribeEvent
-    public static void blazeNucleusImmune(LivingIncomingDamageEvent event) {
-        BlazeNucleus.Stats config = BlazeNucleus.INSTANCE.getTrinketConfig();
-
-        if (!config.isEnable)
-            return;
-
-        if (!(event.getEntity() instanceof Player player) || player.isSpectator())
-            return;
-
-        var accessories = AccessoriesCapability.get(player);
-
-        if (accessories == null) {
-            return;
-        }
-        var stack = accessories.getEquipped(ModItems.BLAZE_NUCLEUS.get());
-        if (!stack.isEmpty()) {
-            if (config.fireDamageReductionPercentage < 100) {
-                if (event.getSource().is(DamageTypeTags.IS_FIRE)) {
-                    event.setAmount(event.getOriginalAmount() * (1 - (config.fireDamageReductionPercentage / 100)));
-                }
-            }
+    public static void blazeNucleusImmune(LivingDamageEvent.Pre event) {
+        if (event.getEntity() instanceof Player player) {
+            float modified = BlazeNucleusHandler.onPlayerHurt(player, event.getSource(), event.getOriginalDamage());
+            event.setNewDamage(modified);
         }
     }
-
 }

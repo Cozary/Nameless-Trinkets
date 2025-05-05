@@ -22,42 +22,12 @@ import java.util.Random;
 @EventBusSubscriber(modid = NamelessTrinkets.MOD_ID)
 public class MissingPageEvents {
 
-    public static boolean isValidTarget(LivingEntity ent) {
-        return (ent.getType() != EntityType.PLAYER) && (!ent.isInvulnerable());
-    }
-
     @SubscribeEvent
     public static void triggerDamageReflection(LivingDamageEvent.Post event) {
-        MissingPage.Stats config = MissingPage.INSTANCE.getTrinketConfig();
-        if (!config.isEnable)
-            return;
 
-        DamageSource source = event.getSource();
-        Entity src = source.getEntity();
-        Random random = new Random();
         if (event.getEntity() instanceof Player player) {
 
-            var accessories = AccessoriesCapability.get(player);
-
-            if (accessories == null) {
-                return;
-            }
-            var stack = accessories.getEquipped(ModItems.MISSING_PAGE.get());
-            if (!stack.isEmpty() && random.nextInt(100) <= config.activationPercentage) {
-
-                AABB targetBox = new AABB(player.position(), player.position()).inflate(config.radiusInBlocks);
-
-                List<LivingEntity> foundTarget =
-                        event.getEntity().level().getEntitiesOfClass(LivingEntity.class, targetBox, MissingPageEvents::isValidTarget);
-
-                if (src != null && !(src instanceof Player) && !foundTarget.isEmpty() && !player.level().isClientSide) {
-
-                    for (LivingEntity livingEntity : foundTarget) {
-                        ((ServerLevel) livingEntity.getCommandSenderWorld()).sendParticles(ParticleTypes.SOUL, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), 35, 1D, 1D, 1D, 0.1);
-                        livingEntity.hurt(livingEntity.damageSources().generic(), livingEntity.getMaxHealth() * (config.percentageOfDamage / 100));
-                    }
-                }
-            }
+            MissingPageHandler.triggerDamageReflection(player, event.getSource(), event.getEntity());
         }
     }
 

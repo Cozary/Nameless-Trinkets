@@ -26,63 +26,11 @@ public class ResonantHeartEvents {
 
     @SubscribeEvent
     public static void heartSonicBoom(LivingDamageEvent.Post event) {
-        ResonantHeart.Stats config = ResonantHeart.INSTANCE.getTrinketConfig();
-        if (!config.isEnable)
-            return;
 
-        DamageSource source = event.getSource();
-        Entity src = source.getEntity();
-        Random random = new Random();
         if (event.getEntity() instanceof Player player) {
 
-            if (player.level().isClientSide)
-                return;
-
-            var accessories = AccessoriesCapability.get(player);
-
-            if (accessories == null) {
-                return;
-            }
-
-            var stack = accessories.getEquipped(ModItems.RESONANT_HEART.get());
-            if (!stack.isEmpty() && random.nextInt(100) <= config.chanceToActivateProbability) {
-
-                if (src != null && !(src instanceof Player) && !player.level().isClientSide) {
-
-                    launchSonicBoom(player, src, player.level());
-                }
-            }
+            ResonantHeartHandler.heartSonicBoom(player, event.getSource());
         }
-    }
-
-    public static void launchSonicBoom(Player player, Entity src, Level level) {
-        ResonantHeart.Stats config = ResonantHeart.INSTANCE.getTrinketConfig();
-
-        Vec3 origin = player.position().add(0.0, player.getEyeHeight() * 0.5, 0.0);
-        Vec3 targetPos = src.position().add(0.0, src.getBbHeight() * 0.5, 0.0);
-        Vec3 vecToTarget = targetPos.subtract(origin);
-        Vec3 direction = vecToTarget.normalize();
-        int particleCount = Mth.floor(vecToTarget.length()) + 7;
-
-        ServerLevel serverLevel = (ServerLevel) level;
-
-        for (int i = 1; i < particleCount; ++i) {
-            Vec3 particlePos = origin.add(direction.scale(i));
-            serverLevel.sendParticles(ParticleTypes.SONIC_BOOM, particlePos.x, particlePos.y, particlePos.z, 1, 0.0, 0.0, 0.0, 0.0);
-        }
-
-        serverLevel.playSound(null, player.blockPosition(), SoundEvents.WARDEN_SONIC_BOOM, player.getSoundSource(), 3.0F, 1.0F);
-
-        if (src instanceof LivingEntity target) {
-            boolean damaged = target.hurt(serverLevel.damageSources().sonicBoom(player), config.sonicBoomDamage);
-            if (damaged) {
-                double knockbackResist = target.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE);
-                double verticalKb = 0.5 * (1.0 - knockbackResist);
-                double horizontalKb = 2.5 * (1.0 - knockbackResist);
-                target.push(direction.x * horizontalKb, direction.y * verticalKb, direction.z * horizontalKb);
-            }
-        }
-
     }
 
 }

@@ -16,23 +16,12 @@ public class ScarabAmuletEvent {
 
     @SubscribeEvent
     public static void preventHuskTargeting(LivingChangeTargetEvent event) {
-        ScarabAmulet.Stats config = ScarabAmulet.INSTANCE.getTrinketConfig();
-        if (!config.isEnable)
-            return;
 
         if (event.getOriginalAboutToBeSetTarget() instanceof Player player) {
-            Entity entity = event.getEntity();
-            if (!player.level().isClientSide) {
 
-                var accessories = AccessoriesCapability.get(player);
+            if(ScarabAmuletHandler.shouldPreventHuskTargeting(player, event.getEntity())){
+                event.setNewAboutToBeSetTarget(null);
 
-                if (accessories == null) {
-                    return;
-                }
-                var stack = accessories.getEquipped(ModItems.SCARAB_AMULET.get());
-                if (!stack.isEmpty() && entity instanceof Husk) {
-                    event.setNewAboutToBeSetTarget(null);
-                }
             }
 
         }

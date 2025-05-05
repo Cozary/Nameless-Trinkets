@@ -15,24 +15,9 @@ public class WoodenStickEvents {
 
     @SubscribeEvent
     public static void cancelWoodenStick(LivingIncomingDamageEvent event) {
-        WoodenStick.Stats config = WoodenStick.INSTANCE.getTrinketConfig();
-        if (!config.isEnable)
-            return;
 
         if (event.getEntity() instanceof Player player) {
-
-            var accessories = AccessoriesCapability.get(player);
-
-            if (accessories == null) {
-                return;
-            }
-            var stack = accessories.getEquipped(ModItems.WOODEN_STICK.get());
-            if (!stack.isEmpty() && !player.level().isClientSide) {
-                if (!player.getCooldowns().isOnCooldown(stack.getFirst().stack().getItem())) {
-                    event.setCanceled(true);
-                    player.getCooldowns().addCooldown(stack.getFirst().stack().getItem(), (int) config.cooldown);
-                }
-            }
+            event.setCanceled(WoodenStickHandler.cancelWoodenStick(player));
         }
     }
 }

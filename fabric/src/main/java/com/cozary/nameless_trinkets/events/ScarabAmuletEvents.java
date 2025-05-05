@@ -11,24 +11,8 @@ public class ScarabAmuletEvents {
 
     public static void register() {
         ModEvents.TargetingCallback.EVENT.register((attacker, target) -> {
-            ScarabAmulet.Stats config = ScarabAmulet.INSTANCE.getTrinketConfig();
-            if (!config.isEnable)
-                return true;
-
-            if (target instanceof Player player) {
-                if (!player.level().isClientSide) {
-
-                    var accessories = AccessoriesCapability.get(player);
-
-                    if (accessories == null) {
-                        return true;
-                    }
-                    var stack = accessories.getEquipped(ModItems.SCARAB_AMULET.get());
-                    if (!stack.isEmpty() && attacker instanceof Husk) {
-                        return false;
-                    }
-                }
-
+            if(target instanceof Player player){
+                return ScarabAmuletHandler.shouldPreventHuskTargeting(player, attacker);
             }
             return true;
         });

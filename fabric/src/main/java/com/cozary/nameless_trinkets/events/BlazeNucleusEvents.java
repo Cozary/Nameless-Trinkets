@@ -12,56 +12,15 @@ public class BlazeNucleusEvents {
 
     public static void register() {
         ModEvents.DamageModifyCallback.EVENT.register((targetEntity, damageSource, amount) -> {
-            BlazeNucleus.Stats config = BlazeNucleus.INSTANCE.getTrinketConfig();
-
-            if (!config.isEnable) return amount;
             Entity sourceEntity = damageSource.getEntity();
-
-            if (sourceEntity instanceof Player attacker) {
-
-                var accessories = AccessoriesCapability.get(attacker);
-
-                if (accessories == null) {
-                    return amount;
-                }
-                var stack = accessories.getEquipped(ModItems.BLAZE_NUCLEUS.get());
-
-                if (!stack.isEmpty()) {
-                    targetEntity.setRemainingFireTicks(config.setEnemyInFireTicks);
-                    attacker.clearFire();
-                }
-            }
-            return amount;
+            return BlazeNucleusHandler.onAttackerHit(sourceEntity, targetEntity, amount);
         });
 
         ModEvents.DamageModifyCallback.EVENT.register((targetEntity, damageSource, amount) -> {
-            BlazeNucleus.Stats config = BlazeNucleus.INSTANCE.getTrinketConfig();
-            if (!config.isEnable) return amount;
-
-
-            if (targetEntity instanceof Player player && !player.isSpectator()) {
-
-                var accessories = AccessoriesCapability.get(player);
-
-                if (accessories == null) {
-                    return amount;
-                }
-                var stack = accessories.getEquipped(ModItems.BLAZE_NUCLEUS.get());
-
-                if (!stack.isEmpty()) {
-                    if (config.fireDamageReductionPercentage < 100) {
-                        if (damageSource.is(DamageTypes.LAVA) ||
-                                damageSource.is(DamageTypes.ON_FIRE) ||
-                                damageSource.is(DamageTypes.IN_FIRE) ||
-                                damageSource.is(DamageTypes.HOT_FLOOR)) {
-
-                            amount *= (float) (1 - (config.fireDamageReductionPercentage / 100.0));
-                        }
-                    }
-                }
+            if (targetEntity instanceof Player player) {
+                return BlazeNucleusHandler.onPlayerHurt(player, damageSource, amount);
             }
             return amount;
         });
     }
-
 }

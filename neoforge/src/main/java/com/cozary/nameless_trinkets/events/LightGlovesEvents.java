@@ -14,24 +14,11 @@ public class LightGlovesEvents {
 
     @SubscribeEvent
     public static void LightGlovesSpeedBreak(PlayerEvent.BreakSpeed event) {
-        LightGloves.Stats config = LightGloves.INSTANCE.getTrinketConfig();
-        if (!config.isEnable)
-            return;
 
         Player player = event.getEntity();
 
-        if (!player.isSpectator()) {
-
-            var accessories = AccessoriesCapability.get(player);
-
-            if (accessories == null) {
-                return;
-            }
-            var stack = accessories.getEquipped(ModItems.LIGHT_GLOVES.get());
-            if ((!stack.isEmpty() && !player.level().canSeeSky(player.blockPosition()))) {
-                event.setNewSpeed(event.getOriginalSpeed() * (config.miningSpeedPercentage / 100));
+                float newSpeed = LightGlovesHandler.lightGlovesSpeedBreak(player, event.getOriginalSpeed());
+                event.setNewSpeed(newSpeed);
             }
 
-        }
-    }
 }

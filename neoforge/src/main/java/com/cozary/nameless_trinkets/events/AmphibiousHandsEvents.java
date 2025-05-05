@@ -15,27 +15,7 @@ public class AmphibiousHandsEvents {
 
     @SubscribeEvent
     public static void breakSpeed(PlayerEvent.BreakSpeed event) {
-        AmphibiousHands.Stats config = AmphibiousHands.INSTANCE.getTrinketConfig();
-
-        if (!config.isEnable)
-            return;
-
-        Player player = event.getEntity();
-
-        if (!player.isSpectator()) {
-
-            var accessories = AccessoriesCapability.get(player);
-
-            if (accessories == null) {
-                return;
-            }
-            var stack = accessories.getEquipped(ModItems.AMPHIBIOUS_HANDS.get());
-            if ((!stack.isEmpty() && player.isEyeInFluidType(NeoForgeMod.WATER_TYPE.value()))) {
-
-                event.setNewSpeed(event.getOriginalSpeed() * (config.miningUnderwaterSpeedPercentage / 100));
-            }
-
-        }
+        float newSpeed = AmphibiousHandsHandler.handleBreakSpeed(event.getEntity(), event.getOriginalSpeed());
+        event.setNewSpeed(newSpeed);
     }
-
 }

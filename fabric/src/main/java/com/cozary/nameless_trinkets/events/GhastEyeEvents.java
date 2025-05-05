@@ -14,26 +14,9 @@ public class GhastEyeEvents {
 
     public static void register() {
         ServerLivingEntityEvents.ALLOW_DEATH.register((entity, damageSource, damageAmount) -> {
-            GhastEye.Stats config = GhastEye.INSTANCE.getTrinketConfig();
-
-            if (!config.isEnable) return true;
-
-            if (damageSource.getEntity() instanceof Player player && !player.isSpectator()) {
-                var accessories = AccessoriesCapability.get(player);
-
-                if (accessories == null) {
-                    return true;
-                }
-                var stack = accessories.getEquipped(ModItems.GHAST_EYE.get());
-                if (!stack.isEmpty()) {
-                    if (!player.hasEffect(MobEffects.REGENERATION)) {
-                        player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, config.regenerationTime, config.regenerationLevel));
-                    } else {
-                        player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, Objects.requireNonNull(player.getEffect(MobEffects.REGENERATION)).getDuration() + config.regenerationExtraTime, config.regenerationLevel));
-                    }
-                }
-            }
-
+           if(damageSource.getEntity() instanceof Player player){
+               GhastEyeHandler.obtainRegenOnKill(player);
+           }
             return true;
         });
     }
