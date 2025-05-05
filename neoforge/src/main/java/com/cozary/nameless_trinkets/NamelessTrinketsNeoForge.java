@@ -3,7 +3,7 @@ package com.cozary.nameless_trinkets;
 import com.cozary.nameless_trinkets.config.TrinketConfigs;
 import com.cozary.nameless_trinkets.config.looTables.TrinketLootConfigsManager;
 import com.cozary.nameless_trinkets.init.ModTabs;
-import com.cozary.nameless_trinkets.utils.ConfigurationHandler;
+import com.cozary.nameless_trinkets.config.general.ConfigurationHandler;
 import com.cozary.nameless_trinkets.utils.RemoveRendering;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;

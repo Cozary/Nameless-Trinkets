@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.events;
 
 import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.utils.ConfigurationHandler;
+import com.cozary.nameless_trinkets.config.general.ConfigurationHandler;
 import io.wispforest.accessories.api.AccessoriesCapability;
 import net.minecraft.world.entity.player.Player;
 

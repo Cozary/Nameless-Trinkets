@@ -5,7 +5,7 @@ import com.cozary.nameless_trinkets.config.looTables.TrinketLootConfigsManager;
 import com.cozary.nameless_trinkets.events.*;
 import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.lootTables.LootTableHandler;
-import com.cozary.nameless_trinkets.utils.ConfigurationHandler;
+import com.cozary.nameless_trinkets.config.general.ConfigurationHandler;
 import com.cozary.nameless_trinkets.utils.RemoveRendering;
 import fuzs.forgeconfigapiport.fabric.api.neoforge.v4.NeoForgeConfigRegistry;
 import net.fabricmc.api.ModInitializer;
