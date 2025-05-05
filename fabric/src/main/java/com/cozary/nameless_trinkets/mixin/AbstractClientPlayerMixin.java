@@ -16,7 +16,7 @@ public abstract class AbstractClientPlayerMixin {
     private void modifyFieldOfView(CallbackInfoReturnable<Float> cir) {
         AbstractClientPlayer player = (AbstractClientPlayer) (Object) this;
 
-        if (ConfigurationHandler.GENERAL.disableFOV.get())
+        if (ConfigurationHandler.getConfig().isDisableFOV())
             return;
 
         var accessories = AccessoriesCapability.get(player);

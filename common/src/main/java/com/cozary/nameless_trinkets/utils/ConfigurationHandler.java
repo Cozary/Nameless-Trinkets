@@ -1,38 +1,42 @@
 package com.cozary.nameless_trinkets.utils;
 
-import net.neoforged.neoforge.common.ModConfigSpec;
+import com.cozary.nameless_trinkets.config.ConfigUtils;
+import com.cozary.nameless_trinkets.config.general.GeneralConfig;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public final class ConfigurationHandler {
 
-    public static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
-    public static final General GENERAL = new General(BUILDER);
-    public static final ModConfigSpec spec = BUILDER.build();
+    private static final Path CONFIG_PATH = Path.of("config", "nameless_trinkets_general_config.json");
+    private static GeneralConfig config = new GeneralConfig();
 
-    public static class General {
-        //public final ModConfigSpec.IntValue slotProbability;
-        public final ModConfigSpec.BooleanValue getFragments;
-        //public final ModConfigSpec.IntValue trinketSlots;
-        public final ModConfigSpec.BooleanValue disableFOV;
+    public static void loadConfig() {
+        try {
+            Files.createDirectories(CONFIG_PATH.getParent());
 
-        public General(ModConfigSpec.Builder builder) {
-            /*
-            builder.push("New Trinket Slot Probability");
-            slotProbability = builder.defineInRange("newSlotProbability", 10, 0, 100);
-            builder.pop();
-            */
-            builder.push("Fragments from Trinket Destruction");
-            getFragments = builder.define("getFragments", true);
-            builder.pop();
-
-            /*
-            builder.push("Trinket Slot Settings");
-            trinketSlots = builder.defineInRange("maxTrinketSlots", 2, 0, 99);
-            builder.pop();
-            */
-
-            builder.push("FOV Disable Settings");
-            disableFOV = builder.define("disableFOV", false);
-            builder.pop();
+            GeneralConfig read = ConfigUtils.readConfig(CONFIG_PATH, GeneralConfig.class);
+            if (read != null) {
+                config = read;
+            } else {
+                saveConfig();
+            }
+        } catch (IOException e) {
+            System.err.println("Failed to load general config.");
+            e.printStackTrace();
         }
+    }
+
+    public static void saveConfig() {
+        try {
+            ConfigUtils.writeConfig(CONFIG_PATH, config);
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to save general config", e);
+        }
+    }
+
+    public static GeneralConfig getConfig() {
+        return config;
     }
 }

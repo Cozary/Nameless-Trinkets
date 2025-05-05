@@ -28,7 +28,7 @@ public class UnknownFragmentHandler {
     public static void onBlockUse(Player player, Level level, BlockPos blockPos, InteractionHand interactionHand) {
         BlockState blockstate = level.getBlockState(blockPos);
 
-        if (ConfigurationHandler.GENERAL.getFragments.get()) {
+        if (ConfigurationHandler.getConfig().isGetFragments()) {
             if (!level.isClientSide && blockstate.getBlock() == Blocks.AMETHYST_BLOCK) {
                 Item itemstack = ModItems.UNKNOWN_FRAGMENT.get();
 
