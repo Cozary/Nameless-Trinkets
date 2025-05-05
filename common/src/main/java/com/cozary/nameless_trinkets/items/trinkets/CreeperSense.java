@@ -51,7 +51,11 @@ public class CreeperSense extends TrinketItem<CreeperSense.Stats> {
         BlockPos posAbove = player.blockPosition().above().above();
         BlockState blockAbove = player.level().getBlockState(posAbove);
 
+        if (player.getCooldowns().isOnCooldown(stack.getItem()))
+            return;
+
         if (blockAbove.isAir() && player.isCrouching()) {
+            player.getCooldowns().addCooldown(stack.getItem(), config.cooldownInTicks);
             player.level().explode(null, player.getX(), player.getY(), player.getZ(), config.explosionLevel, Level.ExplosionInteraction.NONE);
             player.setShiftKeyDown(false);
         }
@@ -77,6 +81,7 @@ public class CreeperSense extends TrinketItem<CreeperSense.Stats> {
 
     public static class Stats extends TrinketsStats {
         public float explosionLevel = 15.0F;
+        public int cooldownInTicks = 100;
         public boolean isEnable = true;
 
     }
