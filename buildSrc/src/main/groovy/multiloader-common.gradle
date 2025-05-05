@@ -47,11 +47,6 @@ repositories {
     maven { url 'https://maven.su5ed.dev/releases' }
     maven { url 'https://maven.fabricmc.net' }
     maven { url 'https://maven.shedaniel.me/' }
-
-    maven {
-        name = "Forge Config API Port mod"
-        url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/"
-    }
 }
 
 // Declare capabilities on the outgoing configurations.
@@ -110,7 +105,6 @@ processResources {
             'neoforge_loader_version_range': neoforge_loader_version_range,
             'credits'                      : credits,
             'java_version'                 : java_version,
-            'forge_config_api'             : forge_config_api,
             'mod_publish_version'          : mod_publish_version,
             'issueTrackerURL'              : issueTrackerURL,
             'accessories_version'          : accessories_version

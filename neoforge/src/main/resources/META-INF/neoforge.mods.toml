@@ -39,12 +39,5 @@ versionRange = "[${accessories_version},)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.${ mod_id }]]
-modId = "forgeconfigapiport"
-type = "required"
-versionRange = "[${forge_config_api},)"
-ordering = "NONE"
-side = "BOTH"
-
 [[accessTransformers]]
 file = "META-INF/accesstransformer.cfg"

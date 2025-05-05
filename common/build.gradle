@@ -27,7 +27,6 @@ dependencies {
     annotationProcessor group: 'io.github.llamalad7', name: 'mixinextras-common', version: '0.3.5'
 
     compileOnly("io.wispforest:accessories-common:${project.accessories_version}-mojmap")
-    api "fuzs.forgeconfigapiport:forgeconfigapiport-common-neoforgeapi:${forge_config_api}"
 }
 
 configurations {

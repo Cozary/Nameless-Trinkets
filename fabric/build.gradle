@@ -18,8 +18,6 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
 
     modImplementation("io.wispforest:accessories-fabric:${project.accessories_version}")
-    modApi "fuzs.forgeconfigapiport:forgeconfigapiport-fabric:${forge_config_api}"
-
 }
 
 loom {
@@ -59,7 +57,7 @@ publishMods {
         accessToken = providers.environmentVariable("CURSEFORGE_API_KEY")
         projectId = curseforge_project_id
         minecraftVersions.add(minecraft_version)
-        requires("forge-config-api-port-fabric", "accessories")
+        requires("accessories")
     }
 
 
@@ -67,7 +65,7 @@ publishMods {
         accessToken = accessToken = providers.environmentVariable("MODRINTH_API_KEY")
         projectId = modrinth_project_id
         minecraftVersions.add(minecraft_version)
-        requires("forge-config-api-port", "accessories")
+        requires("accessories")
     }
 
 }
