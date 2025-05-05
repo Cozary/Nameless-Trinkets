@@ -1,7 +1,6 @@
-package com.cozary.nameless_trinkets.utils;
+package com.cozary.nameless_trinkets.config.general;
 
 import com.cozary.nameless_trinkets.config.ConfigUtils;
-import com.cozary.nameless_trinkets.config.general.GeneralConfig;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -9,7 +8,7 @@ import java.nio.file.Path;
 
 public final class ConfigurationHandler {
 
-    private static final Path CONFIG_PATH = Path.of("config", "nameless_trinkets_general_config.json");
+    private static final Path CONFIG_PATH = Path.of("config", "nameless_trinkets-common.json");
     private static GeneralConfig config = new GeneralConfig();
 
     public static void loadConfig() {
