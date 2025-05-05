@@ -11,27 +11,9 @@ public class DarkNelumboEvents {
 
     public static void register() {
         ModEvents.DamageModifyCallback.EVENT.register((targetEntity, damageSource, amount) -> {
-            DarkNelumbo.Stats config = DarkNelumbo.INSTANCE.getTrinketConfig();
-            if (!config.isEnable) return amount;
-
-            if (targetEntity instanceof Player player && !player.isSpectator()) {
-
-                var accessories = AccessoriesCapability.get(player);
-
-                if (accessories == null) {
-                    return amount;
-                }
-
-                var stack = accessories.getEquipped(ModItems.DARK_NELUMBO.get());
-
-                if (!stack.isEmpty()) {
-                    if (config.cancelLavaDamage) {
-                        if (damageSource.is(DamageTypes.LAVA)) {
-
-                            amount = 0;
-                        }
-                    }
-                }
+            if (targetEntity instanceof Player player){
+                if(DarkNelumboHandler.blazeNucleusImmune(player, damageSource))
+                    return 0;
             }
             return amount;
         });

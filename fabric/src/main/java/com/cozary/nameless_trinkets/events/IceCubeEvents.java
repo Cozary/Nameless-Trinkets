@@ -13,54 +13,17 @@ public class IceCubeEvents {
 
     public static void register() {
         ModEvents.DamageModifyCallback.EVENT.register((targetEntity, damageSource, amount) -> {
-            IceCube.Stats config = IceCube.INSTANCE.getTrinketConfig();
-
-            if (!config.isEnable) {
-                return amount;
-            }
-
-            if (damageSource.getEntity() instanceof Player player && !player.isSpectator()) {
-
-                var accessories = AccessoriesCapability.get(player);
-
-                if (accessories == null) {
-                    return amount;
-                }
-                var stack = accessories.getEquipped(ModItems.ICE_CUBE.get());
-
-                if (!stack.isEmpty()) {
-                    MobEffectInstance effectinstance = new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, config.slownessTime, config.slownessLevel);
-                    targetEntity.addEffect(effectinstance);
-                }
+            if(damageSource.getEntity() instanceof Player player){
+                IceCubeHandler.applySlowEffect(player, targetEntity);
             }
             return amount;
         });
-
         ModEvents.DamageModifyCallback.EVENT.register((targetEntity, damageSource, amount) -> {
-            IceCube.Stats config = IceCube.INSTANCE.getTrinketConfig();
-
-            if (!config.isEnable) {
-                return amount;
-            }
-
-            if (targetEntity instanceof Player player && !player.isSpectator()) {
-
-                var accessories = AccessoriesCapability.get(player);
-
-                if (accessories == null) {
-                    return amount;
-                }
-                var stack = accessories.getEquipped(ModItems.ICE_CUBE.get());
-
-                if (!stack.isEmpty()) {
-                    if (config.inmuneToFreezing) {
-                        if (damageSource.is(DamageTypeTags.IS_FREEZING)) {
-                            return 0;
-                        }
-                    }
+            if(targetEntity instanceof Player player){
+                if(IceCubeHandler.negateFreezeDamage(player, damageSource)){
+                    return 0.0f;
                 }
             }
-
             return amount;
         });
     }

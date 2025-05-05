@@ -14,29 +14,13 @@ import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 public class FracturedNullstoneEvents {
 
     @SubscribeEvent
-    public static void reduceMagicDamage(LivingIncomingDamageEvent event) {
-        FracturedNullstone.Stats config = FracturedNullstone.INSTANCE.getTrinketConfig();
-        if (!config.isEnable)
-            return;
-
+    public static void reduceMagicDamage(LivingDamageEvent.Pre event) {
         if (event.getEntity() instanceof Player player) {
-            if (event.getEntity() == player) {
 
-                var accessories = AccessoriesCapability.get(player);
+           float newAmount = FracturedNullstoneHandler.reduceMagicDamage(player, event.getSource(), event.getOriginalDamage());
 
-                if (accessories == null) {
-                    return;
-                }
-                var stack = accessories.getEquipped(ModItems.FRACTURED_NULLSTONE.get());
-                if (!stack.isEmpty()) {
-
-                    //haha DamageTypeTag Magic doesn't exist
-
-                    if (event.getSource().type().msgId().equals("indirectMagic") || event.getSource().type().msgId().equals("magic")) {
-                        event.setAmount(event.getOriginalAmount() * (config.magicDamageReductionPercentage / 100));
-                    }
-                }
-            }
+            event.setNewDamage(newAmount);
         }
+
     }
 }

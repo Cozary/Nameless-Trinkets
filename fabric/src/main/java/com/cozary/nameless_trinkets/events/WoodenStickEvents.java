@@ -10,29 +10,11 @@ public class WoodenStickEvents {
 
     public static void register() {
         ModEvents.DamageModifyCallback.EVENT.register((targetEntity, damageSource, damageAmount) -> {
-            WoodenStick.Stats config = WoodenStick.INSTANCE.getTrinketConfig();
-
-            if (!config.isEnable) {
-                return damageAmount;
-            }
-
-            if (targetEntity instanceof Player player && !player.isSpectator()) {
-
-                var accessories = AccessoriesCapability.get(player);
-
-                if (accessories == null) {
-                    return damageAmount;
-                }
-                var stack = accessories.getEquipped(ModItems.WOODEN_STICK.get());
-
-                if (!stack.isEmpty() && !player.level().isClientSide) {
-                    if (!player.getCooldowns().isOnCooldown(stack.getFirst().stack().getItem())) {
-                        player.getCooldowns().addCooldown(stack.getFirst().stack().getItem(), (int) config.cooldown);
-                        return 0;
-                    }
+            if(targetEntity instanceof Player player){
+                if(WoodenStickHandler.cancelWoodenStick(player)){
+                    return 0.0f;
                 }
             }
-
             return damageAmount;
         });
     }

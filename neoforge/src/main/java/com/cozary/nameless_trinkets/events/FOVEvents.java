@@ -14,24 +14,7 @@ public class FOVEvents {
 
     @SubscribeEvent
     public static void onFOVUpdate(ComputeFovModifierEvent event) {
-        if (!ConfigurationHandler.GENERAL.disableFOV.get()) return;
-
-        Player player = event.getPlayer();
-
-        var accessories = AccessoriesCapability.get(player);
-
-        if (accessories == null) {
-            return;
-        }
-
-        var stack0 = accessories.getEquipped(ModItems.CRACKED_CROWN.get());
-        var stack1 = accessories.getEquipped(ModItems.GODS_CROWN.get());
-        var stack2 = accessories.getEquipped(ModItems.SCARAB_AMULET.get());
-        var stack3 = accessories.getEquipped(ModItems.SPEED_FORCE.get());
-
-        if (!stack0.isEmpty() || !stack1.isEmpty() || !stack2.isEmpty() || !stack3.isEmpty()) {
-
-            event.setNewFovModifier(1.0F);
-        }
+       float newFov = FOVHandler.onFOVUpdate(event.getPlayer(), event.getFovModifier());
+       event.setNewFovModifier(newFov);
     }
 }

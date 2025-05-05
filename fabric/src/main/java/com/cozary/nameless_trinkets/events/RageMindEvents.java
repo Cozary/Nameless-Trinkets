@@ -16,76 +16,16 @@ public class RageMindEvents {
 
     public static void register() {
         ModEvents.DamageModifyCallback.EVENT.register((targetEntity, damageSource, damageAmount) -> {
-            RageMind.Stats config = RageMind.INSTANCE.getTrinketConfig();
-
-            if (!config.isEnable) {
-                return damageAmount;
-            }
-
-            if (damageSource.getEntity() instanceof Player player && !player.isSpectator()) {
-
-                var accessories = AccessoriesCapability.get(player);
-
-                if (accessories == null) {
-                    return damageAmount;
-                }
-                var stack = accessories.getEquipped(ModItems.RAGE_MIND.get());
-
-                if (!stack.isEmpty()) {
-
-                    if (stack.getFirst().stack().get(ModDataComponents.RAGE_MIND_REVENGE_TARGET.get()) != null) {
-
-                        String entityString = stack.getFirst().stack().get(ModDataComponents.RAGE_MIND_REVENGE_TARGET.get());
-
-                        ResourceLocation resourceLocation = ResourceLocation.parse(entityString);
-
-                        EntityType<?> entityType = BuiltInRegistries.ENTITY_TYPE.get(resourceLocation);
-
-                        Entity entity = entityType.create(player.level());
-
-                        Class<? extends LivingEntity> classEntity = (Class<? extends LivingEntity>) entity.getClass();
-
-                        if (targetEntity.getClass() == classEntity) {
-                            return damageAmount * (config.damageMultiplierPercentage / 100);
-                        }
-                    }
-
-
-                }
-            }
-
+           if(damageSource.getEntity() instanceof Player player){
+              return RageMindHandler.dealDamage(player, targetEntity, damageAmount);
+           }
             return damageAmount;
         });
 
         ModEvents.DamageModifyCallback.EVENT.register((targetEntity, damageSource, amount) -> {
-            RageMind.Stats config = RageMind.INSTANCE.getTrinketConfig();
-
-            if (!config.isEnable) {
-                return amount;
+            if(damageSource.getEntity() instanceof Player player){
+                RageMindHandler.getEntity(player, targetEntity);
             }
-
-            if (targetEntity instanceof Player player && !player.isSpectator()) {
-
-                var accessories = AccessoriesCapability.get(player);
-
-                if (accessories == null) {
-                    return amount;
-                }
-                var stack = accessories.getEquipped(ModItems.RAGE_MIND.get());
-
-                if (!stack.isEmpty()) {
-
-                    Entity sourceEntity = damageSource.getEntity();
-                    if (sourceEntity != null) {
-                        var entityType = sourceEntity.getType();
-                        if (entityType != null) {
-                            String entityKey = BuiltInRegistries.ENTITY_TYPE.getKey(entityType).toString();
-                            stack.getFirst().stack().set(ModDataComponents.RAGE_MIND_REVENGE_TARGET.get(), entityKey);
-                        }
-                    }
-                }
-            }
-
             return amount;
         });
     }

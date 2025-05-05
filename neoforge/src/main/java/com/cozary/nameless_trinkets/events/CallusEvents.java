@@ -15,8 +15,22 @@ import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 @EventBusSubscriber(modid = NamelessTrinkets.MOD_ID)
 public class CallusEvents {
 
+  /*  @SubscribeEvent
+    public static void applyCallusDamageReduction(LivingDamageEvent.Pre event) {
+        if (!(event.getEntity() instanceof Player player))
+            return;
+
+        DamageSource damageSource = event.getSource();
+        float originalDamage = event.getNewDamage();
+        NamelessTrinkets.LOG.info(String.valueOf(originalDamage));
+        float newDamage = CallusHandler.onPlayerHurt(player, damageSource, originalDamage);
+        NamelessTrinkets.LOG.info(String.valueOf(newDamage));
+
+        event.setNewDamage(newDamage);
+    }*/
+
     @SubscribeEvent
-    public static void applyCallusDamageReduction(LivingIncomingDamageEvent event) {
+    public static void applyCallusDamageReduction(LivingDamageEvent.Pre event) {
         Callus.Stats config = Callus.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable || !(event.getEntity() instanceof Player player))
@@ -32,7 +46,7 @@ public class CallusEvents {
             return;
 
         var source = event.getSource();
-        float newDamage = event.getAmount();
+        float newDamage = event.getNewDamage();
 
         if (isNullifiedDamageType(source)) {
             newDamage = 0;
@@ -42,7 +56,7 @@ public class CallusEvents {
             newDamage *= (float) (1 - (config.generalDamageReductionPercentage / 100.0));
         }
 
-        event.setAmount(newDamage);
+        event.setNewDamage(newDamage);
     }
 
     private static boolean isNullifiedDamageType(DamageSource source) {
@@ -51,6 +65,4 @@ public class CallusEvents {
                 source.is(DamageTypes.HOT_FLOOR) ||
                 source.is(DamageTypes.SWEET_BERRY_BUSH);
     }
-
-
 }

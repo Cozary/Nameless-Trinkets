@@ -16,25 +16,12 @@ public class MoonStoneEvents {
 
     @SubscribeEvent
     public static void MoonStoneDamage(LivingIncomingDamageEvent event) {
-        MoonStone.Stats config = MoonStone.INSTANCE.getTrinketConfig();
-        if (!config.isEnable)
-            return;
-
         if (event.getEntity() instanceof Player player) {
-            if (event.getEntity() == player) {
 
-                var accessories = AccessoriesCapability.get(player);
-
-                if (accessories == null) {
-                    return;
-                }
-                var stack = accessories.getEquipped(ModItems.MOON_STONE.get());
-                if (!stack.isEmpty()) {
-                    if (event.getSource().is(DamageTypes.FALL)) {
-                        event.setCanceled(true);
+                        event.setCanceled(MoonStoneHandler.moonStoneFallDamage(player, event.getSource()));
                     }
-                }
-            }
-        }
+
+
+
     }
 }

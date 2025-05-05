@@ -21,30 +21,16 @@ public class PufferFishLiverEvents {
 
     @SubscribeEvent
     public static void applyPoisonEffect(LivingDamageEvent.Post event) {
-        PufferFishLiver.Stats config = PufferFishLiver.INSTANCE.getTrinketConfig();
-        if (!config.isEnable)
-            return;
 
         if (!(event.getSource().getEntity() instanceof Player))
             return;
 
         DamageSource source = event.getSource();
         Entity src = source.getEntity();
-        Random random = new Random();
 
         if (src instanceof Player player) {
 
-            var accessories = AccessoriesCapability.get(player);
-
-            if (accessories == null) {
-                return;
-            }
-            var stack = accessories.getEquipped(ModItems.PUFFER_FISH_LIVER.get());
-            if (!stack.isEmpty() && random.nextInt(100) <= config.chanceToApplyPoison) {
-                MobEffectInstance effectinstance = new MobEffectInstance(MobEffects.POISON, config.poisonTime, config.poisonLevel);
-                LivingEntity potionGo = event.getEntity();
-                potionGo.addEffect(effectinstance);
-            }
+           PufferFishLiverHandler.applyPoisonEffect(player, event.getEntity());
         }
 
     }

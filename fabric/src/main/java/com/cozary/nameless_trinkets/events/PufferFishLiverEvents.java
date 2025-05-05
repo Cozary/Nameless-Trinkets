@@ -14,26 +14,9 @@ public class PufferFishLiverEvents {
 
     public static void register() {
         ModEvents.DamageModifyCallback.EVENT.register((targetEntity, damageSource, amount) -> {
-            PufferFishLiver.Stats config = PufferFishLiver.INSTANCE.getTrinketConfig();
-
-            if (!config.isEnable) {
-                return amount;
-            }
-
-            if (damageSource.getEntity() instanceof Player player && !player.isSpectator()) {
-
-                Random random = new Random();
-                var accessories = AccessoriesCapability.get(player);
-
-                if (accessories == null) {
-                    return amount;
-                }
-                var stack = accessories.getEquipped(ModItems.PUFFER_FISH_LIVER.get());
-                if (!stack.isEmpty() && random.nextInt(100) <= config.chanceToApplyPoison) {
-                    MobEffectInstance effectinstance = new MobEffectInstance(MobEffects.POISON, config.poisonTime, config.poisonLevel);
-                    targetEntity.addEffect(effectinstance);
-                }
-            }
+           if(damageSource.getEntity() instanceof Player player){
+               PufferFishLiverHandler.applyPoisonEffect(player, targetEntity);
+           }
             return amount;
         });
     }

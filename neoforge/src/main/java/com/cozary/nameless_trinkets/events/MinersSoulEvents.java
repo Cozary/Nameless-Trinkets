@@ -36,58 +36,7 @@ public class MinersSoulEvents {
 
     @SubscribeEvent
     public static void playerBreakBlock(BlockEvent.BreakEvent event) {
-        MinersSoul.Stats config = MinersSoul.INSTANCE.getTrinketConfig();
-        if (!config.isEnable)
-            return;
-
-        Player player = event.getPlayer();
-
-        if (!player.level().isClientSide && !player.getAbilities().instabuild) {
-            var accessories = AccessoriesCapability.get(player);
-
-            if (accessories == null) {
-                return;
-            }
-            var stack = accessories.getEquipped(ModItems.MINERS_SOUL.get());
-            if (!stack.isEmpty()) {
-                Level level = player.level();
-                ItemStack itemStack = player.getMainHandItem();
-                ItemStack fakeItemStack = new ItemStack(itemStack.getItem());
-                ItemEnchantments enchantments = itemStack.get(DataComponents.ENCHANTMENTS);
-                HolderLookup.Provider registries = level.registryAccess();
-                HolderLookup<Enchantment> enchantmentRegistry = registries.lookupOrThrow(Registries.ENCHANTMENT);
-                Holder<Enchantment> silkTouch = enchantmentRegistry.getOrThrow(Enchantments.SILK_TOUCH);
-                Holder<Enchantment> fortune = enchantmentRegistry.getOrThrow(Enchantments.FORTUNE);
-                if (enchantments != null && enchantments.getLevel(silkTouch) > 0) {
-                    return;
-                }
-                int bonusLevel = enchantments != null ? enchantments.getLevel(fortune) : 0;
-                FakePlayer fakePlayer = FakePlayerFactory.getMinecraft((ServerLevel) level);
-                fakePlayer.setItemSlot(EquipmentSlot.MAINHAND, fakeItemStack);
-                ItemEnchantments.Mutable mutableEnchantments = new ItemEnchantments.Mutable(enchantments != null ? enchantments : ItemEnchantments.EMPTY);
-                mutableEnchantments.upgrade(fortune, bonusLevel + config.extraLootingLevel);
-                fakeItemStack.set(DataComponents.ENCHANTMENTS, mutableEnchantments.toImmutable());
-                if (!(event.getState().getBlock() instanceof EntityBlock)) {
-                    LootTable loot = level.getServer().reloadableRegistries().getLootTable(event.getState().getBlock().getLootTable());
-                    LootParams context = new LootParams.Builder((ServerLevel) level)
-                            .withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(event.getPos()))
-                            .withParameter(LootContextParams.TOOL, fakeItemStack)
-                            .withParameter(LootContextParams.BLOCK_STATE, event.getState())
-                            .create(LootContextParamSets.BLOCK);
-                    List<ItemStack> drops = loot.getRandomItems(context);
-                    if (!drops.isEmpty()) {
-                        drops.get(0).setCount(drops.get(0).getCount() - 1);
-                    }
-                    for (ItemStack drop : drops) {
-                        ItemEntity itemEntity = new ItemEntity(level, event.getPos().getX(), event.getPos().getY(), event.getPos().getZ(), drop);
-                        itemEntity.setDefaultPickUpDelay();
-                        itemEntity.setPos(Vec3.atCenterOf(event.getPos()));
-                        itemEntity.setDeltaMovement(itemEntity.getDeltaMovement().add((level.random.nextFloat() - level.random.nextFloat()) * 0.1F, level.random.nextFloat() * 0.05F, (level.random.nextFloat() - level.random.nextFloat()) * 0.1F));
-                        level.addFreshEntity(itemEntity);
-                    }
-                }
-            }
-        }
+        MinersSoulHandler.playerBreakBlock(event.getPlayer(), event.getState(), event.getPos(), event.getPlayer().level());
     }
 
 

@@ -8,27 +8,9 @@ import net.minecraft.tags.FluidTags;
 
 
 public class AmphibiousHandsEvents {
-
     public static void register() {
-        ModEvents.BlockDestroySpeedCallback.EVENT.register((player, state, originalSpeed) -> {
-            AmphibiousHands.Stats config = AmphibiousHands.INSTANCE.getTrinketConfig();
-
-            if (!config.isEnable) return originalSpeed;
-
-            if (player != null && !player.isSpectator()) {
-
-                var accessories = AccessoriesCapability.get(player);
-
-                if (accessories == null) {
-                    return originalSpeed;
-                }
-                var stack = accessories.getEquipped(ModItems.AMPHIBIOUS_HANDS.get());
-                if (!stack.isEmpty() && player.isEyeInFluid(FluidTags.WATER)) {
-                    return originalSpeed * (config.miningUnderwaterSpeedPercentage / 100);
-                }
-            }
-            return originalSpeed;
-        });
+        ModEvents.BlockDestroySpeedCallback.EVENT.register((player, state, originalSpeed) ->
+                AmphibiousHandsHandler.handleBreakSpeed(player, originalSpeed)
+        );
     }
-
 }

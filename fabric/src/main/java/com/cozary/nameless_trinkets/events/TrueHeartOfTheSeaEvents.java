@@ -10,23 +10,7 @@ public class TrueHeartOfTheSeaEvents {
 
     public static void register() {
         ModEvents.BlockDestroySpeedCallback.EVENT.register((player, state, originalSpeed) -> {
-            TrueHeartOfTheSea.Stats config = TrueHeartOfTheSea.INSTANCE.getTrinketConfig();
-
-            if (!config.isEnable) return originalSpeed;
-
-            if (player != null && !player.isSpectator()) {
-
-                var accessories = AccessoriesCapability.get(player);
-
-                if (accessories == null) {
-                    return originalSpeed;
-                }
-                var stack = accessories.getEquipped(ModItems.TRUE_HEART_OF_THE_SEA.get());
-                if (!stack.isEmpty() && player.isEyeInFluid(FluidTags.WATER)) {
-                    return originalSpeed * (config.miningUnderwaterSpeedPercentage / 100);
-                }
-            }
-            return originalSpeed;
+           return TrueHeartOfTheSeaHandler.function(player, originalSpeed);
         });
     }
 }

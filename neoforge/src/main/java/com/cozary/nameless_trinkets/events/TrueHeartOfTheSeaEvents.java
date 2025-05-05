@@ -15,23 +15,10 @@ public class TrueHeartOfTheSeaEvents {
 
     @SubscribeEvent
     public static void function(PlayerEvent.BreakSpeed event) {
-        TrueHeartOfTheSea.Stats config = TrueHeartOfTheSea.INSTANCE.getTrinketConfig();
-        if (!config.isEnable)
-            return;
 
-        if (!event.getEntity().isSpectator()) {
-            Player player = event.getEntity();
+        float newSpeed = TrueHeartOfTheSeaHandler.function(event.getEntity(), event.getOriginalSpeed());
+                event.setNewSpeed(newSpeed);
 
-            var accessories = AccessoriesCapability.get(player);
 
-            if (accessories == null) {
-                return;
-            }
-            var stack = accessories.getEquipped(ModItems.TRUE_HEART_OF_THE_SEA.get());
-            if ((!stack.isEmpty() && player.isEyeInFluidType(NeoForgeMod.WATER_TYPE.value()))) {
-
-                event.setNewSpeed(event.getOriginalSpeed() * (config.miningUnderwaterSpeedPercentage / 100));
-            }
-        }
     }
 }

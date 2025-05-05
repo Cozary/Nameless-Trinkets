@@ -12,31 +12,16 @@ public class ExperienceBatteryEvents {
 
     public static void register() {
         ModEvents.ExperienceDropModifierCallback.EVENT.register((entity, livingEntity) -> {
-            ExperienceBattery.Stats config = ExperienceBattery.INSTANCE.getTrinketConfig();
+            if(entity instanceof Player player){
+                if (livingEntity.level() instanceof ServerLevel serverLevel) {
+                    int originalExperience = livingEntity.getExperienceReward(serverLevel, player);
 
-            if (!config.isEnable) {
-                return;
-            }
-
-            if (entity instanceof Player attackingPlayer) {
-
-                var accessories = AccessoriesCapability.get(attackingPlayer);
-
-                if (accessories == null) {
-                    return;
-                }
-                var stack = accessories.getEquipped(ModItems.EXPERIENCE_BATTERY.get());
-                if (stack.isEmpty() || livingEntity instanceof Player) {
-                    return;
-                }
-
-                int originalExperience = livingEntity.getExperienceReward((ServerLevel) livingEntity.level(), entity);
-                int bonusExperience = (int) (originalExperience * (1 - (config.extraExperiencePercentage / 100)));
-
-                if (bonusExperience > 0) {
-                    livingEntity.level().addFreshEntity(new ExperienceOrb((ServerLevel) livingEntity.level(), livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), bonusExperience));
+                    ExperienceBatteryHandler.handleExperienceDrop(player, livingEntity, originalExperience, bonusExperience -> {
+                        serverLevel.addFreshEntity(new ExperienceOrb(serverLevel, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), bonusExperience));
+                    });
                 }
             }
         });
+
     }
 }

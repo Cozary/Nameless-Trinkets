@@ -16,30 +16,9 @@ public class WoundbearerEvents {
 
     @SubscribeEvent
     public static void savePlayerDamageIncrement(LivingIncomingDamageEvent event) {
-        Woundbearer.Stats config = Woundbearer.INSTANCE.getTrinketConfig();
-        if (!config.isEnable)
-            return;
 
         if (event.getEntity() instanceof Player player) {
-
-            var accessories = AccessoriesCapability.get(player);
-
-            if (accessories == null) {
-                return;
-            }
-            var stack = accessories.getEquipped(ModItems.WOUNDBEARER.get());
-            if (!stack.isEmpty() && !player.level().isClientSide) {
-                float damageIncrement = event.getAmount() * (config.damageConversionPercentage / 100);
-
-                float currentDamage = stack.getFirst().stack().getOrDefault(ModDataComponents.WOUNDBEARER_DAMAGE.get(), 0f);
-
-                float newDamage = currentDamage + damageIncrement;
-                if (Float.isInfinite(newDamage) || newDamage > Float.MAX_VALUE) {
-                    newDamage = Float.MAX_VALUE;
-                }
-
-                stack.getFirst().stack().set(ModDataComponents.WOUNDBEARER_DAMAGE.get(), newDamage);
-            }
+            WoundbearerHandler.savePlayerDamageIncrement(player, event.getAmount());
         }
     }
 }

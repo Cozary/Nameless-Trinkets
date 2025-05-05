@@ -16,36 +16,9 @@ public class ExplosionProofJacketEvents {
 
     public static void register() {
         ModEvents.DamageModifyCallback.EVENT.register((targetEntity, damageSource, amount) -> {
-            ExplosionProofJacket.Stats config = ExplosionProofJacket.INSTANCE.getTrinketConfig();
-
-            if (!config.isEnable) {
-                return amount;
+            if(targetEntity instanceof Player player){
+                return ExplosionProofJacketHandler.handleExplosionDamageReduction(player, damageSource, amount);
             }
-
-            if (targetEntity instanceof Player player && !player.isSpectator()) {
-
-                var accessories = AccessoriesCapability.get(player);
-
-                if (accessories == null) {
-                    return amount;
-                }
-                var stack = accessories.getEquipped(ModItems.EXPLOSION_PROOF_JACKET.get());
-
-                if (!stack.isEmpty()) {
-                    if (damageSource.is(DamageTypeTags.IS_EXPLOSION)) {
-                        amount *= (float) (1 - (config.blastDamagePercentageReduction / 100.0));
-
-                        Level world = player.level();
-                        ItemStack itemStack = Items.TNT.getDefaultInstance();
-                        BlockPos pos = player.blockPosition();
-                        ItemEntity itemEntity = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), itemStack);
-                        itemEntity.setDefaultPickUpDelay();
-                        itemEntity.setInvulnerable(true);
-                        world.addFreshEntity(itemEntity);
-                    }
-                }
-            }
-
             return amount;
         });
     }

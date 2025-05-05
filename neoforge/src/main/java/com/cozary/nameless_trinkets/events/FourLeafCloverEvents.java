@@ -25,45 +25,11 @@ public class FourLeafCloverEvents {
 
     @SubscribeEvent
     public static void entityKilled(LivingDeathEvent event) {
-        FourLeafClover.Stats config = FourLeafClover.INSTANCE.getTrinketConfig();
-        if (!config.isEnable)
-            return;
-
         if ((event.getEntity() instanceof Player))
             return;
 
         if (event.getSource().getEntity() instanceof Player player) {
-            if (!player.level().isClientSide) {
-
-                var accessories = AccessoriesCapability.get(player);
-
-                if (accessories == null) {
-                    return;
-                }
-                var stack = accessories.getEquipped(ModItems.FOUR_LEAF_CLOVER.get());
-                if (!stack.isEmpty()) {
-                    Level level = player.level();
-
-                    LootTable loot = level.getServer().reloadableRegistries().getLootTable((event.getEntity().getType().getDefaultLootTable()));
-                    LootParams context = new LootParams.Builder((ServerLevel) level)
-                            .withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(event.getEntity().blockPosition()))
-                            .withParameter(LootContextParams.THIS_ENTITY, event.getEntity())
-                            .withParameter(LootContextParams.DAMAGE_SOURCE, player.damageSources().playerAttack(player))
-                            .create(LootContextParamSets.ENTITY);
-
-                    List<ItemStack> drops = loot.getRandomItems(context);
-                    for (int i = 1; i < (config.extraLoots); i++) {
-                        for (ItemStack drop : drops) {
-                            ItemEntity itementity = new ItemEntity(level, event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ(), drop);
-                            itementity.setDefaultPickUpDelay();
-                            itementity.setDeltaMovement(itementity.getDeltaMovement().add((level.random.nextFloat() - level.random.nextFloat()) * 0.1F, level.random.nextFloat() * 0.05F, (level.random.nextFloat() - level.random.nextFloat()) * 0.1F));
-                            level.addFreshEntity(itementity);
-                        }
-                    }
-
-                }
-
-            }
+           FourLeafCloverHandler.entityKilled(player, event.getEntity());
         }
     }
 }

@@ -20,38 +20,12 @@ import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 public class ExplosionProofJacketEvents {
 
     @SubscribeEvent
-    public static void handleExplosionDamageReduction(LivingIncomingDamageEvent event) {
-
-        ExplosionProofJacket.Stats config = ExplosionProofJacket.INSTANCE.getTrinketConfig();
-        if (!config.isEnable)
-            return;
+    public static void handleExplosionDamageReduction(LivingDamageEvent.Pre event) {
 
         if (!(event.getEntity() instanceof Player player))
             return;
 
-        if (!player.isSpectator()) {
-            if (event.getEntity() == player) {
-                Level world = player.level();
-                ItemStack itemStack = Items.TNT.getDefaultInstance();
-
-                var accessories = AccessoriesCapability.get(player);
-
-                if (accessories == null) {
-                    return;
-                }
-                var stack = accessories.getEquipped(ModItems.EXPLOSION_PROOF_JACKET.get());
-                if (!stack.isEmpty()) {
-                    if (event.getSource().is(DamageTypeTags.IS_EXPLOSION)) {
-                        event.setAmount(event.getOriginalAmount() * (1 - config.blastDamagePercentageReduction) * 100);
-                        BlockPos pos = player.blockPosition();
-                        ItemEntity itementity = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), itemStack);
-                        itementity.setDefaultPickUpDelay();
-                        itementity.setInvulnerable(true);
-                        world.addFreshEntity(itementity);
-                    }
-                }
-            }
-        }
+        ExplosionProofJacketHandler.handleExplosionDamageReduction(player, event.getSource(), event.getOriginalDamage());
     }
 
 }

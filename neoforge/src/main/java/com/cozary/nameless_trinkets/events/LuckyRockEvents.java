@@ -24,29 +24,8 @@ public class LuckyRockEvents {
 
     @SubscribeEvent
     public static void function(BlockEvent.BreakEvent event) {
-        LuckyRock.Stats config = LuckyRock.INSTANCE.getTrinketConfig();
-        if (!config.isEnable)
-            return;
 
-        Player player = event.getPlayer();
-        Level world = player.level();
-        Random random = new Random();
+        LuckyRockHandler.function(event.getPlayer(), event.getState(), event.getPos());
 
-        var accessories = AccessoriesCapability.get(player);
-
-        if (accessories == null) {
-            return;
-        }
-        var stack = accessories.getEquipped(ModItems.LUCKY_ROCK.get());
-        if (!stack.isEmpty() && random.nextInt(100) <= config.percentageOfObtaining && event.getState() == Blocks.STONE.defaultBlockState() && !player.level().isClientSide) {
-            String itemStack = config.blockList.get(random.nextInt(config.blockList.size()));
-
-            BlockPos pos = event.getPos();
-            assert itemStack != null;
-            ((ServerLevel) player.getCommandSenderWorld()).sendParticles(ParticleTypes.HAPPY_VILLAGER, pos.getX(), pos.getY(), pos.getZ(), 25, 1D, 1D, 1D, 0.1);
-            ItemEntity itementity = new ItemEntity(world, pos.getX(), pos.getY() + 1, pos.getZ(), BuiltInRegistries.ITEM.get(ResourceLocation.parse(itemStack)).getDefaultInstance());
-            itementity.setDefaultPickUpDelay();
-            world.addFreshEntity(itementity);
-        }
     }
 }
