@@ -1,8 +1,6 @@
 package com.cozary.nameless_trinkets.events;
 
-import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.items.trinkets.BlazeNucleus;
-import io.wispforest.accessories.api.AccessoriesCapability;
+import com.cozary.nameless_trinkets.items.trinkets.BlazeNucleusBase;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
@@ -13,34 +11,27 @@ import net.minecraft.world.entity.player.Player;
 public class BlazeNucleusHandler {
 
     public static float onAttackerHit(Entity attacker, Entity target, float originalAmount) {
-        BlazeNucleus.Stats config = BlazeNucleus.INSTANCE.getTrinketConfig();
+        BlazeNucleusBase.Stats config = BlazeNucleusBase.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable || !(attacker instanceof Player player)) return originalAmount;
 
-        var accessories = AccessoriesCapability.get(player);
-        if (accessories == null) return originalAmount;
 
-        var stack = accessories.getEquipped(ModItems.BLAZE_NUCLEUS.get());
-        if (!stack.isEmpty()) {
-            if (target instanceof LivingEntity livingTarget) {
-                livingTarget.setRemainingFireTicks(config.setEnemyInFireTicks);
-            }
-            player.clearFire();
+        if (target instanceof LivingEntity livingTarget) {
+            livingTarget.setRemainingFireTicks(config.setEnemyInFireTicks);
         }
+        player.clearFire();
+
 
         return originalAmount;
     }
 
     public static float onPlayerHurt(Player player, DamageSource source, float originalAmount) {
-        BlazeNucleus.Stats config = BlazeNucleus.INSTANCE.getTrinketConfig();
+        BlazeNucleusBase.Stats config = BlazeNucleusBase.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable || player.isSpectator()) return originalAmount;
 
-        var accessories = AccessoriesCapability.get(player);
-        if (accessories == null) return originalAmount;
 
-        var stack = accessories.getEquipped(ModItems.BLAZE_NUCLEUS.get());
-        if (!stack.isEmpty() && config.fireDamageReductionPercentage < 100) {
+        if (config.fireDamageReductionPercentage < 100) {
             boolean isFireDamage = source.is(DamageTypeTags.IS_FIRE) ||
                     source.is(DamageTypes.LAVA) ||
                     source.is(DamageTypes.ON_FIRE) ||

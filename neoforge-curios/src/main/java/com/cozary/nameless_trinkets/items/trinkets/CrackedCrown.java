@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
+import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import com.cozary.nameless_trinkets.utils.EntityUtils;
 import net.minecraft.ChatFormatting;
@@ -25,9 +25,9 @@ import java.util.Map;
 
 import static com.cozary.nameless_trinkets.NamelessTrinkets.MOD_ID;
 
-public class CrackedCrown extends TrinketItem<CrackedCrown.Stats> {
+public class CrackedCrown extends TrinketItemCurios<CrackedCrownBase.Stats> {
 
-    public static CrackedCrown INSTANCE;
+    public static CrackedCrownBase INSTANCE;
     private final Map<String, List<String>> modifiers = new HashMap<>();
 
     public CrackedCrown() {

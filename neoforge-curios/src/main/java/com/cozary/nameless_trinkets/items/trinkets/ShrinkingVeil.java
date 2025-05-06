@@ -2,7 +2,7 @@ package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
+import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import com.cozary.nameless_trinkets.utils.EntityUtils;
 import net.minecraft.ChatFormatting;
@@ -23,8 +23,8 @@ import top.theillusivec4.curios.api.SlotContext;
 import java.util.List;
 import java.util.Objects;
 
-public class ShrinkingVeil extends TrinketItem<ShrinkingVeil.Stats> {
-    public static ShrinkingVeil INSTANCE;
+public class ShrinkingVeil extends TrinketItemCurios<ShrinkingVeilBase.Stats> {
+    public static ShrinkingVeilBase INSTANCE;
 
     public ShrinkingVeil() {
         super(new TrinketData(null, null, Stats.class));
@@ -44,7 +44,7 @@ public class ShrinkingVeil extends TrinketItem<ShrinkingVeil.Stats> {
 
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        Stats config = ShrinkingVeil.INSTANCE.getTrinketConfig();
+        Stats config = ShrinkingVeilBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable) {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
         } else {
@@ -60,7 +60,7 @@ public class ShrinkingVeil extends TrinketItem<ShrinkingVeil.Stats> {
 
     @Override
     public void onEquip(SlotContext slotContext, ItemStack pstack, ItemStack stack) {
-        Stats config = ShrinkingVeil.INSTANCE.getTrinketConfig();
+        Stats config = ShrinkingVeilBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return;
 

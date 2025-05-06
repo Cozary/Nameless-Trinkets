@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
+import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -16,8 +16,8 @@ import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
 
-public class ExperienceMagnet extends TrinketItem<ExperienceMagnet.Stats> {
-    public static ExperienceMagnet INSTANCE;
+public class ExperienceMagnet extends TrinketItemCurios<ExperienceMagnetBase.Stats> {
+    public static ExperienceMagnetBase INSTANCE;
 
     public ExperienceMagnet() {
         super(new TrinketData(null, null, Stats.class));
@@ -37,7 +37,7 @@ public class ExperienceMagnet extends TrinketItem<ExperienceMagnet.Stats> {
 
     @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
-        Stats config = ExperienceMagnet.INSTANCE.getTrinketConfig();
+        Stats config = ExperienceMagnetBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable) {
             return;
         }
@@ -58,7 +58,7 @@ public class ExperienceMagnet extends TrinketItem<ExperienceMagnet.Stats> {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        Stats config = ExperienceMagnet.INSTANCE.getTrinketConfig();
+        Stats config = ExperienceMagnetBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable) {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
         } else {

@@ -1,13 +1,16 @@
 package com.cozary.nameless_trinkets.config.looTables;
 
-import com.cozary.nameless_trinkets.init.ModItems;
+import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootTable;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class TrinketDataProvider {
 
@@ -58,7 +61,78 @@ public class TrinketDataProvider {
             BuiltInLootTables.CAT_MORNING_GIFT
     );
 
+    private static final Map<String, Double> ITEM_PROBABILITIES = Map.ofEntries(
+            Map.entry("gods_crown", 0.0),
+            Map.entry("dying_star", 0.0),
+            Map.entry("reverse_card", 0.0025),
+            Map.entry("broken_ankh", 0.0025),
+            Map.entry("rage_mind", 0.0025),
+            Map.entry("cracked_crown", 0.0025),
+            Map.entry("sigil_of_baphomet", 0.0025),
+            Map.entry("true_heart_of_the_sea", 0.0025),
+            Map.entry("reforger", 0.0025),
+            Map.entry("fate_emerald", 0.0025),
+            Map.entry("light_gloves", 0.0025),
+            Map.entry("four_leaf_clover", 0.0025),
+            Map.entry("miners_soul", 0.0025),
+            Map.entry("missing_page", 0.005),
+            Map.entry("experience_battery", 0.005),
+            Map.entry("super_magnet", 0.005),
+            Map.entry("what_magnet", 0.005),
+            Map.entry("callus", 0.005),
+            Map.entry("speed_force", 0.005),
+            Map.entry("vampire_blood", 0.005),
+            Map.entry("tick", 0.005),
+            Map.entry("ghast_eye", 0.005),
+            Map.entry("fertilizer", 0.005),
+            Map.entry("tear_of_the_sea", 0.005),
+            Map.entry("ethereal_wings", 0.005),
+            Map.entry("electric_paddle", 0.005),
+            Map.entry("fractured_nullstone", 0.005),
+            Map.entry("fragile_cloud", 0.005),
+            Map.entry("scarab_amulet", 0.005),
+            Map.entry("resonant_heart", 0.005),
+            Map.entry("experience_magnet", 0.01),
+            Map.entry("broken_magnet", 0.01),
+            Map.entry("lucky_rock", 0.01),
+            Map.entry("puffer_fish_liver", 0.01),
+            Map.entry("blindfold", 0.01),
+            Map.entry("explosion_proof_jacket", 0.01),
+            Map.entry("wooden_stick", 0.01),
+            Map.entry("blaze_nucleus", 0.01),
+            Map.entry("ice_cube", 0.01),
+            Map.entry("creeper_sense", 0.01),
+            Map.entry("amphibious_hands", 0.01),
+            Map.entry("gills", 0.01),
+            Map.entry("moon_stone", 0.01),
+            Map.entry("sleeping_pills", 0.01),
+            Map.entry("nelumbo", 0.01),
+            Map.entry("dark_nelumbo", 0.01),
+            Map.entry("spider_legs", 0.01),
+            Map.entry("dragons_eye", 0.01),
+            Map.entry("pocket_lightning_rod", 0.01),
+            Map.entry("shrinking_veil", 0.01),
+            Map.entry("titans_mark", 0.01),
+            Map.entry("woundbearer", 0.01)
+    );
+
     public static List<List<Object>> getTrinketList() {
+        List<List<Object>> list = new ArrayList<>();
+
+        for (Item item : BuiltInRegistries.ITEM) {
+            ResourceLocation id = BuiltInRegistries.ITEM.getKey(item);
+
+            if (id != null && id.getNamespace().equals("nameless_trinkets") && item instanceof TrinketItem<?>) {
+                double probability = ITEM_PROBABILITIES.getOrDefault(id.getPath(), 0.01);
+                list.add(List.of(probability, item));
+            }
+        }
+
+        return list;
+    }
+
+
+ /*   public static List<List<Object>> getTrinketList() {
         return new ArrayList<>(Arrays.asList(
                 List.of(0.0, ModItems.GODS_CROWN.get()),
                 List.of(0.0, ModItems.DYING_STAR.get()),
@@ -113,5 +187,5 @@ public class TrinketDataProvider {
                 List.of(0.01, ModItems.TITANS_MARK.get()),
                 List.of(0.01, ModItems.WOUNDBEARER.get())
         ));
-    }
+    }*/
 }

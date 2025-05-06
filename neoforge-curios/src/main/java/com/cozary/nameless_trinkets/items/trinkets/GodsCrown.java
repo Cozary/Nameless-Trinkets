@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
+import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import com.cozary.nameless_trinkets.utils.EntityUtils;
 import net.minecraft.ChatFormatting;
@@ -26,8 +26,8 @@ import java.util.Map;
 
 import static com.cozary.nameless_trinkets.NamelessTrinkets.MOD_ID;
 
-public class GodsCrown extends TrinketItem<GodsCrown.Stats> {
-    public static GodsCrown INSTANCE;
+public class GodsCrown extends TrinketItemCurios<GodsCrownBase.Stats> {
+    public static GodsCrownBase INSTANCE;
 
     private final Map<String, List<String>> modifiers = new HashMap<>();
 
@@ -72,7 +72,7 @@ public class GodsCrown extends TrinketItem<GodsCrown.Stats> {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        Stats config = GodsCrown.INSTANCE.getTrinketConfig();
+        Stats config = GodsCrownBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable) {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
         } else {

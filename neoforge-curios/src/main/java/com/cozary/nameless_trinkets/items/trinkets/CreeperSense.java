@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
+import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -17,8 +17,8 @@ import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
 
-public class CreeperSense extends TrinketItem<CreeperSense.Stats> {
-    public static CreeperSense INSTANCE;
+public class CreeperSense extends TrinketItemCurios<CreeperSenseBase.Stats> {
+    public static CreeperSenseBase INSTANCE;
 
     public CreeperSense() {
         super(new TrinketData(null, null, Stats.class));
@@ -38,7 +38,7 @@ public class CreeperSense extends TrinketItem<CreeperSense.Stats> {
 
     @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
-        Stats config = CreeperSense.INSTANCE.getTrinketConfig();
+        Stats config = CreeperSenseBase.INSTANCE.getTrinketConfig();
 
         if (!(slotContext.entity() instanceof ServerPlayer player) || player.isSpectator()) {
             return;
@@ -64,7 +64,7 @@ public class CreeperSense extends TrinketItem<CreeperSense.Stats> {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        Stats config = CreeperSense.INSTANCE.getTrinketConfig();
+        Stats config = CreeperSenseBase.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable) {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));

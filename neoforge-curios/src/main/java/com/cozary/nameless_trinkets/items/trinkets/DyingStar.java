@@ -3,7 +3,7 @@ package com.cozary.nameless_trinkets.items.trinkets;
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.init.ModDataComponents;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
+import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import com.cozary.nameless_trinkets.utils.EntityUtils;
 import com.mojang.blaze3d.platform.InputConstants;
@@ -34,9 +34,9 @@ import java.util.*;
 
 import static com.cozary.nameless_trinkets.init.ModTags.NAMELESS_TRINKETS_TAG;
 
-public class DyingStar extends TrinketItem<DyingStar.Stats> {
+public class DyingStar extends TrinketItemCurios<DyingStarBase.Stats> {
     private static final Random random = new Random();
-    public static DyingStar INSTANCE;
+    public static DyingStarBase INSTANCE;
 
     public DyingStar() {
         super(new TrinketData(null, null, Stats.class));
@@ -56,7 +56,7 @@ public class DyingStar extends TrinketItem<DyingStar.Stats> {
 
     @Override
     public boolean overrideOtherStackedOnMe(ItemStack stack, ItemStack other, Slot slot, ClickAction action, Player player, SlotAccess access) {
-        Stats config = DyingStar.INSTANCE.getTrinketConfig();
+        Stats config = DyingStarBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return false;
 
@@ -103,7 +103,7 @@ public class DyingStar extends TrinketItem<DyingStar.Stats> {
 
     @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
-        Stats config = DyingStar.INSTANCE.getTrinketConfig();
+        Stats config = DyingStarBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return;
 
@@ -157,7 +157,7 @@ public class DyingStar extends TrinketItem<DyingStar.Stats> {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        Stats config = DyingStar.INSTANCE.getTrinketConfig();
+        Stats config = DyingStarBase.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable) {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));

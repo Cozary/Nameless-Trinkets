@@ -1,9 +1,9 @@
 package com.cozary.nameless_trinkets.items.subTrinket;
 
-import io.wispforest.accessories.api.AccessoryItem;
+import net.minecraft.world.item.Item;
 
 
-public abstract class TrinketItem<T extends TrinketsStats> extends AccessoryItem {
+public abstract class TrinketItem<T extends TrinketsStats> extends Item {
 
     protected TrinketData trinketData;
     protected T trinketConfig;

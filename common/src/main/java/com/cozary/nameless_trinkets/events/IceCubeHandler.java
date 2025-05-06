@@ -1,8 +1,6 @@
 package com.cozary.nameless_trinkets.events;
 
-import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.items.trinkets.IceCube;
-import io.wispforest.accessories.api.AccessoriesCapability;
+import com.cozary.nameless_trinkets.items.trinkets.IceCubeBase;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -13,41 +11,29 @@ import net.minecraft.world.entity.player.Player;
 public class IceCubeHandler {
 
     public static void applySlowEffect(Player player, LivingEntity entity) {
-        IceCube.Stats config = IceCube.INSTANCE.getTrinketConfig();
+        IceCubeBase.Stats config = IceCubeBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return;
 
-        var accessories = AccessoriesCapability.get(player);
 
-        if (accessories == null) {
-            return;
-        }
-        var stack = accessories.getEquipped(ModItems.ICE_CUBE.get());
-        if (!stack.isEmpty()) {
-            MobEffectInstance effectinstance = new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, config.slownessTime, config.slownessLevel);
-            entity.addEffect(effectinstance);
-        }
+        MobEffectInstance effectinstance = new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, config.slownessTime, config.slownessLevel);
+        entity.addEffect(effectinstance);
+
     }
 
     public static boolean negateFreezeDamage(Player player, DamageSource damageSource) {
-        IceCube.Stats config = IceCube.INSTANCE.getTrinketConfig();
+        IceCubeBase.Stats config = IceCubeBase.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable)
             return false;
 
         if (!player.isSpectator()) {
 
-            var accessories = AccessoriesCapability.get(player);
 
-            if (accessories == null) {
-                return false;
+            if (config.inmuneToFreezing) {
+                return damageSource.is(DamageTypeTags.IS_FREEZING);
             }
-            var stack = accessories.getEquipped(ModItems.ICE_CUBE.get());
-            if (!stack.isEmpty()) {
-                if (config.inmuneToFreezing) {
-                    return damageSource.is(DamageTypeTags.IS_FREEZING);
-                }
-            }
+
         }
         return false;
     }

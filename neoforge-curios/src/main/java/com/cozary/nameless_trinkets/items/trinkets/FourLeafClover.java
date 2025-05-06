@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
+import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -13,8 +13,8 @@ import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
 
-public class FourLeafClover extends TrinketItem<FourLeafClover.Stats> {
-    public static FourLeafClover INSTANCE;
+public class FourLeafClover extends TrinketItemCurios<FourLeafCloverBase.Stats> {
+    public static FourLeafCloverBase INSTANCE;
 
     public FourLeafClover() {
         super(new TrinketData(null, null, Stats.class));
@@ -34,7 +34,7 @@ public class FourLeafClover extends TrinketItem<FourLeafClover.Stats> {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        Stats config = FourLeafClover.INSTANCE.getTrinketConfig();
+        Stats config = FourLeafCloverBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable) {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
         } else {

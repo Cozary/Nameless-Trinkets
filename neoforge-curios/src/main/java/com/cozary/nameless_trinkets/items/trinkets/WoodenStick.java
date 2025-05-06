@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
+import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -13,8 +13,8 @@ import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
 
-public class WoodenStick extends TrinketItem<WoodenStick.Stats> {
-    public static WoodenStick INSTANCE;
+public class WoodenStick extends TrinketItemCurios<WoodenStickBase.Stats> {
+    public static WoodenStickBase INSTANCE;
 
     public WoodenStick() {
         super(new TrinketData(null, null, Stats.class));
@@ -34,7 +34,7 @@ public class WoodenStick extends TrinketItem<WoodenStick.Stats> {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        Stats config = WoodenStick.INSTANCE.getTrinketConfig();
+        Stats config = WoodenStickBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable) {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
         } else {

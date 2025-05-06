@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
+import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -13,8 +13,8 @@ import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
 
-public class Blindfold extends TrinketItem<Blindfold.Stats> {
-    public static Blindfold INSTANCE;
+public class Blindfold extends TrinketItemCurios<BlindfoldBase.Stats> {
+    public static BlindfoldBase INSTANCE;
 
     public Blindfold() {
         super(new TrinketData(null, null, Stats.class));
@@ -24,7 +24,7 @@ public class Blindfold extends TrinketItem<Blindfold.Stats> {
 
     @Override
     public void onEquip(SlotContext slotContext, ItemStack prevStack, ItemStack stack) {
-        Stats config = Blindfold.INSTANCE.getTrinketConfig();
+        Stats config = BlindfoldBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return;
 
@@ -33,7 +33,7 @@ public class Blindfold extends TrinketItem<Blindfold.Stats> {
 
     @Override
     public void onUnequip(SlotContext slotContext, ItemStack prevStack, ItemStack stack) {
-        Stats config = Blindfold.INSTANCE.getTrinketConfig();
+        Stats config = BlindfoldBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return;
 
@@ -53,7 +53,7 @@ public class Blindfold extends TrinketItem<Blindfold.Stats> {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        Stats config = Blindfold.INSTANCE.getTrinketConfig();
+        Stats config = BlindfoldBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable) {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
         } else {

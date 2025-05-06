@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
+import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -16,8 +16,8 @@ import top.theillusivec4.curios.api.SlotContext;
 import java.util.List;
 import java.util.Random;
 
-public class WhatMagnet extends TrinketItem<WhatMagnet.Stats> {
-    public static WhatMagnet INSTANCE;
+public class WhatMagnet extends TrinketItemCurios<WhatMagnetBase.Stats> {
+    public static WhatMagnetBase INSTANCE;
 
     public WhatMagnet() {
         super(new TrinketData(null, null, Stats.class));
@@ -38,7 +38,7 @@ public class WhatMagnet extends TrinketItem<WhatMagnet.Stats> {
     @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
         LivingEntity livingEntity = slotContext.entity();
-        Stats config = WhatMagnet.INSTANCE.getTrinketConfig();
+        Stats config = WhatMagnetBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return;
 
@@ -59,7 +59,7 @@ public class WhatMagnet extends TrinketItem<WhatMagnet.Stats> {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        Stats config = WhatMagnet.INSTANCE.getTrinketConfig();
+        Stats config = WhatMagnetBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable) {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
         } else {

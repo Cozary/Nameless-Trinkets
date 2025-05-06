@@ -1,33 +1,27 @@
 package com.cozary.nameless_trinkets.events;
 
-import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.items.trinkets.BrokenAnkh;
-import io.wispforest.accessories.api.AccessoriesCapability;
+import com.cozary.nameless_trinkets.items.trinkets.BrokenAnkhBase;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 
-import static com.cozary.nameless_trinkets.items.trinkets.BrokenAnkh.getCooldown;
-import static com.cozary.nameless_trinkets.items.trinkets.BrokenAnkh.setCooldown;
+import static com.cozary.nameless_trinkets.items.trinkets.BrokenAnkhBase.getCooldown;
+import static com.cozary.nameless_trinkets.items.trinkets.BrokenAnkhBase.setCooldown;
 
 public class BrokenAnkhHandler {
 
-    private static final BrokenAnkh.Stats config = BrokenAnkh.INSTANCE.getTrinketConfig();
+    private static final BrokenAnkhBase.Stats config = BrokenAnkhBase.INSTANCE.getTrinketConfig();
 
-    public static boolean tryPreventDeath(Player player) {
+    public static boolean tryPreventDeath(Player player, Item stack) {
         if (!config.isEnable || player.isSpectator() || player.level().isClientSide) return false;
 
-        var accessories = AccessoriesCapability.get(player);
-        if (accessories == null) return false;
 
-        var stack = accessories.getEquipped(ModItems.BROKEN_ANKH.get());
-
-        if (!stack.isEmpty()
-                && player.isDeadOrDying()
-                && !player.getCooldowns().isOnCooldown(stack.getFirst().stack().getItem())) {
+        if (player.isDeadOrDying()
+                && !player.getCooldowns().isOnCooldown(stack)) {
 
             var level = (ServerLevel) player.getCommandSenderWorld();
 
@@ -41,7 +35,7 @@ public class BrokenAnkhHandler {
             player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 100, 1));
             player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 800, 0));
 
-            player.getCooldowns().addCooldown(stack.getFirst().stack().getItem(), config.cooldown);
+            player.getCooldowns().addCooldown(stack, config.cooldown);
 
             return true;
         }
@@ -49,26 +43,18 @@ public class BrokenAnkhHandler {
         return false;
     }
 
-    public static void restoreCooldownOnLogin(ServerPlayer player) {
-        var accessories = AccessoriesCapability.get(player);
-        if (accessories == null) return;
+    public static void restoreCooldownOnLogin(ServerPlayer player, Item stack) {
 
-        var stack = accessories.getEquipped(ModItems.BROKEN_ANKH.get());
-        if (!stack.isEmpty()) {
-            player.getCooldowns().addCooldown(stack.getFirst().stack().getItem(), getCooldown(stack.getFirst().stack()));
-        }
+        player.getCooldowns().addCooldown(stack, getCooldown(stack.getDefaultInstance()));
+
     }
 
-    public static void saveCooldownOnLogout(ServerPlayer player) {
+    public static void saveCooldownOnLogout(ServerPlayer player, Item stack) {
         if (!config.isEnable) return;
 
-        var accessories = AccessoriesCapability.get(player);
-        if (accessories == null) return;
 
-        var stack = accessories.getEquipped(ModItems.BROKEN_ANKH.get());
-        if (!stack.isEmpty()) {
-            setCooldown(stack.getFirst().stack(),
-                    (int) (player.getCooldowns().getCooldownPercent(stack.getFirst().stack().getItem(), 0) * config.cooldown));
-        }
+        setCooldown(stack.getDefaultInstance(),
+                (int) (player.getCooldowns().getCooldownPercent(stack, 0) * config.cooldown));
+
     }
 }

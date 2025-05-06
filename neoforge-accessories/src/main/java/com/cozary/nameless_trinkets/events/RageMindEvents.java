@@ -1,14 +1,8 @@
 package com.cozary.nameless_trinkets.events;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
-import com.cozary.nameless_trinkets.init.ModDataComponents;
 import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.items.trinkets.RageMind;
-import io.wispforest.accessories.api.AccessoriesCapability;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
+import com.cozary.nameless_trinkets.util.TrinketUtils;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -23,7 +17,12 @@ public class RageMindEvents {
     public static void getEntity(LivingIncomingDamageEvent event) {
         if (event.getEntity() instanceof Player player) {
 
-            RageMindHandler.getEntity(player, (LivingEntity) event.getSource().getEntity());
+            var stack = TrinketUtils.getEquippedTrinket(player, ModItems.RAGE_MIND.get());
+
+            if (stack.isEmpty())
+                return;
+
+            RageMindHandler.getEntity(player, (LivingEntity) event.getSource().getEntity(), stack.getFirst().stack().getItem());
         }
     }
 
@@ -32,7 +31,12 @@ public class RageMindEvents {
 
         if (event.getSource().getEntity() instanceof Player player) {
 
-            RageMindHandler.dealDamage(player, event.getEntity(), event.getOriginalDamage());
+            var stack = TrinketUtils.getEquippedTrinket(player, ModItems.RAGE_MIND.get());
+
+            if (stack.isEmpty())
+                return;
+
+            RageMindHandler.dealDamage(player, event.getEntity(), event.getOriginalDamage(), stack.getFirst().stack().getItem());
         }
     }
 

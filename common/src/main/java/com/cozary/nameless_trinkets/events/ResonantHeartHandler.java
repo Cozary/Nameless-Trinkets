@@ -1,8 +1,6 @@
 package com.cozary.nameless_trinkets.events;
 
-import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.items.trinkets.ResonantHeart;
-import io.wispforest.accessories.api.AccessoriesCapability;
+import com.cozary.nameless_trinkets.items.trinkets.ResonantHeartBase;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -20,7 +18,7 @@ import java.util.Random;
 public class ResonantHeartHandler {
 
     public static void heartSonicBoom(Player player, DamageSource damageSource) {
-        ResonantHeart.Stats config = ResonantHeart.INSTANCE.getTrinketConfig();
+        ResonantHeartBase.Stats config = ResonantHeartBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return;
 
@@ -30,14 +28,7 @@ public class ResonantHeartHandler {
         if (player.level().isClientSide)
             return;
 
-        var accessories = AccessoriesCapability.get(player);
-
-        if (accessories == null) {
-            return;
-        }
-
-        var stack = accessories.getEquipped(ModItems.RESONANT_HEART.get());
-        if (!stack.isEmpty() && random.nextInt(100) <= config.chanceToActivateProbability) {
+        if (random.nextInt(100) <= config.chanceToActivateProbability) {
 
             if (src != null && !(src instanceof Player) && !player.level().isClientSide) {
 
@@ -47,7 +38,7 @@ public class ResonantHeartHandler {
     }
 
     public static void launchSonicBoom(Player player, Entity src, Level level) {
-        ResonantHeart.Stats config = ResonantHeart.INSTANCE.getTrinketConfig();
+        ResonantHeartBase.Stats config = ResonantHeartBase.INSTANCE.getTrinketConfig();
 
         Vec3 origin = player.position().add(0.0, player.getEyeHeight() * 0.5, 0.0);
         Vec3 targetPos = src.position().add(0.0, src.getBbHeight() * 0.5, 0.0);

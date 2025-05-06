@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
+import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -21,8 +21,8 @@ import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
 
-public class DragonsEye extends TrinketItem<DragonsEye.Stats> {
-    public static DragonsEye INSTANCE;
+public class DragonsEye extends TrinketItemCurios<DragonsEyeBase.Stats> {
+    public static DragonsEyeBase INSTANCE;
 
     public DragonsEye() {
         super(new TrinketData(null, null, Stats.class));
@@ -42,7 +42,7 @@ public class DragonsEye extends TrinketItem<DragonsEye.Stats> {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        Stats config = DragonsEye.INSTANCE.getTrinketConfig();
+        Stats config = DragonsEyeBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable) {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
         } else {
@@ -59,7 +59,7 @@ public class DragonsEye extends TrinketItem<DragonsEye.Stats> {
 
     @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
-        Stats config = DragonsEye.INSTANCE.getTrinketConfig();
+        Stats config = DragonsEyeBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable || !(slotContext.entity() instanceof Player player)) {
             return;
         }

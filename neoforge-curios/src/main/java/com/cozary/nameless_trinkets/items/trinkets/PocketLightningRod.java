@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
+import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -20,8 +20,8 @@ import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
 
-public class PocketLightningRod extends TrinketItem<PocketLightningRod.Stats> {
-    public static PocketLightningRod INSTANCE;
+public class PocketLightningRod extends TrinketItemCurios<PocketLightningRodBase.Stats> {
+    public static PocketLightningRodBase INSTANCE;
 
     public PocketLightningRod() {
         super(new TrinketData(null, null, Stats.class));
@@ -41,7 +41,7 @@ public class PocketLightningRod extends TrinketItem<PocketLightningRod.Stats> {
 
     @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
-        Stats config = PocketLightningRod.INSTANCE.getTrinketConfig();
+        Stats config = PocketLightningRodBase.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable)
             return;

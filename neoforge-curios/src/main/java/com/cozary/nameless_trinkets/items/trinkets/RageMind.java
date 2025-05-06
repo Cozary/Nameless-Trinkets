@@ -2,7 +2,7 @@ package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.init.ModDataComponents;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
+import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -25,8 +25,8 @@ import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
 
-public class RageMind extends TrinketItem<RageMind.Stats> {
-    public static RageMind INSTANCE;
+public class RageMind extends TrinketItemCurios<RageMindBase.Stats> {
+    public static RageMindBase INSTANCE;
 
     public RageMind() {
         super(new TrinketData(null, null, Stats.class));
@@ -37,7 +37,7 @@ public class RageMind extends TrinketItem<RageMind.Stats> {
     @SuppressWarnings("unchecked")
     @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
-        Stats config = RageMind.INSTANCE.getTrinketConfig();
+        Stats config = RageMindBase.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable)
             return;
@@ -103,7 +103,7 @@ public class RageMind extends TrinketItem<RageMind.Stats> {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        Stats config = RageMind.INSTANCE.getTrinketConfig();
+        Stats config = RageMindBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable) {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
         } else {

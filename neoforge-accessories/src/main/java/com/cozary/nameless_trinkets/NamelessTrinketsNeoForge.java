@@ -3,6 +3,7 @@ package com.cozary.nameless_trinkets;
 import com.cozary.nameless_trinkets.config.TrinketConfigs;
 import com.cozary.nameless_trinkets.config.common.CommonConfigManager;
 import com.cozary.nameless_trinkets.config.looTables.TrinketLootConfigsManager;
+import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.init.ModTabs;
 import com.cozary.nameless_trinkets.utils.RemoveRendering;
 import net.neoforged.bus.api.EventPriority;
@@ -21,6 +22,7 @@ public class NamelessTrinketsNeoForge {
         NamelessTrinkets.init();
 
         ModTabs.init(eventBus);
+        ModItems.loadClass();
     }
 
     private void setup(final FMLCommonSetupEvent event) {

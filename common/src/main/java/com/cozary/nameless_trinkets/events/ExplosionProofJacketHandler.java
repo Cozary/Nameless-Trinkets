@@ -1,8 +1,6 @@
 package com.cozary.nameless_trinkets.events;
 
-import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.items.trinkets.ExplosionProofJacket;
-import io.wispforest.accessories.api.AccessoriesCapability;
+import com.cozary.nameless_trinkets.items.trinkets.ExplosionProofJacketBase;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageSource;
@@ -16,7 +14,7 @@ public class ExplosionProofJacketHandler {
 
     public static float handleExplosionDamageReduction(Player player, DamageSource damageSource, float originalDamage) {
 
-        ExplosionProofJacket.Stats config = ExplosionProofJacket.INSTANCE.getTrinketConfig();
+        ExplosionProofJacketBase.Stats config = ExplosionProofJacketBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return originalDamage;
 
@@ -24,22 +22,16 @@ public class ExplosionProofJacketHandler {
             Level world = player.level();
             ItemStack itemStack = Items.TNT.getDefaultInstance();
 
-            var accessories = AccessoriesCapability.get(player);
 
-            if (accessories == null) {
-                return originalDamage;
+            if (damageSource.is(DamageTypeTags.IS_EXPLOSION)) {
+                BlockPos pos = player.blockPosition();
+                ItemEntity itementity = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), itemStack);
+                itementity.setDefaultPickUpDelay();
+                itementity.setInvulnerable(true);
+                world.addFreshEntity(itementity);
+                return originalDamage * (1 - config.blastDamagePercentageReduction) * 100;
             }
-            var stack = accessories.getEquipped(ModItems.EXPLOSION_PROOF_JACKET.get());
-            if (!stack.isEmpty()) {
-                if (damageSource.is(DamageTypeTags.IS_EXPLOSION)) {
-                    BlockPos pos = player.blockPosition();
-                    ItemEntity itementity = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), itemStack);
-                    itementity.setDefaultPickUpDelay();
-                    itementity.setInvulnerable(true);
-                    world.addFreshEntity(itementity);
-                    return originalDamage * (1 - config.blastDamagePercentageReduction) * 100;
-                }
-            }
+
         }
         return originalDamage;
     }

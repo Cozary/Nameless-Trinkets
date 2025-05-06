@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.mixin;
 
 import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.items.trinkets.FateEmerald;
+import com.cozary.nameless_trinkets.items.trinkets.FateEmeraldBase;
 import io.wispforest.accessories.api.AccessoriesCapability;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.npc.AbstractVillager;
@@ -19,7 +19,7 @@ public class MixinVillagerTrade {
 
     @Inject(at = @At(value = "HEAD"), method = "startTrading")
     protected void badOffers(Player player, CallbackInfo ci) {
-        FateEmerald.Stats config = FateEmerald.INSTANCE.getTrinketConfig();
+        FateEmeraldBase.Stats config = FateEmeraldBase.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable)
             return;

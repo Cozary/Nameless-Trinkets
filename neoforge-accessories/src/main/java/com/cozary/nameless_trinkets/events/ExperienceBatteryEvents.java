@@ -2,8 +2,7 @@ package com.cozary.nameless_trinkets.events;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.items.trinkets.ExperienceBattery;
-import io.wispforest.accessories.api.AccessoriesCapability;
+import com.cozary.nameless_trinkets.util.TrinketUtils;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -15,6 +14,11 @@ public class ExperienceBatteryEvents {
     @SubscribeEvent
     public static void handleExperienceDrop(LivingExperienceDropEvent event) {
         Player player = event.getAttackingPlayer();
+
+        var stack = TrinketUtils.getEquippedTrinket(player, ModItems.EXPERIENCE_BATTERY.get());
+
+        if (stack.isEmpty())
+            return;
 
         int originalExperience = event.getOriginalExperience();
 

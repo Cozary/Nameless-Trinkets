@@ -2,36 +2,15 @@ package com.cozary.nameless_trinkets.events;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.items.trinkets.IceCube;
-import io.wispforest.accessories.api.AccessoriesCapability;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.core.particles.BlockParticleOption;
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.tags.DamageTypeTags;
-import net.minecraft.util.Mth;
+import com.cozary.nameless_trinkets.util.TrinketUtils;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.FrostedIceBlock;
-import net.minecraft.world.level.block.LiquidBlock;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.shapes.CollisionContext;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.common.util.BlockSnapshot;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
-import net.neoforged.neoforge.event.tick.PlayerTickEvent;
-
-import static net.neoforged.neoforge.event.EventHooks.onBlockPlace;
 
 @EventBusSubscriber(modid = NamelessTrinkets.MOD_ID)
 public class IceCubeEvents {
@@ -47,6 +26,11 @@ public class IceCubeEvents {
 
         if (src instanceof Player player) {
 
+            var stack = TrinketUtils.getEquippedTrinket(player, ModItems.ICE_CUBE.get());
+
+            if (stack.isEmpty())
+                return;
+
             IceCubeHandler.applySlowEffect(player, (LivingEntity) event.getSource().getEntity());
 
         }
@@ -57,9 +41,14 @@ public class IceCubeEvents {
 
         if (event.getEntity() instanceof Player player) {
 
-                            event.setCanceled(IceCubeHandler.negateFreezeDamage(player, event.getSource()));
+            var stack = TrinketUtils.getEquippedTrinket(player, ModItems.ICE_CUBE.get());
 
-                        }
+            if (stack.isEmpty())
+                return;
+
+            event.setCanceled(IceCubeHandler.negateFreezeDamage(player, event.getSource()));
+
+        }
     }
 
 

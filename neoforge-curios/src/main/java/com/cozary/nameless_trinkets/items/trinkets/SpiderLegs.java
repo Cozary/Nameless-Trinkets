@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
+import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -15,8 +15,8 @@ import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
 
-public class SpiderLegs extends TrinketItem<SpiderLegs.Stats> {
-    public static SpiderLegs INSTANCE;
+public class SpiderLegs extends TrinketItemCurios<SpiderLegsBase.Stats> {
+    public static SpiderLegsBase INSTANCE;
 
     public SpiderLegs() {
         super(new TrinketData(null, null, Stats.class));
@@ -36,7 +36,7 @@ public class SpiderLegs extends TrinketItem<SpiderLegs.Stats> {
 
     @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
-        Stats config = SpiderLegs.INSTANCE.getTrinketConfig();
+        Stats config = SpiderLegsBase.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable)
             return;

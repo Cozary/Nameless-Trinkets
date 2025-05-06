@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
+import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -13,8 +13,8 @@ import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
 
-public class ExplosionProofJacket extends TrinketItem<ExplosionProofJacket.Stats> {
-    public static ExplosionProofJacket INSTANCE;
+public class ExplosionProofJacket extends TrinketItemCurios<ExplosionProofJacketBase.Stats> {
+    public static ExplosionProofJacketBase INSTANCE;
 
     public ExplosionProofJacket() {
         super(new TrinketData(null, null, Stats.class));
@@ -42,7 +42,7 @@ public class ExplosionProofJacket extends TrinketItem<ExplosionProofJacket.Stats
     }*/
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        Stats config = ExplosionProofJacket.INSTANCE.getTrinketConfig();
+        Stats config = ExplosionProofJacketBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable) {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
         } else {

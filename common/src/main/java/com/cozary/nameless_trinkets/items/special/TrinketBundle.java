@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * ehe{@link net.minecraft.world.item.BundleItem}
+ * ehe{@link BundleItem}
  */
 public class TrinketBundle extends BundleItem {
     private static final int BAR_COLOR = Mth.color(1.0F, 0.4F, 0.4F);

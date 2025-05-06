@@ -1,8 +1,6 @@
 package com.cozary.nameless_trinkets.events;
 
-import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.items.trinkets.MinersSoul;
-import io.wispforest.accessories.api.AccessoriesCapability;
+import com.cozary.nameless_trinkets.items.trinkets.MinersSoulBase;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
@@ -29,14 +27,8 @@ import java.util.List;
 public class MinersSoulHandler {
 
     public static void playerBreakBlock(Player player, BlockState state, BlockPos pos, Level level) {
-        MinersSoul.Stats config = MinersSoul.INSTANCE.getTrinketConfig();
+        MinersSoulBase.Stats config = MinersSoulBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable || level.isClientSide || player == null || player.isSpectator()) return;
-
-        var accessories = AccessoriesCapability.get(player);
-        if (accessories == null) return;
-
-        var stack = accessories.getEquipped(ModItems.MINERS_SOUL.get());
-        if (stack.isEmpty()) return;
 
         ItemStack itemStack = player.getMainHandItem();
         ItemStack fakeItemStack = new ItemStack(itemStack.getItem());

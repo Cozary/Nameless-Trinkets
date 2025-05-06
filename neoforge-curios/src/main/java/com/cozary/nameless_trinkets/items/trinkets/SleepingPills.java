@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
+import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -22,8 +22,8 @@ import top.theillusivec4.curios.api.SlotContext;
 import java.util.List;
 import java.util.Objects;
 
-public class SleepingPills extends TrinketItem<SleepingPills.Stats> {
-    public static SleepingPills INSTANCE;
+public class SleepingPills extends TrinketItemCurios<SleepingPillsBase.Stats> {
+    public static SleepingPillsBase INSTANCE;
 
     public SleepingPills() {
         super(new TrinketData(null, null, Stats.class));
@@ -43,7 +43,7 @@ public class SleepingPills extends TrinketItem<SleepingPills.Stats> {
 
     @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
-        Stats config = SleepingPills.INSTANCE.getTrinketConfig();
+        Stats config = SleepingPillsBase.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable)
             return;
@@ -78,7 +78,7 @@ public class SleepingPills extends TrinketItem<SleepingPills.Stats> {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        Stats config = SleepingPills.INSTANCE.getTrinketConfig();
+        Stats config = SleepingPillsBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable) {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
         } else {

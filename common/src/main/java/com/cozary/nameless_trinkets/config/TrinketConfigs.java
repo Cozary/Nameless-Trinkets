@@ -1,10 +1,11 @@
 package com.cozary.nameless_trinkets.config;
 
-import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemData;
 import com.google.gson.reflect.TypeToken;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import org.jetbrains.annotations.Nullable;
 
@@ -35,7 +36,7 @@ public class TrinketConfigs {
         createTrinketConfigs();
     }
 
-    private static void createTrinketConfigs() {
+/*    private static void createTrinketConfigs() {
         ModItems.CREATIVE_TAB_ITEMS.forEach(registryObject -> {
             Item item = registryObject.get();
 
@@ -67,7 +68,42 @@ public class TrinketConfigs {
                 syncTrinketData(trinketItem, data);
             }
         });
+    }*/
+
+    private static void createTrinketConfigs() {
+        for (Item item : BuiltInRegistries.ITEM) {
+            ResourceLocation id = BuiltInRegistries.ITEM.getKey(item);
+
+            if (id != null && id.getNamespace().equals("nameless_trinkets") && item instanceof TrinketItem<?> trinketItem) {
+                TrinketItemData<?> data = readConfig(trinketItem);
+
+                if (data == null || data.getConfig() == null) {
+                    String itemName = id.getPath();
+                    Path sourcePath = getRootPath().resolve(itemName + ".json");
+
+                    if (Files.exists(sourcePath)) {
+                        Path backupPath = getBackupPath(sourcePath);
+                        try {
+                            Files.createDirectories(backupPath);
+                            Files.move(sourcePath, backupPath.resolve(itemName + ".json"));
+                        } catch (IOException e) {
+                            logError(e, "Failed to backup config for " + itemName);
+                        }
+                    }
+
+                    try {
+                        writeConfig(trinketItem);
+                    } catch (IOException e) {
+                        throw new RuntimeException("Failed to write config for " + itemName, e);
+                    }
+                    data = trinketItem.getTrinketData().toConfigData();
+                }
+
+                syncTrinketData(trinketItem, data);
+            }
+        }
     }
+
 
     private static void writeConfig(TrinketItem<?> trinketItem) throws IOException {
         Path path = getRootPath().resolve(getItemName(trinketItem) + ".json");
@@ -99,13 +135,22 @@ public class TrinketConfigs {
         trinketItem.setTrinketConfig(data.getConfig());
     }
 
-    public static String getItemName(TrinketItem<?> trinketItem) {
+/*    public static String getItemName(TrinketItem<?> trinketItem) {
         return ModItems.CREATIVE_TAB_ITEMS.stream()
                 .filter(item -> item.get() == trinketItem)
                 .findFirst()
                 .map(item -> item.getId().getPath())
                 .orElseThrow(() -> new IllegalArgumentException("Trinket (Item) not found: " + trinketItem));
+    }*/
+
+    public static String getItemName(TrinketItem<?> trinketItem) {
+        ResourceLocation id = BuiltInRegistries.ITEM.getKey(trinketItem);
+        if (id == null) {
+            throw new IllegalArgumentException("Trinket (Item) not found in registry: " + trinketItem);
+        }
+        return id.getPath();
     }
+
 
     private static Path getBackupPath(Path sourcePath) {
         return getRootPath()

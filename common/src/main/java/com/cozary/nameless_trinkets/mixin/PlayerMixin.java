@@ -1,8 +1,8 @@
 package com.cozary.nameless_trinkets.mixin;
 
 import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.items.trinkets.DarkNelumbo;
-import com.cozary.nameless_trinkets.items.trinkets.Nelumbo;
+import com.cozary.nameless_trinkets.items.trinkets.DarkNelumboBase;
+import com.cozary.nameless_trinkets.items.trinkets.NelumboBase;
 import io.wispforest.accessories.api.AccessoriesCapability;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.LivingEntity;
@@ -19,8 +19,8 @@ public abstract class PlayerMixin {
     @Inject(method = "canStandOnFluid", at = @At("RETURN"), cancellable = true)
     public void onCanStandOnFluid(FluidState fluidState, CallbackInfoReturnable<Boolean> cir) {
         if ((Object) this instanceof Player player) {
-            Nelumbo.Stats config0 = Nelumbo.INSTANCE.getTrinketConfig();
-            DarkNelumbo.Stats config1 = DarkNelumbo.INSTANCE.getTrinketConfig();
+            NelumboBase.Stats config0 = NelumboBase.INSTANCE.getTrinketConfig();
+            DarkNelumboBase.Stats config1 = DarkNelumboBase.INSTANCE.getTrinketConfig();
 
             var stack0 = AccessoriesCapability.get(player).getEquipped(ModItems.NELUMBO.get());
             var stack1 = AccessoriesCapability.get(player).getEquipped(ModItems.DARK_NELUMBO.get());

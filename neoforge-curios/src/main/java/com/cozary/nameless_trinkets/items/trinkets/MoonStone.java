@@ -2,7 +2,7 @@ package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
+import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import com.cozary.nameless_trinkets.utils.EntityUtils;
 import net.minecraft.ChatFormatting;
@@ -22,8 +22,8 @@ import top.theillusivec4.curios.api.SlotContext;
 import java.util.List;
 import java.util.Objects;
 
-public class MoonStone extends TrinketItem<MoonStone.Stats> {
-    public static MoonStone INSTANCE;
+public class MoonStone extends TrinketItemCurios<MoonStoneBase.Stats> {
+    public static MoonStoneBase INSTANCE;
 
     public MoonStone() {
         super(new TrinketData(null, null, Stats.class));
@@ -33,7 +33,7 @@ public class MoonStone extends TrinketItem<MoonStone.Stats> {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        Stats config = MoonStone.INSTANCE.getTrinketConfig();
+        Stats config = MoonStoneBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable) {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
         } else {
@@ -59,7 +59,7 @@ public class MoonStone extends TrinketItem<MoonStone.Stats> {
 
     @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
-        Stats config = MoonStone.INSTANCE.getTrinketConfig();
+        Stats config = MoonStoneBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return;
 

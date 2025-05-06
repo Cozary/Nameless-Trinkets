@@ -1,8 +1,6 @@
 package com.cozary.nameless_trinkets.events;
 
-import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.items.trinkets.MissingPage;
-import io.wispforest.accessories.api.AccessoriesCapability;
+import com.cozary.nameless_trinkets.items.trinkets.MissingPageBase;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
@@ -22,19 +20,14 @@ public class MissingPageHandler {
     }
 
     public static void triggerDamageReflection(Player player, DamageSource damageSource, Entity entity) {
-        MissingPage.Stats config = MissingPage.INSTANCE.getTrinketConfig();
+        MissingPageBase.Stats config = MissingPageBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return;
 
         Entity src = damageSource.getEntity();
         Random random = new Random();
-        var accessories = AccessoriesCapability.get(player);
 
-        if (accessories == null) {
-            return;
-        }
-        var stack = accessories.getEquipped(ModItems.MISSING_PAGE.get());
-        if (!stack.isEmpty() && random.nextInt(100) <= config.activationPercentage) {
+        if (random.nextInt(100) <= config.activationPercentage) {
 
             AABB targetBox = new AABB(player.position(), player.position()).inflate(config.radiusInBlocks);
 

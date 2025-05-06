@@ -2,7 +2,7 @@ package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.init.ModDataComponents;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
+import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -15,8 +15,8 @@ import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
 
-public class SigilOfBaphomet extends TrinketItem<SigilOfBaphomet.Stats> {
-    public static SigilOfBaphomet INSTANCE;
+public class SigilOfBaphomet extends TrinketItemCurios<SigilOfBaphometBase.Stats> {
+    public static SigilOfBaphometBase INSTANCE;
 
     public SigilOfBaphomet() {
         super(new TrinketData(null, null, Stats.class));
@@ -36,7 +36,7 @@ public class SigilOfBaphomet extends TrinketItem<SigilOfBaphomet.Stats> {
 
     @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
-        Stats config = SigilOfBaphomet.INSTANCE.getTrinketConfig();
+        Stats config = SigilOfBaphometBase.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable)
             return;
@@ -53,7 +53,7 @@ public class SigilOfBaphomet extends TrinketItem<SigilOfBaphomet.Stats> {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        Stats config = SigilOfBaphomet.INSTANCE.getTrinketConfig();
+        Stats config = SigilOfBaphometBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable) {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
         } else {

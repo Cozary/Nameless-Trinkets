@@ -2,7 +2,7 @@ package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
+import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -21,9 +21,9 @@ import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
 
-public class FragileCloud extends TrinketItem<FragileCloud.Stats> {
+public class FragileCloud extends TrinketItemCurios<FragileCloudBase.Stats> {
     private static final AttributeModifier SLOW_FALLING = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "slow_falling"), -0.07, AttributeModifier.Operation.ADD_VALUE); // Add -0.07 to 0.08 so we get the vanilla default of 0.01
-    public static FragileCloud INSTANCE;
+    public static FragileCloudBase INSTANCE;
 
     public FragileCloud() {
         super(new TrinketData(null, null, Stats.class));
@@ -44,7 +44,7 @@ public class FragileCloud extends TrinketItem<FragileCloud.Stats> {
     @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
 
-        Stats config = FragileCloud.INSTANCE.getTrinketConfig();
+        Stats config = FragileCloudBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable) return;
 
         if (!(slotContext.entity() instanceof Player player)) return;
@@ -87,7 +87,7 @@ public class FragileCloud extends TrinketItem<FragileCloud.Stats> {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        Stats config = FragileCloud.INSTANCE.getTrinketConfig();
+        Stats config = FragileCloudBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable) {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
         } else {

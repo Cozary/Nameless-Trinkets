@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
+import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -13,8 +13,8 @@ import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
 
-public class ExperienceBattery extends TrinketItem<ExperienceBattery.Stats> {
-    public static ExperienceBattery INSTANCE;
+public class ExperienceBattery extends TrinketItemCurios<ExperienceBatteryBase.Stats> {
+    public static ExperienceBatteryBase INSTANCE;
 
     public ExperienceBattery() {
         super(new TrinketData(null, null, Stats.class));

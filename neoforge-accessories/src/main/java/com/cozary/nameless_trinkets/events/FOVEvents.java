@@ -10,7 +10,10 @@ public class FOVEvents {
 
     @SubscribeEvent
     public static void onFOVUpdate(ComputeFovModifierEvent event) {
-       float newFov = FOVHandler.onFOVUpdate(event.getPlayer(), event.getFovModifier());
-       event.setNewFovModifier(newFov);
+
+        //Todo add check stack
+
+        float newFov = FOVHandler.onFOVUpdate(event.getPlayer(), event.getFovModifier());
+        event.setNewFovModifier(newFov);
     }
 }

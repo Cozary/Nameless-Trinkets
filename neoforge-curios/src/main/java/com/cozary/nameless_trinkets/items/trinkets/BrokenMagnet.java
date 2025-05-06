@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
+import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -15,8 +15,8 @@ import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
 
-public class BrokenMagnet extends TrinketItem<BrokenMagnet.Stats> {
-    public static BrokenMagnet INSTANCE;
+public class BrokenMagnet extends TrinketItemCurios<BrokenMagnetBase.Stats> {
+    public static BrokenMagnetBase INSTANCE;
 
     public BrokenMagnet() {
         super(new TrinketData(null, null, Stats.class));
@@ -36,7 +36,7 @@ public class BrokenMagnet extends TrinketItem<BrokenMagnet.Stats> {
 
     @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
-        Stats config = BrokenMagnet.INSTANCE.getTrinketConfig();
+        Stats config = BrokenMagnetBase.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable)
             return;
@@ -61,7 +61,7 @@ public class BrokenMagnet extends TrinketItem<BrokenMagnet.Stats> {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        Stats config = BrokenMagnet.INSTANCE.getTrinketConfig();
+        Stats config = BrokenMagnetBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable) {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
         } else {

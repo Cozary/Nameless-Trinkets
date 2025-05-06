@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
+import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -18,8 +18,8 @@ import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
 
-public class Tick extends TrinketItem<Tick.Stats> {
-    public static Tick INSTANCE;
+public class Tick extends TrinketItemCurios<TickBase.Stats> {
+    public static TickBase INSTANCE;
 
     public Tick() {
         super(new TrinketData(null, null, Stats.class));
@@ -51,7 +51,7 @@ public class Tick extends TrinketItem<Tick.Stats> {
     @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
 
-        Stats config = Tick.INSTANCE.getTrinketConfig();
+        Stats config = TickBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return;
 
@@ -63,7 +63,7 @@ public class Tick extends TrinketItem<Tick.Stats> {
 
             AABB targetBox = new AABB(player.position(), player.position()).inflate(config.rangeToActivate);
             List<LivingEntity> foundTarget =
-                    player.level().getEntitiesOfClass(LivingEntity.class, targetBox, Tick::isValidTarget);
+                    player.level().getEntitiesOfClass(LivingEntity.class, targetBox, TickBase::isValidTarget);
 
             if (!foundTarget.isEmpty()) {
                 for (LivingEntity livingEntity : foundTarget) {
@@ -85,7 +85,7 @@ public class Tick extends TrinketItem<Tick.Stats> {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        Stats config = Tick.INSTANCE.getTrinketConfig();
+        Stats config = TickBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable) {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
         } else {

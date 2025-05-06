@@ -2,7 +2,7 @@ package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
+import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import com.cozary.nameless_trinkets.utils.EntityUtils;
 import net.minecraft.ChatFormatting;
@@ -30,8 +30,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
-public class TrueHeartOfTheSea extends TrinketItem<TrueHeartOfTheSea.Stats> {
-    public static TrueHeartOfTheSea INSTANCE;
+public class TrueHeartOfTheSea extends TrinketItemCurios<TrueHeartOfTheSeaBase.Stats> {
+    public static TrueHeartOfTheSeaBase INSTANCE;
 
     public TrueHeartOfTheSea() {
         super(new TrinketData(null, null, Stats.class));
@@ -52,7 +52,7 @@ public class TrueHeartOfTheSea extends TrinketItem<TrueHeartOfTheSea.Stats> {
     @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
         LivingEntity livingEntity = slotContext.entity();
-        Stats config = TrueHeartOfTheSea.INSTANCE.getTrinketConfig();
+        Stats config = TrueHeartOfTheSeaBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return;
 
@@ -81,7 +81,7 @@ public class TrueHeartOfTheSea extends TrinketItem<TrueHeartOfTheSea.Stats> {
     @Override
     public void onEquip(SlotContext slotContext, ItemStack pstack, ItemStack stack) {
         LivingEntity livingEntity = slotContext.entity();
-        Stats config = TrueHeartOfTheSea.INSTANCE.getTrinketConfig();
+        Stats config = TrueHeartOfTheSeaBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return;
 
@@ -108,7 +108,7 @@ public class TrueHeartOfTheSea extends TrinketItem<TrueHeartOfTheSea.Stats> {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        Stats config = TrueHeartOfTheSea.INSTANCE.getTrinketConfig();
+        Stats config = TrueHeartOfTheSeaBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable) {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
         } else {

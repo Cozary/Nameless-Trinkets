@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
+import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -13,9 +13,9 @@ import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;
 
-public class MinersSoul extends TrinketItem<MinersSoul.Stats> {
+public class MinersSoul extends TrinketItemCurios<MinersSoulBase.Stats> {
 
-    public static MinersSoul INSTANCE;
+    public static MinersSoulBase INSTANCE;
 
     public MinersSoul() {
         super(new TrinketData(null, null, Stats.class));
@@ -35,7 +35,7 @@ public class MinersSoul extends TrinketItem<MinersSoul.Stats> {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        Stats config = MinersSoul.INSTANCE.getTrinketConfig();
+        Stats config = MinersSoulBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable) {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
         } else {

@@ -1,8 +1,6 @@
 package com.cozary.nameless_trinkets.events;
 
-import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.items.trinkets.Callus;
-import io.wispforest.accessories.api.AccessoriesCapability;
+import com.cozary.nameless_trinkets.items.trinkets.CallusBase;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.player.Player;
@@ -10,18 +8,9 @@ import net.minecraft.world.entity.player.Player;
 public class CallusHandler {
 
     public static float onPlayerHurt(Player player, DamageSource source, float originalAmount) {
-        Callus.Stats config = Callus.INSTANCE.getTrinketConfig();
+        CallusBase.Stats config = CallusBase.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable)
-            return originalAmount;
-
-        var accessories = AccessoriesCapability.get(player);
-
-        if (accessories == null)
-            return originalAmount;
-
-        var stack = accessories.getEquipped(ModItems.CALLUS.get());
-        if (stack.isEmpty())
             return originalAmount;
 
 
