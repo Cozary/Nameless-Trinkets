@@ -60,7 +60,7 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 publishMods {
     file = jar.archiveFile
     changelog = project(":common").file("CHANGELOG.md").text
-    type = STABLE
+    type = ALPHA
     modLoaders.add("neoforge")
     displayName = "${mod_name}-neoforge-curios-${minecraft_version}-${version_neoforge}"
     dryRun = dry_run.toBoolean()
