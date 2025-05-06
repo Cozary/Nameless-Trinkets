@@ -20,16 +20,7 @@ public class NamelessTrinketsNeoForge {
         NamelessTrinkets.init();
 
         ModTabs.init(eventBus);
-        //ModItemsCurios.init(eventBus);
-
-        if (Services.PLATFORM.isModLoaded("curios")) {
-            try {
-                Class<?> clazz = Class.forName("com.cozary.nameless_trinkets.util.ModCuriosEntryPoint");
-                clazz.getMethod("tryLoadCuriosItems").invoke(null);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+        ModItemsCurios.init(eventBus);
 
     }
 

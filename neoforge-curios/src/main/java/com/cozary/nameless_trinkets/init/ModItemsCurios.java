@@ -18,7 +18,7 @@ public class ModItemsCurios {
 
     public static LinkedHashSet<Supplier<Item>> CREATIVE_TAB_ITEMS = Sets.newLinkedHashSet();
 
-    /*//Trinkets
+    //Trinkets
     public static final Supplier<Item> MISSING_PAGE = registerWithTab("missing_page", MissingPage::new);
     public static final Supplier<Item> REVERSE_CARD = registerWithTab("reverse_card", ReverseCard::new);
     public static final Supplier<Item> EXPERIENCE_BATTERY = registerWithTab("experience_battery", ExperienceBattery::new);
@@ -82,7 +82,7 @@ public class ModItemsCurios {
     //Recipe Items
     public static final Supplier<Item> DUBIOUS_DUST = registerWithTab("dubious_dust", DubiousDust::new);
     public static final Supplier<Item> GLOWING_DUST = registerWithTab("glowing_dust", GlowingDust::new);
-    public static final Supplier<Item> ULTIMATE_DUST = registerWithTab("ultimate_dust", UltimateDust::new);*/
+    public static final Supplier<Item> ULTIMATE_DUST = registerWithTab("ultimate_dust", UltimateDust::new);
 
     public static Supplier<Item> registerWithTab(final String name, final Supplier<? extends Item> supplier) {
         Supplier<Item> item = ITEMS.register(name, supplier);
@@ -92,10 +92,6 @@ public class ModItemsCurios {
 
     public static void init(IEventBus eventBus) {
         ITEMS.register(eventBus);
-    }
-
-    public static void registerCuriosItems() {
-        ModItems.registerWithTab("amphibious_hands", AmphibiousHands::new);
     }
 
 }
