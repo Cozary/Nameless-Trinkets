@@ -14,16 +14,16 @@ public class WoodenStickHandler {
 
         var accessories = AccessoriesCapability.get(player);
 
-            if (accessories == null) {
-                return false;
+        if (accessories == null) {
+            return false;
+        }
+        var stack = accessories.getEquipped(ModItems.WOODEN_STICK.get());
+        if (!stack.isEmpty() && !player.level().isClientSide) {
+            if (!player.getCooldowns().isOnCooldown(stack.getFirst().stack().getItem())) {
+                player.getCooldowns().addCooldown(stack.getFirst().stack().getItem(), (int) config.cooldown);
+                return true;
             }
-            var stack = accessories.getEquipped(ModItems.WOODEN_STICK.get());
-            if (!stack.isEmpty() && !player.level().isClientSide) {
-                if (!player.getCooldowns().isOnCooldown(stack.getFirst().stack().getItem())) {
-                    player.getCooldowns().addCooldown(stack.getFirst().stack().getItem(), (int) config.cooldown);
-                    return true;
-                }
-            }
+        }
         return false;
     }
 }

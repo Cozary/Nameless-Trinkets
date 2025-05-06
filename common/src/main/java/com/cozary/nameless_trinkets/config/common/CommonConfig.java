@@ -14,12 +14,12 @@ public class CommonConfig {
         return getFragments;
     }
 
-    public boolean isDisableFOV() {
-        return disableFOV;
-    }
-
     public void setGetFragments(boolean value) {
         this.getFragments = value;
+    }
+
+    public boolean isDisableFOV() {
+        return disableFOV;
     }
 
     public void setDisableFOV(boolean value) {

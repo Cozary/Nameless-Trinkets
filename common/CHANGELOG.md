@@ -17,7 +17,6 @@
 - The loot table for [God's Crown] and [Dying Star] is now generated, but with a value of 0.
 - [Four Leaf Clover] its description is now somewhat clearer.
 
-
 ### Removed
 
 - **Forge Config Api** dependency.

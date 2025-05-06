@@ -4,8 +4,7 @@ import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.config.looTables.TrinketDataProvider;
 import com.cozary.nameless_trinkets.config.looTables.TrinketLootConfig;
 import com.cozary.nameless_trinkets.config.looTables.TrinketLootConfigsManager;
-import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.init.RegistryObject;
+import com.cozary.nameless_trinkets.init.ModItemsCurios;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
@@ -22,6 +21,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.LootTableLoadEvent;
 
 import java.util.Optional;
+import java.util.function.Supplier;
 
 import static com.cozary.nameless_trinkets.config.TrinketConfigs.getItemName;
 
@@ -41,7 +41,7 @@ public class LootTableHandler {
                 if (!config.getLootTables().contains(tableId))
                     return;
 
-                Optional<RegistryObject<Item>> optionalItem = ModItems.CREATIVE_TAB_ITEMS.stream()
+                Optional<Supplier<Item>> optionalItem = ModItemsCurios.CREATIVE_TAB_ITEMS.stream()
                         .filter(item -> getItemName((TrinketItem<?>) item.get()).equals(config.getItemId()))
                         .findFirst();
 

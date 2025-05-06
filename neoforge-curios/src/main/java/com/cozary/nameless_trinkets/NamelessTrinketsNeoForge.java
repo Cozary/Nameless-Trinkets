@@ -1,10 +1,9 @@
 package com.cozary.nameless_trinkets;
 
-import com.cozary.nameless_trinkets.config.TrinketConfigs;
 import com.cozary.nameless_trinkets.config.common.CommonConfigManager;
-import com.cozary.nameless_trinkets.config.looTables.TrinketLootConfigsManager;
+import com.cozary.nameless_trinkets.init.ModItemsCurios;
 import com.cozary.nameless_trinkets.init.ModTabs;
-import com.cozary.nameless_trinkets.utils.RemoveRendering;
+import com.cozary.nameless_trinkets.platform.Services;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -21,12 +20,23 @@ public class NamelessTrinketsNeoForge {
         NamelessTrinkets.init();
 
         ModTabs.init(eventBus);
+        //ModItemsCurios.init(eventBus);
+
+        if (Services.PLATFORM.isModLoaded("curios")) {
+            try {
+                Class<?> clazz = Class.forName("com.cozary.nameless_trinkets.util.ModCuriosEntryPoint");
+                clazz.getMethod("tryLoadCuriosItems").invoke(null);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
     private void setup(final FMLCommonSetupEvent event) {
-        TrinketLootConfigsManager.loadConfigs();
-        TrinketConfigs.loadClass();
+        //TrinketLootConfigsManager.loadConfigs();
+        //TrinketConfigs.loadClass();
         CommonConfigManager.loadConfig();
-        RemoveRendering.noRenderingList();
+        //RemoveRendering.noRenderingList();
     }
 }

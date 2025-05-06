@@ -30,25 +30,25 @@ public class MissingPageHandler {
         Random random = new Random();
         var accessories = AccessoriesCapability.get(player);
 
-            if (accessories == null) {
-                return;
-            }
-            var stack = accessories.getEquipped(ModItems.MISSING_PAGE.get());
-            if (!stack.isEmpty() && random.nextInt(100) <= config.activationPercentage) {
+        if (accessories == null) {
+            return;
+        }
+        var stack = accessories.getEquipped(ModItems.MISSING_PAGE.get());
+        if (!stack.isEmpty() && random.nextInt(100) <= config.activationPercentage) {
 
-                AABB targetBox = new AABB(player.position(), player.position()).inflate(config.radiusInBlocks);
+            AABB targetBox = new AABB(player.position(), player.position()).inflate(config.radiusInBlocks);
 
-                List<LivingEntity> foundTarget =
-                        entity.level().getEntitiesOfClass(LivingEntity.class, targetBox, MissingPageHandler::isValidTarget);
+            List<LivingEntity> foundTarget =
+                    entity.level().getEntitiesOfClass(LivingEntity.class, targetBox, MissingPageHandler::isValidTarget);
 
-                if (src != null && !(src instanceof Player) && !foundTarget.isEmpty() && !player.level().isClientSide) {
+            if (src != null && !(src instanceof Player) && !foundTarget.isEmpty() && !player.level().isClientSide) {
 
-                    for (LivingEntity livingEntity : foundTarget) {
-                        ((ServerLevel) livingEntity.getCommandSenderWorld()).sendParticles(ParticleTypes.SOUL, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), 35, 1D, 1D, 1D, 0.1);
-                        livingEntity.hurt(livingEntity.damageSources().generic(), livingEntity.getMaxHealth() * (config.percentageOfDamage / 100));
-                    }
+                for (LivingEntity livingEntity : foundTarget) {
+                    ((ServerLevel) livingEntity.getCommandSenderWorld()).sendParticles(ParticleTypes.SOUL, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), 35, 1D, 1D, 1D, 0.1);
+                    livingEntity.hurt(livingEntity.damageSources().generic(), livingEntity.getMaxHealth() * (config.percentageOfDamage / 100));
                 }
             }
         }
+    }
 
 }

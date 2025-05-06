@@ -21,25 +21,25 @@ public class ExplosionProofJacketHandler {
             return originalDamage;
 
         if (!player.isSpectator()) {
-                Level world = player.level();
-                ItemStack itemStack = Items.TNT.getDefaultInstance();
+            Level world = player.level();
+            ItemStack itemStack = Items.TNT.getDefaultInstance();
 
-                var accessories = AccessoriesCapability.get(player);
+            var accessories = AccessoriesCapability.get(player);
 
-                if (accessories == null) {
-                    return originalDamage;
+            if (accessories == null) {
+                return originalDamage;
+            }
+            var stack = accessories.getEquipped(ModItems.EXPLOSION_PROOF_JACKET.get());
+            if (!stack.isEmpty()) {
+                if (damageSource.is(DamageTypeTags.IS_EXPLOSION)) {
+                    BlockPos pos = player.blockPosition();
+                    ItemEntity itementity = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), itemStack);
+                    itementity.setDefaultPickUpDelay();
+                    itementity.setInvulnerable(true);
+                    world.addFreshEntity(itementity);
+                    return originalDamage * (1 - config.blastDamagePercentageReduction) * 100;
                 }
-                var stack = accessories.getEquipped(ModItems.EXPLOSION_PROOF_JACKET.get());
-                if (!stack.isEmpty()) {
-                    if (damageSource.is(DamageTypeTags.IS_EXPLOSION)) {
-                        BlockPos pos = player.blockPosition();
-                        ItemEntity itementity = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), itemStack);
-                        itementity.setDefaultPickUpDelay();
-                        itementity.setInvulnerable(true);
-                        world.addFreshEntity(itementity);
-                        return originalDamage * (1 - config.blastDamagePercentageReduction) * 100;
-                    }
-                }
+            }
         }
         return originalDamage;
     }

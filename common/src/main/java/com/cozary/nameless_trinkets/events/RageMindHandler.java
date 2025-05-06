@@ -21,17 +21,17 @@ public class RageMindHandler {
 
         var accessories = AccessoriesCapability.get(player);
 
-            if (accessories == null) {
-                return;
-            }
-            var stack = accessories.getEquipped(ModItems.RAGE_MIND.get());
-            if (!stack.isEmpty()) {
-
-                var entityType = livingEntity.getType();
-                String entityKey = BuiltInRegistries.ENTITY_TYPE.getKey(entityType).toString();
-                stack.getFirst().stack().set(ModDataComponents.RAGE_MIND_REVENGE_TARGET.get(), entityKey);
-            }
+        if (accessories == null) {
+            return;
         }
+        var stack = accessories.getEquipped(ModItems.RAGE_MIND.get());
+        if (!stack.isEmpty()) {
+
+            var entityType = livingEntity.getType();
+            String entityKey = BuiltInRegistries.ENTITY_TYPE.getKey(entityType).toString();
+            stack.getFirst().stack().set(ModDataComponents.RAGE_MIND_REVENGE_TARGET.get(), entityKey);
+        }
+    }
 
     public static float dealDamage(Player player, Entity targetEntity, float originalAmount) {
         RageMind.Stats config = RageMind.INSTANCE.getTrinketConfig();
@@ -68,7 +68,7 @@ public class RageMindHandler {
                 }
 
                 if (targetEntity.getClass() == classEntity) {
-                    return originalAmount* (config.damageMultiplierPercentage / 100);
+                    return originalAmount * (config.damageMultiplierPercentage / 100);
                 }
             }
 
