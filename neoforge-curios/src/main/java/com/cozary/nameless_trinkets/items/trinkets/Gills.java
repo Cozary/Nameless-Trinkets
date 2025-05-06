@@ -1,35 +1,21 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
-import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
 import top.theillusivec4.curios.api.SlotContext;
+import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
-import java.util.List;
 import java.util.Random;
 
-public class Gills extends TrinketItemCurios<GillsBase.Stats> {
-    public static GillsBase INSTANCE;
-
-    public Gills() {
-        super(new TrinketData(null, null, Stats.class));
-
-        INSTANCE = this;
-    }
+public class Gills extends GillsBase implements ICurioItem {
 
     @Override
     public boolean canEquipFromUse(SlotContext slotContext, ItemStack stack) {
@@ -39,22 +25,6 @@ public class Gills extends TrinketItemCurios<GillsBase.Stats> {
     @Override
     public void onEquipFromUse(SlotContext slotContext, ItemStack stack) {
         slotContext.entity().playSound(SoundEvents.ARMOR_EQUIP_ELYTRA.value(), 1.0F, 1.0F);
-    }
-
-    @Override
-    public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        if (!trinketConfig.isEnable) {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
-        } else {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.gills_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
-            if (Screen.hasShiftDown()) {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.gills_1").withStyle(ChatFormatting.GOLD));
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.gills_2").withStyle(ChatFormatting.GOLD));
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.gills_3").withStyle(ChatFormatting.GOLD));
-            } else {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
-            }
-        }
     }
 
     @Override
@@ -93,11 +63,4 @@ public class Gills extends TrinketItemCurios<GillsBase.Stats> {
         }
     }
 
-    public static class Stats extends TrinketsStats {
-        public float chokingDamage = 2.0F;
-        public boolean blindnessWhenChoking = true;
-        public int airReductionSpeed = 7;
-        public boolean isEnable = true;
-
-    }
 }

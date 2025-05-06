@@ -1,26 +1,11 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
-import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 import top.theillusivec4.curios.api.SlotContext;
+import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
-import java.util.List;
-
-public class ExperienceBattery extends TrinketItemCurios<ExperienceBatteryBase.Stats> {
-    public static ExperienceBatteryBase INSTANCE;
-
-    public ExperienceBattery() {
-        super(new TrinketData(null, null, Stats.class));
-
-        INSTANCE = this;
-    }
+public class ExperienceBattery extends ExperienceBatteryBase implements ICurioItem {
 
     @Override
     public boolean canEquipFromUse(SlotContext slotContext, ItemStack stack) {
@@ -30,26 +15,6 @@ public class ExperienceBattery extends TrinketItemCurios<ExperienceBatteryBase.S
     @Override
     public void onEquipFromUse(SlotContext slotContext, ItemStack stack) {
         slotContext.entity().playSound(SoundEvents.ARMOR_EQUIP_ELYTRA.value(), 1.0F, 1.0F);
-    }
-
-    @Override
-    public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        if (!trinketConfig.isEnable) {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
-        } else {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.experience_battery_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
-            if (Screen.hasShiftDown()) {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.experience_battery_1").withStyle(ChatFormatting.GOLD));
-            } else {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
-            }
-        }
-    }
-
-    public static class Stats extends TrinketsStats {
-        public float extraExperiencePercentage = 150.0F;
-        public boolean isEnable = true;
-
     }
 
 }

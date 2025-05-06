@@ -1,9 +1,8 @@
 package com.cozary.nameless_trinkets;
 
 import com.cozary.nameless_trinkets.config.common.CommonConfigManager;
-import com.cozary.nameless_trinkets.init.ModItemsCurios;
+import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.init.ModTabs;
-import com.cozary.nameless_trinkets.platform.Services;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -20,7 +19,7 @@ public class NamelessTrinketsNeoForge {
         NamelessTrinkets.init();
 
         ModTabs.init(eventBus);
-        ModItemsCurios.init(eventBus);
+        ModItems.init(eventBus);
 
     }
 

@@ -1,12 +1,6 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
-import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -15,21 +9,14 @@ import net.minecraft.world.entity.EntitySelector;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Phantom;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.phys.Vec3;
 import top.theillusivec4.curios.api.SlotContext;
+import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
 import java.util.List;
 import java.util.Objects;
 
-public class SleepingPills extends TrinketItemCurios<SleepingPillsBase.Stats> {
-    public static SleepingPillsBase INSTANCE;
-
-    public SleepingPills() {
-        super(new TrinketData(null, null, Stats.class));
-
-        INSTANCE = this;
-    }
+public class SleepingPills extends SleepingPillsBase implements ICurioItem {
 
     @Override
     public boolean canEquipFromUse(SlotContext slotContext, ItemStack stack) {
@@ -76,31 +63,5 @@ public class SleepingPills extends TrinketItemCurios<SleepingPillsBase.Stats> {
         }
     }
 
-    @Override
-    public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        Stats config = SleepingPillsBase.INSTANCE.getTrinketConfig();
-        if (!config.isEnable) {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
-        } else {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.sleeping_pills_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
-            if (Screen.hasShiftDown()) {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.sleeping_pills_1", config.phantomRange).withStyle(ChatFormatting.GOLD));
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.sleeping_pills_2").withStyle(ChatFormatting.GOLD));
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.sleeping_pills_3").withStyle(ChatFormatting.GOLD));
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.sleeping_pills_4").withStyle(ChatFormatting.GOLD));
-            } else {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
-                tooltip.add(Component.translatable(ChatFormatting.GRAY + "Suggested By: JayOnline_"));
-            }
-        }
-    }
-
-    public static class Stats extends TrinketsStats {
-        public int nightVisionTime = 1200;
-        public int weaknessTime = 1200;
-        public double phantomRange = 2.0F;
-        public boolean bedDisabled = true;
-        public boolean isEnable = true;
-    }
 
 }

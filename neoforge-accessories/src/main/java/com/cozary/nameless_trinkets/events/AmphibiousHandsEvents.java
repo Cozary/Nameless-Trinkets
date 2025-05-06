@@ -13,7 +13,6 @@ public class AmphibiousHandsEvents {
     @SubscribeEvent
     public static void breakSpeed(PlayerEvent.BreakSpeed event) {
 
-
         var stack = TrinketUtils.getEquippedTrinket(event.getEntity(), ModItems.AMPHIBIOUS_HANDS.get());
 
         if (stack.isEmpty())

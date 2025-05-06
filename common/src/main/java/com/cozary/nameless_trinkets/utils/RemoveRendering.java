@@ -1,11 +1,8 @@
 package com.cozary.nameless_trinkets.utils;
 
-import com.cozary.nameless_trinkets.init.ModItems;
-import io.wispforest.accessories.api.client.AccessoriesRendererRegistry;
-
 public class RemoveRendering {
 
-    public static void noRenderingList() {
+    public static void noRenderingList() {/*
         AccessoriesRendererRegistry.registerNoRenderer(ModItems.MISSING_PAGE.get());
         AccessoriesRendererRegistry.registerNoRenderer(ModItems.REVERSE_CARD.get());
         AccessoriesRendererRegistry.registerNoRenderer(ModItems.EXPERIENCE_BATTERY.get());
@@ -57,6 +54,6 @@ public class RemoveRendering {
         AccessoriesRendererRegistry.registerNoRenderer(ModItems.TITANS_MARK.get());
         AccessoriesRendererRegistry.registerNoRenderer(ModItems.WOUNDBEARER.get());
         AccessoriesRendererRegistry.registerNoRenderer(ModItems.RESONANT_HEART.get());
-        AccessoriesRendererRegistry.registerNoRenderer(ModItems.DYING_STAR.get());
+        AccessoriesRendererRegistry.registerNoRenderer(ModItems.DYING_STAR.get());*/
     }
 }

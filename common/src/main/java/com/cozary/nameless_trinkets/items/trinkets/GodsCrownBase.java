@@ -25,7 +25,7 @@ import static com.cozary.nameless_trinkets.NamelessTrinkets.MOD_ID;
 public class GodsCrownBase extends TrinketItem<GodsCrownBase.Stats> {
     public static GodsCrownBase INSTANCE;
 
-    private final Map<String, List<String>> modifiers = new HashMap<>();
+    protected final Map<String, List<String>> modifiers = new HashMap<>();
 
     public GodsCrownBase() {
         super(new TrinketData(null, null, Stats.class));
@@ -36,7 +36,7 @@ public class GodsCrownBase extends TrinketItem<GodsCrownBase.Stats> {
     }
 
 
-    private void initModifiers() {
+    protected void initModifiers() {
         List<String> modifierList = new ArrayList<>();
         modifierList.add("gods_crown_max_health");
         modifierList.add("gods_crown_movement_speed");
@@ -93,7 +93,7 @@ public class GodsCrownBase extends TrinketItem<GodsCrownBase.Stats> {
         }
     }
 
-    private void applyModifiers(LivingEntity livingEntity, Stats config) {
+    protected void applyModifiers(LivingEntity livingEntity, Stats config) {
         for (Map.Entry<String, List<String>> entry : modifiers.entrySet()) {
             for (String key : entry.getValue()) {
                 AttributeInstance attribute = getAttribute(livingEntity, key);
@@ -106,7 +106,7 @@ public class GodsCrownBase extends TrinketItem<GodsCrownBase.Stats> {
         }
     }
 
-    private AttributeInstance getAttribute(LivingEntity entity, String key) {
+    protected AttributeInstance getAttribute(LivingEntity entity, String key) {
         return switch (key) {
             case "gods_crown_max_health" -> entity.getAttribute(Attributes.MAX_HEALTH);
             case "gods_crown_movement_speed" -> entity.getAttribute(Attributes.MOVEMENT_SPEED);
@@ -126,13 +126,13 @@ public class GodsCrownBase extends TrinketItem<GodsCrownBase.Stats> {
         };
     }
 
-    private AttributeModifier createAttributeModifier(ResourceLocation modifierData, Stats config, String key) {
+    protected AttributeModifier createAttributeModifier(ResourceLocation modifierData, Stats config, String key) {
         double percentage = getPercentageForKey(config, key);
         return new AttributeModifier(modifierData,
                 percentage / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
     }
 
-    private double getPercentageForKey(Stats config, String key) {
+    protected double getPercentageForKey(Stats config, String key) {
         return switch (key) {
             case "gods_crown_max_health" -> config.percentageExtraMaxHealth;
             case "gods_crown_movement_speed" -> config.percentageExtraSpeed;
@@ -152,7 +152,7 @@ public class GodsCrownBase extends TrinketItem<GodsCrownBase.Stats> {
         };
     }
 
-    private void removeModifiers(LivingEntity wearer, Stats config) {
+    protected void removeModifiers(LivingEntity wearer, Stats config) {
         for (Map.Entry<String, List<String>> entry : modifiers.entrySet()) {
             for (String key : entry.getValue()) {
                 AttributeInstance attribute = getAttribute(wearer, key);

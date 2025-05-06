@@ -1,23 +1,11 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
-import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 import top.theillusivec4.curios.api.SlotContext;
+import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
-import java.util.List;
-
-public class AmphibiousHands extends TrinketItemCurios {
-
-    public AmphibiousHands(TrinketData trinketData) {
-        super(trinketData);
-    }
+public class AmphibiousHands extends AmphibiousHandsBase implements ICurioItem {
 
     @Override
     public boolean canEquipFromUse(SlotContext slotContext, ItemStack stack) {

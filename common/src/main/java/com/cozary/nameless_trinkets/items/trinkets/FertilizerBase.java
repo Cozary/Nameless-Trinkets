@@ -105,7 +105,7 @@ public class FertilizerBase extends TrinketItem<FertilizerBase.Stats> {
         }
     }
 
-    private static boolean applyBonemeal(Level level, BlockPos pos) {
+    static boolean applyBonemeal(Level level, BlockPos pos) {
         BlockState blockState = level.getBlockState(pos);
         if (blockState.getBlock() instanceof BonemealableBlock bonemealable &&
                 bonemealable.isValidBonemealTarget(level, pos, blockState)) {
@@ -117,7 +117,7 @@ public class FertilizerBase extends TrinketItem<FertilizerBase.Stats> {
         return false;
     }
 
-    private static void spawnGrowthParticles(LevelAccessor level, BlockPos pos, int count) {
+    static void spawnGrowthParticles(LevelAccessor level, BlockPos pos, int count) {
         if (level instanceof ServerLevel serverLevel) {
             serverLevel.sendParticles(
                     ParticleTypes.HAPPY_VILLAGER,

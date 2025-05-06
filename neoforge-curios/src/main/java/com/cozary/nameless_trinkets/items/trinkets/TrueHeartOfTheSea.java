@@ -1,15 +1,9 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemCurios;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import com.cozary.nameless_trinkets.utils.EntityUtils;
-import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.FluidTags;
@@ -20,24 +14,17 @@ import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
 import top.theillusivec4.curios.api.SlotContext;
+import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
-public class TrueHeartOfTheSea extends TrinketItemCurios<TrueHeartOfTheSeaBase.Stats> {
-    public static TrueHeartOfTheSeaBase INSTANCE;
+public class TrueHeartOfTheSea extends TrueHeartOfTheSeaBase implements ICurioItem {
 
-    public TrueHeartOfTheSea() {
-        super(new TrinketData(null, null, Stats.class));
-
-        INSTANCE = this;
-    }
 
     @Override
     public boolean canEquipFromUse(SlotContext slotContext, ItemStack stack) {
@@ -106,33 +93,5 @@ public class TrueHeartOfTheSea extends TrinketItemCurios<TrueHeartOfTheSeaBase.S
                         trinketConfig.swimSpeedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
     }
 
-    @Override
-    public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        Stats config = TrueHeartOfTheSeaBase.INSTANCE.getTrinketConfig();
-        if (!config.isEnable) {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
-        } else {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.true_heart_of_the_sea_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
-            if (Screen.hasShiftDown()) {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.true_heart_of_the_sea_1", config.swimSpeedMultiplierPercentage + "%").withStyle(ChatFormatting.GOLD));
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.true_heart_of_the_sea_2").withStyle(ChatFormatting.GOLD));
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.true_heart_of_the_sea_3").withStyle(ChatFormatting.GOLD));
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.true_heart_of_the_sea_4", config.miningUnderwaterSpeedPercentage + "%").withStyle(ChatFormatting.GOLD));
-            } else {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
-            }
-        }
-    }
-
-
-    public static class Stats extends TrinketsStats {
-        public float miningUnderwaterSpeedPercentage = 300.0F;
-        public float chokingDamage = 1.5F;
-        public boolean blindnessWhenChoking = true;
-        public int airReductionSpeed = 5;
-        public double swimSpeedMultiplierPercentage = 100.0f;
-        public boolean isEnable = true;
-
-    }
 
 }

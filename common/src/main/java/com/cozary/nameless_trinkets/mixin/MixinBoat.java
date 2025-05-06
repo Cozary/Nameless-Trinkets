@@ -1,20 +1,12 @@
 package com.cozary.nameless_trinkets.mixin;
 
-import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.items.trinkets.ElectricPaddleBase;
-import io.wispforest.accessories.api.AccessoriesCapability;
-import net.minecraft.util.Mth;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.Boat;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Boat.class)
 public class MixinBoat {
 
-    @Inject(at = @At(value = "HEAD"), method = "controlBoat")
+    /*@Inject(at = @At(value = "HEAD"), method = "controlBoat")
     protected void controlSpeed(CallbackInfo ci) {
         ElectricPaddleBase.Stats config = ElectricPaddleBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
@@ -46,5 +38,5 @@ public class MixinBoat {
                 ((Boat) (Object) this).setPaddleState(((Boat) (Object) this).inputRight && !((Boat) (Object) this).inputLeft || ((Boat) (Object) this).inputUp, ((Boat) (Object) this).inputLeft && !((Boat) (Object) this).inputRight || ((Boat) (Object) this).inputUp);
             }
         }
-    }
+    }*/
 }

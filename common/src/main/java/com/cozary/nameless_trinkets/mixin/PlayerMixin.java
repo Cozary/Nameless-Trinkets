@@ -1,22 +1,12 @@
 package com.cozary.nameless_trinkets.mixin;
 
-import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.items.trinkets.DarkNelumboBase;
-import com.cozary.nameless_trinkets.items.trinkets.NelumboBase;
-import io.wispforest.accessories.api.AccessoriesCapability;
-import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.material.FluidState;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
 public abstract class PlayerMixin {
 
-    @Inject(method = "canStandOnFluid", at = @At("RETURN"), cancellable = true)
+    /*@Inject(method = "canStandOnFluid", at = @At("RETURN"), cancellable = true)
     public void onCanStandOnFluid(FluidState fluidState, CallbackInfoReturnable<Boolean> cir) {
         if ((Object) this instanceof Player player) {
             NelumboBase.Stats config0 = NelumboBase.INSTANCE.getTrinketConfig();
@@ -38,6 +28,6 @@ public abstract class PlayerMixin {
 
             cir.setReturnValue(canStandOnFluid);
         }
-    }
+    }*/
 }
 
