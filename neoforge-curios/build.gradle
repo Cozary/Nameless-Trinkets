@@ -62,7 +62,7 @@ publishMods {
     changelog = project(":common").file("CHANGELOG.md").text
     type = STABLE
     modLoaders.add("neoforge")
-    displayName = "${mod_name}-neoforge-${minecraft_version}-${version_neoforge}"
+    displayName = "${mod_name}-neoforge-curios-${minecraft_version}-${version_neoforge}"
     dryRun = dry_run.toBoolean()
     version = version_neoforge
 

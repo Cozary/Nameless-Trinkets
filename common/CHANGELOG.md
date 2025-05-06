@@ -2,26 +2,12 @@
 
 ### Added
 
-- [Rage Mind] glowing.
-- [Woundbearer] clamp to limit max value.
-- [Trinket Bundle] recipe.
-- [Dying Star] config.
-- [Resonant Heart] config for damage.
-- [Creeper Sense] cooldown.
-- New config common config
+- [Curios API Support]
 
-### Changed
+**This version uses the Curios API instead of Accessories. It's a version I'm working on and will be updated if all goes well.**
 
-- LivingDamageEvent.Pre replaced by LivingIncomingDamageEvent
-- The events have been abstracted to Common. This may cause problems.
-- The loot table for [God's Crown] and [Dying Star] is now generated, but with a value of 0.
-- [Four Leaf Clover] its description is now somewhat clearer.
+**This is an alpha version. Some features may not fully work or be integrated.**
 
-### Removed
+**I can't guarantee that this version won't cause certain problems/crashes.**
 
-- **Forge Config Api** dependency.
-- Old common config.
-
-### Fixed
-
-- [Fertilizer] re-added effectIntervalInTicks to its corresponding function.
+**I would appreciate it if you didn't report any bugs you find until the beta version is out, as they are highly anticipated.**
