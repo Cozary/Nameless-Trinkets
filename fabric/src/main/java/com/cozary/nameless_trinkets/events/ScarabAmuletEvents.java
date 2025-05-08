@@ -12,7 +12,8 @@ public class ScarabAmuletEvents {
     public static void register() {
         ModEvents.TargetingCallback.EVENT.register((attacker, target) -> {
             if(target instanceof Player player){
-                return ScarabAmuletHandler.shouldPreventHuskTargeting(player, attacker);
+                if(ScarabAmuletHandler.shouldPreventHuskTargeting(player, attacker))
+                    return false;
             }
             return true;
         });
