@@ -10,15 +10,15 @@ import net.minecraft.world.entity.player.Player;
 public class ScarabAmuletHandler {
 
     public static boolean shouldPreventHuskTargeting(Player player, Entity attacker) {
-            ScarabAmulet.Stats config = ScarabAmulet.INSTANCE.getTrinketConfig();
-            if (!config.isEnable) return false;
-            if (player.level().isClientSide) return false;
+        ScarabAmulet.Stats config = ScarabAmulet.INSTANCE.getTrinketConfig();
+        if (!config.isEnable) return false;
+        if (player.level().isClientSide) return false;
 
-            var accessories = AccessoriesCapability.get(player);
-            if (accessories == null) return false;
+        var accessories = AccessoriesCapability.get(player);
+        if (accessories == null) return false;
 
-            var stack = accessories.getEquipped(ModItems.SCARAB_AMULET.get());
-            return !stack.isEmpty() && attacker instanceof Husk;
-        }
+        var stack = accessories.getEquipped(ModItems.SCARAB_AMULET.get());
+        return !stack.isEmpty() && attacker instanceof Husk;
+    }
 }
 

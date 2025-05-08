@@ -21,19 +21,19 @@ public class ReverseCardHandler {
         Entity src = damageSource.getEntity();
         Random random = new Random();
 
-            var accessories = AccessoriesCapability.get(player);
+        var accessories = AccessoriesCapability.get(player);
 
-            if (accessories == null) {
-                return;
-            }
-            var stack = accessories.getEquipped(ModItems.REVERSE_CARD.get());
-            if (!stack.isEmpty() && random.nextInt(100) <= config.chanceToActivate) {
+        if (accessories == null) {
+            return;
+        }
+        var stack = accessories.getEquipped(ModItems.REVERSE_CARD.get());
+        if (!stack.isEmpty() && random.nextInt(100) <= config.chanceToActivate) {
 
-                if (src != null && !(src instanceof Player) && !player.level().isClientSide) {
-                    ((ServerLevel) src.getCommandSenderWorld()).sendParticles(ParticleTypes.WITCH, src.getX(), src.getY(), src.getZ(), 35, 1D, 1D, 1D, 0.1);
-                    src.hurt(src.damageSources().generic(), originalDamage);
-                }
+            if (src != null && !(src instanceof Player) && !player.level().isClientSide) {
+                ((ServerLevel) src.getCommandSenderWorld()).sendParticles(ParticleTypes.WITCH, src.getX(), src.getY(), src.getZ(), 35, 1D, 1D, 1D, 0.1);
+                src.hurt(src.damageSources().generic(), originalDamage);
             }
+        }
     }
 
 }

@@ -17,14 +17,14 @@ public class VampireBloodHandler {
 
         var accessories = AccessoriesCapability.get(player);
 
-            if (accessories == null) {
-                return;
-            }
-            var stack = accessories.getEquipped(ModItems.VAMPIRE_BLOOD.get());
-            if (!stack.isEmpty() && !player.level().isClientSide) {
-                ((ServerLevel) entity.getCommandSenderWorld()).sendParticles(ParticleTypes.SNEEZE, entity.getX(), entity.getY(), entity.getZ(), 35, 1D, 1D, 1D, 0.1);
-                player.heal(entity.getMaxHealth() * (config.healingPercentage / 100));
-            }
+        if (accessories == null) {
+            return;
         }
+        var stack = accessories.getEquipped(ModItems.VAMPIRE_BLOOD.get());
+        if (!stack.isEmpty() && !player.level().isClientSide) {
+            ((ServerLevel) entity.getCommandSenderWorld()).sendParticles(ParticleTypes.SNEEZE, entity.getX(), entity.getY(), entity.getZ(), 35, 1D, 1D, 1D, 0.1);
+            player.heal(entity.getMaxHealth() * (config.healingPercentage / 100));
+        }
+    }
 
 }

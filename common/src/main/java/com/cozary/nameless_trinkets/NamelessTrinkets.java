@@ -3,8 +3,6 @@ package com.cozary.nameless_trinkets;
 import com.cozary.nameless_trinkets.init.ModDataComponents;
 import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.init.ModTags;
-import com.cozary.nameless_trinkets.platform.Services;
-import com.cozary.nameless_trinkets.platform.services.IPlatformHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

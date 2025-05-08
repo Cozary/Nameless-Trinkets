@@ -24,7 +24,7 @@ public class FracturedNullstoneHandler {
             //haha DamageTypeTag Magic doesn't exist
 
             if (damageSource.type().msgId().equals("indirectMagic") || damageSource.type().msgId().equals("magic")) {
-                return originalDamage* (config.magicDamageReductionPercentage / 100);
+                return originalDamage * (config.magicDamageReductionPercentage / 100);
             }
         }
         return originalDamage;

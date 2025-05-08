@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.events;
 
-import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.config.common.CommonConfigManager;
+import com.cozary.nameless_trinkets.init.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;

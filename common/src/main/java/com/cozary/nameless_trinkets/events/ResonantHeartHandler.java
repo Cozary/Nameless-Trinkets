@@ -27,23 +27,23 @@ public class ResonantHeartHandler {
         Entity src = damageSource.getEntity();
         Random random = new Random();
 
-            if (player.level().isClientSide)
-                return;
+        if (player.level().isClientSide)
+            return;
 
-            var accessories = AccessoriesCapability.get(player);
+        var accessories = AccessoriesCapability.get(player);
 
-            if (accessories == null) {
-                return;
+        if (accessories == null) {
+            return;
+        }
+
+        var stack = accessories.getEquipped(ModItems.RESONANT_HEART.get());
+        if (!stack.isEmpty() && random.nextInt(100) <= config.chanceToActivateProbability) {
+
+            if (src != null && !(src instanceof Player) && !player.level().isClientSide) {
+
+                launchSonicBoom(player, src, player.level());
             }
-
-            var stack = accessories.getEquipped(ModItems.RESONANT_HEART.get());
-            if (!stack.isEmpty() && random.nextInt(100) <= config.chanceToActivateProbability) {
-
-                if (src != null && !(src instanceof Player) && !player.level().isClientSide) {
-
-                    launchSonicBoom(player, src, player.level());
-                }
-            }
+        }
     }
 
     public static void launchSonicBoom(Player player, Entity src, Level level) {

@@ -17,13 +17,13 @@ public class SigilOfBaphometHandler {
 
         var accessories = AccessoriesCapability.get(player);
 
-            if (accessories == null) {
-                return;
-            }
-            var stack = accessories.getEquipped(ModItems.SIGIL_OF_BAPHOMET.get());
-            if (!stack.isEmpty() && stack.getFirst().stack().getOrDefault(ModDataComponents.SIGIL_COUNT.get(), 0) <= 10) {
-                stack.getFirst().stack().set(ModDataComponents.SIGIL_COUNT.get(), stack.getFirst().stack().getOrDefault(ModDataComponents.SIGIL_COUNT.get(), 0) + 1);
-            }
+        if (accessories == null) {
+            return;
+        }
+        var stack = accessories.getEquipped(ModItems.SIGIL_OF_BAPHOMET.get());
+        if (!stack.isEmpty() && stack.getFirst().stack().getOrDefault(ModDataComponents.SIGIL_COUNT.get(), 0) <= 10) {
+            stack.getFirst().stack().set(ModDataComponents.SIGIL_COUNT.get(), stack.getFirst().stack().getOrDefault(ModDataComponents.SIGIL_COUNT.get(), 0) + 1);
+        }
 
     }
 
@@ -34,14 +34,14 @@ public class SigilOfBaphometHandler {
 
         var accessories = AccessoriesCapability.get(player);
 
-                if (accessories == null) {
-                    return false;
-                }
-                var stack = accessories.getEquipped(ModItems.SIGIL_OF_BAPHOMET.get());
-                if (!stack.isEmpty() && stack.getFirst().stack().getOrDefault(ModDataComponents.SIGIL_COUNT.get(), 0) > 0 && !player.level().isClientSide) {
-                    ((ServerLevel) player.getCommandSenderWorld()).sendParticles(ParticleTypes.ENCHANT, player.getX(), player.getY(), player.getZ(), 50, 0.5D, 1D, 0.5D, 0.1);
-                    return true;
-                }
+        if (accessories == null) {
+            return false;
+        }
+        var stack = accessories.getEquipped(ModItems.SIGIL_OF_BAPHOMET.get());
+        if (!stack.isEmpty() && stack.getFirst().stack().getOrDefault(ModDataComponents.SIGIL_COUNT.get(), 0) > 0 && !player.level().isClientSide) {
+            ((ServerLevel) player.getCommandSenderWorld()).sendParticles(ParticleTypes.ENCHANT, player.getX(), player.getY(), player.getZ(), 50, 0.5D, 1D, 0.5D, 0.1);
+            return true;
+        }
 
         return false;
     }

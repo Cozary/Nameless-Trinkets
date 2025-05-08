@@ -16,14 +16,14 @@ public class MoonStoneHandler {
 
         var accessories = AccessoriesCapability.get(player);
 
-                if (accessories == null) {
-                    return false;
-                }
-                var stack = accessories.getEquipped(ModItems.MOON_STONE.get());
-                if (!stack.isEmpty()) {
-                    return damageSource.is(DamageTypes.FALL);
-                }
+        if (accessories == null) {
+            return false;
+        }
+        var stack = accessories.getEquipped(ModItems.MOON_STONE.get());
+        if (!stack.isEmpty()) {
+            return damageSource.is(DamageTypes.FALL);
+        }
         return false;
     }
-        }
+}
 

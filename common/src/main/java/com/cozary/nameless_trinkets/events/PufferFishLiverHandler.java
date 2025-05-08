@@ -19,15 +19,15 @@ public class PufferFishLiverHandler {
 
         Random random = new Random();
 
-            var accessories = AccessoriesCapability.get(player);
+        var accessories = AccessoriesCapability.get(player);
 
-            if (accessories == null) {
-                return;
-            }
-            var stack = accessories.getEquipped(ModItems.PUFFER_FISH_LIVER.get());
-            if (!stack.isEmpty() && random.nextInt(100) <= config.chanceToApplyPoison) {
-                MobEffectInstance effectinstance = new MobEffectInstance(MobEffects.POISON, config.poisonTime, config.poisonLevel);
-                livingEntity.addEffect(effectinstance);
-            }
+        if (accessories == null) {
+            return;
         }
+        var stack = accessories.getEquipped(ModItems.PUFFER_FISH_LIVER.get());
+        if (!stack.isEmpty() && random.nextInt(100) <= config.chanceToApplyPoison) {
+            MobEffectInstance effectinstance = new MobEffectInstance(MobEffects.POISON, config.poisonTime, config.poisonLevel);
+            livingEntity.addEffect(effectinstance);
+        }
+    }
 }
