@@ -1,10 +1,23 @@
 site_name: Nameless Trinkets Wiki
 site_url: https://nameless-trinkets.wiki
+repo_url: https://github.com/Cozary/Nameless-Trinkets
+repo_name: Nameless Trinkets
 theme:
+  logo: assets/logo.png
+  favicon: assets/logo.png
+  language: en
   name: material
   palette:
-    primary: cyan
+    - primary: grey
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    - primary: black
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
   icon:
+    repo: fontawesome/brands/github
     admonition:
       note: octicons/tag-16
       abstract: octicons/checklist-16
