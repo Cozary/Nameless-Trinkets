@@ -1,32 +1,23 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemAccessories;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
+import io.wispforest.accessories.api.AccessoriesAPI;
+import io.wispforest.accessories.api.Accessory;
 import io.wispforest.accessories.api.slot.SlotReference;
-import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.Vec3;
 
-import java.util.List;
+public class PocketLightningRod extends PocketLightningRodBase implements Accessory {
 
-public class PocketLightningRod extends TrinketItemAccessories<PocketLightningRodBase.Stats> {
-    public static PocketLightningRodBase INSTANCE;
-
-    public PocketLightningRod() {
-        super(new TrinketData(null, null, Stats.class));
-
-        INSTANCE = this;
+    public PocketLightningRod(){
+        super();
+        AccessoriesAPI.registerAccessory(this, this);
     }
 
     @Override
@@ -41,7 +32,7 @@ public class PocketLightningRod extends TrinketItemAccessories<PocketLightningRo
 
     @Override
     public void tick(ItemStack stack, SlotReference reference) {
-        PocketLightningRodBase.Stats config = PocketLightningRodBase.INSTANCE.getTrinketConfig();
+        Stats config = PocketLightningRodBase.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable)
             return;
@@ -62,27 +53,6 @@ public class PocketLightningRod extends TrinketItemAccessories<PocketLightningRo
                 level.addFreshEntity(lightningbolt);
             }
         }
-
-    }
-
-    @Override
-    public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        PocketLightningRodBase.Stats config = PocketLightningRodBase.INSTANCE.getTrinketConfig();
-        if (!config.isEnable) {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
-        } else {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.pocket_lightning_rod_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
-            if (Screen.hasShiftDown()) {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.pocket_lightning_rod_1").withStyle(ChatFormatting.GOLD));
-            } else {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
-            }
-        }
-    }
-
-    public static class Stats extends TrinketsStats {
-        public int thunders = 100;
-        public boolean isEnable = true;
 
     }
 

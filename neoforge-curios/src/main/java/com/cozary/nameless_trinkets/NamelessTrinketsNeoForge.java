@@ -19,8 +19,6 @@ public class NamelessTrinketsNeoForge {
         NamelessTrinkets.init();
 
         ModTabs.init(eventBus);
-        ModItems.init(eventBus);
-
     }
 
     private void setup(final FMLCommonSetupEvent event) {

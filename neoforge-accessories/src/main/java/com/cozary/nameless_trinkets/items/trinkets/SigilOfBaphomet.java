@@ -1,27 +1,18 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.init.ModDataComponents;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemAccessories;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
+import io.wispforest.accessories.api.AccessoriesAPI;
+import io.wispforest.accessories.api.Accessory;
 import io.wispforest.accessories.api.slot.SlotReference;
-import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 
-import java.util.List;
+public class SigilOfBaphomet extends SigilOfBaphometBase implements Accessory {
 
-public class SigilOfBaphomet extends TrinketItemAccessories<SigilOfBaphometBase.Stats> {
-    public static SigilOfBaphometBase INSTANCE;
-
-    public SigilOfBaphomet() {
-        super(new TrinketData(null, null, Stats.class));
-
-        INSTANCE = this;
+    public SigilOfBaphomet(){
+        super();
+        AccessoriesAPI.registerAccessory(this, this);
     }
 
     @Override
@@ -36,7 +27,7 @@ public class SigilOfBaphomet extends TrinketItemAccessories<SigilOfBaphometBase.
 
     @Override
     public void tick(ItemStack stack, SlotReference reference) {
-        SigilOfBaphometBase.Stats config = SigilOfBaphometBase.INSTANCE.getTrinketConfig();
+        Stats config = SigilOfBaphometBase.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable)
             return;
@@ -49,31 +40,6 @@ public class SigilOfBaphomet extends TrinketItemAccessories<SigilOfBaphometBase.
             stack.set(ModDataComponents.SIGIL_COUNT.get(), stack.getOrDefault(ModDataComponents.SIGIL_COUNT.get(), 0) - 1);
 
         }
-    }
-
-    @Override
-    public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        Stats config = SigilOfBaphometBase.INSTANCE.getTrinketConfig();
-        if (!config.isEnable) {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
-        } else {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.sigil_of_baphomet_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
-            if (Screen.hasShiftDown()) {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.sigil_of_baphomet_1", config.invulnerabilityAddTimeInTicks / 20).withStyle(ChatFormatting.GOLD));
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.sigil_of_baphomet_2").withStyle(ChatFormatting.GOLD));
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.sigil_of_baphomet_3", config.invulnerabilityMaxTimeInTicks / 20).withStyle(ChatFormatting.GOLD));
-            } else {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
-            }
-        }
-    }
-
-    public static class Stats extends TrinketsStats {
-        public int invulnerabilityAddTimeInTicks = 20;
-        public int invulnerabilityMaxTimeInTicks = 200;
-
-        public boolean isEnable = true;
-
     }
 
 }

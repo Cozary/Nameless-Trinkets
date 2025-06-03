@@ -5,6 +5,7 @@ import com.cozary.nameless_trinkets.config.looTables.TrinketDataProvider;
 import com.cozary.nameless_trinkets.config.looTables.TrinketLootConfig;
 import com.cozary.nameless_trinkets.config.looTables.TrinketLootConfigsManager;
 import com.cozary.nameless_trinkets.init.ModItems;
+import com.cozary.nameless_trinkets.init.RegistryObject;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
@@ -41,7 +42,7 @@ public class LootTableHandler {
                 if (!config.getLootTables().contains(tableId))
                     return;
 
-                Optional<Supplier<Item>> optionalItem = ModItems.CREATIVE_TAB_ITEMS.stream()
+                Optional<RegistryObject<Item>> optionalItem = ModItems.CREATIVE_TAB_ITEMS.stream()
                         .filter(item -> getItemName((TrinketItem<?>) item.get()).equals(config.getItemId()))
                         .findFirst();
 

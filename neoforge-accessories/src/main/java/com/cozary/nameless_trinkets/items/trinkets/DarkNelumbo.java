@@ -1,28 +1,18 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemAccessories;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
+import io.wispforest.accessories.api.AccessoriesAPI;
+import io.wispforest.accessories.api.Accessory;
 import io.wispforest.accessories.api.slot.SlotReference;
-import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.phys.Vec3;
 
-import java.util.List;
+public class DarkNelumbo extends DarkNelumboBase implements Accessory {
 
-public class DarkNelumbo extends TrinketItemAccessories<DarkNelumboBase.Stats> {
-    public static DarkNelumboBase INSTANCE;
-
-    public DarkNelumbo() {
-        super(new TrinketData(null, null, Stats.class));
-
-        INSTANCE = this;
+    public DarkNelumbo(){
+        super();
+        AccessoriesAPI.registerAccessory(this, this);
     }
 
     @Override
@@ -46,20 +36,4 @@ public class DarkNelumbo extends TrinketItemAccessories<DarkNelumboBase.Stats> {
         }
     }
 
-
-    @Override
-    public void appendHoverText(ItemStack stack, Item.TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        tooltip.add(Component.translatable("tooltip.nameless_trinkets.dark_nelumbo_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
-        if (Screen.hasShiftDown()) {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.dark_nelumbo_1").withStyle(ChatFormatting.GOLD));
-        } else {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
-        }
-    }
-
-    public static class Stats extends TrinketsStats {
-        public boolean cancelLavaDamage = true;
-        public boolean isEnable = true;
-
-    }
 }

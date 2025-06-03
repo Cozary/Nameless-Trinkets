@@ -2,14 +2,10 @@ package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.init.ModDataComponents;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemAccessories;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import com.cozary.nameless_trinkets.utils.EntityUtils;
+import io.wispforest.accessories.api.AccessoriesAPI;
+import io.wispforest.accessories.api.Accessory;
 import io.wispforest.accessories.api.slot.SlotReference;
-import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
@@ -17,19 +13,15 @@ import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 
-import java.util.List;
 import java.util.Objects;
 
-public class Woundbearer extends TrinketItemAccessories<WoundbearerBase.Stats> {
-    public static WoundbearerBase INSTANCE;
+public class Woundbearer extends WoundbearerBase implements Accessory {
 
-    public Woundbearer() {
-        super(new TrinketData(null, null, Stats.class));
-
-        INSTANCE = this;
+    public Woundbearer(){
+        super();
+        AccessoriesAPI.registerAccessory(this, this);
     }
 
     @Override
@@ -43,24 +35,8 @@ public class Woundbearer extends TrinketItemAccessories<WoundbearerBase.Stats> {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        Stats config = WoundbearerBase.INSTANCE.getTrinketConfig();
-
-        if (!config.isEnable) {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
-        } else {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.woundbearer_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
-            if (Screen.hasShiftDown()) {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.woundbearer_1", String.format("%.2f", stack.getOrDefault(ModDataComponents.WOUNDBEARER_DAMAGE.get(), 0).floatValue())).withStyle(ChatFormatting.GOLD));
-            } else {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
-            }
-        }
-    }
-
-    @Override
     public void tick(ItemStack stack, SlotReference reference) {
-        WoundbearerBase.Stats config = WoundbearerBase.INSTANCE.getTrinketConfig();
+        Stats config = WoundbearerBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return;
 
@@ -95,9 +71,5 @@ public class Woundbearer extends TrinketItemAccessories<WoundbearerBase.Stats> {
         }
     }
 
-    public static class Stats extends TrinketsStats {
-        public float damageConversionPercentage = 1.0f;
-        public boolean isEnable = true;
-    }
 
 }

@@ -1,14 +1,11 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.init.ModDataComponents;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemAccessories;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
+import io.wispforest.accessories.api.AccessoriesAPI;
+import io.wispforest.accessories.api.Accessory;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -18,20 +15,17 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.scores.PlayerTeam;
 import net.minecraft.world.scores.Scoreboard;
 
 import java.util.List;
 
-public class RageMind extends TrinketItemAccessories<RageMindBase.Stats> {
-    public static RageMindBase INSTANCE;
+public class RageMind extends RageMindBase implements Accessory {
 
-    public RageMind() {
-        super(new TrinketData(null, null, Stats.class));
-
-        INSTANCE = this;
+    public RageMind(){
+        super();
+        AccessoriesAPI.registerAccessory(this, this);
     }
 
     @SuppressWarnings("unchecked")
@@ -77,8 +71,7 @@ public class RageMind extends TrinketItemAccessories<RageMindBase.Stats> {
 
             if (!foundTarget.isEmpty()) {
                 for (Entity revengeTarget : foundTarget) {
-                    if (revengeTarget instanceof LivingEntity) {
-                        LivingEntity livingRevengeTarget = (LivingEntity) revengeTarget;
+                    if (revengeTarget instanceof LivingEntity livingRevengeTarget) {
 
                         MobEffectInstance effectinstance = new MobEffectInstance(MobEffects.GLOWING, 20, 20);
 
@@ -100,28 +93,6 @@ public class RageMind extends TrinketItemAccessories<RageMindBase.Stats> {
     @Override
     public void onEquipFromUse(ItemStack stack, SlotReference reference) {
         reference.entity().playSound(SoundEvents.ARMOR_EQUIP_ELYTRA.value(), 1.0F, 1.0F);
-    }
-
-    @Override
-    public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        Stats config = RageMindBase.INSTANCE.getTrinketConfig();
-        if (!config.isEnable) {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
-        } else {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.rage_mind_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
-            if (Screen.hasShiftDown()) {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.rage_mind_1").withStyle(ChatFormatting.GOLD));
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.rage_mind_2", config.damageMultiplierPercentage + "%").withStyle(ChatFormatting.GOLD));
-            } else {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
-            }
-        }
-    }
-
-    public static class Stats extends TrinketsStats {
-        public float damageMultiplierPercentage = 150.0F;
-        public float range = 50;
-        public boolean isEnable = true;
     }
 
 }

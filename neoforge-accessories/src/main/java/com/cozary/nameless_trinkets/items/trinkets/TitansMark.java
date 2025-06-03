@@ -1,35 +1,26 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemAccessories;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import com.cozary.nameless_trinkets.utils.EntityUtils;
+import io.wispforest.accessories.api.AccessoriesAPI;
+import io.wispforest.accessories.api.Accessory;
 import io.wispforest.accessories.api.slot.SlotReference;
-import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 
-import java.util.List;
 import java.util.Objects;
 
-public class TitansMark extends TrinketItemAccessories<TitansMarkBase.Stats> {
-    public static TitansMarkBase INSTANCE;
+public class TitansMark extends TitansMarkBase implements Accessory {
 
-    public TitansMark() {
-        super(new TrinketData(null, null, Stats.class));
-
-        INSTANCE = this;
+    public TitansMark(){
+        super();
+        AccessoriesAPI.registerAccessory(this, this);
     }
 
     @Override
@@ -40,22 +31,6 @@ public class TitansMark extends TrinketItemAccessories<TitansMarkBase.Stats> {
     @Override
     public void onEquipFromUse(ItemStack stack, SlotReference reference) {
         reference.entity().playSound(SoundEvents.ARMOR_EQUIP_ELYTRA.value(), 1.0F, 1.0F);
-    }
-
-    @Override
-    public void appendHoverText(ItemStack stack, Item.TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        Stats config = TitansMarkBase.INSTANCE.getTrinketConfig();
-        if (!config.isEnable) {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
-        } else {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.titans_mark_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
-            if (Screen.hasShiftDown()) {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.titans_mark_1", config.extraScalePercentage + "%").withStyle(ChatFormatting.GOLD));
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.titans_mark_2", config.attackDamagePercentage + "%").withStyle(ChatFormatting.GOLD));
-            } else {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
-            }
-        }
     }
 
     @Override
@@ -92,24 +67,18 @@ public class TitansMark extends TrinketItemAccessories<TitansMarkBase.Stats> {
     @Override
     public void onUnequip(ItemStack stack, SlotReference reference) {
         LivingEntity livingEntity = reference.entity();
-        Stats config = TitansMarkBase.INSTANCE.getTrinketConfig();
 
         EntityUtils.removeAttributeModifier(Objects.requireNonNull(livingEntity.getAttribute(Attributes.SCALE)),
                 new AttributeModifier(
                         ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "titans_mark_scale"),
-                        config.extraScalePercentage / 100,
+                        trinketConfig.extraScalePercentage / 100,
                         AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
 
         EntityUtils.removeAttributeModifier(Objects.requireNonNull(livingEntity.getAttribute(Attributes.ATTACK_DAMAGE)),
                 new AttributeModifier(
                         ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "titans_mark_attack_damage"),
-                        config.attackDamagePercentage / 100,
+                        trinketConfig.attackDamagePercentage / 100,
                         AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
     }
 
-    public static class Stats extends TrinketsStats {
-        public float extraScalePercentage = 50.0F;
-        public float attackDamagePercentage = 110.0F;
-        public boolean isEnable = true;
-    }
 }

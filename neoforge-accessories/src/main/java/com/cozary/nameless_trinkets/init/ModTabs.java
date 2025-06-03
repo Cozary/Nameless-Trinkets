@@ -16,7 +16,7 @@ public class ModTabs {
 
     public static final Supplier<CreativeModeTab> NAMELESS_TRINKETS_TAB = CREATIVE_MODE_TAB.register(NamelessTrinkets.MOD_ID, () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.nameless_trinkets"))
-            .icon(() -> new ItemStack(ModItems.MYSTERIOUS_TRINKET.get()))
+            .icon(() -> new ItemStack(ModItems.MISSING_PAGE.get()))
             .displayItems((parameters, output) -> ModItems.CREATIVE_TAB_ITEMS.forEach((item) -> output.accept(item.get())))
             .build());
 

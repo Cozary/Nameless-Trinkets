@@ -1,34 +1,26 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemAccessories;
-import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
+import io.wispforest.accessories.api.AccessoriesAPI;
+import io.wispforest.accessories.api.Accessory;
 import io.wispforest.accessories.api.slot.SlotReference;
-import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
 
-import java.util.List;
 import java.util.Random;
 
-public class Gills extends TrinketItemAccessories<GillsBase.Stats> {
-    public static GillsBase INSTANCE;
+public class Gills extends GillsBase implements Accessory {
 
-    public Gills() {
-        super(new TrinketData(null, null, Stats.class));
-
-        INSTANCE = this;
+    public Gills(){
+        super();
+        AccessoriesAPI.registerAccessory(this, this);
     }
 
     @Override
@@ -41,22 +33,7 @@ public class Gills extends TrinketItemAccessories<GillsBase.Stats> {
         reference.entity().playSound(SoundEvents.ARMOR_EQUIP_ELYTRA.value(), 1.0F, 1.0F);
     }
 
-    @Override
-    public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        Stats config = GillsBase.INSTANCE.getTrinketConfig();
-        if (!config.isEnable) {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
-        } else {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.gills_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
-            if (Screen.hasShiftDown()) {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.gills_1").withStyle(ChatFormatting.GOLD));
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.gills_2").withStyle(ChatFormatting.GOLD));
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.gills_3").withStyle(ChatFormatting.GOLD));
-            } else {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
-            }
-        }
-    }
+
 
     @Override
     public boolean canUnequip(ItemStack stack, SlotReference reference) {
@@ -94,11 +71,4 @@ public class Gills extends TrinketItemAccessories<GillsBase.Stats> {
         }
     }
 
-    public static class Stats extends TrinketsStats {
-        public float chokingDamage = 2.0F;
-        public boolean blindnessWhenChoking = true;
-        public int airReductionSpeed = 7;
-        public boolean isEnable = true;
-
-    }
 }
