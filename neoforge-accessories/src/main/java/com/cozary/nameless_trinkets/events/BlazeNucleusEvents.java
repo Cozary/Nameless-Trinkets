@@ -23,7 +23,10 @@ public class BlazeNucleusEvents {
         Entity src = event.getSource().getEntity();
         Entity target = event.getEntity();
 
-        var stack = TrinketUtils.getEquippedTrinket((Player) src, ModItems.BLAZE_NUCLEUS.get());
+        if (!(src instanceof Player player))
+            return;
+
+        var stack = TrinketUtils.getEquippedTrinket(player, ModItems.BLAZE_NUCLEUS.get());
 
         if (stack.isEmpty())
             return;

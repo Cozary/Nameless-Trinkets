@@ -12,7 +12,10 @@ public class BlazeNucleusEvents {
         ModEvents.DamageModifyCallback.EVENT.register((targetEntity, damageSource, amount) -> {
             Entity sourceEntity = damageSource.getEntity();
 
-            var stack = TrinketUtils.getEquippedTrinket((Player) sourceEntity, ModItems.BLAZE_NUCLEUS.get());
+            if (!(sourceEntity instanceof Player player))
+                return amount;
+
+            var stack = TrinketUtils.getEquippedTrinket(player, ModItems.BLAZE_NUCLEUS.get());
 
             if (stack.isEmpty())
                 return amount;
