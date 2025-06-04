@@ -1,6 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.init.ModDataComponents;
+import io.wispforest.accessories.api.AccessoriesAPI;
 import io.wispforest.accessories.api.Accessory;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.server.level.ServerPlayer;
@@ -8,6 +9,11 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ItemStack;
 
 public class SigilOfBaphomet extends SigilOfBaphometBase implements Accessory {
+
+    public SigilOfBaphomet(){
+        super();
+        AccessoriesAPI.registerAccessory(this, this);
+    }
 
     @Override
     public boolean canEquipFromUse(ItemStack stack) {

@@ -2,6 +2,7 @@ package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.utils.EntityUtils;
+import io.wispforest.accessories.api.AccessoriesAPI;
 import io.wispforest.accessories.api.Accessory;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.resources.ResourceLocation;
@@ -17,6 +18,11 @@ import net.minecraft.world.level.Level;
 import java.util.Objects;
 
 public class ScarabAmulet extends ScarabAmuletBase implements Accessory {
+
+    public ScarabAmulet(){
+        super();
+        AccessoriesAPI.registerAccessory(this, this);
+    }
 
     @Override
     public boolean canEquipFromUse(ItemStack stack) {

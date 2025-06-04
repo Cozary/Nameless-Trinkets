@@ -6,7 +6,7 @@ import com.cozary.nameless_trinkets.config.looTables.TrinketLootConfigsManager;
 import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.init.ModTabs;
 import com.cozary.nameless_trinkets.items.trinkets.SpeedForce;
-import com.cozary.nameless_trinkets.utils.RemoveRendering;
+import com.cozary.nameless_trinkets.util.RemoveRendering;
 import io.wispforest.accessories.api.AccessoriesAPI;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;
@@ -33,6 +33,6 @@ public class NamelessTrinketsNeoForge {
         TrinketLootConfigsManager.loadConfigs();
         TrinketConfigs.loadClass();
         CommonConfigManager.loadConfig();
-        //RemoveRendering.noRenderingList();
+        RemoveRendering.noRenderingList();
     }
 }

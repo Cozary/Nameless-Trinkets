@@ -6,7 +6,7 @@ import com.cozary.nameless_trinkets.config.looTables.TrinketLootConfigsManager;
 import com.cozary.nameless_trinkets.events.*;
 import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.lootTables.LootTableHandler;
-import com.cozary.nameless_trinkets.utils.RemoveRendering;
+import com.cozary.nameless_trinkets.util.RemoveRendering;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.core.Registry;

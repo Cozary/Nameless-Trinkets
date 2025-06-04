@@ -4,11 +4,7 @@
   "package": "com.cozary.nameless_trinkets.mixin",
   "refmap": "${mod_id}.refmap.json",
   "compatibilityLevel": "JAVA_18",
-  "mixins": [
-    "MixinBoat",
-    "MixinVillagerTrade",
-    "PlayerMixin"
-  ],
+  "mixins": [],
   "client": [],
   "server": [],
   "injectors": {

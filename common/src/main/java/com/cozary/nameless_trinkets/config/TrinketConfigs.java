@@ -1,5 +1,6 @@
 package com.cozary.nameless_trinkets.config;
 
+import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemData;
@@ -36,7 +37,7 @@ public class TrinketConfigs {
         createTrinketConfigs();
     }
 
-/*    private static void createTrinketConfigs() {
+    private static void createTrinketConfigs() {
         ModItems.CREATIVE_TAB_ITEMS.forEach(registryObject -> {
             Item item = registryObject.get();
 
@@ -68,42 +69,7 @@ public class TrinketConfigs {
                 syncTrinketData(trinketItem, data);
             }
         });
-    }*/
-
-    private static void createTrinketConfigs() {
-        for (Item item : BuiltInRegistries.ITEM) {
-            ResourceLocation id = BuiltInRegistries.ITEM.getKey(item);
-
-            if (id != null && id.getNamespace().equals("nameless_trinkets") && item instanceof TrinketItem<?> trinketItem) {
-                TrinketItemData<?> data = readConfig(trinketItem);
-
-                if (data == null || data.getConfig() == null) {
-                    String itemName = id.getPath();
-                    Path sourcePath = getRootPath().resolve(itemName + ".json");
-
-                    if (Files.exists(sourcePath)) {
-                        Path backupPath = getBackupPath(sourcePath);
-                        try {
-                            Files.createDirectories(backupPath);
-                            Files.move(sourcePath, backupPath.resolve(itemName + ".json"));
-                        } catch (IOException e) {
-                            logError(e, "Failed to backup config for " + itemName);
-                        }
-                    }
-
-                    try {
-                        writeConfig(trinketItem);
-                    } catch (IOException e) {
-                        throw new RuntimeException("Failed to write config for " + itemName, e);
-                    }
-                    data = trinketItem.getTrinketData().toConfigData();
-                }
-
-                syncTrinketData(trinketItem, data);
-            }
-        }
     }
-
 
     private static void writeConfig(TrinketItem<?> trinketItem) throws IOException {
         Path path = getRootPath().resolve(getItemName(trinketItem) + ".json");

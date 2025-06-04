@@ -1,5 +1,6 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
+import io.wispforest.accessories.api.AccessoriesAPI;
 import io.wispforest.accessories.api.Accessory;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.ChatFormatting;
@@ -17,6 +18,11 @@ import net.minecraft.world.scores.Scoreboard;
 import java.util.List;
 
 public class DragonsEye extends DragonsEyeBase implements Accessory {
+
+    public DragonsEye(){
+        super();
+        AccessoriesAPI.registerAccessory(this, this);
+    }
 
     @Override
     public boolean canEquipFromUse(ItemStack stack) {

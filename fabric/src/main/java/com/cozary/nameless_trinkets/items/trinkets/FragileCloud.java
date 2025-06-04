@@ -1,6 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
+import io.wispforest.accessories.api.AccessoriesAPI;
 import io.wispforest.accessories.api.Accessory;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.core.particles.ParticleTypes;
@@ -14,6 +15,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
 public class FragileCloud extends FragileCloudBase implements Accessory {
+
+    public FragileCloud(){
+        super();
+        AccessoriesAPI.registerAccessory(this, this);
+    }
+
     private static final AttributeModifier SLOW_FALLING = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "slow_falling"), -0.07, AttributeModifier.Operation.ADD_VALUE); // Add -0.07 to 0.08 so we get the vanilla default of 0.01
 
     @Override

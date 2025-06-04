@@ -1,11 +1,17 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
+import io.wispforest.accessories.api.AccessoriesAPI;
 import io.wispforest.accessories.api.Accessory;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ItemStack;
 
 public class AmphibiousHands extends AmphibiousHandsBase implements Accessory {
+
+    public AmphibiousHands(){
+        super();
+        AccessoriesAPI.registerAccessory(this, this);
+    }
 
     @Override
     public boolean canEquipFromUse(ItemStack stack) {

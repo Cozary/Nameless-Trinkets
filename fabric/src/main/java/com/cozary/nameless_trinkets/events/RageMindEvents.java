@@ -1,6 +1,8 @@
 package com.cozary.nameless_trinkets.events;
 
 import com.cozary.nameless_trinkets.init.ModEvents;
+import com.cozary.nameless_trinkets.init.ModItems;
+import com.cozary.nameless_trinkets.util.TrinketUtils;
 import net.minecraft.world.entity.player.Player;
 
 public class RageMindEvents {
@@ -8,14 +10,26 @@ public class RageMindEvents {
     public static void register() {
         ModEvents.DamageModifyCallback.EVENT.register((targetEntity, damageSource, damageAmount) -> {
            if(damageSource.getEntity() instanceof Player player){
-              return RageMindHandler.dealDamage(player, targetEntity, damageAmount);
+
+               var stack = TrinketUtils.getEquippedTrinket(player, ModItems.RAGE_MIND.get());
+
+               if (stack.isEmpty())
+                   return damageAmount;
+
+              return RageMindHandler.dealDamage(player, targetEntity, damageAmount, stack.getFirst().stack().getItem());
            }
             return damageAmount;
         });
 
         ModEvents.DamageModifyCallback.EVENT.register((targetEntity, damageSource, amount) -> {
             if(damageSource.getEntity() instanceof Player player){
-                RageMindHandler.getEntity(player, targetEntity);
+
+                var stack = TrinketUtils.getEquippedTrinket(player, ModItems.RAGE_MIND.get());
+
+                if (stack.isEmpty())
+                    return amount;
+
+                RageMindHandler.getEntity(player, targetEntity, stack.getFirst().stack().getItem());
             }
             return amount;
         });

@@ -1,5 +1,6 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
+import io.wispforest.accessories.api.AccessoriesAPI;
 import io.wispforest.accessories.api.Accessory;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.core.BlockPos;
@@ -12,6 +13,11 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class Fertilizer extends FertilizerBase implements Accessory {
+
+    public Fertilizer(){
+        super();
+        AccessoriesAPI.registerAccessory(this, this);
+    }
 
     @Override
     public boolean canEquipFromUse(ItemStack stack) {

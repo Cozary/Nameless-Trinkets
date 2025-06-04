@@ -1,5 +1,6 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
+import io.wispforest.accessories.api.AccessoriesAPI;
 import io.wispforest.accessories.api.Accessory;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.server.level.ServerPlayer;
@@ -12,6 +13,11 @@ import net.minecraft.world.phys.AABB;
 import java.util.List;
 
 public class Tick extends TickBase implements Accessory {
+
+    public Tick(){
+        super();
+        AccessoriesAPI.registerAccessory(this, this);
+    }
 
 
     @Override

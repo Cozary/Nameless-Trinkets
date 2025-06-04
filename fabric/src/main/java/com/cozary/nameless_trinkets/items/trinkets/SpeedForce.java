@@ -2,6 +2,7 @@ package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.utils.EntityUtils;
+import io.wispforest.accessories.api.AccessoriesAPI;
 import io.wispforest.accessories.api.Accessory;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.core.particles.ParticleTypes;
@@ -18,6 +19,11 @@ import net.minecraft.world.phys.Vec3;
 import java.util.Objects;
 
 public class SpeedForce extends SpeedForceBase implements Accessory {
+
+    public SpeedForce(){
+        super();
+        AccessoriesAPI.registerAccessory(this, this);
+    }
 
     @Override
     public boolean canEquipFromUse(ItemStack stack) {

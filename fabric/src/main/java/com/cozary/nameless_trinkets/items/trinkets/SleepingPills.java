@@ -1,5 +1,6 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
+import io.wispforest.accessories.api.AccessoriesAPI;
 import io.wispforest.accessories.api.Accessory;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.core.particles.ParticleTypes;
@@ -17,6 +18,11 @@ import java.util.List;
 import java.util.Objects;
 
 public class SleepingPills extends SleepingPillsBase implements Accessory {
+
+    public SleepingPills(){
+        super();
+        AccessoriesAPI.registerAccessory(this, this);
+    }
 
     @Override
     public boolean canEquipFromUse(ItemStack stack) {

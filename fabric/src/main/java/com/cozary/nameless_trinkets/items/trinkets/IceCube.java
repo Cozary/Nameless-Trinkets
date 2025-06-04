@@ -1,5 +1,6 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
+import io.wispforest.accessories.api.AccessoriesAPI;
 import io.wispforest.accessories.api.Accessory;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.core.BlockPos;
@@ -19,6 +20,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 
 public class IceCube extends IceCubeBase implements Accessory {
+
+    public IceCube(){
+        super();
+        AccessoriesAPI.registerAccessory(this, this);
+    }
 
     @Override
     public void tick(ItemStack stack, SlotReference reference) {
