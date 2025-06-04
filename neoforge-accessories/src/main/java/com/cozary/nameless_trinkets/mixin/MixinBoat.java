@@ -1,5 +1,6 @@
 package com.cozary.nameless_trinkets.mixin;
 
+import com.cozary.nameless_trinkets.mixinHandler.MixinBoatHandler;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.Boat;
 import org.spongepowered.asm.mixin.Mixin;

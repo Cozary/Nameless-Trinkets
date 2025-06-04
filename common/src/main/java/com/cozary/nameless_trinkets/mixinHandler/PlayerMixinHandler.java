@@ -1,4 +1,4 @@
-package com.cozary.nameless_trinkets.mixin;
+package com.cozary.nameless_trinkets.mixinHandler;
 
 import com.cozary.nameless_trinkets.items.trinkets.DarkNelumboBase;
 import com.cozary.nameless_trinkets.items.trinkets.NelumboBase;
