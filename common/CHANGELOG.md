@@ -2,12 +2,10 @@
 
 ### Added
 
-- [Curios API Support]
+**This version of the mod uses the Curios and Accessories APIs, according to the loader. Fabric and NeoForge use Accessories, and NeoForge uses the Curios API. There is a version for each. This version has undergone several changes and may have some issues.**
 
-**This version uses the Curios API instead of Accessories. It's a version I'm working on and will be updated if all goes well.**
+**This is a *beta version*. Almost all features should be integrated.**
 
-**This is an alpha version. Some features may not fully work or be integrated.**
+**I cannot guarantee that this version will not cause certain problems or crashes.**
 
-**I can't guarantee that this version won't cause certain problems/crashes.**
-
-**I would appreciate it if you didn't report any bugs you find until the beta version is out, as they are highly anticipated.**
+**I would appreciate it if you could report any bugs you find.**
