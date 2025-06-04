@@ -93,8 +93,8 @@ jar {
 processResources {
     var expandProps = [
             'version_fabric'               : version_fabric,
-            'version_neoforge'             : version_neoforge,
-            //'version'                      : version,
+            'version_neoforge_curios'      : version_neoforge_curios,
+            'version_neoforge_accessories' : version_neoforge_accessories,
             'group'                        : project.group, //Else we target the task's group.
             'minecraft_version'            : minecraft_version,
             'minecraft_version_range'      : minecraft_version_range,

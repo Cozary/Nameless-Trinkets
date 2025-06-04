@@ -5,7 +5,7 @@ plugins {
 }
 
 base {
-    archivesName = "${mod_name}-neoforge-${minecraft_version}-${version_neoforge}"
+    archivesName = "${mod_name}-neoforge-${minecraft_version}-${version_neoforge_curios}"
 }
 
 neoForge {
@@ -62,9 +62,9 @@ publishMods {
     changelog = project(":common").file("CHANGELOG.md").text
     type = ALPHA
     modLoaders.add("neoforge")
-    displayName = "${mod_name}-neoforge-curios-${minecraft_version}-${version_neoforge}"
+    displayName = "${mod_name}-neoforge-curios-${minecraft_version}-${version_neoforge_curios}"
     dryRun = dry_run.toBoolean()
-    version = version_neoforge
+    version = version_neoforge_curios
 
     curseforge {
         accessToken = providers.environmentVariable("CURSEFORGE_API_KEY")
