@@ -37,7 +37,7 @@ public class ExplosionProofJacketHandler {
                     itementity.setDefaultPickUpDelay();
                     itementity.setInvulnerable(true);
                     world.addFreshEntity(itementity);
-                    return originalDamage * (1 - config.blastDamagePercentageReduction) * 100;
+                    return originalDamage * (1 - (config.blastDamagePercentageReduction/100));
                 }
             }
         }
