@@ -9,18 +9,30 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 public abstract class PlayerMixinHandler {
 
-    public static void applyFluidWalking(Player player, FluidState fluidState, CallbackInfoReturnable<Boolean> cir) {
+    public static void applyWaterWalking(Player player, FluidState fluidState, CallbackInfoReturnable<Boolean> cir) {
         boolean canStandOnFluid = cir.getReturnValue();
 
         if (player.isShiftKeyDown())
             return;
 
         NelumboBase.Stats config0 = NelumboBase.INSTANCE.getTrinketConfig();
-        DarkNelumboBase.Stats config1 = DarkNelumboBase.INSTANCE.getTrinketConfig();
 
         if (fluidState.is(FluidTags.WATER) && !player.isEyeInFluid(FluidTags.WATER) && config0.isEnable) {
             canStandOnFluid = true;
-        } else if (fluidState.is(FluidTags.LAVA) && !player.isEyeInFluid(FluidTags.LAVA) && config1.isEnable) {
+        }
+
+        cir.setReturnValue(canStandOnFluid);
+    }
+
+    public static void applyLavaWalking(Player player, FluidState fluidState, CallbackInfoReturnable<Boolean> cir) {
+        boolean canStandOnFluid = cir.getReturnValue();
+
+        if (player.isShiftKeyDown())
+            return;
+
+        DarkNelumboBase.Stats config1 = DarkNelumboBase.INSTANCE.getTrinketConfig();
+
+        if (fluidState.is(FluidTags.LAVA) && !player.isEyeInFluid(FluidTags.LAVA) && config1.isEnable) {
             player.clearFire();
             canStandOnFluid = true;
         }
