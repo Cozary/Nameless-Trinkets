@@ -2,4 +2,4 @@
 
 ### Fixed
 
-- [Scarab Amulet] all entities not targeting player.
+- [Explosion Proof Jacket] incorrect damage reduction calculation #25
