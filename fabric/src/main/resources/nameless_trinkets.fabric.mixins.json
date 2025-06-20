@@ -12,9 +12,7 @@
     "PlayerMixin",
     "PlayerMixinFabric"
   ],
-  "client": [
-    "AbstractClientPlayerMixin"
-  ],
+  "client": [],
   "server": [],
   "injectors": {
     "defaultRequire": 1
