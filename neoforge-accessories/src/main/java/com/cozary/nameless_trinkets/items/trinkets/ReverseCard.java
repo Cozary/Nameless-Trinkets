@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class ReverseCard extends ReverseCardBase implements Accessory {
 
-    public ReverseCard(){
+    public ReverseCard() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

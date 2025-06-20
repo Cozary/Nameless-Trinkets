@@ -15,7 +15,7 @@ import net.minecraft.world.phys.Vec3;
 
 public class PocketLightningRod extends PocketLightningRodBase implements Accessory {
 
-    public PocketLightningRod(){
+    public PocketLightningRod() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

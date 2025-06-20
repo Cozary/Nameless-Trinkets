@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class FourLeafClover extends FourLeafCloverBase implements Accessory {
 
-    public FourLeafClover(){
+    public FourLeafClover() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

@@ -11,14 +11,14 @@ public class SigilOfBaphometEvents {
 
     public static void register() {
         ServerEntityCombatEvents.AFTER_KILLED_OTHER_ENTITY.register((world, entity, killedEntity) -> {
-            if (entity instanceof Player player){
+            if (entity instanceof Player player) {
 
                 var stack = TrinketUtils.getEquippedTrinket(player, ModItems.SIGIL_OF_BAPHOMET.get());
 
                 if (stack.isEmpty())
                     return;
 
-                SigilOfBaphometHandler.handleSigilKillCount(player, stack.getFirst().stack().getItem());
+                SigilOfBaphometHandler.handleSigilKillCount(stack.getFirst().stack().getItem());
             }
         });
 
@@ -30,7 +30,7 @@ public class SigilOfBaphometEvents {
                 if (stack.isEmpty())
                     return damageAmount;
 
-                if(SigilOfBaphometHandler.grantSigilImmunityOnDamage(player, stack.getFirst().stack().getItem())){
+                if (SigilOfBaphometHandler.grantSigilImmunityOnDamage(player, stack.getFirst().stack().getItem())) {
                     return 0.0f;
                 }
             }

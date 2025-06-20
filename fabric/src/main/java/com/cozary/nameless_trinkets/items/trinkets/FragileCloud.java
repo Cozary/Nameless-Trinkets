@@ -1,6 +1,8 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
+import com.cozary.nameless_trinkets.init.ModItems;
+import com.cozary.nameless_trinkets.util.TrinketUtils;
 import io.wispforest.accessories.api.AccessoriesAPI;
 import io.wispforest.accessories.api.Accessory;
 import io.wispforest.accessories.api.slot.SlotReference;
@@ -16,12 +18,12 @@ import net.minecraft.world.item.ItemStack;
 
 public class FragileCloud extends FragileCloudBase implements Accessory {
 
-    public FragileCloud(){
+    private static final AttributeModifier SLOW_FALLING = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "slow_falling"), -0.07, AttributeModifier.Operation.ADD_VALUE); // Add -0.07 to 0.08 so we get the vanilla default of 0.01
+
+    public FragileCloud() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }
-
-    private static final AttributeModifier SLOW_FALLING = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "slow_falling"), -0.07, AttributeModifier.Operation.ADD_VALUE); // Add -0.07 to 0.08 so we get the vanilla default of 0.01
 
     @Override
     public boolean canEquipFromUse(ItemStack stack) {
@@ -43,11 +45,11 @@ public class FragileCloud extends FragileCloudBase implements Accessory {
 
         if (!player.level().isClientSide && !player.isSpectator()) {
 
-            var stack0 = true; /*AccessoriesCapability.get(player).getEquipped(ModItems.FRAGILE_CLOUD.get());*/
-            var stack1 = true; /*AccessoriesCapability.get(player).getEquipped(ModItems.MOON_STONE.get());*/
+            var stack0 = TrinketUtils.getEquippedTrinket(player, ModItems.FRAGILE_CLOUD.get());
+            var stack1 = TrinketUtils.getEquippedTrinket(player, ModItems.MOON_STONE.get());
 
             AttributeInstance gravity = player.getAttribute(Attributes.GRAVITY);
-            if (!stack0 && stack1) {
+            if (!stack0.isEmpty() && stack1.isEmpty()) {
                 if (!player.isFallFlying() && !player.onGround() && !player.isInWater()) {
                     assert gravity != null;
                     if (!gravity.hasModifier(SLOW_FALLING.id()) && player.getDeltaMovement().y < -0.3)

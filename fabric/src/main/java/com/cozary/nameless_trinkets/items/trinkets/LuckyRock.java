@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class LuckyRock extends LuckyRockBase implements Accessory {
 
-    public LuckyRock(){
+    public LuckyRock() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

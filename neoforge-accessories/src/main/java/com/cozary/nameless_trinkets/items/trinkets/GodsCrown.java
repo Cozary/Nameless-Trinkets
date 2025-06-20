@@ -11,7 +11,7 @@ import net.minecraft.world.level.Level;
 
 public class GodsCrown extends GodsCrownBase implements Accessory {
 
-    public GodsCrown(){
+    public GodsCrown() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

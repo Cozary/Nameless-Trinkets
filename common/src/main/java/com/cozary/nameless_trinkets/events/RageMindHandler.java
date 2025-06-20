@@ -12,7 +12,7 @@ import net.minecraft.world.item.Item;
 
 public class RageMindHandler {
 
-    public static void getEntity(Player player, LivingEntity livingEntity, Item stack) {
+    public static void getEntity(LivingEntity livingEntity, Item stack) {
         RageMindBase.Stats config = RageMindBase.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable)

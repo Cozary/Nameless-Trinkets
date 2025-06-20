@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ExperienceMagnet extends ExperienceMagnetBase implements Accessory {
 
-    public ExperienceMagnet(){
+    public ExperienceMagnet() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

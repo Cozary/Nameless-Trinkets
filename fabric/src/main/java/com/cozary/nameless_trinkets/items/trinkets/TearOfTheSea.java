@@ -17,7 +17,7 @@ import java.util.Objects;
 
 public class TearOfTheSea extends TearOfTheSeaBase implements Accessory {
 
-    public TearOfTheSea(){
+    public TearOfTheSea() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

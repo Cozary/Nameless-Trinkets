@@ -19,7 +19,7 @@ public class PlatformAbstractions {
         return IMPL.createMissingPageItem();
     }
 
-    public static Item createReverseCardItem()  {
+    public static Item createReverseCardItem() {
         return IMPL.createReverseCardItem();
     }
 

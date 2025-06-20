@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class Fertilizer extends FertilizerBase implements Accessory {
 
-    public Fertilizer(){
+    public Fertilizer() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

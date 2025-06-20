@@ -17,7 +17,7 @@ import java.util.Map;
 
 public class CrackedCrown extends CrackedCrownBase implements Accessory {
 
-    public CrackedCrown(){
+    public CrackedCrown() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

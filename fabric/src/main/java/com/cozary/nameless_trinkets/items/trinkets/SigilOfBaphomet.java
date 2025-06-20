@@ -10,7 +10,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class SigilOfBaphomet extends SigilOfBaphometBase implements Accessory {
 
-    public SigilOfBaphomet(){
+    public SigilOfBaphomet() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

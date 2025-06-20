@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class ResonantHeart extends ResonantHeartBase implements Accessory {
 
-    public ResonantHeart(){
+    public ResonantHeart() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

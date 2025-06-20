@@ -1,6 +1,10 @@
-# Changelog
+# Changelog - Release
 
 ### Fixed
 
-- [Explosion Proof Jacket] incorrect damage reduction calculation.
-- [Nelumbo] [DarkNelumbo] fix not checking trinket for lava/water walking therefor allowing the player to walk in these fluids freely
+- Getting 1 diamond instead of Unknown fragment on right click ametyst block. #28
+- True heart of the sea doesn't increase swim speed. #27
+
+### Removed
+
+- Fov remover.

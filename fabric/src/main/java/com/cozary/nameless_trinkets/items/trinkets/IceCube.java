@@ -21,7 +21,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 
 public class IceCube extends IceCubeBase implements Accessory {
 
-    public IceCube(){
+    public IceCube() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

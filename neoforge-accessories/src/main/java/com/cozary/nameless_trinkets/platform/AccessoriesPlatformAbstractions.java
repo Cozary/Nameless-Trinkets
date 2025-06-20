@@ -5,7 +5,8 @@ import net.minecraft.world.item.Item;
 
 public class AccessoriesPlatformAbstractions implements IPlatformAbstractions {
 
-    public AccessoriesPlatformAbstractions() {}
+    public AccessoriesPlatformAbstractions() {
+    }
 
     @Override
     public Item createMissingPageItem() {

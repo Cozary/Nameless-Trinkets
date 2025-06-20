@@ -2,11 +2,7 @@ package com.cozary.nameless_trinkets.events;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.items.trinkets.ScarabAmulet;
 import com.cozary.nameless_trinkets.util.TrinketUtils;
-import io.wispforest.accessories.api.AccessoriesCapability;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.monster.Husk;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -25,7 +21,7 @@ public class ScarabAmuletEvent {
             if (stack.isEmpty())
                 return;
 
-            if(ScarabAmuletHandler.shouldPreventHuskTargeting(player, event.getEntity())){
+            if (ScarabAmuletHandler.shouldPreventHuskTargeting(player, event.getEntity())) {
                 event.setNewAboutToBeSetTarget(null);
 
             }

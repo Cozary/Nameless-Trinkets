@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class Blindfold extends BlindfoldBase implements Accessory {
 
-    public Blindfold(){
+    public Blindfold() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class CreeperSense extends CreeperSenseBase implements Accessory {
 
-    public CreeperSense(){
+    public CreeperSense() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

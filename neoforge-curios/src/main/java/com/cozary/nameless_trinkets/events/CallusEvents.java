@@ -24,7 +24,7 @@ public class CallusEvents {
 
         DamageSource damageSource = event.getSource();
         float originalDamage = event.getNewDamage();
-        float newDamage = CallusHandler.onPlayerHurt(player, damageSource, originalDamage);
+        float newDamage = CallusHandler.onPlayerHurt(damageSource, originalDamage);
 
         event.setNewDamage(newDamage);
     }

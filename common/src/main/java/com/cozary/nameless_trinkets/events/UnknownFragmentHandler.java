@@ -1,6 +1,7 @@
 package com.cozary.nameless_trinkets.events;
 
 import com.cozary.nameless_trinkets.config.common.CommonConfigManager;
+import com.cozary.nameless_trinkets.init.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
@@ -13,7 +14,6 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -29,7 +29,7 @@ public class UnknownFragmentHandler {
 
         if (CommonConfigManager.getConfig().isGetFragments()) {
             if (!level.isClientSide && blockstate.getBlock() == Blocks.AMETHYST_BLOCK) {
-                Item itemstack = Items.DIAMOND;//ModItems.UNKNOWN_FRAGMENT.get(); //TOdo
+                Item itemstack = ModItems.UNKNOWN_FRAGMENT.get();
 
                 List<Holder<Item>> trinketItems = BuiltInRegistries.ITEM.getOrCreateTag(RECYCLABLE_TRINKETS_TAG).stream().toList();
 

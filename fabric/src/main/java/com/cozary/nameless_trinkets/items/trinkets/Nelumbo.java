@@ -10,7 +10,7 @@ import net.minecraft.world.phys.Vec3;
 
 public class Nelumbo extends NelumboBase implements Accessory {
 
-    public Nelumbo(){
+    public Nelumbo() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

@@ -19,7 +19,7 @@ import java.util.Objects;
 
 public class Woundbearer extends WoundbearerBase implements Accessory {
 
-    public Woundbearer(){
+    public Woundbearer() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

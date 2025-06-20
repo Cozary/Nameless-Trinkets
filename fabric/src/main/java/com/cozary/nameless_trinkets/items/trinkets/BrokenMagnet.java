@@ -12,7 +12,7 @@ import java.util.List;
 
 public class BrokenMagnet extends BrokenMagnetBase implements Accessory {
 
-    public BrokenMagnet(){
+    public BrokenMagnet() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

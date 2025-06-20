@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class MinersSoul extends MinersSoulBase implements Accessory {
 
-    public MinersSoul(){
+    public MinersSoul() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

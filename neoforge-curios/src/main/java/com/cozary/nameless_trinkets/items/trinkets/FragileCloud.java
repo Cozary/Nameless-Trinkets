@@ -1,6 +1,8 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
+import com.cozary.nameless_trinkets.init.ModItems;
+import com.cozary.nameless_trinkets.util.TrinketUtils;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -36,11 +38,11 @@ public class FragileCloud extends FragileCloudBase implements ICurioItem {
 
         if (!player.level().isClientSide && !player.isSpectator()) {
 
-            var stack0 = true; /*AccessoriesCapability.get(player).getEquipped(ModItems.FRAGILE_CLOUD.get());*/
-            var stack1 = true; /*AccessoriesCapability.get(player).getEquipped(ModItems.MOON_STONE.get());*/
+            var stack0 = TrinketUtils.getEquippedTrinket(player, ModItems.FRAGILE_CLOUD.get());
+            var stack1 = TrinketUtils.getEquippedTrinket(player, ModItems.MOON_STONE.get());
 
             AttributeInstance gravity = player.getAttribute(Attributes.GRAVITY);
-            if (!stack0 && stack1) {
+            if (!stack0.isEmpty() && stack1.isEmpty()) {
                 if (!player.isFallFlying() && !player.onGround() && !player.isInWater()) {
                     assert gravity != null;
                     if (!gravity.hasModifier(SLOW_FALLING.id()) && player.getDeltaMovement().y < -0.3)

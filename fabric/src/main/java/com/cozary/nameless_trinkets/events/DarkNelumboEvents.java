@@ -9,14 +9,14 @@ public class DarkNelumboEvents {
 
     public static void register() {
         ModEvents.DamageModifyCallback.EVENT.register((targetEntity, damageSource, amount) -> {
-            if (targetEntity instanceof Player player){
+            if (targetEntity instanceof Player player) {
 
                 var stack = TrinketUtils.getEquippedTrinket(player, ModItems.DARK_NELUMBO.get());
 
                 if (stack.isEmpty())
                     return amount;
 
-                if(DarkNelumboHandler.blazeNucleusImmune(player, damageSource))
+                if (DarkNelumboHandler.blazeNucleusImmune(player, damageSource))
                     return 0;
             }
             return amount;

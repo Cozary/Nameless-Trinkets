@@ -9,14 +9,14 @@ public class CallusEvents {
 
     public static void register() {
         ModEvents.DamageModifyCallback.EVENT.register((targetEntity, damageSource, amount) -> {
-            if(targetEntity instanceof Player player){
+            if (targetEntity instanceof Player player) {
 
                 var stack = TrinketUtils.getEquippedTrinket(player, ModItems.CALLUS.get());
 
                 if (stack.isEmpty())
                     return amount;
 
-                return CallusHandler.onPlayerHurt(player, damageSource, amount);
+                return CallusHandler.onPlayerHurt(damageSource, amount);
             }
             return amount;
         });

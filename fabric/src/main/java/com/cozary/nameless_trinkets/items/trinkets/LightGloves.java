@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class LightGloves extends LightGlovesBase implements Accessory {
 
-    public LightGloves(){
+    public LightGloves() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

@@ -9,7 +9,7 @@ public class FourLeafCloverEvents {
 
     public static void register() {
         ServerLivingEntityEvents.AFTER_DEATH.register((entity, damageSource) -> {
-            if(!(entity instanceof Player) && damageSource.getEntity() instanceof Player player){
+            if (!(entity instanceof Player) && damageSource.getEntity() instanceof Player player) {
 
                 var stack = TrinketUtils.getEquippedTrinket(player, ModItems.FOUR_LEAF_CLOVER.get());
 

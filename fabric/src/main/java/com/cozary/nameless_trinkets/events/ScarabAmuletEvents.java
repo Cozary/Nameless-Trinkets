@@ -9,14 +9,14 @@ public class ScarabAmuletEvents {
 
     public static void register() {
         ModEvents.TargetingCallback.EVENT.register((attacker, target) -> {
-            if(target instanceof Player player){
+            if (target instanceof Player player) {
 
                 var stack = TrinketUtils.getEquippedTrinket(player, ModItems.SCARAB_AMULET.get());
 
                 if (stack.isEmpty())
                     return true;
 
-                return ScarabAmuletHandler.shouldPreventHuskTargeting(player, attacker);
+                return !ScarabAmuletHandler.shouldPreventHuskTargeting(player, attacker);
             }
             return true;
         });

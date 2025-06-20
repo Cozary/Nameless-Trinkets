@@ -21,7 +21,7 @@ import java.util.Objects;
 
 public class VampireBlood extends VampireBloodBase implements Accessory {
 
-    public VampireBlood(){
+    public VampireBlood() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

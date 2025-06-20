@@ -14,7 +14,7 @@ import java.util.List;
 
 public class SuperMagnet extends SuperMagnetBase implements Accessory {
 
-    public SuperMagnet(){
+    public SuperMagnet() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

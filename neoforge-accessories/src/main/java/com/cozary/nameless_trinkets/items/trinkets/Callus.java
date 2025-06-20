@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class Callus extends CallusBase implements Accessory {
 
-    public Callus(){
+    public Callus() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

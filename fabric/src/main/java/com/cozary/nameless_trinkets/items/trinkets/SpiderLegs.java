@@ -10,7 +10,7 @@ import net.minecraft.world.phys.Vec3;
 
 public class SpiderLegs extends SpiderLegsBase implements Accessory {
 
-    public SpiderLegs(){
+    public SpiderLegs() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

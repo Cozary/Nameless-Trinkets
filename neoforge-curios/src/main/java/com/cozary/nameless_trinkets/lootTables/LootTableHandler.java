@@ -22,7 +22,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.LootTableLoadEvent;
 
 import java.util.Optional;
-import java.util.function.Supplier;
 
 import static com.cozary.nameless_trinkets.config.TrinketConfigs.getItemName;
 

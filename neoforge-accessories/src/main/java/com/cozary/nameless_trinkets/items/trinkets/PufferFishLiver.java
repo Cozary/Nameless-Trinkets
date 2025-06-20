@@ -9,7 +9,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class PufferFishLiver extends PufferFishLiverBase implements Accessory {
 
-    public PufferFishLiver(){
+    public PufferFishLiver() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

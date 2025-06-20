@@ -16,7 +16,6 @@ public class NamelessTrinketsNeoForgeAccessories {
 
     public NamelessTrinketsNeoForgeAccessories(IEventBus eventBus, ModContainer container) {
 
-
         NamelessTrinkets.init();
 
         ModTabs.init(eventBus);

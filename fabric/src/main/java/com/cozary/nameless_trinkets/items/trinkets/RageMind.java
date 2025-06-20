@@ -23,7 +23,7 @@ import java.util.List;
 
 public class RageMind extends RageMindBase implements Accessory {
 
-    public RageMind(){
+    public RageMind() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

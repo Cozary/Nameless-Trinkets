@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class FracturedNullstone extends FracturedNullstoneBase implements Accessory {
 
-    public FracturedNullstone(){
+    public FracturedNullstone() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

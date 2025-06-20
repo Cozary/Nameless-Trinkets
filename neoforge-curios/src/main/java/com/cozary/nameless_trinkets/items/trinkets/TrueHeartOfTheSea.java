@@ -79,7 +79,7 @@ public class TrueHeartOfTheSea extends TrueHeartOfTheSeaBase implements ICurioIt
 
         AttributeInstance attribSpeed = livingEntity.getAttribute(Attributes.WATER_MOVEMENT_EFFICIENCY);
         AttributeModifier speedModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "true_heart_of_the_sea_swim_speed"),
-                config.swimSpeedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
+                config.swimSpeedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_VALUE);
 
         assert attribSpeed != null;
         EntityUtils.applyAttributeModifier(attribSpeed, speedModifier);
@@ -90,7 +90,7 @@ public class TrueHeartOfTheSea extends TrueHeartOfTheSeaBase implements ICurioIt
     public void onUnequip(SlotContext slotContext, ItemStack pstack, ItemStack stack) {
         EntityUtils.removeAttributeModifier(Objects.requireNonNull(slotContext.entity().getAttribute(Attributes.WATER_MOVEMENT_EFFICIENCY)),
                 new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "true_heart_of_the_sea_swim_speed"),
-                        trinketConfig.swimSpeedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+                        trinketConfig.swimSpeedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_VALUE));
     }
 
 

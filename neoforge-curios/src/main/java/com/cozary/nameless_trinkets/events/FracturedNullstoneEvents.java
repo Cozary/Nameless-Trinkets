@@ -20,7 +20,7 @@ public class FracturedNullstoneEvents {
             if (stack.isEmpty())
                 return;
 
-            float newAmount = FracturedNullstoneHandler.reduceMagicDamage(player, event.getSource(), event.getOriginalDamage());
+            float newAmount = FracturedNullstoneHandler.reduceMagicDamage(event.getSource(), event.getOriginalDamage());
 
             event.setNewDamage(newAmount);
         }

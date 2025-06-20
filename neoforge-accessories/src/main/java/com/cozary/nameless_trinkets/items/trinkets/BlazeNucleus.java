@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class BlazeNucleus extends BlazeNucleusBase implements Accessory {
 
-    public BlazeNucleus(){
+    public BlazeNucleus() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

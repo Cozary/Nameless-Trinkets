@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class ExperienceBattery extends ExperienceBatteryBase implements Accessory {
 
-    public ExperienceBattery(){
+    public ExperienceBattery() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

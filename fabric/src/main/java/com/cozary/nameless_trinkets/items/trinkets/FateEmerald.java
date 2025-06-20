@@ -10,7 +10,7 @@ import net.minecraft.world.level.Level;
 
 public class FateEmerald extends FateEmeraldBase implements Accessory {
 
-    public FateEmerald(){
+    public FateEmerald() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

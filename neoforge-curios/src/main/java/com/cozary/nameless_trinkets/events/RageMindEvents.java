@@ -22,7 +22,7 @@ public class RageMindEvents {
             if (stack.isEmpty())
                 return;
 
-            RageMindHandler.getEntity(player, (LivingEntity) event.getSource().getEntity(), stack.getItem());
+            RageMindHandler.getEntity((LivingEntity) event.getSource().getEntity(), stack.getItem());
         }
     }
 

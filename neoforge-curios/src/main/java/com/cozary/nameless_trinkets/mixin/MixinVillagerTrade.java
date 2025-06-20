@@ -1,6 +1,8 @@
 package com.cozary.nameless_trinkets.mixin;
 
+import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.mixinHandler.MixinVillagerTradeHandler;
+import com.cozary.nameless_trinkets.util.TrinketUtils;
 import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
@@ -15,6 +17,12 @@ public class MixinVillagerTrade {
 
     @Inject(at = @At(value = "HEAD"), method = "startTrading")
     protected void badOffers(Player player, CallbackInfo ci) {
+
+        var stack = TrinketUtils.getEquippedTrinket(player, ModItems.FATE_EMERALD.get());
+
+        if (!stack.isEmpty())
+            return;
+
         MixinVillagerTradeHandler.applyVillagerDiscounts((AbstractVillager) (Object) this, player);
     }
 

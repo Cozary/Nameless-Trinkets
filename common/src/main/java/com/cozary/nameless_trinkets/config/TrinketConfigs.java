@@ -5,8 +5,6 @@ import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketItemData;
 import com.google.gson.reflect.TypeToken;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import org.jetbrains.annotations.Nullable;
 
@@ -101,22 +99,13 @@ public class TrinketConfigs {
         trinketItem.setTrinketConfig(data.getConfig());
     }
 
-/*    public static String getItemName(TrinketItem<?> trinketItem) {
+    public static String getItemName(TrinketItem<?> trinketItem) {
         return ModItems.CREATIVE_TAB_ITEMS.stream()
                 .filter(item -> item.get() == trinketItem)
                 .findFirst()
                 .map(item -> item.getId().getPath())
                 .orElseThrow(() -> new IllegalArgumentException("Trinket (Item) not found: " + trinketItem));
-    }*/
-
-    public static String getItemName(TrinketItem<?> trinketItem) {
-        ResourceLocation id = BuiltInRegistries.ITEM.getKey(trinketItem);
-        if (id == null) {
-            throw new IllegalArgumentException("Trinket (Item) not found in registry: " + trinketItem);
-        }
-        return id.getPath();
     }
-
 
     private static Path getBackupPath(Path sourcePath) {
         return getRootPath()

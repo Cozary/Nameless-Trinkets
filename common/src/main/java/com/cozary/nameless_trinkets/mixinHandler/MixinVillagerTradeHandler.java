@@ -3,10 +3,8 @@ package com.cozary.nameless_trinkets.mixinHandler;
 import com.cozary.nameless_trinkets.items.trinkets.FateEmeraldBase;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.npc.AbstractVillager;
-import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.trading.MerchantOffer;
-import org.spongepowered.asm.mixin.Mixin;
 
 public class MixinVillagerTradeHandler {
 

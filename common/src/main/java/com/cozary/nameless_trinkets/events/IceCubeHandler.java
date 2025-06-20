@@ -10,7 +10,7 @@ import net.minecraft.world.entity.player.Player;
 
 public class IceCubeHandler {
 
-    public static void applySlowEffect(Player player, LivingEntity entity) {
+    public static void applySlowEffect(LivingEntity entity) {
         IceCubeBase.Stats config = IceCubeBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return;

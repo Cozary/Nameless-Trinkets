@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class ExplosionProofJacket extends ExplosionProofJacketBase implements Accessory {
 
-    public ExplosionProofJacket(){
+    public ExplosionProofJacket() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

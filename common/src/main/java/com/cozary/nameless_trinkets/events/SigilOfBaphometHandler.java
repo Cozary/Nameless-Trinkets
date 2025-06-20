@@ -9,7 +9,7 @@ import net.minecraft.world.item.Item;
 
 public class SigilOfBaphometHandler {
 
-    public static void handleSigilKillCount(Player player, Item stack) {
+    public static void handleSigilKillCount(Item stack) {
         SigilOfBaphometBase.Stats config = SigilOfBaphometBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return;

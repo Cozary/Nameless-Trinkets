@@ -9,7 +9,7 @@ public class ResonantHeartEvents {
 
     public static void register() {
         ModEvents.DamageModifyCallback.EVENT.register((targetEntity, damageSource, damageAmount) -> {
-            if(targetEntity instanceof Player player){
+            if (targetEntity instanceof Player player) {
 
                 var stack = TrinketUtils.getEquippedTrinket(player, ModItems.RESONANT_HEART.get());
 

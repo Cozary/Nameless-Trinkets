@@ -9,7 +9,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class EtherealWings extends EtherealWingsBase implements Accessory {
 
-    public EtherealWings(){
+    public EtherealWings() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

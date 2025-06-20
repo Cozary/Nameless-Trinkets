@@ -9,7 +9,7 @@ public class ExplosionProofJacketEvents {
 
     public static void register() {
         ModEvents.DamageModifyCallback.EVENT.register((targetEntity, damageSource, amount) -> {
-            if(targetEntity instanceof Player player){
+            if (targetEntity instanceof Player player) {
 
                 var stack = TrinketUtils.getEquippedTrinket(player, ModItems.EXPLOSION_PROOF_JACKET.get());
 

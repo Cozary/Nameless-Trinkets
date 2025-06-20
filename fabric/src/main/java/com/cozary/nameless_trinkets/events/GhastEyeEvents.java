@@ -9,15 +9,15 @@ public class GhastEyeEvents {
 
     public static void register() {
         ServerLivingEntityEvents.ALLOW_DEATH.register((entity, damageSource, damageAmount) -> {
-           if(damageSource.getEntity() instanceof Player player){
+            if (damageSource.getEntity() instanceof Player player) {
 
-               var stack = TrinketUtils.getEquippedTrinket(player, ModItems.GHAST_EYE.get());
+                var stack = TrinketUtils.getEquippedTrinket(player, ModItems.GHAST_EYE.get());
 
-               if (stack.isEmpty())
-                   return true;
+                if (stack.isEmpty())
+                    return true;
 
-               GhastEyeHandler.obtainRegenOnKill(player);
-           }
+                GhastEyeHandler.obtainRegenOnKill(player);
+            }
             return true;
         });
     }

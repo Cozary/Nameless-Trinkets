@@ -9,15 +9,15 @@ public class PufferFishLiverEvents {
 
     public static void register() {
         ModEvents.DamageModifyCallback.EVENT.register((targetEntity, damageSource, amount) -> {
-           if(damageSource.getEntity() instanceof Player player){
+            if (damageSource.getEntity() instanceof Player player) {
 
-               var stack = TrinketUtils.getEquippedTrinket(player, ModItems.PUFFER_FISH_LIVER.get());
+                var stack = TrinketUtils.getEquippedTrinket(player, ModItems.PUFFER_FISH_LIVER.get());
 
-               if (stack.isEmpty())
-                   return amount;
+                if (stack.isEmpty())
+                    return amount;
 
-               PufferFishLiverHandler.applyPoisonEffect(player, targetEntity);
-           }
+                PufferFishLiverHandler.applyPoisonEffect(targetEntity);
+            }
             return amount;
         });
     }

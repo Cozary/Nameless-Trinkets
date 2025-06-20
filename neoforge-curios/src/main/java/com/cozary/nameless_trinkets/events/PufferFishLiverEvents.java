@@ -29,7 +29,7 @@ public class PufferFishLiverEvents {
             if (stack.isEmpty())
                 return;
 
-            PufferFishLiverHandler.applyPoisonEffect(player, event.getEntity());
+            PufferFishLiverHandler.applyPoisonEffect(event.getEntity());
         }
 
     }

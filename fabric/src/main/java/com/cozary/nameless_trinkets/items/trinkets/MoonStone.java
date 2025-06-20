@@ -18,7 +18,7 @@ import java.util.Objects;
 
 public class MoonStone extends MoonStoneBase implements Accessory {
 
-    public MoonStone(){
+    public MoonStone() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }
@@ -59,7 +59,6 @@ public class MoonStone extends MoonStoneBase implements Accessory {
                 new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "moon_stone_gravity"),
                         trinketConfig.gravityValue, AttributeModifier.Operation.ADD_VALUE));
     }
-
 
 
 }

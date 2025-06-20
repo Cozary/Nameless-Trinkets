@@ -26,7 +26,7 @@ import java.util.Random;
 
 public class TrueHeartOfTheSea extends TrueHeartOfTheSeaBase implements Accessory {
 
-    public TrueHeartOfTheSea(){
+    public TrueHeartOfTheSea() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }
@@ -85,7 +85,7 @@ public class TrueHeartOfTheSea extends TrueHeartOfTheSeaBase implements Accessor
 
         AttributeInstance attribSpeed = livingEntity.getAttribute(Attributes.WATER_MOVEMENT_EFFICIENCY);
         AttributeModifier speedModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "true_heart_of_the_sea_swim_speed"),
-                config.swimSpeedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
+                config.swimSpeedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_VALUE);
 
         assert attribSpeed != null;
         EntityUtils.applyAttributeModifier(attribSpeed, speedModifier);
@@ -95,7 +95,7 @@ public class TrueHeartOfTheSea extends TrueHeartOfTheSeaBase implements Accessor
     public void onUnequip(ItemStack stack, SlotReference reference) {
         EntityUtils.removeAttributeModifier(Objects.requireNonNull(reference.entity().getAttribute(Attributes.WATER_MOVEMENT_EFFICIENCY)),
                 new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "true_heart_of_the_sea_swim_speed"),
-                        trinketConfig.swimSpeedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+                        trinketConfig.swimSpeedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_VALUE));
     }
 
 

@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class AmphibiousHands extends AmphibiousHandsBase implements Accessory {
 
-    public AmphibiousHands(){
+    public AmphibiousHands() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

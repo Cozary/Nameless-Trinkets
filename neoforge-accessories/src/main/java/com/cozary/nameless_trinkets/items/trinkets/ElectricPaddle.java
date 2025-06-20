@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class ElectricPaddle extends ElectricPaddleBase implements Accessory {
 
-    public ElectricPaddle(){
+    public ElectricPaddle() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

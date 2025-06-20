@@ -9,7 +9,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class Reforger extends ReforgerBase implements Accessory {
 
-    public Reforger(){
+    public Reforger() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

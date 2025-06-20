@@ -53,7 +53,8 @@ dependencies {
 // Compile against only the API artifact
     compileOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}:api"
     // Use the full Curios API jar at runtime
-    runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}"}
+    runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}"
+}
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 

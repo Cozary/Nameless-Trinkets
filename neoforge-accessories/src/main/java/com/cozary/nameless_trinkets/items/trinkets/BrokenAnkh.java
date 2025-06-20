@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class BrokenAnkh extends BrokenAnkhBase implements Accessory {
 
-    public BrokenAnkh(){
+    public BrokenAnkh() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

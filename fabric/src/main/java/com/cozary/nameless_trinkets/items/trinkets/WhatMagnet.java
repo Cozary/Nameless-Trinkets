@@ -13,7 +13,7 @@ import java.util.Random;
 
 public class WhatMagnet extends WhatMagnetBase implements Accessory {
 
-    public WhatMagnet(){
+    public WhatMagnet() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

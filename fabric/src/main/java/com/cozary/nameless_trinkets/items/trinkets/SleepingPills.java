@@ -19,7 +19,7 @@ import java.util.Objects;
 
 public class SleepingPills extends SleepingPillsBase implements Accessory {
 
-    public SleepingPills(){
+    public SleepingPills() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

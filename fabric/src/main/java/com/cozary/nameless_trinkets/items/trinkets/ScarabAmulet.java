@@ -19,7 +19,7 @@ import java.util.Objects;
 
 public class ScarabAmulet extends ScarabAmuletBase implements Accessory {
 
-    public ScarabAmulet(){
+    public ScarabAmulet() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

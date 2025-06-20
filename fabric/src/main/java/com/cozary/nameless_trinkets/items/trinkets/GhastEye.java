@@ -18,7 +18,7 @@ import java.util.Objects;
 
 public class GhastEye extends GhastEyeBase implements Accessory {
 
-    public GhastEye(){
+    public GhastEye() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

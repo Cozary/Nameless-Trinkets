@@ -3,11 +3,10 @@ package com.cozary.nameless_trinkets.events;
 import com.cozary.nameless_trinkets.items.trinkets.CallusBase;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
-import net.minecraft.world.entity.player.Player;
 
 public class CallusHandler {
 
-    public static float onPlayerHurt(Player player, DamageSource source, float originalAmount) {
+    public static float onPlayerHurt(DamageSource source, float originalAmount) {
         CallusBase.Stats config = CallusBase.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable)

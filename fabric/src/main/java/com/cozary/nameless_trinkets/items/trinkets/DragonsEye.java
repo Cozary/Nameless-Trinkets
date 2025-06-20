@@ -19,7 +19,7 @@ import java.util.List;
 
 public class DragonsEye extends DragonsEyeBase implements Accessory {
 
-    public DragonsEye(){
+    public DragonsEye() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

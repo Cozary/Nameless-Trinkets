@@ -14,7 +14,7 @@ import java.util.List;
 
 public class Tick extends TickBase implements Accessory {
 
-    public Tick(){
+    public Tick() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

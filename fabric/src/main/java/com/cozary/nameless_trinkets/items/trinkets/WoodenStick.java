@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class WoodenStick extends WoodenStickBase implements Accessory {
 
-    public WoodenStick(){
+    public WoodenStick() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

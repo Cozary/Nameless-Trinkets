@@ -18,7 +18,7 @@ import java.util.Objects;
 
 public class ShrinkingVeil extends ShrinkingVeilBase implements Accessory {
 
-    public ShrinkingVeil(){
+    public ShrinkingVeil() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

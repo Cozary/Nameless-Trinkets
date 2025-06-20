@@ -1,6 +1,5 @@
 package com.cozary.nameless_trinkets.events;
 
-import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.items.trinkets.ExplosionProofJacketBase;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.DamageTypeTags;
@@ -30,7 +29,7 @@ public class ExplosionProofJacketHandler {
                 itementity.setDefaultPickUpDelay();
                 itementity.setInvulnerable(true);
                 world.addFreshEntity(itementity);
-                return originalDamage * (1 - (config.blastDamagePercentageReduction/100));
+                return originalDamage * (1 - (config.blastDamagePercentageReduction / 100));
             }
 
         }

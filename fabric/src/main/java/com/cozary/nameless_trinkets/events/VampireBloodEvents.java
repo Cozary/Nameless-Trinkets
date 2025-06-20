@@ -9,7 +9,7 @@ public class VampireBloodEvents {
 
     public static void register() {
         ServerEntityCombatEvents.AFTER_KILLED_OTHER_ENTITY.register((world, entity, killedEntity) -> {
-            if(entity instanceof Player player){
+            if (entity instanceof Player player) {
 
                 var stack = TrinketUtils.getEquippedTrinket(player, ModItems.VAMPIRE_BLOOD.get());
 

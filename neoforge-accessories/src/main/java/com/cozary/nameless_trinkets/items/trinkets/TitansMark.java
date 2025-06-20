@@ -18,7 +18,7 @@ import java.util.Objects;
 
 public class TitansMark extends TitansMarkBase implements Accessory {
 
-    public TitansMark(){
+    public TitansMark() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class MissingPage extends MissingPageBase implements Accessory {
 
-    public MissingPage(){
+    public MissingPage() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

@@ -2,20 +2,13 @@ package com.cozary.nameless_trinkets.events;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.items.trinkets.PufferFishLiver;
 import com.cozary.nameless_trinkets.util.TrinketUtils;
-import io.wispforest.accessories.api.AccessoriesCapability;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
-
-import java.util.Random;
 
 @EventBusSubscriber(modid = NamelessTrinkets.MOD_ID)
 public class PufferFishLiverEvents {
@@ -25,7 +18,6 @@ public class PufferFishLiverEvents {
 
         if (!(event.getSource().getEntity() instanceof Player))
             return;
-
 
 
         DamageSource source = event.getSource();
@@ -38,7 +30,7 @@ public class PufferFishLiverEvents {
             if (stack.isEmpty())
                 return;
 
-           PufferFishLiverHandler.applyPoisonEffect(player, event.getEntity());
+            PufferFishLiverHandler.applyPoisonEffect(event.getEntity());
         }
 
     }

@@ -18,7 +18,7 @@ import java.util.Random;
 
 public class Gills extends GillsBase implements Accessory {
 
-    public Gills(){
+    public Gills() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }
@@ -32,7 +32,6 @@ public class Gills extends GillsBase implements Accessory {
     public void onEquipFromUse(ItemStack stack, SlotReference reference) {
         reference.entity().playSound(SoundEvents.ARMOR_EQUIP_ELYTRA.value(), 1.0F, 1.0F);
     }
-
 
 
     @Override

@@ -15,7 +15,7 @@ import net.minecraft.world.level.Level;
 
 public class DyingStar extends DyingStarBase implements Accessory {
 
-    public DyingStar(){
+    public DyingStar() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }

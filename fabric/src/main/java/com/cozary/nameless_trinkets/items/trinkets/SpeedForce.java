@@ -20,7 +20,7 @@ import java.util.Objects;
 
 public class SpeedForce extends SpeedForceBase implements Accessory {
 
-    public SpeedForce(){
+    public SpeedForce() {
         super();
         AccessoriesAPI.registerAccessory(this, this);
     }
