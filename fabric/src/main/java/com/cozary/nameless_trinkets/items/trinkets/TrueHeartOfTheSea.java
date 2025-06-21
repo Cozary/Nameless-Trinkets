@@ -75,12 +75,8 @@ public class TrueHeartOfTheSea extends TrueHeartOfTheSeaBase implements Accessor
     public void onEquip(ItemStack stack, SlotReference reference) {
         LivingEntity livingEntity = reference.entity();
         Stats config = TrueHeartOfTheSeaBase.INSTANCE.getTrinketConfig();
+
         if (!config.isEnable)
-            return;
-
-        Level world = livingEntity.getCommandSenderWorld();
-
-        if (world.isClientSide() || livingEntity.tickCount % 20 != 0)
             return;
 
         AttributeInstance attribSpeed = livingEntity.getAttribute(Attributes.WATER_MOVEMENT_EFFICIENCY);
