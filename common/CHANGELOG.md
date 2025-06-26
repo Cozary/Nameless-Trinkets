@@ -1,5 +1,15 @@
 # Changelog
 
+### Added
+
+- [Lucky Rock] blockList. #11
+- [Lang] Romanian Language
+
+### Changed
+
+- [Lucky Rock] tooltip text.
+
 ### Fixed
 
-- [Explosion Proof Jacket] incorrect damage reduction calculation #25
+- Advancements not giving what they should. #20
+- [Rage Mind] Crash "because "livingEntity" is null" #30
