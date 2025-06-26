@@ -24,6 +24,10 @@ public class RageMindHandler {
         if (accessories == null) {
             return;
         }
+
+        if (livingEntity == null)
+            return;
+
         var stack = accessories.getEquipped(ModItems.RAGE_MIND.get());
         if (!stack.isEmpty()) {
 
