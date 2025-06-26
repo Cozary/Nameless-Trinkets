@@ -50,7 +50,8 @@ public class LuckyRock extends TrinketItem<LuckyRock.Stats> {
 
     public static class Stats extends TrinketsStats {
         public float percentageOfObtaining = 5.0f;
-        public List<String> blockList = Arrays.asList("minecraft:coal", "minecraft:diamond", "minecraft:iron_ingot", "minecraft:gold_ingot", "minecraft:emerald", "minecraft:redstone", "minecraft:flint", "minecraft:lapis_lazuli", "minecraft:glowstone_dust");
+        public List<String> itemList = Arrays.asList("minecraft:coal", "minecraft:diamond", "minecraft:iron_ingot", "minecraft:gold_ingot", "minecraft:emerald", "minecraft:redstone", "minecraft:flint", "minecraft:lapis_lazuli", "minecraft:glowstone_dust");
+        public List<String> blockList = Arrays.asList("minecraft:stone", "minecraft:deepslate", "minecraft:granite", "minecraft:diorite", "minecraft:andesite", "minecraft:calcite", "minecraft:tuff");
         public boolean isEnable = true;
     }
 
