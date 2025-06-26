@@ -12,7 +12,7 @@
     }
   },
   "criteria": {
-    "amphibious_hands": {
+    "fractured_nullstone": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [

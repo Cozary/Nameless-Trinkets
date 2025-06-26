@@ -12,7 +12,7 @@
     }
   },
   "criteria": {
-    "amphibious_hands": {
+    "pocket_lightning_rod": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [

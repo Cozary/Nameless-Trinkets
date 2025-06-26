@@ -12,7 +12,7 @@
     }
   },
   "criteria": {
-    "amphibious_hands": {
+    "miners_soul": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [

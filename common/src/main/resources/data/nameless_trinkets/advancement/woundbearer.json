@@ -12,7 +12,7 @@
     }
   },
   "criteria": {
-    "amphibious_hands": {
+    "woundbearer": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
