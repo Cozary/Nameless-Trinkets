@@ -12,7 +12,7 @@
     }
   },
   "criteria": {
-    "amphibious_hands": {
+    "scarab_amulet": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [

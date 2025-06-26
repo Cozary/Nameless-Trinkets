@@ -12,7 +12,7 @@
     }
   },
   "criteria": {
-    "amphibious_hands": {
+    "electric_paddle": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [

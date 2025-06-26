@@ -12,7 +12,7 @@
     }
   },
   "criteria": {
-    "amphibious_hands": {
+    "shrinking_veil": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [

@@ -12,7 +12,7 @@
     }
   },
   "criteria": {
-    "amphibious_hands": {
+    "titans_mark": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [

@@ -12,13 +12,13 @@
     }
   },
   "criteria": {
-    "amphibious_hands": {
+    "dying_star": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "nameless_trinkets:amphibious_hands"
+              "nameless_trinkets:dying_star"
             ]
           }
         ]

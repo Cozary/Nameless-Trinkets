@@ -12,7 +12,7 @@
     }
   },
   "criteria": {
-    "amphibious_hands": {
+    "fragile_cloud": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
