@@ -125,7 +125,7 @@
   "tooltip.nameless_trinkets.ice_cube_1": "When hitting you apply Slowness %1$s for %2$s seconds.",
   "tooltip.nameless_trinkets.ice_cube_2": "You freeze the water you walk in.",
   "tooltip.nameless_trinkets.lucky_rock_lore": "I can see something that shines.",
-  "tooltip.nameless_trinkets.lucky_rock_1": "By breaking stone you have a %1$s chance of obtaining precious things when breaking Stone.",
+  "tooltip.nameless_trinkets.lucky_rock_1": "By breaking stone-like blocks you have a %1$s chance of obtaining precious things.",
   "tooltip.nameless_trinkets.miners_soul_lore": "Infinite souls help you.",
   "tooltip.nameless_trinkets.miners_soul_1": "You gain %1$s extra level of fortune.",
   "tooltip.nameless_trinkets.missing_page_lore": "It glows with something...",
