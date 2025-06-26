@@ -25,8 +25,9 @@ public class LuckyRockHandler {
         Random random = new Random();
 
 
-        if (random.nextInt(100) <= config.percentageOfObtaining && blockState == Blocks.STONE.defaultBlockState() && !player.level().isClientSide) {
-            String itemStack = config.blockList.get(random.nextInt(config.blockList.size()));
+        if (random.nextInt(100) <= config.percentageOfObtaining && config.blockList.contains(BuiltInRegistries.BLOCK.getKey(blockState.getBlock()).toString()) && !player.level().isClientSide) {
+            String itemStack = config.itemList.get(random.nextInt(config.itemList.size()));
+
 
             assert itemStack != null;
             ((ServerLevel) player.getCommandSenderWorld()).sendParticles(ParticleTypes.HAPPY_VILLAGER, blockPos.getX(), blockPos.getY(), blockPos.getZ(), 25, 1D, 1D, 1D, 0.1);
