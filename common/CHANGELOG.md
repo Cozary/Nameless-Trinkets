@@ -2,14 +2,8 @@
 
 ### Added
 
-- [Lucky Rock] blockList. #11
-- [Lang] Romanian Language
+- Datagen!
 
-### Changed
+### Removed
 
-- [Lucky Rock] tooltip text.
-
-### Fixed
-
-- Advancements not giving what they should. #20
-- [Rage Mind] Crash "because "livingEntity" is null" #30
+- [Mysterious Trinket] remove tooltip talking about giving extra slots
