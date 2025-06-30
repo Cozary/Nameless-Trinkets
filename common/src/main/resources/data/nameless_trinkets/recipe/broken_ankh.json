@@ -1,23 +1,24 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:bone"
+    },
+    "S": {
+      "item": "nameless_trinkets:ultimate_dust"
+    },
+    "W": {
+      "item": "minecraft:wither_skeleton_skull"
+    }
+  },
   "pattern": [
     "#W#",
     "#S#",
     " # "
   ],
-  "key": {
-    "#": {
-      "item": "minecraft:bone"
-    },
-    "W": {
-      "item": "minecraft:wither_skeleton_skull"
-    },
-    "S": {
-      "item": "nameless_trinkets:ultimate_dust"
-    }
-  },
   "result": {
-    "id": "nameless_trinkets:broken_ankh",
-    "count": 1
+    "count": 1,
+    "id": "nameless_trinkets:broken_ankh"
   }
 }

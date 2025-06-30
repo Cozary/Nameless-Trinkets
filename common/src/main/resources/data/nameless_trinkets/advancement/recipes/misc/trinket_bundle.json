@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "nameless_trinkets:trinket_bundle"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_unknown_fragment": {
+      "conditions": {
+        "items": [
+          {
+            "items": "nameless_trinkets:unknown_fragment"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_unknown_fragment"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "nameless_trinkets:trinket_bundle"
+    ]
+  }
+}

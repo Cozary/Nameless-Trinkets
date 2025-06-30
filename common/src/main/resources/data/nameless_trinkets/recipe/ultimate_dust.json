@@ -1,23 +1,24 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:ender_eye"
+    },
+    "N": {
+      "item": "minecraft:netherite_scrap"
+    },
+    "S": {
+      "item": "nameless_trinkets:glowing_dust"
+    }
+  },
   "pattern": [
     "#S#",
     "SNS",
     "#S#"
   ],
-  "key": {
-    "#": {
-      "item": "minecraft:ender_eye"
-    },
-    "S": {
-      "item": "nameless_trinkets:glowing_dust"
-    },
-    "N": {
-      "item": "minecraft:netherite_scrap"
-    }
-  },
   "result": {
-    "id": "nameless_trinkets:ultimate_dust",
-    "count": 1
+    "count": 1,
+    "id": "nameless_trinkets:ultimate_dust"
   }
 }

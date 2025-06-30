@@ -1,23 +1,24 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:ender_eye"
+    },
+    "S": {
+      "item": "nameless_trinkets:dubious_dust"
+    },
+    "W": {
+      "item": "minecraft:end_stone"
+    }
+  },
   "pattern": [
     "#W#",
     "#S#",
     "#W#"
   ],
-  "key": {
-    "#": {
-      "item": "minecraft:ender_eye"
-    },
-    "W": {
-      "item": "minecraft:end_stone"
-    },
-    "S": {
-      "item": "nameless_trinkets:dubious_dust"
-    }
-  },
   "result": {
-    "id": "nameless_trinkets:dragons_eye",
-    "count": 1
+    "count": 1,
+    "id": "nameless_trinkets:dragons_eye"
   }
 }

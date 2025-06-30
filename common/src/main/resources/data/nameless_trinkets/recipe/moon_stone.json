@@ -1,23 +1,24 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:feather"
+    },
+    "K": {
+      "item": "nameless_trinkets:dubious_dust"
+    },
+    "S": {
+      "item": "minecraft:sponge"
+    }
+  },
   "pattern": [
     "###",
     "SKS",
     "###"
   ],
-  "key": {
-    "#": {
-      "item": "minecraft:feather"
-    },
-    "S": {
-      "item": "minecraft:sponge"
-    },
-    "K": {
-      "item": "nameless_trinkets:dubious_dust"
-    }
-  },
   "result": {
-    "id": "nameless_trinkets:moon_stone",
-    "count": 1
+    "count": 1,
+    "id": "nameless_trinkets:moon_stone"
   }
 }

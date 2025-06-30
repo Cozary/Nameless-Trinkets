@@ -1,26 +1,27 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "###",
-    "PSP",
-    "BBB"
-  ],
+  "category": "misc",
   "key": {
     "#": {
       "item": "minecraft:rotten_flesh"
+    },
+    "B": {
+      "item": "minecraft:bone"
     },
     "P": {
       "item": "minecraft:paper"
     },
     "S": {
       "item": "nameless_trinkets:glowing_dust"
-    },
-    "B": {
-      "item": "minecraft:bone"
     }
   },
+  "pattern": [
+    "###",
+    "PSP",
+    "BBB"
+  ],
   "result": {
-    "id": "nameless_trinkets:missing_page",
-    "count": 1
+    "count": 1,
+    "id": "nameless_trinkets:missing_page"
   }
 }

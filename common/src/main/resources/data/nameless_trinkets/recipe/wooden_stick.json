@@ -1,23 +1,24 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "g/g",
-    "/S/",
-    "g/g"
-  ],
+  "category": "misc",
   "key": {
-    "g": {
-      "item": "minecraft:gold_ingot"
-    },
     "/": {
       "item": "minecraft:stick"
     },
     "S": {
       "item": "nameless_trinkets:dubious_dust"
+    },
+    "g": {
+      "item": "minecraft:gold_ingot"
     }
   },
+  "pattern": [
+    "g/g",
+    "/S/",
+    "g/g"
+  ],
   "result": {
-    "id": "nameless_trinkets:wooden_stick",
-    "count": 1
+    "count": 1,
+    "id": "nameless_trinkets:wooden_stick"
   }
 }

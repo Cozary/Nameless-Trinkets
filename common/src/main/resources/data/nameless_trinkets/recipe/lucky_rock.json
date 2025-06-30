@@ -1,32 +1,33 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "#R#",
-        "iSg",
-        "#C#"
-    ],
-    "key": {
-        "#": {
-            "item": "minecraft:cobblestone"
-        },
-        "R": {
-            "item": "minecraft:redstone"
-        },
-        "i": {
-            "item": "minecraft:iron_ingot"
-        },
-        "S": {
-            "item": "nameless_trinkets:dubious_dust"
-        },
-        "g": {
-            "item": "minecraft:gold_ingot"
-        },
-        "C": {
-            "item": "minecraft:coal"
-        }
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:cobblestone"
     },
-    "result": {
-            "id": "nameless_trinkets:lucky_rock",
-        "count": 1
+    "C": {
+      "item": "minecraft:coal"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "S": {
+      "item": "nameless_trinkets:dubious_dust"
+    },
+    "g": {
+      "item": "minecraft:gold_ingot"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
     }
+  },
+  "pattern": [
+    "#R#",
+    "iSg",
+    "#C#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:lucky_rock"
+  }
 }

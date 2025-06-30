@@ -1,28 +1,34 @@
 {
   "parent": "nameless_trinkets:root",
+  "criteria": {
+    "four_leaf_clover": {
+      "conditions": {
+        "items": [
+          {
+            "items": "nameless_trinkets:four_leaf_clover"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
   "display": {
+    "description": {
+      "translate": "advancements.nameless_trinkets.four_leaf_clover.description"
+    },
+    "frame": "goal",
     "icon": {
+      "count": 1,
       "id": "nameless_trinkets:four_leaf_clover"
     },
     "title": {
       "translate": "advancements.nameless_trinkets.four_leaf_clover.title"
-    },
-    "description": {
-      "translate": "advancements.nameless_trinkets.four_leaf_clover.description"
     }
   },
-  "criteria": {
-    "four_leaf_clover": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "nameless_trinkets:four_leaf_clover"
-            ]
-          }
-        ]
-      }
-    }
-  }
+  "requirements": [
+    [
+      "four_leaf_clover"
+    ]
+  ],
+  "sends_telemetry_event": true
 }

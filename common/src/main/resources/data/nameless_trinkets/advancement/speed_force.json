@@ -1,28 +1,34 @@
 {
   "parent": "nameless_trinkets:root",
+  "criteria": {
+    "speed_force": {
+      "conditions": {
+        "items": [
+          {
+            "items": "nameless_trinkets:speed_force"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
   "display": {
+    "description": {
+      "translate": "advancements.nameless_trinkets.speed_force.description"
+    },
+    "frame": "goal",
     "icon": {
+      "count": 1,
       "id": "nameless_trinkets:speed_force"
     },
     "title": {
       "translate": "advancements.nameless_trinkets.speed_force.title"
-    },
-    "description": {
-      "translate": "advancements.nameless_trinkets.speed_force.description"
     }
   },
-  "criteria": {
-    "speed_force": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "nameless_trinkets:speed_force"
-            ]
-          }
-        ]
-      }
-    }
-  }
+  "requirements": [
+    [
+      "speed_force"
+    ]
+  ],
+  "sends_telemetry_event": true
 }

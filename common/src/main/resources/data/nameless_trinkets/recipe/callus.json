@@ -1,10 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "#C#",
-    "HSH",
-    "###"
-  ],
+  "category": "misc",
   "key": {
     "#": {
       "item": "minecraft:rotten_flesh"
@@ -19,8 +15,13 @@
       "item": "nameless_trinkets:glowing_dust"
     }
   },
+  "pattern": [
+    "#C#",
+    "HSH",
+    "###"
+  ],
   "result": {
-    "id": "nameless_trinkets:callus",
-    "count": 1
+    "count": 1,
+    "id": "nameless_trinkets:callus"
   }
 }

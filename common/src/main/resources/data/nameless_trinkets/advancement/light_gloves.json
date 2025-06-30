@@ -1,28 +1,34 @@
 {
   "parent": "nameless_trinkets:root",
+  "criteria": {
+    "light_gloves": {
+      "conditions": {
+        "items": [
+          {
+            "items": "nameless_trinkets:light_gloves"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
   "display": {
+    "description": {
+      "translate": "advancements.nameless_trinkets.light_gloves.description"
+    },
+    "frame": "goal",
     "icon": {
+      "count": 1,
       "id": "nameless_trinkets:light_gloves"
     },
     "title": {
       "translate": "advancements.nameless_trinkets.light_gloves.title"
-    },
-    "description": {
-      "translate": "advancements.nameless_trinkets.light_gloves.description"
     }
   },
-  "criteria": {
-    "light_gloves": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "nameless_trinkets:light_gloves"
-            ]
-          }
-        ]
-      }
-    }
-  }
+  "requirements": [
+    [
+      "light_gloves"
+    ]
+  ],
+  "sends_telemetry_event": true
 }

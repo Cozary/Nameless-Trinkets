@@ -1,10 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "###",
-    "LSL",
-    "LLL"
-  ],
+  "category": "misc",
   "key": {
     "#": {
       "item": "minecraft:bone_block"
@@ -16,8 +12,13 @@
       "item": "nameless_trinkets:glowing_dust"
     }
   },
+  "pattern": [
+    "###",
+    "LSL",
+    "LLL"
+  ],
   "result": {
-    "id": "nameless_trinkets:fertilizer",
-    "count": 1
+    "count": 1,
+    "id": "nameless_trinkets:fertilizer"
   }
 }

@@ -1,14 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "iGi",
-    "RSR",
-    "iRi"
-  ],
+  "category": "misc",
   "key": {
-    "i": {
-      "item": "minecraft:iron_ingot"
-    },
     "G": {
       "item": "minecraft:glass_bottle"
     },
@@ -17,10 +10,18 @@
     },
     "S": {
       "item": "nameless_trinkets:dubious_dust"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
     }
   },
+  "pattern": [
+    "iGi",
+    "RSR",
+    "iRi"
+  ],
   "result": {
-    "id": "nameless_trinkets:experience_magnet",
-    "count": 1
+    "count": 1,
+    "id": "nameless_trinkets:experience_magnet"
   }
 }

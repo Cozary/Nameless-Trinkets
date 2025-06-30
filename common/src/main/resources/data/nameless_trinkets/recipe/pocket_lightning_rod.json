@@ -1,10 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "///",
-    "/S/",
-    "///"
-  ],
+  "category": "misc",
   "key": {
     "/": {
       "item": "minecraft:string"
@@ -13,8 +9,13 @@
       "item": "nameless_trinkets:dubious_dust"
     }
   },
+  "pattern": [
+    "///",
+    "/S/",
+    "///"
+  ],
   "result": {
-    "id": "nameless_trinkets:pocket_lightning_rod",
-    "count": 1
+    "count": 1,
+    "id": "nameless_trinkets:pocket_lightning_rod"
   }
 }

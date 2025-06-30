@@ -1,29 +1,30 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " # ",
-    "TSC",
-    " W "
-  ],
+  "category": "misc",
   "key": {
     "#": {
       "item": "minecraft:salmon"
     },
-    "T": {
-      "item": "minecraft:tropical_fish"
+    "C": {
+      "item": "minecraft:cod"
     },
     "S": {
       "item": "nameless_trinkets:glowing_dust"
     },
-    "C": {
-      "item": "minecraft:cod"
+    "T": {
+      "item": "minecraft:tropical_fish"
     },
     "W": {
       "item": "minecraft:water_bucket"
     }
   },
+  "pattern": [
+    " # ",
+    "TSC",
+    " W "
+  ],
   "result": {
-    "id": "nameless_trinkets:tear_of_the_sea",
-    "count": 1
+    "count": 1,
+    "id": "nameless_trinkets:tear_of_the_sea"
   }
 }

@@ -1,28 +1,34 @@
 {
   "parent": "nameless_trinkets:root",
+  "criteria": {
+    "resonant_heart": {
+      "conditions": {
+        "items": [
+          {
+            "items": "nameless_trinkets:resonant_heart"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
   "display": {
+    "description": {
+      "translate": "advancements.nameless_trinkets.resonant_heart.description"
+    },
+    "frame": "goal",
     "icon": {
+      "count": 1,
       "id": "nameless_trinkets:resonant_heart"
     },
     "title": {
       "translate": "advancements.nameless_trinkets.resonant_heart.title"
-    },
-    "description": {
-      "translate": "advancements.nameless_trinkets.resonant_heart.description"
     }
   },
-  "criteria": {
-    "resonant_heart": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "nameless_trinkets:resonant_heart"
-            ]
-          }
-        ]
-      }
-    }
-  }
+  "requirements": [
+    [
+      "resonant_heart"
+    ]
+  ],
+  "sends_telemetry_event": true
 }

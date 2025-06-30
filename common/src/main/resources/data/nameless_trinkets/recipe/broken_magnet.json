@@ -1,14 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "iLi",
-    "RSL",
-    "iRi"
-  ],
+  "category": "misc",
   "key": {
-    "i": {
-      "item": "minecraft:iron_ingot"
-    },
     "L": {
       "item": "minecraft:lapis_lazuli"
     },
@@ -17,10 +10,18 @@
     },
     "S": {
       "item": "nameless_trinkets:dubious_dust"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
     }
   },
+  "pattern": [
+    "iLi",
+    "RSL",
+    "iRi"
+  ],
   "result": {
-    "id": "nameless_trinkets:broken_magnet",
-    "count": 1
+    "count": 1,
+    "id": "nameless_trinkets:broken_magnet"
   }
 }

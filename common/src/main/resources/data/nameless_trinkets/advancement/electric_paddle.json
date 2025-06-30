@@ -1,28 +1,34 @@
 {
   "parent": "nameless_trinkets:root",
+  "criteria": {
+    "electric_paddle": {
+      "conditions": {
+        "items": [
+          {
+            "items": "nameless_trinkets:electric_paddle"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
   "display": {
+    "description": {
+      "translate": "advancements.nameless_trinkets.electric_paddle.description"
+    },
+    "frame": "goal",
     "icon": {
+      "count": 1,
       "id": "nameless_trinkets:electric_paddle"
     },
     "title": {
       "translate": "advancements.nameless_trinkets.electric_paddle.title"
-    },
-    "description": {
-      "translate": "advancements.nameless_trinkets.electric_paddle.description"
     }
   },
-  "criteria": {
-    "electric_paddle": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "nameless_trinkets:electric_paddle"
-            ]
-          }
-        ]
-      }
-    }
-  }
+  "requirements": [
+    [
+      "electric_paddle"
+    ]
+  ],
+  "sends_telemetry_event": true
 }

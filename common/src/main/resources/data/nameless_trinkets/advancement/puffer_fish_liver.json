@@ -1,28 +1,34 @@
 {
   "parent": "nameless_trinkets:root",
+  "criteria": {
+    "puffer_fish_liver": {
+      "conditions": {
+        "items": [
+          {
+            "items": "nameless_trinkets:puffer_fish_liver"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
   "display": {
+    "description": {
+      "translate": "advancements.nameless_trinkets.puffer_fish_liver.description"
+    },
+    "frame": "goal",
     "icon": {
+      "count": 1,
       "id": "nameless_trinkets:puffer_fish_liver"
     },
     "title": {
       "translate": "advancements.nameless_trinkets.puffer_fish_liver.title"
-    },
-    "description": {
-      "translate": "advancements.nameless_trinkets.puffer_fish_liver.description"
     }
   },
-  "criteria": {
-    "puffer_fish_liver": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "nameless_trinkets:puffer_fish_liver"
-            ]
-          }
-        ]
-      }
-    }
-  }
+  "requirements": [
+    [
+      "puffer_fish_liver"
+    ]
+  ],
+  "sends_telemetry_event": true
 }

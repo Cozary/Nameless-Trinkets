@@ -1,13 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "iIi",
-    "LDS",
-    "iIi"
-  ],
+  "category": "misc",
   "key": {
-    "i": {
-      "item": "minecraft:iron_ingot"
+    "D": {
+      "item": "nameless_trinkets:glowing_dust"
     },
     "I": {
       "item": "minecraft:iron_block"
@@ -18,12 +14,17 @@
     "S": {
       "item": "nameless_trinkets:broken_magnet"
     },
-    "D": {
-      "item": "nameless_trinkets:glowing_dust"
+    "i": {
+      "item": "minecraft:iron_ingot"
     }
   },
+  "pattern": [
+    "iIi",
+    "LDS",
+    "iIi"
+  ],
   "result": {
-    "id": "nameless_trinkets:super_magnet",
-    "count": 1
+    "count": 1,
+    "id": "nameless_trinkets:super_magnet"
   }
 }

@@ -1,10 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "#N#",
-    "#S#",
-    "###"
-  ],
+  "category": "misc",
   "key": {
     "#": {
       "item": "minecraft:gold_block"
@@ -16,8 +12,13 @@
       "item": "nameless_trinkets:ultimate_dust"
     }
   },
+  "pattern": [
+    "#N#",
+    "#S#",
+    "###"
+  ],
   "result": {
-    "id": "nameless_trinkets:cracked_crown",
-    "count": 1
+    "count": 1,
+    "id": "nameless_trinkets:cracked_crown"
   }
 }

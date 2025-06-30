@@ -1,28 +1,34 @@
 {
   "parent": "nameless_trinkets:root",
+  "criteria": {
+    "blaze_nucleus": {
+      "conditions": {
+        "items": [
+          {
+            "items": "nameless_trinkets:blaze_nucleus"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
   "display": {
+    "description": {
+      "translate": "advancements.nameless_trinkets.blaze_nucleus.description"
+    },
+    "frame": "goal",
     "icon": {
+      "count": 1,
       "id": "nameless_trinkets:blaze_nucleus"
     },
     "title": {
       "translate": "advancements.nameless_trinkets.blaze_nucleus.title"
-    },
-    "description": {
-      "translate": "advancements.nameless_trinkets.blaze_nucleus.description"
     }
   },
-  "criteria": {
-    "blaze_nucleus": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "nameless_trinkets:blaze_nucleus"
-            ]
-          }
-        ]
-      }
-    }
-  }
+  "requirements": [
+    [
+      "blaze_nucleus"
+    ]
+  ],
+  "sends_telemetry_event": true
 }
