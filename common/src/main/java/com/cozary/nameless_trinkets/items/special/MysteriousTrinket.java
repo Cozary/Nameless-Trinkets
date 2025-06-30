@@ -91,7 +91,7 @@ public class MysteriousTrinket extends Item {
     @Override
     public void appendHoverText(@NotNull ItemStack stack, @Nullable TooltipContext context, @NotNull List<Component> tooltip, @NotNull TooltipFlag flagIn) {
         tooltip.add(Component.translatable("tooltip.nameless_trinkets.mysterious_trinket_1").withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC));
-        tooltip.add(Component.translatable("tooltip.nameless_trinkets.mysterious_trinket_2").withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC));
+        //tooltip.add(Component.translatable("tooltip.nameless_trinkets.mysterious_trinket_2").withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC));
         //tooltip.add(Component.translatable("tooltip.nameless_trinkets.mysterious_trinket_3", Component.translatable(String.valueOf(ConfigurationHandler.GENERAL.slotProbability.get()))).withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC));
         //tooltip.add(Component.translatable("tooltip.nameless_trinkets.mysterious_trinket_4", Component.translatable(String.valueOf(ConfigurationHandler.GENERAL.trinketSlots.get()))).withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC));
 
