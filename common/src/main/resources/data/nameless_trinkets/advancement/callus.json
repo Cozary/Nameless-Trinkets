@@ -1,28 +1,34 @@
 {
   "parent": "nameless_trinkets:root",
+  "criteria": {
+    "callus": {
+      "conditions": {
+        "items": [
+          {
+            "items": "nameless_trinkets:callus"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
   "display": {
+    "description": {
+      "translate": "advancements.nameless_trinkets.callus.description"
+    },
+    "frame": "goal",
     "icon": {
+      "count": 1,
       "id": "nameless_trinkets:callus"
     },
     "title": {
       "translate": "advancements.nameless_trinkets.callus.title"
-    },
-    "description": {
-      "translate": "advancements.nameless_trinkets.callus.description"
     }
   },
-  "criteria": {
-    "callus": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "nameless_trinkets:callus"
-            ]
-          }
-        ]
-      }
-    }
-  }
+  "requirements": [
+    [
+      "callus"
+    ]
+  ],
+  "sends_telemetry_event": true
 }

@@ -1,10 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "///",
-    "/S/",
-    "///"
-  ],
+  "category": "misc",
   "key": {
     "/": {
       "item": "minecraft:chiseled_sandstone"
@@ -13,8 +9,13 @@
       "item": "nameless_trinkets:glowing_dust"
     }
   },
+  "pattern": [
+    "///",
+    "/S/",
+    "///"
+  ],
   "result": {
-    "id": "nameless_trinkets:scarab_amulet",
-    "count": 1
+    "count": 1,
+    "id": "nameless_trinkets:scarab_amulet"
   }
 }

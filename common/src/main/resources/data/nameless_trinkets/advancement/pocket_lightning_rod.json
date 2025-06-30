@@ -1,0 +1,34 @@
+{
+  "parent": "nameless_trinkets:root",
+  "criteria": {
+    "pocket_lightning_rod": {
+      "conditions": {
+        "items": [
+          {
+            "items": "nameless_trinkets:pocket_lightning_rod"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.nameless_trinkets.pocket_lightning_rod.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "nameless_trinkets:pocket_lightning_rod"
+    },
+    "title": {
+      "translate": "advancements.nameless_trinkets.pocket_lightning_rod.title"
+    }
+  },
+  "requirements": [
+    [
+      "pocket_lightning_rod"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

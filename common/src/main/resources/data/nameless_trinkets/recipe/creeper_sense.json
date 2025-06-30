@@ -1,23 +1,24 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:gunpowder"
+    },
+    "S": {
+      "item": "nameless_trinkets:dubious_dust"
+    },
+    "T": {
+      "item": "minecraft:tnt"
+    }
+  },
   "pattern": [
     "###",
     "TST",
     "###"
   ],
-  "key": {
-    "#": {
-      "item": "minecraft:gunpowder"
-    },
-    "T": {
-      "item": "minecraft:tnt"
-    },
-    "S": {
-      "item": "nameless_trinkets:dubious_dust"
-    }
-  },
   "result": {
-    "id": "nameless_trinkets:creeper_sense",
-    "count": 1
+    "count": 1,
+    "id": "nameless_trinkets:creeper_sense"
   }
 }

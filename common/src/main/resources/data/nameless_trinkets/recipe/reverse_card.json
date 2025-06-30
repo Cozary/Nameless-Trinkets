@@ -1,23 +1,24 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:shield"
+    },
+    "S": {
+      "item": "nameless_trinkets:ultimate_dust"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
   "pattern": [
     "#i#",
     "#S#",
     "#i#"
   ],
-  "key": {
-    "#": {
-      "item": "minecraft:shield"
-    },
-    "i": {
-      "item": "minecraft:iron_ingot"
-    },
-    "S": {
-      "item": "nameless_trinkets:ultimate_dust"
-    }
-  },
   "result": {
-    "id": "nameless_trinkets:reverse_card",
-    "count": 1
+    "count": 1,
+    "id": "nameless_trinkets:reverse_card"
   }
 }

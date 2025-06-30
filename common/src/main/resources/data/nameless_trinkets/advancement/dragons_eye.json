@@ -1,28 +1,34 @@
 {
   "parent": "nameless_trinkets:root",
+  "criteria": {
+    "dragons_eye": {
+      "conditions": {
+        "items": [
+          {
+            "items": "nameless_trinkets:dragons_eye"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
   "display": {
+    "description": {
+      "translate": "advancements.nameless_trinkets.dragons_eye.description"
+    },
+    "frame": "goal",
     "icon": {
+      "count": 1,
       "id": "nameless_trinkets:dragons_eye"
     },
     "title": {
       "translate": "advancements.nameless_trinkets.dragons_eye.title"
-    },
-    "description": {
-      "translate": "advancements.nameless_trinkets.dragons_eye.description"
     }
   },
-  "criteria": {
-    "dragons_eye": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "nameless_trinkets:dragons_eye"
-            ]
-          }
-        ]
-      }
-    }
-  }
+  "requirements": [
+    [
+      "dragons_eye"
+    ]
+  ],
+  "sends_telemetry_event": true
 }

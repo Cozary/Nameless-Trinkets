@@ -1,28 +1,34 @@
 {
   "parent": "nameless_trinkets:root",
+  "criteria": {
+    "blindfold": {
+      "conditions": {
+        "items": [
+          {
+            "items": "nameless_trinkets:blindfold"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
   "display": {
+    "description": {
+      "translate": "advancements.nameless_trinkets.blindfold.description"
+    },
+    "frame": "goal",
     "icon": {
+      "count": 1,
       "id": "nameless_trinkets:blindfold"
     },
     "title": {
       "translate": "advancements.nameless_trinkets.blindfold.title"
-    },
-    "description": {
-      "translate": "advancements.nameless_trinkets.blindfold.description"
     }
   },
-  "criteria": {
-    "blindfold": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "nameless_trinkets:blindfold"
-            ]
-          }
-        ]
-      }
-    }
-  }
+  "requirements": [
+    [
+      "blindfold"
+    ]
+  ],
+  "sends_telemetry_event": true
 }

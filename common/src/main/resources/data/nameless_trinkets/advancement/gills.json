@@ -1,28 +1,34 @@
 {
   "parent": "nameless_trinkets:root",
+  "criteria": {
+    "gills": {
+      "conditions": {
+        "items": [
+          {
+            "items": "nameless_trinkets:gills"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
   "display": {
+    "description": {
+      "translate": "advancements.nameless_trinkets.gills.description"
+    },
+    "frame": "goal",
     "icon": {
+      "count": 1,
       "id": "nameless_trinkets:gills"
     },
     "title": {
       "translate": "advancements.nameless_trinkets.gills.title"
-    },
-    "description": {
-      "translate": "advancements.nameless_trinkets.gills.description"
     }
   },
-  "criteria": {
-    "gills": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "nameless_trinkets:gills"
-            ]
-          }
-        ]
-      }
-    }
-  }
+  "requirements": [
+    [
+      "gills"
+    ]
+  ],
+  "sends_telemetry_event": true
 }

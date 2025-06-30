@@ -1,10 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "#G#",
-    "GSG",
-    "#P#"
-  ],
+  "category": "misc",
   "key": {
     "#": {
       "item": "minecraft:feather"
@@ -12,15 +8,20 @@
     "G": {
       "item": "minecraft:glass_pane"
     },
-    "S": {
-      "item": "nameless_trinkets:glowing_dust"
-    },
     "P": {
       "item": "minecraft:phantom_membrane"
+    },
+    "S": {
+      "item": "nameless_trinkets:glowing_dust"
     }
   },
+  "pattern": [
+    "#G#",
+    "GSG",
+    "#P#"
+  ],
   "result": {
-    "id": "nameless_trinkets:ethereal_wings",
-    "count": 1
+    "count": 1,
+    "id": "nameless_trinkets:ethereal_wings"
   }
 }

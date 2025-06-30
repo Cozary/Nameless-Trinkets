@@ -1,28 +1,34 @@
 {
   "parent": "nameless_trinkets:root",
+  "criteria": {
+    "explosion_proof_jacket": {
+      "conditions": {
+        "items": [
+          {
+            "items": "nameless_trinkets:explosion_proof_jacket"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
   "display": {
+    "description": {
+      "translate": "advancements.nameless_trinkets.explosion_proof_jacket.description"
+    },
+    "frame": "goal",
     "icon": {
+      "count": 1,
       "id": "nameless_trinkets:explosion_proof_jacket"
     },
     "title": {
       "translate": "advancements.nameless_trinkets.explosion_proof_jacket.title"
-    },
-    "description": {
-      "translate": "advancements.nameless_trinkets.explosion_proof_jacket.description"
     }
   },
-  "criteria": {
-    "explosion_proof_jacket": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "nameless_trinkets:explosion_proof_jacket"
-            ]
-          }
-        ]
-      }
-    }
-  }
+  "requirements": [
+    [
+      "explosion_proof_jacket"
+    ]
+  ],
+  "sends_telemetry_event": true
 }

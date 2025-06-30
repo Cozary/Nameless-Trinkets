@@ -1,28 +1,34 @@
 {
   "parent": "nameless_trinkets:root",
+  "criteria": {
+    "sleeping_pills": {
+      "conditions": {
+        "items": [
+          {
+            "items": "nameless_trinkets:sleeping_pills"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
   "display": {
+    "description": {
+      "translate": "advancements.nameless_trinkets.sleeping_pills.description"
+    },
+    "frame": "goal",
     "icon": {
+      "count": 1,
       "id": "nameless_trinkets:sleeping_pills"
     },
     "title": {
       "translate": "advancements.nameless_trinkets.sleeping_pills.title"
-    },
-    "description": {
-      "translate": "advancements.nameless_trinkets.sleeping_pills.description"
     }
   },
-  "criteria": {
-    "sleeping_pills": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "nameless_trinkets:sleeping_pills"
-            ]
-          }
-        ]
-      }
-    }
-  }
+  "requirements": [
+    [
+      "sleeping_pills"
+    ]
+  ],
+  "sends_telemetry_event": true
 }

@@ -1,10 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "###",
-    "#S#",
-    "###"
-  ],
+  "category": "misc",
   "key": {
     "#": {
       "item": "minecraft:nether_star"
@@ -13,8 +9,13 @@
       "item": "nameless_trinkets:ultimate_dust"
     }
   },
+  "pattern": [
+    "###",
+    "#S#",
+    "###"
+  ],
   "result": {
-    "id": "nameless_trinkets:dying_star",
-    "count": 1
+    "count": 1,
+    "id": "nameless_trinkets:dying_star"
   }
 }

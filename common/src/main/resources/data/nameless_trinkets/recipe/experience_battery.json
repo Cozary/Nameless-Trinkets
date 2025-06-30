@@ -1,10 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "#R#",
-    "#S#",
-    "#i#"
-  ],
+  "category": "misc",
   "key": {
     "#": {
       "item": "minecraft:glass_bottle"
@@ -19,8 +15,13 @@
       "item": "minecraft:iron_ingot"
     }
   },
+  "pattern": [
+    "#R#",
+    "#S#",
+    "#i#"
+  ],
   "result": {
-    "id": "nameless_trinkets:experience_battery",
-    "count": 1
+    "count": 1,
+    "id": "nameless_trinkets:experience_battery"
   }
 }

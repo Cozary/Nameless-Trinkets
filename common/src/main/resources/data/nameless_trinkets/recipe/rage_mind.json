@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "category": "misc",
   "ingredients": [
     {
       "item": "minecraft:redstone_block"
@@ -14,9 +15,6 @@
       "item": "minecraft:diamond"
     },
     {
-      "item": "nameless_trinkets:ultimate_dust"
-    },
-    {
       "item": "minecraft:diamond"
     },
     {
@@ -27,10 +25,13 @@
     },
     {
       "item": "minecraft:redstone_block"
+    },
+    {
+      "item": "nameless_trinkets:ultimate_dust"
     }
   ],
   "result": {
-    "id": "nameless_trinkets:rage_mind",
-    "count": 1
+    "count": 1,
+    "id": "nameless_trinkets:rage_mind"
   }
 }

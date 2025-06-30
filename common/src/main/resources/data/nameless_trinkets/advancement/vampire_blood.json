@@ -1,28 +1,34 @@
 {
   "parent": "nameless_trinkets:root",
+  "criteria": {
+    "vampire_blood": {
+      "conditions": {
+        "items": [
+          {
+            "items": "nameless_trinkets:vampire_blood"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
   "display": {
+    "description": {
+      "translate": "advancements.nameless_trinkets.vampire_blood.description"
+    },
+    "frame": "goal",
     "icon": {
+      "count": 1,
       "id": "nameless_trinkets:vampire_blood"
     },
     "title": {
       "translate": "advancements.nameless_trinkets.vampire_blood.title"
-    },
-    "description": {
-      "translate": "advancements.nameless_trinkets.vampire_blood.description"
     }
   },
-  "criteria": {
-    "vampire_blood": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "nameless_trinkets:vampire_blood"
-            ]
-          }
-        ]
-      }
-    }
-  }
+  "requirements": [
+    [
+      "vampire_blood"
+    ]
+  ],
+  "sends_telemetry_event": true
 }

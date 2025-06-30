@@ -1,23 +1,24 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "minecraft:redstone"
+    },
+    "S": {
+      "item": "nameless_trinkets:dubious_dust"
+    },
+    "X": {
+      "item": "minecraft:gunpowder"
+    }
+  },
   "pattern": [
     "XIX",
     "ISI",
     "XIX"
   ],
-  "key": {
-    "I": {
-      "item": "minecraft:redstone"
-    },
-    "X": {
-      "item": "minecraft:gunpowder"
-    },
-    "S": {
-      "item": "nameless_trinkets:dubious_dust"
-    }
-  },
   "result": {
-    "id": "nameless_trinkets:titans_mark",
-    "count": 1
+    "count": 1,
+    "id": "nameless_trinkets:titans_mark"
   }
 }

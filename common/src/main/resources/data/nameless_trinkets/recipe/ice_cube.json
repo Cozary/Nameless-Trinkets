@@ -1,23 +1,24 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:ice"
+    },
+    "P": {
+      "item": "nameless_trinkets:dubious_dust"
+    },
+    "S": {
+      "item": "minecraft:snow_block"
+    }
+  },
   "pattern": [
     "#S#",
     "SPS",
     "#S#"
   ],
-  "key": {
-    "#": {
-      "item": "minecraft:ice"
-    },
-    "S": {
-      "item": "minecraft:snow_block"
-    },
-    "P": {
-      "item": "nameless_trinkets:dubious_dust"
-    }
-  },
   "result": {
-    "id": "nameless_trinkets:ice_cube",
-    "count": 1
+    "count": 1,
+    "id": "nameless_trinkets:ice_cube"
   }
 }

@@ -1,12 +1,13 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": {
-    "item": "minecraft:nether_star"
-  },
-  "base": {
     "item": "nameless_trinkets:cracked_crown"
   },
+  "base": {
+    "item": "minecraft:nether_star"
+  },
   "result": {
+    "count": 1,
     "id": "nameless_trinkets:gods_crown"
   },
   "template": {
