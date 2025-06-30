@@ -3,21 +3,14 @@ package com.cozary.nameless_trinkets.datagen;
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.init.ModItems;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.NonNullList;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.CraftingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.SmithingRecipeInput;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 
-import java.util.List;
-import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
@@ -628,11 +621,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(output);
 
         SmithingTransformRecipeBuilder.smithing(
-                Ingredient.of(new ItemLike[]{Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE}),
-                Ingredient.of(Items.NETHER_STAR),
-                Ingredient.of(ModItems.CRACKED_CROWN.get()),
+                        Ingredient.of(new ItemLike[]{Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE}),
+                        Ingredient.of(Items.NETHER_STAR),
+                        Ingredient.of(ModItems.CRACKED_CROWN.get()),
                         RecipeCategory.MISC, ModItems.GODS_CROWN.get())
-                .unlocks("has_netherite_ingot", has((ItemLike)Items.NETHER_STAR))
+                .unlocks("has_netherite_ingot", has((ItemLike) Items.NETHER_STAR))
                 .save(output, ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, getItemName(ModItems.GODS_CROWN.get())));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.PUFFER_FISH_LIVER.get())
