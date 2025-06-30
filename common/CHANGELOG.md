@@ -5,6 +5,7 @@
 - [Lucky Rock] BlockList #11
 - Romanian Language
 - added Datagen!
+- [Curios API] trinket slot texture.
 
 ### Changed
 
