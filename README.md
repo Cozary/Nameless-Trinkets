@@ -19,3 +19,69 @@ Contributions, code and translations can only be sent through a PR.
 ## Donations
 
 I do this as a hobby but it still consumes some of my time. So if you really like what I do and want to support me you can do it here. [Ko-fi](https://ko-fi.com/cozary).
+
+## Translation
+
+This project is being translated through [Crowdin](https://crowdin.com/project/nameless-trinkets) to reach more players in multiple languages. You can help with its translation.
+
+<details>
+  <summary>View translation progress</summary>
+
+- Catalan  
+  [![ca translation](https://img.shields.io/badge/dynamic/json?color=blue&label=ca&style=flat&logo=crowdin&query=%24.progress.0.data.translationProgress&url=https%3A%2F%2Fbadges.awesome-crowdin.com%2Fstats-15393530-795704.json)](https://crowdin.com/project/nameless-trinkets)  
+  [![ca proofreading](https://img.shields.io/badge/dynamic/json?color=green&label=ca&style=flat&logo=crowdin&query=%24.progress.0.data.approvalProgress&url=https%3A%2F%2Fbadges.awesome-crowdin.com%2Fstats-15393530-795704.json)](https://crowdin.com/project/nameless-trinkets)
+
+- German  
+  [![de translation](https://img.shields.io/badge/dynamic/json?color=blue&label=de&style=flat&logo=crowdin&query=%24.progress.1.data.translationProgress&url=https%3A%2F%2Fbadges.awesome-crowdin.com%2Fstats-15393530-795704.json)](https://crowdin.com/project/nameless-trinkets)  
+  [![de proofreading](https://img.shields.io/badge/dynamic/json?color=green&label=de&style=flat&logo=crowdin&query=%24.progress.1.data.approvalProgress&url=https%3A%2F%2Fbadges.awesome-crowdin.com%2Fstats-15393530-795704.json)](https://crowdin.com/project/nameless-trinkets)
+
+- French  
+  [![fr translation](https://img.shields.io/badge/dynamic/json?color=blue&label=fr&style=flat&logo=crowdin&query=%24.progress.2.data.translationProgress&url=https%3A%2F%2Fbadges.awesome-crowdin.com%2Fstats-15393530-795704.json)](https://crowdin.com/project/nameless-trinkets)  
+  [![fr proofreading](https://img.shields.io/badge/dynamic/json?color=green&label=fr&style=flat&logo=crowdin&query=%24.progress.2.data.approvalProgress&url=https%3A%2F%2Fbadges.awesome-crowdin.com%2Fstats-15393530-795704.json)](https://crowdin.com/project/nameless-trinkets)
+
+- Italian  
+  [![it translation](https://img.shields.io/badge/dynamic/json?color=blue&label=it&style=flat&logo=crowdin&query=%24.progress.3.data.translationProgress&url=https%3A%2F%2Fbadges.awesome-crowdin.com%2Fstats-15393530-795704.json)](https://crowdin.com/project/nameless-trinkets)  
+  [![it proofreading](https://img.shields.io/badge/dynamic/json?color=green&label=it&style=flat&logo=crowdin&query=%24.progress.3.data.approvalProgress&url=https%3A%2F%2Fbadges.awesome-crowdin.com%2Fstats-15393530-795704.json)](https://crowdin.com/project/nameless-trinkets)
+
+- Korean  
+  [![ko translation](https://img.shields.io/badge/dynamic/json?color=blue&label=ko&style=flat&logo=crowdin&query=%24.progress.4.data.translationProgress&url=https%3A%2F%2Fbadges.awesome-crowdin.com%2Fstats-15393530-795704.json)](https://crowdin.com/project/nameless-trinkets)  
+  [![ko proofreading](https://img.shields.io/badge/dynamic/json?color=green&label=ko&style=flat&logo=crowdin&query=%24.progress.4.data.approvalProgress&url=https%3A%2F%2Fbadges.awesome-crowdin.com%2Fstats-15393530-795704.json)](https://crowdin.com/project/nameless-trinkets)
+
+- Dutch  
+  [![nl translation](https://img.shields.io/badge/dynamic/json?color=blue&label=nl&style=flat&logo=crowdin&query=%24.progress.5.data.translationProgress&url=https%3A%2F%2Fbadges.awesome-crowdin.com%2Fstats-15393530-795704.json)](https://crowdin.com/project/nameless-trinkets)  
+  [![nl proofreading](https://img.shields.io/badge/dynamic/json?color=green&label=nl&style=flat&logo=crowdin&query=%24.progress.5.data.approvalProgress&url=https%3A%2F%2Fbadges.awesome-crowdin.com%2Fstats-15393530-795704.json)](https://crowdin.com/project/nameless-trinkets)
+
+- Polish  
+  [![pl translation](https://img.shields.io/badge/dynamic/json?color=blue&label=pl&style=flat&logo=crowdin&query=%24.progress.6.data.translationProgress&url=https%3A%2F%2Fbadges.awesome-crowdin.com%2Fstats-15393530-795704.json)](https://crowdin.com/project/nameless-trinkets)  
+  [![pl proofreading](https://img.shields.io/badge/dynamic/json?color=green&label=pl&style=flat&logo=crowdin&query=%24.progress.6.data.approvalProgress&url=https%3A%2F%2Fbadges.awesome-crowdin.com%2Fstats-15393530-795704.json)](https://crowdin.com/project/nameless-trinkets)
+
+- Portuguese (Brazil)  
+  [![pt-BR translation](https://img.shields.io/badge/dynamic/json?color=blue&label=pt-BR&style=flat&logo=crowdin&query=%24.progress.7.data.translationProgress&url=https%3A%2F%2Fbadges.awesome-crowdin.com%2Fstats-15393530-795704.json)](https://crowdin.com/project/nameless-trinkets)  
+  [![pt-BR proofreading](https://img.shields.io/badge/dynamic/json?color=green&label=pt-BR&style=flat&logo=crowdin&query=%24.progress.7.data.approvalProgress&url=https%3A%2F%2Fbadges.awesome-crowdin.com%2Fstats-15393530-795704.json)](https://crowdin.com/project/nameless-trinkets)
+
+- Portuguese (Portugal)  
+  [![pt-PT translation](https://img.shields.io/badge/dynamic/json?color=blue&label=pt-PT&style=flat&logo=crowdin&query=%24.progress.8.data.translationProgress&url=https%3A%2F%2Fbadges.awesome-crowdin.com%2Fstats-15393530-795704.json)](https://crowdin.com/project/nameless-trinkets)  
+  [![pt-PT proofreading](https://img.shields.io/badge/dynamic/json?color=green&label=pt-PT&style=flat&logo=crowdin&query=%24.progress.8.data.approvalProgress&url=https%3A%2F%2Fbadges.awesome-crowdin.com%2Fstats-15393530-795704.json)](https://crowdin.com/project/nameless-trinkets)
+
+- Romanian  
+  [![ro translation](https://img.shields.io/badge/dynamic/json?color=blue&label=ro&style=flat&logo=crowdin&query=%24.progress.9.data.translationProgress&url=https%3A%2F%2Fbadges.awesome-crowdin.com%2Fstats-15393530-795704.json)](https://crowdin.com/project/nameless-trinkets)  
+  [![ro proofreading](https://img.shields.io/badge/dynamic/json?color=green&label=ro&style=flat&logo=crowdin&query=%24.progress.9.data.approvalProgress&url=https%3A%2F%2Fbadges.awesome-crowdin.com%2Fstats-15393530-795704.json)](https://crowdin.com/project/nameless-trinkets)
+
+- Russian  
+  [![ru translation](https://img.shields.io/badge/dynamic/json?color=blue&label=ru&style=flat&logo=crowdin&query=%24.progress.10.data.translationProgress&url=https%3A%2F%2Fbadges.awesome-crowdin.com%2Fstats-15393530-795704.json)](https://crowdin.com/project/nameless-trinkets)  
+  [![ru proofreading](https://img.shields.io/badge/dynamic/json?color=green&label=ru&style=flat&logo=crowdin&query=%24.progress.10.data.approvalProgress&url=https%3A%2F%2Fbadges.awesome-crowdin.com%2Fstats-15393530-795704.json)](https://crowdin.com/project/nameless-trinkets)
+
+- Swedish  
+  [![sv-SE translation](https://img.shields.io/badge/dynamic/json?color=blue&label=sv-SE&style=flat&logo=crowdin&query=%24.progress.11.data.translationProgress&url=https%3A%2F%2Fbadges.awesome-crowdin.com%2Fstats-15393530-795704.json)](https://crowdin.com/project/nameless-trinkets)  
+  [![sv-SE proofreading](https://img.shields.io/badge/dynamic/json?color=green&label=sv-SE&style=flat&logo=crowdin&query=%24.progress.11.data.approvalProgress&url=https%3A%2F%2Fbadges.awesome-crowdin.com%2Fstats-15393530-795704.json)](https://crowdin.com/project/nameless-trinkets)
+
+- Chinese (Simplified)  
+  [![zh-CN translation](https://img.shields.io/badge/dynamic/json?color=blue&label=zh-CN&style=flat&logo=crowdin&query=%24.progress.12.data.translationProgress&url=https%3A%2F%2Fbadges.awesome-crowdin.com%2Fstats-15393530-795704.json)](https://crowdin.com/project/nameless-trinkets)  
+  [![zh-CN proofreading](https://img.shields.io/badge/dynamic/json?color=green&label=zh-CN&style=flat&logo=crowdin&query=%24.progress.12.data.approvalProgress&url=https%3A%2F%2Fbadges.awesome-crowdin.com%2Fstats-15393530-795704.json)](https://crowdin.com/project/nameless-trinkets)
+
+- Chinese (Traditional)  
+  [![zh-TW translation](https://img.shields.io/badge/dynamic/json?color=blue&label=zh-TW&style=flat&logo=crowdin&query=%24.progress.13.data.translationProgress&url=https%3A%2F%2Fbadges.awesome-crowdin.com%2Fstats-15393530-795704.json)](https://crowdin.com/project/nameless-trinkets)  
+  [![zh-TW proofreading](https://img.shields.io/badge/dynamic/json?color=green&label=zh-TW&style=flat&logo=crowdin&query=%24.progress.13.data.approvalProgress&url=https%3A%2F%2Fbadges.awesome-crowdin.com%2Fstats-15393530-795704.json)](https://crowdin.com/project/nameless-trinkets)
+
+</details>
+
