@@ -18,6 +18,8 @@ public class RageMindHandler {
         if (!config.isEnable)
             return;
 
+        if (livingEntity == null)
+            return;
 
         var entityType = livingEntity.getType();
         String entityKey = BuiltInRegistries.ENTITY_TYPE.getKey(entityType).toString();
