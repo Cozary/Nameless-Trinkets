@@ -3,7 +3,9 @@ package com.cozary.nameless_trinkets.datagen;
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.init.ModTags;
-import net.minecraft.advancements.*;
+import net.minecraft.advancements.Advancement;
+import net.minecraft.advancements.AdvancementHolder;
+import net.minecraft.advancements.AdvancementType;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.core.HolderLookup;
@@ -15,7 +17,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
-import net.neoforged.neoforge.client.event.ContainerScreenEvent;
 import net.neoforged.neoforge.common.data.AdvancementProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
@@ -30,7 +31,52 @@ public class ModAdvancementProvider extends AdvancementProvider {
         super(output, lookupProvider, existingFileHelper, List.of(new AdvancementGenerator()));
     }
 
+    protected static String getItemName(ItemLike itemLike) {
+        return BuiltInRegistries.ITEM.getKey(itemLike.asItem()).getPath();
+    }
 
+    public static void generateSimpleItemAdvancement(Consumer<AdvancementHolder> saver, ExistingFileHelper existingFileHelper, Item item) {
+        Advancement.Builder builder = Advancement.Builder.advancement();
+
+
+        builder.parent(AdvancementSubProvider.createPlaceholder("nameless_trinkets:root"));
+
+        builder.display(
+                new ItemStack(item),
+                Component.translatable("advancements.nameless_trinkets." + getItemName(item) + ".title"),
+                Component.translatable("advancements.nameless_trinkets." + getItemName(item) + ".description"),
+                null,
+                AdvancementType.GOAL,
+                true,
+                true,
+                false
+        );
+
+        builder.addCriterion(getItemName(item), InventoryChangeTrigger.TriggerInstance.hasItems(item));
+
+        builder.save(saver, ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, getItemName(item)), existingFileHelper);
+    }
+
+    public static void generateRoot(Consumer<AdvancementHolder> saver, ExistingFileHelper existingFileHelper, Item item) {
+        Advancement.Builder builder = Advancement.Builder.advancement();
+
+        builder.display(
+                new ItemStack(item),
+                Component.translatable("advancements.nameless_trinkets.root.title"),
+                Component.translatable("advancements.nameless_trinkets.root.description"),
+                ResourceLocation.withDefaultNamespace("textures/gui/advancements/backgrounds/stone.png"),
+                AdvancementType.CHALLENGE,
+                true,
+                true,
+                false
+        );
+
+        builder.addCriterion("obtain", InventoryChangeTrigger.TriggerInstance.hasItems(
+                ItemPredicate.Builder.item().of(ModTags.NAMELESS_TRINKETS_TAG).build()
+        ));
+
+        builder.save(saver, ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "root"), existingFileHelper);
+    }
 
     private static final class AdvancementGenerator implements AdvancementProvider.AdvancementGenerator {
         @Override
@@ -90,53 +136,6 @@ public class ModAdvancementProvider extends AdvancementProvider {
             generateSimpleItemAdvancement(saver, existingFileHelper, ModItems.WOODEN_STICK.get());
             generateSimpleItemAdvancement(saver, existingFileHelper, ModItems.WOUNDBEARER.get());
         }
-    }
-
-    protected static String getItemName(ItemLike itemLike) {
-        return BuiltInRegistries.ITEM.getKey(itemLike.asItem()).getPath();
-    }
-
-    public static void generateSimpleItemAdvancement(Consumer<AdvancementHolder> saver, ExistingFileHelper existingFileHelper, Item item) {
-        Advancement.Builder builder = Advancement.Builder.advancement();
-
-
-        builder.parent(AdvancementSubProvider.createPlaceholder("nameless_trinkets:root"));
-
-        builder.display(
-                new ItemStack(item),
-                Component.translatable("advancements.nameless_trinkets."  + getItemName(item) + ".title"),
-                Component.translatable("advancements.nameless_trinkets."  + getItemName(item) + ".description"),
-                null,
-                AdvancementType.GOAL,
-                true,
-                true,
-                false
-        );
-
-        builder.addCriterion(getItemName(item), InventoryChangeTrigger.TriggerInstance.hasItems(item));
-
-        builder.save(saver, ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, getItemName(item)), existingFileHelper);
-    }
-
-    public static void generateRoot(Consumer<AdvancementHolder> saver, ExistingFileHelper existingFileHelper, Item item) {
-        Advancement.Builder builder = Advancement.Builder.advancement();
-
-        builder.display(
-                new ItemStack(item),
-                Component.translatable("advancements.nameless_trinkets.root.title"),
-                Component.translatable("advancements.nameless_trinkets.root.description"),
-                ResourceLocation.withDefaultNamespace("textures/gui/advancements/backgrounds/stone.png"),
-                AdvancementType.CHALLENGE,
-                true,
-                true,
-                false
-        );
-
-        builder.addCriterion("obtain", InventoryChangeTrigger.TriggerInstance.hasItems(
-                ItemPredicate.Builder.item().of(ModTags.NAMELESS_TRINKETS_TAG).build()
-        ));
-
-        builder.save(saver, ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "root"), existingFileHelper);
     }
 
 
