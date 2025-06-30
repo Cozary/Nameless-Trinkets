@@ -4,10 +4,6 @@ This is the configuration you can find in 📂 `config/nameless_trinkets-common.
 
 > - "getFragments": Decides whether you get an **Unknown Fragment** when recycling a trinket.
 
-> **FOV Disable Settings**  
-
-> - "disableFOV": Decides whether to disable the player's FOV change when equipping a trinket that applies speed.
-
 ??? failure "The following configuration is currently removed but will be reintroduced in the future."
 
     > **New Trinket Slot Probability**  
