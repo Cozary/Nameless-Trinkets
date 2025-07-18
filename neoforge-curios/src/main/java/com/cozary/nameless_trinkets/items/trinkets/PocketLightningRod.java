@@ -8,6 +8,7 @@ import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.LightningRodBlock;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.Vec3;
 import top.theillusivec4.curios.api.SlotContext;
@@ -44,7 +45,7 @@ public class PocketLightningRod extends PocketLightningRodBase implements ICurio
                 BlockPos blockpos = level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, level.getBlockRandomPos(i, 0, j, 15));
                 LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level, EntitySpawnReason.SPAWN_ITEM_USE);
                 assert lightningbolt != null;
-                lightningbolt.moveTo(Vec3.atBottomCenterOf(blockpos));
+                lightningbolt.snapTo(Vec3.atBottomCenterOf(blockpos));
                 level.addFreshEntity(lightningbolt);
             }
         }

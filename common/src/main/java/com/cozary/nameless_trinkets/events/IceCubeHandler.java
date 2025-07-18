@@ -16,7 +16,7 @@ public class IceCubeHandler {
             return;
 
 
-        MobEffectInstance effectinstance = new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, config.slownessTime, config.slownessLevel);
+        MobEffectInstance effectinstance = new MobEffectInstance(MobEffects.SLOWNESS, config.slownessTime, config.slownessLevel);
         entity.addEffect(effectinstance);
 
     }

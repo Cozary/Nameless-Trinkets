@@ -22,11 +22,14 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.inventory.tooltip.BundleTooltip;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.BundleContents;
+import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.Level;
 import org.apache.commons.lang3.math.Fraction;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Consumer;
 
 import static com.cozary.nameless_trinkets.utils.CommonUtils.itemId;
 
@@ -34,7 +37,7 @@ import static com.cozary.nameless_trinkets.utils.CommonUtils.itemId;
  * ehe{@link BundleItem}
  */
 public class TrinketBundle extends BundleItem {
-    private static final int BAR_COLOR = ARGB.colorFromFloat(1.0f,1.0F, 0.4F, 0.4F);
+    private static final int BAR_COLOR = ARGB.colorFromFloat(1.0f, 1.0F, 0.4F, 0.4F);
 
     public TrinketBundle() {
         super(new Properties()
@@ -151,18 +154,9 @@ public class TrinketBundle extends BundleItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack itemStack, TooltipContext tooltipContext, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        TrinketBundleContents bundlecontents = (TrinketBundleContents) itemStack.get((DataComponentType) ModDataComponents.TRINKET_BUNDLE_CONTENTS.get());
-        if (bundlecontents != null) {
-            int i = Mth.mulAndTruncate(bundlecontents.weight(), 64);
-            tooltipComponents.add(Component.translatable("item.minecraft.bundle.fullness", new Object[]{i, 64}).withStyle(ChatFormatting.GRAY));
-        }
-
-    }
-
-    @Override
     public Optional<TooltipComponent> getTooltipImage(ItemStack itemStack) {
-        return !itemStack.has(DataComponents.HIDE_TOOLTIP) && !itemStack.has(DataComponents.HIDE_ADDITIONAL_TOOLTIP) ? Optional.ofNullable((TrinketBundleContents) itemStack.get(ModDataComponents.TRINKET_BUNDLE_CONTENTS.get())).map(BundleTooltip::new) : Optional.empty();
+        TooltipDisplay tooltipdisplay = (TooltipDisplay)itemStack.getOrDefault(DataComponents.TOOLTIP_DISPLAY, TooltipDisplay.DEFAULT);
+        return !tooltipdisplay.shows(ModDataComponents.TRINKET_BUNDLE_CONTENTS.get()) ? Optional.empty() : Optional.ofNullable((BundleContents)itemStack.get(ModDataComponents.TRINKET_BUNDLE_CONTENTS.get())).map(BundleTooltip::new);
     }
 
     @Override

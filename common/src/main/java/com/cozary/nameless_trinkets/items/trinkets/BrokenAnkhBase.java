@@ -9,15 +9,16 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 
-import java.util.List;
+import java.util.function.Consumer;
 
 public class BrokenAnkhBase extends TrinketItem<BrokenAnkhBase.Stats> {
 
     public static BrokenAnkhBase INSTANCE;
 
     public BrokenAnkhBase() {
-        super(new TrinketData("broken_ankh",null, null, Stats.class));
+        super(new TrinketData("broken_ankh", null, null, Stats.class));
 
         INSTANCE = this;
     }
@@ -31,16 +32,16 @@ public class BrokenAnkhBase extends TrinketItem<BrokenAnkhBase.Stats> {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
+    public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay tooltipDisplay, Consumer<Component> tooltip, TooltipFlag flag) {
         Stats config = BrokenAnkhBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable) {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
+            tooltip.accept(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
         } else {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.broken_ankh_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
+            tooltip.accept(Component.translatable("tooltip.nameless_trinkets.broken_ankh_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
             if (Screen.hasShiftDown()) {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.broken_ankh_1", ((config.cooldown / 60) / 20)).withStyle(ChatFormatting.GOLD));
+                tooltip.accept(Component.translatable("tooltip.nameless_trinkets.broken_ankh_1", ((config.cooldown / 60) / 20)).withStyle(ChatFormatting.GOLD));
             } else {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
+                tooltip.accept(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
             }
         }
     }

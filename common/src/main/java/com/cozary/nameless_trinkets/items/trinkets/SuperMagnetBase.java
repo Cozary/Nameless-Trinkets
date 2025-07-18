@@ -8,28 +8,28 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 
-import java.util.List;
-
+import java.util.function.Consumer;
 public class SuperMagnetBase extends TrinketItem<SuperMagnetBase.Stats> {
     public static SuperMagnetBase INSTANCE;
 
     public SuperMagnetBase() {
-        super(new TrinketData("super_magnet",null, null, Stats.class));
+        super(new TrinketData("super_magnet", null, null, Stats.class));
 
         INSTANCE = this;
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
+    public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay tooltipDisplay, Consumer<Component> tooltip, TooltipFlag flag) {
         if (!trinketConfig.isEnable) {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
+            tooltip.accept(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
         } else {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.super_magnet_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
+            tooltip.accept(Component.translatable("tooltip.nameless_trinkets.super_magnet_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
             if (Screen.hasShiftDown()) {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.super_magnet_1", trinketConfig.range).withStyle(ChatFormatting.GOLD));
+                tooltip.accept(Component.translatable("tooltip.nameless_trinkets.super_magnet_1", trinketConfig.range).withStyle(ChatFormatting.GOLD));
             } else {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
+                tooltip.accept(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
             }
         }
     }

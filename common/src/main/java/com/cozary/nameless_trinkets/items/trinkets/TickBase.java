@@ -10,14 +10,14 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 
-import java.util.List;
-
+import java.util.function.Consumer;
 public class TickBase extends TrinketItem<TickBase.Stats> {
     public static TickBase INSTANCE;
 
     public TickBase() {
-        super(new TrinketData("tick",null, null, Stats.class));
+        super(new TrinketData("tick", null, null, Stats.class));
 
         INSTANCE = this;
     }
@@ -27,19 +27,19 @@ public class TickBase extends TrinketItem<TickBase.Stats> {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
+    public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay tooltipDisplay, Consumer<Component> tooltip, TooltipFlag flag) {
         Stats config = TickBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable) {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
+            tooltip.accept(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
         } else {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.tick_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
+            tooltip.accept(Component.translatable("tooltip.nameless_trinkets.tick_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
             if (Screen.hasShiftDown()) {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.tick_1", config.entityDamagePercentage + "%").withStyle(ChatFormatting.GOLD));
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.tick_2").withStyle(ChatFormatting.GOLD));
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.tick_3").withStyle(ChatFormatting.GOLD));
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.tick_4").withStyle(ChatFormatting.GOLD));
+                tooltip.accept(Component.translatable("tooltip.nameless_trinkets.tick_1", config.entityDamagePercentage + "%").withStyle(ChatFormatting.GOLD));
+                tooltip.accept(Component.translatable("tooltip.nameless_trinkets.tick_2").withStyle(ChatFormatting.GOLD));
+                tooltip.accept(Component.translatable("tooltip.nameless_trinkets.tick_3").withStyle(ChatFormatting.GOLD));
+                tooltip.accept(Component.translatable("tooltip.nameless_trinkets.tick_4").withStyle(ChatFormatting.GOLD));
             } else {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
+                tooltip.accept(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
             }
         }
     }

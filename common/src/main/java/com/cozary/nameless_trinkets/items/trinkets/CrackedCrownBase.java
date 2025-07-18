@@ -14,11 +14,13 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
 
 import static com.cozary.nameless_trinkets.NamelessTrinkets.MOD_ID;
 
@@ -28,7 +30,7 @@ public class CrackedCrownBase extends TrinketItem<CrackedCrownBase.Stats> {
     protected final Map<String, List<String>> modifiers = new HashMap<>();
 
     public CrackedCrownBase() {
-        super(new TrinketData("cracked_crown",null, null, Stats.class));
+        super(new TrinketData("cracked_crown", null, null, Stats.class));
 
         INSTANCE = this;
 
@@ -56,14 +58,14 @@ public class CrackedCrownBase extends TrinketItem<CrackedCrownBase.Stats> {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
+    public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay tooltipDisplay, Consumer<Component> tooltip, TooltipFlag flag) {
         Stats config = INSTANCE.getTrinketConfig();
         if (!config.isEnable) {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
+            tooltip.accept(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
             return;
         }
 
-        tooltip.add(Component.translatable("tooltip.nameless_trinkets.cracked_crown_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
+        tooltip.accept(Component.translatable("tooltip.nameless_trinkets.cracked_crown_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
 
         if (Screen.hasShiftDown()) {
             Map<String, Double> stats = new HashMap<>();
@@ -84,12 +86,12 @@ public class CrackedCrownBase extends TrinketItem<CrackedCrownBase.Stats> {
 
             for (Map.Entry<String, Double> entry : stats.entrySet()) {
                 if (entry.getValue() > 0) {
-                    tooltip.add(Component.translatable(entry.getKey()).append(" +" + entry.getValue() + "%").withStyle(ChatFormatting.GOLD));
+                    tooltip.accept(Component.translatable(entry.getKey()).append(" +" + entry.getValue() + "%").withStyle(ChatFormatting.GOLD));
                 }
             }
 
         } else {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
+            tooltip.accept(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
         }
     }
 

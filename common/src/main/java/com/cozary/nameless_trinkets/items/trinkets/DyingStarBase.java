@@ -20,9 +20,11 @@ import net.minecraft.world.inventory.ClickAction;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
+import java.util.function.Consumer;
 
 import static com.cozary.nameless_trinkets.init.ModTags.NAMELESS_TRINKETS_TAG;
 
@@ -31,7 +33,7 @@ public class DyingStarBase extends TrinketItem<DyingStarBase.Stats> {
     public static DyingStarBase INSTANCE;
 
     public DyingStarBase() {
-        super(new TrinketData("dying_star",null, null, Stats.class));
+        super(new TrinketData("dying_star", null, null, Stats.class));
 
         INSTANCE = this;
     }
@@ -83,18 +85,18 @@ public class DyingStarBase extends TrinketItem<DyingStarBase.Stats> {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
+    public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay tooltipDisplay, Consumer<Component> tooltip, TooltipFlag flag) {
         Stats config = DyingStarBase.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable) {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
+            tooltip.accept(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
         } else {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.dying_star_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
+            tooltip.accept(Component.translatable("tooltip.nameless_trinkets.dying_star_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
             if (Screen.hasShiftDown()) {
                 if (Minecraft.getInstance().player.tickCount % 5 == 0) {
-                    tooltip.add(Component.translatable("tooltip.nameless_trinkets.dying_star_1").withStyle(ChatFormatting.GOLD, ChatFormatting.ITALIC));
+                    tooltip.accept(Component.translatable("tooltip.nameless_trinkets.dying_star_1").withStyle(ChatFormatting.GOLD, ChatFormatting.ITALIC));
                 } else {
-                    tooltip.add(Component.translatable("tooltip.nameless_trinkets.dying_star_1").withStyle(ChatFormatting.GOLD, ChatFormatting.OBFUSCATED));
+                    tooltip.accept(Component.translatable("tooltip.nameless_trinkets.dying_star_1").withStyle(ChatFormatting.GOLD, ChatFormatting.OBFUSCATED));
 
                 }
             } else if (InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), InputConstants.KEY_LCONTROL)) {
@@ -125,12 +127,12 @@ public class DyingStarBase extends TrinketItem<DyingStarBase.Stats> {
 
                 for (Map.Entry<String, Float> entry : stats.entrySet()) {
 
-                    tooltip.add(Component.translatable(entry.getKey() + entry.getValue()).withStyle(ChatFormatting.GOLD));
+                    tooltip.accept(Component.translatable(entry.getKey() + entry.getValue()).withStyle(ChatFormatting.GOLD));
 
                 }
             } else {
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_ctrl_l"));
+                tooltip.accept(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
+                tooltip.accept(Component.translatable("tooltip.nameless_trinkets.hold_ctrl_l"));
             }
         }
     }

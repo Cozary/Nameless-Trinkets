@@ -8,25 +8,26 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 
-import java.util.List;
+import java.util.function.Consumer;
 
 public class NelumboBase extends TrinketItem<NelumboBase.Stats> {
     public static NelumboBase INSTANCE;
 
     public NelumboBase() {
-        super(new TrinketData("nelumbo",null, null, Stats.class));
+        super(new TrinketData("nelumbo", null, null, Stats.class));
 
         INSTANCE = this;
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
-        tooltip.add(Component.translatable("tooltip.nameless_trinkets.nelumbo_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
+    public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay tooltipDisplay, Consumer<Component> tooltip, TooltipFlag flag) {
+        tooltip.accept(Component.translatable("tooltip.nameless_trinkets.nelumbo_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
         if (Screen.hasShiftDown()) {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.nelumbo_1").withStyle(ChatFormatting.GOLD));
+            tooltip.accept(Component.translatable("tooltip.nameless_trinkets.nelumbo_1").withStyle(ChatFormatting.GOLD));
         } else {
-            tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
+            tooltip.accept(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
         }
     }
 

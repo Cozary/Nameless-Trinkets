@@ -18,7 +18,7 @@ public class Reforger extends ReforgerBase implements ICurioItem {
             return;
 
         if (!player.isSpectator()) {
-            for (int i = 0; i < player.getInventory().items.size(); i++) {
+            for (int i = 0; i < player.getInventory().getNonEquipmentItems().size(); i++) {
                 ItemStack itemstack = player.getInventory().getItem(i);
 
                 if (itemstack.isDamaged()) {

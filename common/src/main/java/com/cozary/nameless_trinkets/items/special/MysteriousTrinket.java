@@ -18,12 +18,12 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Random;
+import java.util.function.Consumer;
 
 import static com.cozary.nameless_trinkets.init.ModTags.NAMELESS_TRINKETS_TAG;
 import static com.cozary.nameless_trinkets.utils.CommonUtils.itemId;
@@ -92,11 +92,11 @@ public class MysteriousTrinket extends Item {
     }*/
 
     @Override
-    public void appendHoverText(@NotNull ItemStack stack, @Nullable TooltipContext context, @NotNull List<Component> tooltip, @NotNull TooltipFlag flagIn) {
-        tooltip.add(Component.translatable("tooltip.nameless_trinkets.mysterious_trinket_1").withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC));
-        //tooltip.add(Component.translatable("tooltip.nameless_trinkets.mysterious_trinket_2").withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC));
-        //tooltip.add(Component.translatable("tooltip.nameless_trinkets.mysterious_trinket_3", Component.translatable(String.valueOf(ConfigurationHandler.GENERAL.slotProbability.get()))).withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC));
-        //tooltip.add(Component.translatable("tooltip.nameless_trinkets.mysterious_trinket_4", Component.translatable(String.valueOf(ConfigurationHandler.GENERAL.trinketSlots.get()))).withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC));
+    public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay tooltipDisplay, Consumer<Component> tooltip, TooltipFlag flag) {
+        tooltip.accept(Component.translatable("tooltip.nameless_trinkets.mysterious_trinket_1").withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC));
+        //tooltip.accept(Component.translatable("tooltip.nameless_trinkets.mysterious_trinket_2").withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC));
+        //tooltip.accept(Component.translatable("tooltip.nameless_trinkets.mysterious_trinket_3", Component.translatable(String.valueOf(ConfigurationHandler.GENERAL.slotProbability.get()))).withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC));
+        //tooltip.accept(Component.translatable("tooltip.nameless_trinkets.mysterious_trinket_4", Component.translatable(String.valueOf(ConfigurationHandler.GENERAL.trinketSlots.get()))).withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC));
     }
 
 }
