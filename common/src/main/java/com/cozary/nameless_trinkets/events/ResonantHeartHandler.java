@@ -9,6 +9,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
@@ -56,8 +57,8 @@ public class ResonantHeartHandler {
         serverLevel.playSound(null, player.blockPosition(), SoundEvents.WARDEN_SONIC_BOOM, player.getSoundSource(), 3.0F, 1.0F);
 
         if (src instanceof LivingEntity target) {
-            boolean damaged = target.hurt(serverLevel.damageSources().sonicBoom(player), config.sonicBoomDamage);
-            if (damaged) {
+            boolean damaged = target.hurtServer(serverLevel ,serverLevel.damageSources().sonicBoom(player), config.sonicBoomDamage);
+                if (damaged) {
                 double knockbackResist = target.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE);
                 double verticalKb = 0.5 * (1.0 - knockbackResist);
                 double horizontalKb = 2.5 * (1.0 - knockbackResist);

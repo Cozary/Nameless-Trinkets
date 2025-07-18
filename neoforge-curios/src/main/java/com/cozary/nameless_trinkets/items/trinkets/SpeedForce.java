@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
-import com.cozary.nameless_trinkets.utils.EntityUtils;
+import com.cozary.nameless_trinkets.utils.CommonUtils;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -51,12 +51,12 @@ public class SpeedForce extends SpeedForceBase implements ICurioItem {
                 config.speedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
 
         assert attribSpeed != null;
-        EntityUtils.applyAttributeModifier(attribSpeed, speedModifier);
+        CommonUtils.applyAttributeModifier(attribSpeed, speedModifier);
     }
 
     @Override
     public void onUnequip(SlotContext slotContext, ItemStack pstack, ItemStack stack) {
-        EntityUtils.removeAttributeModifier(Objects.requireNonNull(slotContext.entity().getAttribute(Attributes.MOVEMENT_SPEED)),
+        CommonUtils.removeAttributeModifier(Objects.requireNonNull(slotContext.entity().getAttribute(Attributes.MOVEMENT_SPEED)),
                 new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "speed_force_movement_speed"),
                         trinketConfig.speedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
     }

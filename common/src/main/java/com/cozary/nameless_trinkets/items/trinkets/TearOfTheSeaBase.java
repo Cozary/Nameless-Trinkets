@@ -15,7 +15,7 @@ public class TearOfTheSeaBase extends TrinketItem<TearOfTheSeaBase.Stats> {
     public static TearOfTheSeaBase INSTANCE;
 
     public TearOfTheSeaBase() {
-        super(new TrinketData(null, null, Stats.class));
+        super(new TrinketData("tear_of_the_sea",null, null, Stats.class));
 
         INSTANCE = this;
     }

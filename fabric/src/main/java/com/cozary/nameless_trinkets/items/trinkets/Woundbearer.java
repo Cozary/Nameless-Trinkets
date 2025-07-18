@@ -2,7 +2,7 @@ package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.init.ModDataComponents;
-import com.cozary.nameless_trinkets.utils.EntityUtils;
+import com.cozary.nameless_trinkets.utils.CommonUtils;
 import io.wispforest.accessories.api.AccessoriesAPI;
 import io.wispforest.accessories.api.Accessory;
 import io.wispforest.accessories.api.slot.SlotReference;
@@ -55,7 +55,7 @@ public class Woundbearer extends WoundbearerBase implements Accessory {
                     damageIncrement, AttributeModifier.Operation.ADD_VALUE);
 
             assert attributeDamage != null;
-            EntityUtils.applyAttributeModifier(attributeDamage, damageModifier);
+            CommonUtils.applyAttributeModifier(attributeDamage, damageModifier);
         }
 
     }
@@ -65,7 +65,7 @@ public class Woundbearer extends WoundbearerBase implements Accessory {
 
         float damageIncrement = stack.getOrDefault(ModDataComponents.WOUNDBEARER_DAMAGE.get(), 0).floatValue();
         if (damageIncrement > 0) {
-            EntityUtils.removeAttributeModifier(Objects.requireNonNull(reference.entity().getAttribute(Attributes.ATTACK_DAMAGE)),
+            CommonUtils.removeAttributeModifier(Objects.requireNonNull(reference.entity().getAttribute(Attributes.ATTACK_DAMAGE)),
                     new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "woundbearer_attack_damage"),
                             damageIncrement, AttributeModifier.Operation.ADD_VALUE));
         }

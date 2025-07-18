@@ -15,7 +15,7 @@ public class PocketLightningRodBase extends TrinketItem<PocketLightningRodBase.S
     public static PocketLightningRodBase INSTANCE;
 
     public PocketLightningRodBase() {
-        super(new TrinketData(null, null, Stats.class));
+        super(new TrinketData("pocket_lightning_rod",null, null, Stats.class));
 
         INSTANCE = this;
     }

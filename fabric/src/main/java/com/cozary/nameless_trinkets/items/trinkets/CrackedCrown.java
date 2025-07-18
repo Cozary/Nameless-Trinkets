@@ -1,6 +1,6 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
-import com.cozary.nameless_trinkets.utils.EntityUtils;
+import com.cozary.nameless_trinkets.utils.CommonUtils;
 import io.wispforest.accessories.api.AccessoriesAPI;
 import io.wispforest.accessories.api.Accessory;
 import io.wispforest.accessories.api.slot.SlotReference;
@@ -52,7 +52,7 @@ public class CrackedCrown extends CrackedCrownBase implements Accessory {
                 if (attribute != null) {
                     ResourceLocation modifierData = ResourceLocation.fromNamespaceAndPath(entry.getKey(), key);
                     AttributeModifier modifier = createAttributeModifier(modifierData, config, key);
-                    EntityUtils.applyAttributeModifier(attribute, modifier);
+                    CommonUtils.applyAttributeModifier(attribute, modifier);
                 }
             }
         }
@@ -73,7 +73,7 @@ public class CrackedCrown extends CrackedCrownBase implements Accessory {
                 if (attribute != null) {
                     ResourceLocation modifierData = ResourceLocation.fromNamespaceAndPath(entry.getKey(), key);
                     AttributeModifier modifier = createAttributeModifier(modifierData, config, key);
-                    EntityUtils.removeAttributeModifier(attribute, modifier);
+                    CommonUtils.removeAttributeModifier(attribute, modifier);
                 }
             }
         }

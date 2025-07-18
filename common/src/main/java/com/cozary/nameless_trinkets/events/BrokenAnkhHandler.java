@@ -21,7 +21,7 @@ public class BrokenAnkhHandler {
 
 
         if (player.isDeadOrDying()
-                && !player.getCooldowns().isOnCooldown(stack)) {
+                && !player.getCooldowns().isOnCooldown(stack.getDefaultInstance())) {
 
             var level = (ServerLevel) player.getCommandSenderWorld();
 
@@ -35,7 +35,7 @@ public class BrokenAnkhHandler {
             player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 100, 1));
             player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 800, 0));
 
-            player.getCooldowns().addCooldown(stack, config.cooldown);
+            player.getCooldowns().addCooldown(stack.getDefaultInstance(), config.cooldown);
 
             return true;
         }
@@ -45,7 +45,7 @@ public class BrokenAnkhHandler {
 
     public static void restoreCooldownOnLogin(ServerPlayer player, Item stack) {
 
-        player.getCooldowns().addCooldown(stack, getCooldown(stack.getDefaultInstance()));
+        player.getCooldowns().addCooldown(stack.getDefaultInstance(), getCooldown(stack.getDefaultInstance()));
 
     }
 
@@ -54,7 +54,7 @@ public class BrokenAnkhHandler {
 
 
         setCooldown(stack.getDefaultInstance(),
-                (int) (player.getCooldowns().getCooldownPercent(stack, 0) * config.cooldown));
+                (int) (player.getCooldowns().getCooldownPercent(stack.getDefaultInstance(), 0) * config.cooldown));
 
     }
 }

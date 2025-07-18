@@ -11,12 +11,16 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
+import static com.cozary.nameless_trinkets.utils.CommonUtils.itemId;
+
 public class UnknownFragment extends Item {
 
     public UnknownFragment() {
         super(new Properties()
                 .rarity(Rarity.UNCOMMON)
-                .stacksTo(64));
+                .stacksTo(64)
+                .setId(itemId("unknown_fragment"))
+        );
     }
 
     @Override

@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
-import com.cozary.nameless_trinkets.utils.EntityUtils;
+import com.cozary.nameless_trinkets.utils.CommonUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
@@ -50,7 +50,7 @@ public class DyingStar extends DyingStarBase implements ICurioItem {
                         attributeIncrement, AttributeModifier.Operation.ADD_VALUE);
 
                 if (attributeDamage != null && attributeModifier != null) {
-                    EntityUtils.applyAttributeModifier(attributeDamage, attributeModifier);
+                    CommonUtils.applyAttributeModifier(attributeDamage, attributeModifier);
                 }
             }
         }
@@ -72,7 +72,7 @@ public class DyingStar extends DyingStarBase implements ICurioItem {
                         attributeIncrement, AttributeModifier.Operation.ADD_VALUE);
 
                 if (attributeDamage != null && attributeModifier != null) {
-                    EntityUtils.removeAttributeModifier(attributeDamage, attributeModifier);
+                    CommonUtils.removeAttributeModifier(attributeDamage, attributeModifier);
                 }
             }
         }

@@ -1,6 +1,6 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
-import com.cozary.nameless_trinkets.utils.EntityUtils;
+import com.cozary.nameless_trinkets.utils.CommonUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
@@ -46,7 +46,7 @@ public class CrackedCrown extends CrackedCrownBase implements ICurioItem {
                 if (attribute != null) {
                     ResourceLocation modifierData = ResourceLocation.fromNamespaceAndPath(entry.getKey(), key);
                     AttributeModifier modifier = createAttributeModifier(modifierData, config, key);
-                    EntityUtils.applyAttributeModifier(attribute, modifier);
+                    CommonUtils.applyAttributeModifier(attribute, modifier);
                 }
             }
         }
@@ -67,7 +67,7 @@ public class CrackedCrown extends CrackedCrownBase implements ICurioItem {
                 if (attribute != null) {
                     ResourceLocation modifierData = ResourceLocation.fromNamespaceAndPath(entry.getKey(), key);
                     AttributeModifier modifier = createAttributeModifier(modifierData, config, key);
-                    EntityUtils.removeAttributeModifier(attribute, modifier);
+                    CommonUtils.removeAttributeModifier(attribute, modifier);
                 }
             }
         }

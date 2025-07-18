@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
-import com.cozary.nameless_trinkets.utils.EntityUtils;
+import com.cozary.nameless_trinkets.utils.CommonUtils;
 import io.wispforest.accessories.api.AccessoriesAPI;
 import io.wispforest.accessories.api.Accessory;
 import io.wispforest.accessories.api.slot.SlotReference;
@@ -57,12 +57,12 @@ public class SpeedForce extends SpeedForceBase implements Accessory {
                 config.speedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
 
         assert attribSpeed != null;
-        EntityUtils.applyAttributeModifier(attribSpeed, speedModifier);
+        CommonUtils.applyAttributeModifier(attribSpeed, speedModifier);
     }
 
     @Override
     public void onUnequip(ItemStack stack, SlotReference reference) {
-        EntityUtils.removeAttributeModifier(Objects.requireNonNull(reference.entity().getAttribute(Attributes.MOVEMENT_SPEED)),
+        CommonUtils.removeAttributeModifier(Objects.requireNonNull(reference.entity().getAttribute(Attributes.MOVEMENT_SPEED)),
                 new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "speed_force_movement_speed"),
                         trinketConfig.speedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
     }

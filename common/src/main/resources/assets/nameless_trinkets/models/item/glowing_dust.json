@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "nameless_trinkets:item/glowing_dust"
-  }
-}

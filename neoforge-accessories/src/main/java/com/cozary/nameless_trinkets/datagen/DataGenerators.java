@@ -5,9 +5,14 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.tags.TagsProvider;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.data.BlockTagsProvider;
+import net.neoforged.neoforge.common.data.internal.NeoForgeBlockTagsProvider;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import java.util.concurrent.CompletableFuture;
@@ -15,16 +20,35 @@ import java.util.concurrent.CompletableFuture;
 @EventBusSubscriber(modid = NamelessTrinkets.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class DataGenerators {
     @SubscribeEvent
-    public static void gatherData(GatherDataEvent event) {
+    public static void gatherData(GatherDataEvent.Client event) {
         DataGenerator generator = event.getGenerator();
         PackOutput packOutput = generator.getPackOutput();
-        ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-        generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, existingFileHelper));
-        generator.addProvider(event.includeClient(), new ModRecipeProvider(packOutput, lookupProvider));
-        generator.addProvider(event.includeServer(), new ModAdvancementProvider(packOutput, lookupProvider, existingFileHelper));
-        generator.addProvider(event.includeServer(), new ModTagProvider(packOutput, Registries.ITEM, lookupProvider, existingFileHelper));
+        generator.addProvider(true, new ModModelProvider(packOutput));
+        generator.addProvider(true, new ModRecipeProvider.Runner(packOutput, lookupProvider));
+        generator.addProvider(true, new ModAdvancementProvider(packOutput, lookupProvider));
+        //generator.addProvider(true, new ModTagProvider(packOutput, lookupProvider));
+
+        BlockTagsProvider blockTagsProvider = new ModBlockTagProvider(packOutput, lookupProvider);
+        generator.addProvider(true, blockTagsProvider);
+        generator.addProvider(true, new ModTagProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter()));
+    }
+
+    @SubscribeEvent
+    public static void gatherData(GatherDataEvent.Server event) {
+        DataGenerator generator = event.getGenerator();
+        PackOutput packOutput = generator.getPackOutput();
+        CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
+
+        generator.addProvider(true, new ModModelProvider(packOutput));
+        generator.addProvider(true, new ModRecipeProvider.Runner(packOutput, lookupProvider));
+        generator.addProvider(true, new ModAdvancementProvider(packOutput, lookupProvider));
+        //generator.addProvider(true, new ModTagProvider(packOutput, lookupProvider));
+
+        BlockTagsProvider blockTagsProvider = new ModBlockTagProvider(packOutput, lookupProvider);
+        generator.addProvider(true, blockTagsProvider);
+        generator.addProvider(true, new ModTagProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter()));
 
     }
 }

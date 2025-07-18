@@ -15,7 +15,7 @@ public class LightGlovesBase extends TrinketItem<LightGlovesBase.Stats> {
     public static LightGlovesBase INSTANCE;
 
     public LightGlovesBase() {
-        super(new TrinketData(null, null, Stats.class));
+        super(new TrinketData("light_gloves",null, null, Stats.class));
 
         INSTANCE = this;
     }

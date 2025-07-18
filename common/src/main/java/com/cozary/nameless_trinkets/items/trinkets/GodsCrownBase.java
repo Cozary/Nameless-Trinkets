@@ -3,7 +3,7 @@ package com.cozary.nameless_trinkets.items.trinkets;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
-import com.cozary.nameless_trinkets.utils.EntityUtils;
+import com.cozary.nameless_trinkets.utils.CommonUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -28,7 +28,7 @@ public class GodsCrownBase extends TrinketItem<GodsCrownBase.Stats> {
     protected final Map<String, List<String>> modifiers = new HashMap<>();
 
     public GodsCrownBase() {
-        super(new TrinketData(null, null, Stats.class));
+        super(new TrinketData("gods_crown",null, null, Stats.class));
 
         INSTANCE = this;
 
@@ -100,7 +100,7 @@ public class GodsCrownBase extends TrinketItem<GodsCrownBase.Stats> {
                 if (attribute != null) {
                     ResourceLocation modifierData = ResourceLocation.fromNamespaceAndPath(entry.getKey(), key);
                     AttributeModifier modifier = createAttributeModifier(modifierData, config, key);
-                    EntityUtils.applyAttributeModifier(attribute, modifier);
+                    CommonUtils.applyAttributeModifier(attribute, modifier);
                 }
             }
         }
@@ -159,7 +159,7 @@ public class GodsCrownBase extends TrinketItem<GodsCrownBase.Stats> {
                 if (attribute != null) {
                     ResourceLocation modifierData = ResourceLocation.fromNamespaceAndPath(entry.getKey(), key);
                     AttributeModifier modifier = createAttributeModifier(modifierData, config, key);
-                    EntityUtils.removeAttributeModifier(attribute, modifier);
+                    CommonUtils.removeAttributeModifier(attribute, modifier);
                 }
             }
         }

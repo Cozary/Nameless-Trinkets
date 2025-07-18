@@ -42,11 +42,11 @@ public class CreeperSense extends CreeperSenseBase implements Accessory {
         BlockPos posAbove = player.blockPosition().above().above();
         BlockState blockAbove = player.level().getBlockState(posAbove);
 
-        if (player.getCooldowns().isOnCooldown(stack.getItem()))
+        if (player.getCooldowns().isOnCooldown(stack.getItem().getDefaultInstance()))
             return;
 
         if (blockAbove.isAir() && player.isCrouching()) {
-            player.getCooldowns().addCooldown(stack.getItem(), config.cooldownInTicks);
+            player.getCooldowns().addCooldown(stack.getItem().getDefaultInstance(), config.cooldownInTicks);
             player.level().explode(null, player.getX(), player.getY(), player.getZ(), config.explosionLevel, Level.ExplosionInteraction.NONE);
             player.setShiftKeyDown(false);
         }

@@ -31,7 +31,7 @@ public class DyingStarBase extends TrinketItem<DyingStarBase.Stats> {
     public static DyingStarBase INSTANCE;
 
     public DyingStarBase() {
-        super(new TrinketData(null, null, Stats.class));
+        super(new TrinketData("dying_star",null, null, Stats.class));
 
         INSTANCE = this;
     }
@@ -58,7 +58,7 @@ public class DyingStarBase extends TrinketItem<DyingStarBase.Stats> {
             other.shrink(1);
         }
 
-        player.playSound(SoundEvents.GENERIC_EAT, 1.0f, 0.1f);
+        player.playSound(SoundEvents.GENERIC_EAT.value(), 1.0f, 0.1f);
 
         List<AttributeSelector> attributes = new ArrayList<>(List.of(AttributeSelector.values()));
         Collections.shuffle(attributes, random);

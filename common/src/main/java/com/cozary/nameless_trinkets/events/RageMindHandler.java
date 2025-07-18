@@ -5,6 +5,7 @@ import com.cozary.nameless_trinkets.items.trinkets.RageMindBase;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -40,9 +41,9 @@ public class RageMindHandler {
 
             ResourceLocation resourceLocation = ResourceLocation.parse(entityString);
 
-            EntityType<?> entityType = BuiltInRegistries.ENTITY_TYPE.get(resourceLocation);
+            EntityType<?> entityType = BuiltInRegistries.ENTITY_TYPE.get(resourceLocation).get().value();
 
-            Entity entity = entityType.create(player.level());
+            Entity entity = entityType.create(player.level(), EntitySpawnReason.SPAWN_ITEM_USE);
 
             if (entity == null) {
                 return originalAmount;

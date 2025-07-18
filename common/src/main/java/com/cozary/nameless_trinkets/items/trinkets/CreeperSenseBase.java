@@ -15,7 +15,7 @@ public class CreeperSenseBase extends TrinketItem<CreeperSenseBase.Stats> {
     public static CreeperSenseBase INSTANCE;
 
     public CreeperSenseBase() {
-        super(new TrinketData(null, null, Stats.class));
+        super(new TrinketData("creeper_sense",null, null, Stats.class));
 
         INSTANCE = this;
     }

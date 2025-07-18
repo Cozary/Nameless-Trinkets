@@ -5,24 +5,24 @@ import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.init.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.TagsProvider;
+import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ModTagProvider extends TagsProvider<Item> {
+public class ModTagProvider extends ItemTagsProvider {
 
 
-    protected ModTagProvider(PackOutput output, ResourceKey registryKey, CompletableFuture lookupProvider, @Nullable ExistingFileHelper existingFileHelper) {
-        super(output, registryKey, lookupProvider, NamelessTrinkets.MOD_ID, existingFileHelper);
+    public ModTagProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider, CompletableFuture<TagLookup<Block>> blockTags) {
+        super(packOutput, lookupProvider, blockTags, NamelessTrinkets.MOD_ID);
     }
 
     @Override
-    protected void addTags(HolderLookup.@NotNull Provider lookupProvider) {
+    protected void addTags(HolderLookup.Provider provider) {
+
         tag(ModTags.NAMELESS_TRINKETS_TAG)
                 .add(ModItems.MISSING_PAGE.getResourceKey(),
                         ModItems.REVERSE_CARD.getResourceKey(),

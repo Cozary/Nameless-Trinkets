@@ -11,7 +11,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -26,24 +26,27 @@ import java.util.List;
 import java.util.Random;
 
 import static com.cozary.nameless_trinkets.init.ModTags.NAMELESS_TRINKETS_TAG;
+import static com.cozary.nameless_trinkets.utils.CommonUtils.itemId;
 
 public class MysteriousTrinket extends Item {
 
     public MysteriousTrinket() {
         super(new Properties()
                 .rarity(Rarity.EPIC)
-                .stacksTo(64));
+                .stacksTo(64)
+                .setId(itemId("mysterious_trinket"))
+        );
     }
 
     @Override
-    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand hand) {
+    public InteractionResult use(Level level, Player player, InteractionHand hand) {
         ItemStack itemStack = player.getItemInHand(hand);
         Random random = new Random();
 
         level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.WOOL_BREAK, SoundSource.NEUTRAL, 0.5F, 0.4F / (player.getRandom().nextFloat() * 0.4F + 0.8F));
 
         if (!level.isClientSide) {
-            List<Holder<Item>> trinketItems = BuiltInRegistries.ITEM.getOrCreateTag(NAMELESS_TRINKETS_TAG).stream().toList();
+            List<Holder<Item>> trinketItems = BuiltInRegistries.ITEM.getOrThrow(NAMELESS_TRINKETS_TAG).stream().toList();
             Item selectedTrinket = trinketItems.get(random.nextInt(trinketItems.size())).value();
             BlockPos playerPos = player.getOnPos();
 
@@ -60,7 +63,7 @@ public class MysteriousTrinket extends Item {
             itemStack.shrink(1);
         }
 
-        return InteractionResultHolder.sidedSuccess(itemStack, level.isClientSide());
+        return InteractionResult.SUCCESS;
     }
 
     private void spawnParticles(ServerLevel serverLevel, Player player) {

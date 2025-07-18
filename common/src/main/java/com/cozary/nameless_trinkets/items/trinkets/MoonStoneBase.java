@@ -15,7 +15,7 @@ public class MoonStoneBase extends TrinketItem<MoonStoneBase.Stats> {
     public static MoonStoneBase INSTANCE;
 
     public MoonStoneBase() {
-        super(new TrinketData(null, null, Stats.class));
+        super(new TrinketData("moon_stone",null, null, Stats.class));
 
         INSTANCE = this;
     }

@@ -17,7 +17,7 @@ public class BrokenAnkhBase extends TrinketItem<BrokenAnkhBase.Stats> {
     public static BrokenAnkhBase INSTANCE;
 
     public BrokenAnkhBase() {
-        super(new TrinketData(null, null, Stats.class));
+        super(new TrinketData("broken_ankh",null, null, Stats.class));
 
         INSTANCE = this;
     }

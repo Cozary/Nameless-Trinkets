@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
-import com.cozary.nameless_trinkets.utils.EntityUtils;
+import com.cozary.nameless_trinkets.utils.CommonUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
@@ -46,9 +46,9 @@ public class ScarabAmulet extends ScarabAmuletBase implements ICurioItem {
 
         assert attribSpeed != null;
         if (livingEntity.level().getBlockState(getBlockPosBelowThatAffectsMyMovement(livingEntity)).is(BlockTags.SAND)) {
-            EntityUtils.applyAttributeModifier(attribSpeed, speedModifier);
+            CommonUtils.applyAttributeModifier(attribSpeed, speedModifier);
         } else {
-            EntityUtils.removeAttributeModifier(Objects.requireNonNull(slotContext.entity().getAttribute(Attributes.MOVEMENT_SPEED)),
+            CommonUtils.removeAttributeModifier(Objects.requireNonNull(slotContext.entity().getAttribute(Attributes.MOVEMENT_SPEED)),
                     new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "scarab_amulet_movement_speed"),
                             config.speedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
         }
@@ -56,7 +56,7 @@ public class ScarabAmulet extends ScarabAmuletBase implements ICurioItem {
 
     @Override
     public void onUnequip(SlotContext slotContext, ItemStack pstack, ItemStack stack) {
-        EntityUtils.removeAttributeModifier(Objects.requireNonNull(slotContext.entity().getAttribute(Attributes.MOVEMENT_SPEED)),
+        CommonUtils.removeAttributeModifier(Objects.requireNonNull(slotContext.entity().getAttribute(Attributes.MOVEMENT_SPEED)),
                 new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "scarab_amulet_movement_speed"),
                         trinketConfig.speedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
     }

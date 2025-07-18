@@ -15,7 +15,7 @@ public class DarkNelumboBase extends TrinketItem<DarkNelumboBase.Stats> {
     public static DarkNelumboBase INSTANCE;
 
     public DarkNelumboBase() {
-        super(new TrinketData(null, null, Stats.class));
+        super(new TrinketData("dark_nelumbo",null, null, Stats.class));
 
         INSTANCE = this;
     }

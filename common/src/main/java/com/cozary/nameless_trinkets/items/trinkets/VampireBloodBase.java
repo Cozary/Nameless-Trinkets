@@ -15,7 +15,7 @@ public class VampireBloodBase extends TrinketItem<VampireBloodBase.Stats> {
     public static VampireBloodBase INSTANCE;
 
     public VampireBloodBase() {
-        super(new TrinketData(null, null, Stats.class));
+        super(new TrinketData("vampire_blood",null, null, Stats.class));
 
         INSTANCE = this;
     }

@@ -15,7 +15,7 @@ public class IceCubeBase extends TrinketItem<IceCubeBase.Stats> {
     public static IceCubeBase INSTANCE;
 
     public IceCubeBase() {
-        super(new TrinketData(null, null, Stats.class));
+        super(new TrinketData("ice_cube",null, null, Stats.class));
 
         INSTANCE = this;
     }

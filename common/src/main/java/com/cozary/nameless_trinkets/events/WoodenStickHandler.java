@@ -13,8 +13,8 @@ public class WoodenStickHandler {
 
 
         if (!player.level().isClientSide) {
-            if (!player.getCooldowns().isOnCooldown(stack)) {
-                player.getCooldowns().addCooldown(stack, (int) config.cooldown);
+            if (!player.getCooldowns().isOnCooldown(stack.getDefaultInstance())) {
+                player.getCooldowns().addCooldown(stack.getDefaultInstance(), (int) config.cooldown);
                 return true;
             }
         }

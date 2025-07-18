@@ -1,7 +1,12 @@
 package com.cozary.nameless_trinkets.items.subTrinket;
 
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
+
+import static com.cozary.nameless_trinkets.utils.CommonUtils.itemId;
 
 
 public class TrinketData {
@@ -15,18 +20,14 @@ public class TrinketData {
         this.statsClass = TrinketsStats.class;
     }
 
-    public TrinketData(Item.Properties properties, Rarity rarity, Class<? extends TrinketsStats> config) {
-        this.itemProperties = properties != null ? properties : new Item.Properties().stacksTo(1);
+    public TrinketData(String itemName, Item.Properties properties, Rarity rarity, Class<? extends TrinketsStats> config) {
+        this.itemProperties = properties != null ? properties : new Item.Properties().stacksTo(1).setId(itemId(itemName));
         this.itemRarity = rarity != null ? rarity : Rarity.EPIC;
         this.statsClass = config != null ? config : TrinketsStats.class;
     }
 
     public Item.Properties getItemProperties() {
         return itemProperties;
-    }
-
-    public void setItemProperties(Item.Properties itemProperties) {
-        this.itemProperties = (itemProperties != null) ? itemProperties : new Item.Properties().stacksTo(1);
     }
 
     public Rarity getItemRarity() {

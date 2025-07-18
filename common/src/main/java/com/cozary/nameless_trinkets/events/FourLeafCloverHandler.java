@@ -27,7 +27,7 @@ public class FourLeafCloverHandler {
 
             Level level = player.level();
 
-            LootTable loot = level.getServer().reloadableRegistries().getLootTable((entity.getType().getDefaultLootTable()));
+            LootTable loot = level.getServer().reloadableRegistries().getLootTable((entity.getType().getDefaultLootTable().get()));
             LootParams context = new LootParams.Builder((ServerLevel) level)
                     .withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(entity.blockPosition()))
                     .withParameter(LootContextParams.THIS_ENTITY, entity)

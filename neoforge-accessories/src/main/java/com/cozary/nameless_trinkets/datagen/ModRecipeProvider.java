@@ -9,19 +9,21 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
-import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
-    public ModRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
-        super(output, registries);
+import static net.minecraft.data.recipes.SmithingTransformRecipeBuilder.smithing;
+
+public class ModRecipeProvider extends RecipeProvider {
+
+    protected ModRecipeProvider(HolderLookup.Provider registries, RecipeOutput output) {
+        super(registries, output);
     }
 
     @Override
-    protected void buildRecipes(RecipeOutput output) {
+    protected void buildRecipes() {
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.AMPHIBIOUS_HANDS.get())
+        shaped(RecipeCategory.MISC, ModItems.AMPHIBIOUS_HANDS.get())
                 .pattern("###")
                 .pattern("#S#")
                 .pattern("###")
@@ -30,7 +32,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_dubious_dust", has(ModItems.DUBIOUS_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.BLAZE_NUCLEUS.get())
+        shaped(RecipeCategory.MISC, ModItems.BLAZE_NUCLEUS.get())
                 .pattern("///")
                 .pattern("/S/")
                 .pattern("///")
@@ -39,7 +41,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_dubious_dust", has(ModItems.DUBIOUS_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.BLINDFOLD.get())
+        shaped(RecipeCategory.MISC, ModItems.BLINDFOLD.get())
                 .pattern("#G#")
                 .pattern("GSG")
                 .pattern("#G#")
@@ -49,7 +51,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_dubious_dust", has(ModItems.DUBIOUS_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.BROKEN_ANKH.get())
+        shaped(RecipeCategory.MISC, ModItems.BROKEN_ANKH.get())
                 .pattern("#W#")
                 .pattern("#S#")
                 .pattern(" # ")
@@ -59,7 +61,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_ultimate_dust", has(ModItems.ULTIMATE_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.BROKEN_MAGNET.get())
+        shaped(RecipeCategory.MISC, ModItems.BROKEN_MAGNET.get())
                 .pattern("iLi")
                 .pattern("RSL")
                 .pattern("iRi")
@@ -70,7 +72,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_dubious_dust", has(ModItems.DUBIOUS_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CALLUS.get())
+        shaped(RecipeCategory.MISC, ModItems.CALLUS.get())
                 .pattern("#C#")
                 .pattern("HSH")
                 .pattern("###")
@@ -81,7 +83,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_glowing_dust", has(ModItems.GLOWING_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CRACKED_CROWN.get())
+        shaped(RecipeCategory.MISC, ModItems.CRACKED_CROWN.get())
                 .pattern("#N#")
                 .pattern("#S#")
                 .pattern("###")
@@ -91,7 +93,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_ultimate_dust", has(ModItems.ULTIMATE_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CREEPER_SENSE.get())
+        shaped(RecipeCategory.MISC, ModItems.CREEPER_SENSE.get())
                 .pattern("###")
                 .pattern("TST")
                 .pattern("###")
@@ -101,7 +103,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_dubious_dust", has(ModItems.DUBIOUS_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DARK_NELUMBO.get())
+        shaped(RecipeCategory.MISC, ModItems.DARK_NELUMBO.get())
                 .pattern("#M#")
                 .pattern("CSC")
                 .pattern("#C#")
@@ -110,9 +112,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('C', Items.CRIMSON_STEM)
                 .define('S', ModItems.DUBIOUS_DUST.get())
                 .unlockedBy("has_dubious_dust", has(ModItems.DUBIOUS_DUST.get()))
-                .save(output, ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dark_nelumbo_crimson"));
+                .save(output, ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dark_nelumbo_crimson").toString());
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DARK_NELUMBO.get())
+        shaped(RecipeCategory.MISC, ModItems.DARK_NELUMBO.get())
                 .pattern("#M#")
                 .pattern("CSC")
                 .pattern("#C#")
@@ -121,9 +123,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('C', Items.STRIPPED_WARPED_STEM)
                 .define('S', ModItems.DUBIOUS_DUST.get())
                 .unlockedBy("has_dubious_dust", has(ModItems.DUBIOUS_DUST.get()))
-                .save(output, ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dark_nelumbo_stripped_warped"));
+                .save(output, ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dark_nelumbo_stripped_warped").toString());
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DARK_NELUMBO.get())
+        shaped(RecipeCategory.MISC, ModItems.DARK_NELUMBO.get())
                 .pattern("#M#")
                 .pattern("CSC")
                 .pattern("#C#")
@@ -132,9 +134,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('C', Items.CRIMSON_STEM)
                 .define('S', ModItems.NELUMBO.get())
                 .unlockedBy("has_dubious_dust", has(ModItems.DUBIOUS_DUST.get()))
-                .save(output, ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dark_nelumbo_crimson_nelumbo"));
+                .save(output, ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dark_nelumbo_crimson_nelumbo").toString());
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DARK_NELUMBO.get())
+        shaped(RecipeCategory.MISC, ModItems.DARK_NELUMBO.get())
                 .pattern("#M#")
                 .pattern("CSC")
                 .pattern("#C#")
@@ -143,9 +145,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('C', Items.STRIPPED_WARPED_STEM)
                 .define('S', ModItems.NELUMBO.get())
                 .unlockedBy("has_dubious_dust", has(ModItems.DUBIOUS_DUST.get()))
-                .save(output, ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dark_nelumbo_stripped_warped_nelumbo"));
+                .save(output, ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dark_nelumbo_stripped_warped_nelumbo").toString());
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DRAGONS_EYE.get())
+        shaped(RecipeCategory.MISC, ModItems.DRAGONS_EYE.get())
                 .pattern("#W#")
                 .pattern("#S#")
                 .pattern("#W#")
@@ -155,7 +157,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_dubious_dust", has(ModItems.DUBIOUS_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DUBIOUS_DUST.get())
+        shaped(RecipeCategory.MISC, ModItems.DUBIOUS_DUST.get())
                 .pattern(" # ")
                 .pattern("gRi")
                 .pattern(" G ")
@@ -167,7 +169,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_iron_pickaxe", has(Items.IRON_PICKAXE))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.DYING_STAR.get())
+        shaped(RecipeCategory.MISC, ModItems.DYING_STAR.get())
                 .pattern("###")
                 .pattern("#S#")
                 .pattern("###")
@@ -176,7 +178,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_ultimate_dust", has(ModItems.ULTIMATE_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ELECTRIC_PADDLE.get())
+        shaped(RecipeCategory.MISC, ModItems.ELECTRIC_PADDLE.get())
                 .pattern("#&#")
                 .pattern("&S&")
                 .pattern("#&#")
@@ -186,7 +188,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_glowing_dust", has(ModItems.GLOWING_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ETHEREAL_WINGS.get())
+        shaped(RecipeCategory.MISC, ModItems.ETHEREAL_WINGS.get())
                 .pattern("#G#")
                 .pattern("GSG")
                 .pattern("#P#")
@@ -197,7 +199,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_glowing_dust", has(ModItems.GLOWING_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.EXPERIENCE_BATTERY.get())
+        shaped(RecipeCategory.MISC, ModItems.EXPERIENCE_BATTERY.get())
                 .pattern("#R#")
                 .pattern("#S#")
                 .pattern("#i#")
@@ -208,7 +210,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_glowing_dust", has(ModItems.GLOWING_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.EXPERIENCE_MAGNET.get())
+        shaped(RecipeCategory.MISC, ModItems.EXPERIENCE_MAGNET.get())
                 .pattern("iGi")
                 .pattern("RSR")
                 .pattern("iRi")
@@ -219,7 +221,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_dubious_dust", has(ModItems.DUBIOUS_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.EXPLOSION_PROOF_JACKET.get())
+        shaped(RecipeCategory.MISC, ModItems.EXPLOSION_PROOF_JACKET.get())
                 .pattern("iLi")
                 .pattern("LSL")
                 .pattern("iLi")
@@ -229,7 +231,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_dubious_dust", has(ModItems.DUBIOUS_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.FATE_EMERALD.get())
+        shaped(RecipeCategory.MISC, ModItems.FATE_EMERALD.get())
                 .pattern("#W#")
                 .pattern("#S#")
                 .pattern("#W#")
@@ -239,7 +241,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_ultimate_dust", has(ModItems.ULTIMATE_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.FERTILIZER.get())
+        shaped(RecipeCategory.MISC, ModItems.FERTILIZER.get())
                 .pattern("###")
                 .pattern("LSL")
                 .pattern("LLL")
@@ -249,7 +251,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_glowing_dust", has(ModItems.GLOWING_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.FOUR_LEAF_CLOVER.get())
+        shaped(RecipeCategory.MISC, ModItems.FOUR_LEAF_CLOVER.get())
                 .pattern("#W#")
                 .pattern("#S#")
                 .pattern("#W#")
@@ -259,7 +261,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_ultimate_dust", has(ModItems.ULTIMATE_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.FRACTURED_NULLSTONE.get())
+        shaped(RecipeCategory.MISC, ModItems.FRACTURED_NULLSTONE.get())
                 .pattern("#&#")
                 .pattern("&S&")
                 .pattern("#&#")
@@ -269,7 +271,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_glowing_dust", has(ModItems.GLOWING_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.FRAGILE_CLOUD.get())
+        shaped(RecipeCategory.MISC, ModItems.FRAGILE_CLOUD.get())
                 .pattern("///")
                 .pattern("/S/")
                 .pattern("///")
@@ -278,7 +280,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_glowing_dust", has(ModItems.GLOWING_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GHAST_EYE.get())
+        shaped(RecipeCategory.MISC, ModItems.GHAST_EYE.get())
                 .pattern("#G#")
                 .pattern("GSG")
                 .pattern("#G#")
@@ -288,7 +290,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_glowing_dust", has(ModItems.GLOWING_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GILLS.get())
+        shaped(RecipeCategory.MISC, ModItems.GILLS.get())
                 .pattern(" # ")
                 .pattern("TSK")
                 .pattern(" P ")
@@ -300,7 +302,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_dubious_dust", has(ModItems.DUBIOUS_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GLOWING_DUST.get())
+        shaped(RecipeCategory.MISC, ModItems.GLOWING_DUST.get())
                 .pattern("#G#")
                 .pattern("/Q/")
                 .pattern("#G#")
@@ -311,7 +313,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_dubious_dust", has(ModItems.DUBIOUS_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ICE_CUBE.get())
+        shaped(RecipeCategory.MISC, ModItems.ICE_CUBE.get())
                 .pattern("#S#")
                 .pattern("SPS")
                 .pattern("#S#")
@@ -321,7 +323,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_dubious_dust", has(ModItems.DUBIOUS_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.LIGHT_GLOVES.get())
+        shaped(RecipeCategory.MISC, ModItems.LIGHT_GLOVES.get())
                 .pattern("#W#")
                 .pattern("#S#")
                 .pattern("#W#")
@@ -331,7 +333,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_ultimate_dust", has(ModItems.ULTIMATE_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.LUCKY_ROCK.get())
+        shaped(RecipeCategory.MISC, ModItems.LUCKY_ROCK.get())
                 .pattern("#R#")
                 .pattern("iSg")
                 .pattern("#C#")
@@ -344,7 +346,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_dubious_dust", has(ModItems.DUBIOUS_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.MINERS_SOUL.get())
+        shaped(RecipeCategory.MISC, ModItems.MINERS_SOUL.get())
                 .pattern("#R#")
                 .pattern("iSg")
                 .pattern("#C#")
@@ -357,7 +359,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_ultimate_dust", has(ModItems.ULTIMATE_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.MISSING_PAGE.get())
+        shaped(RecipeCategory.MISC, ModItems.MISSING_PAGE.get())
                 .pattern("###")
                 .pattern("PSP")
                 .pattern("BBB")
@@ -368,7 +370,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_glowing_dust", has(ModItems.GLOWING_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.MOON_STONE.get())
+        shaped(RecipeCategory.MISC, ModItems.MOON_STONE.get())
                 .pattern("###")
                 .pattern("SKS")
                 .pattern("###")
@@ -378,7 +380,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_dubious_dust", has(ModItems.DUBIOUS_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.MYSTERIOUS_TRINKET.get())
+        shaped(RecipeCategory.MISC, ModItems.MYSTERIOUS_TRINKET.get())
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
@@ -386,7 +388,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_unknown_fragment_dust", has(ModItems.UNKNOWN_FRAGMENT.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.NELUMBO.get())
+        shaped(RecipeCategory.MISC, ModItems.NELUMBO.get())
                 .pattern("#S#")
                 .pattern("OQO")
                 .pattern("#O#")
@@ -397,7 +399,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_dubious_dust", has(ModItems.DUBIOUS_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.POCKET_LIGHTNING_ROD.get())
+        shaped(RecipeCategory.MISC, ModItems.POCKET_LIGHTNING_ROD.get())
                 .pattern("///")
                 .pattern("/S/")
                 .pattern("///")
@@ -406,7 +408,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_dubious_dust", has(ModItems.DUBIOUS_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.REFORGER.get())
+        shaped(RecipeCategory.MISC, ModItems.REFORGER.get())
                 .pattern("###")
                 .pattern("ISI")
                 .pattern(" I ")
@@ -416,7 +418,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_ultimate_dust", has(ModItems.ULTIMATE_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.RESONANT_HEART.get())
+        shaped(RecipeCategory.MISC, ModItems.RESONANT_HEART.get())
                 .pattern("###")
                 .pattern("#S#")
                 .pattern("###")
@@ -425,7 +427,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_glowing_dust", has(ModItems.GLOWING_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.REVERSE_CARD.get())
+        shaped(RecipeCategory.MISC, ModItems.REVERSE_CARD.get())
                 .pattern("#i#")
                 .pattern("#S#")
                 .pattern("#i#")
@@ -435,7 +437,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_ultimate_dust", has(ModItems.ULTIMATE_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SCARAB_AMULET.get())
+        shaped(RecipeCategory.MISC, ModItems.SCARAB_AMULET.get())
                 .pattern("///")
                 .pattern("/S/")
                 .pattern("///")
@@ -444,7 +446,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_glowing_dust", has(ModItems.GLOWING_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SHRINKING_VEIL.get())
+        shaped(RecipeCategory.MISC, ModItems.SHRINKING_VEIL.get())
                 .pattern(" L ")
                 .pattern("FSF")
                 .pattern(" L ")
@@ -454,7 +456,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_dubious_dust", has(ModItems.DUBIOUS_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SIGIL_OF_BAPHOMET.get())
+        shaped(RecipeCategory.MISC, ModItems.SIGIL_OF_BAPHOMET.get())
                 .pattern("#W#")
                 .pattern("#S#")
                 .pattern("#N#")
@@ -465,7 +467,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_ultimate_dust", has(ModItems.ULTIMATE_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SLEEPING_PILLS.get())
+        shaped(RecipeCategory.MISC, ModItems.SLEEPING_PILLS.get())
                 .pattern("#SP")
                 .pattern("GYG")
                 .pattern("SFS")
@@ -478,7 +480,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_dubious_dust", has(ModItems.DUBIOUS_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SPEED_FORCE.get())
+        shaped(RecipeCategory.MISC, ModItems.SPEED_FORCE.get())
                 .pattern("###")
                 .pattern("#SR")
                 .pattern("###")
@@ -488,7 +490,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_glowing_dust", has(ModItems.GLOWING_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SPIDER_LEGS.get())
+        shaped(RecipeCategory.MISC, ModItems.SPIDER_LEGS.get())
                 .pattern("#S#")
                 .pattern("RUR")
                 .pattern("#R#")
@@ -499,7 +501,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_dubious_dust", has(ModItems.DUBIOUS_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SUPER_MAGNET.get())
+        shaped(RecipeCategory.MISC, ModItems.SUPER_MAGNET.get())
                 .pattern("iIi")
                 .pattern("LDS")
                 .pattern("iIi")
@@ -511,7 +513,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_glowing_dust", has(ModItems.GLOWING_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.TEAR_OF_THE_SEA.get())
+        shaped(RecipeCategory.MISC, ModItems.TEAR_OF_THE_SEA.get())
                 .pattern(" # ")
                 .pattern("TSC")
                 .pattern(" W ")
@@ -523,7 +525,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_glowing_dust", has(ModItems.GLOWING_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.TICK.get())
+        shaped(RecipeCategory.MISC, ModItems.TICK.get())
                 .pattern("#HR")
                 .pattern("HSH")
                 .pattern("RH#")
@@ -534,7 +536,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_glowing_dust", has(ModItems.GLOWING_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.TITANS_MARK.get())
+        shaped(RecipeCategory.MISC, ModItems.TITANS_MARK.get())
                 .pattern("XIX")
                 .pattern("ISI")
                 .pattern("XIX")
@@ -544,7 +546,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_dubious_dust", has(ModItems.DUBIOUS_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.TRINKET_BUNDLE.get())
+        shaped(RecipeCategory.MISC, ModItems.TRINKET_BUNDLE.get())
                 .pattern("###")
                 .pattern("#S#")
                 .pattern("###")
@@ -553,7 +555,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_unknown_fragment", has(ModItems.UNKNOWN_FRAGMENT.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.TRUE_HEART_OF_THE_SEA.get())
+        shaped(RecipeCategory.MISC, ModItems.TRUE_HEART_OF_THE_SEA.get())
                 .pattern(" # ")
                 .pattern("PSM")
                 .pattern(" Y ")
@@ -565,7 +567,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_ultimate_dust", has(ModItems.ULTIMATE_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ULTIMATE_DUST.get())
+        shaped(RecipeCategory.MISC, ModItems.ULTIMATE_DUST.get())
                 .pattern("#S#")
                 .pattern("SNS")
                 .pattern("#S#")
@@ -575,7 +577,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_glowing_dust", has(ModItems.GLOWING_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.VAMPIRE_BLOOD.get())
+        shaped(RecipeCategory.MISC, ModItems.VAMPIRE_BLOOD.get())
                 .pattern("#C#")
                 .pattern("BSB")
                 .pattern("#Q#")
@@ -587,7 +589,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_glowing_dust", has(ModItems.GLOWING_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.WHAT_MAGNET.get())
+        shaped(RecipeCategory.MISC, ModItems.WHAT_MAGNET.get())
                 .pattern("iRi")
                 .pattern("PSL")
                 .pattern("iBi")
@@ -600,7 +602,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_glowing_dust", has(ModItems.GLOWING_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.WOODEN_STICK.get())
+        shaped(RecipeCategory.MISC, ModItems.WOODEN_STICK.get())
                 .pattern("g/g")
                 .pattern("/S/")
                 .pattern("g/g")
@@ -610,7 +612,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_dubious_dust", has(ModItems.DUBIOUS_DUST.get()))
                 .save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.WOUNDBEARER.get())
+        shaped(RecipeCategory.MISC, ModItems.WOUNDBEARER.get())
                 .pattern("###")
                 .pattern("#S#")
                 .pattern("#X#")
@@ -620,21 +622,21 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_ultimate_dust", has(ModItems.ULTIMATE_DUST.get()))
                 .save(output);
 
-        SmithingTransformRecipeBuilder.smithing(
-                        Ingredient.of(new ItemLike[]{Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE}),
-                        Ingredient.of(Items.NETHER_STAR),
-                        Ingredient.of(ModItems.CRACKED_CROWN.get()),
-                        RecipeCategory.MISC, ModItems.GODS_CROWN.get())
+        smithing(
+                Ingredient.of(new ItemLike[]{Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE}),
+                Ingredient.of(Items.NETHER_STAR),
+                Ingredient.of(ModItems.CRACKED_CROWN.get()),
+                RecipeCategory.MISC, ModItems.GODS_CROWN.get())
                 .unlocks("has_netherite_ingot", has((ItemLike) Items.NETHER_STAR))
-                .save(output, ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, getItemName(ModItems.GODS_CROWN.get())));
+                .save(output, String.valueOf(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, getItemName(ModItems.GODS_CROWN.get()))));
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.PUFFER_FISH_LIVER.get())
+        shapeless(RecipeCategory.MISC, ModItems.PUFFER_FISH_LIVER.get())
                 .requires(Items.PUFFERFISH)
                 .requires(ModItems.DUBIOUS_DUST.get())
                 .unlockedBy("has_dubious_dust", has(ModItems.DUBIOUS_DUST.get()))
                 .save(output);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.RAGE_MIND.get())
+        shapeless(RecipeCategory.MISC, ModItems.RAGE_MIND.get())
                 .requires(Items.REDSTONE_BLOCK)
                 .requires(Items.CRYING_OBSIDIAN)
                 .requires(Items.REDSTONE_BLOCK)
@@ -646,5 +648,21 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(ModItems.ULTIMATE_DUST.get())
                 .unlockedBy("has_ultimate_dust", has(ModItems.ULTIMATE_DUST.get()))
                 .save(output);
+    }
+
+    public static class Runner extends RecipeProvider.Runner {
+        public Runner(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> provider) {
+            super(packOutput, provider);
+        }
+
+        @Override
+        protected RecipeProvider createRecipeProvider(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
+            return new ModRecipeProvider(provider, recipeOutput);
+        }
+
+        @Override
+        public String getName() {
+            return "Nameless Trinkets Recipes";
+        }
     }
 }

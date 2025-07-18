@@ -15,7 +15,7 @@ public class ReforgerBase extends TrinketItem<ReforgerBase.Stats> {
     public static ReforgerBase INSTANCE;
 
     public ReforgerBase() {
-        super(new TrinketData(null, null, Stats.class));
+        super(new TrinketData("reforger",null, null, Stats.class));
 
         INSTANCE = this;
     }

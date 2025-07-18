@@ -15,7 +15,7 @@ public class AmphibiousHandsBase extends TrinketItem<AmphibiousHandsBase.Stats> 
     public static AmphibiousHandsBase INSTANCE;
 
     public AmphibiousHandsBase() {
-        super(new TrinketData(null, null, Stats.class));
+        super(new TrinketData("amphibious_hands",null, null, Stats.class));
 
         INSTANCE = this;
     }

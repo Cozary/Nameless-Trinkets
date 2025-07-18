@@ -15,7 +15,7 @@ public class SpeedForceBase extends TrinketItem<SpeedForceBase.Stats> {
     public static SpeedForceBase INSTANCE;
 
     public SpeedForceBase() {
-        super(new TrinketData(null, null, Stats.class));
+        super(new TrinketData("speed_force",null, null, Stats.class));
 
         INSTANCE = this;
     }

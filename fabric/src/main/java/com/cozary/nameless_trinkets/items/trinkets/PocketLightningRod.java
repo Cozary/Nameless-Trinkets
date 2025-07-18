@@ -5,6 +5,7 @@ import io.wispforest.accessories.api.Accessory;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.item.ItemStack;
@@ -47,7 +48,7 @@ public class PocketLightningRod extends PocketLightningRodBase implements Access
                 int i = chunkpos.getMinBlockX();
                 int j = chunkpos.getMinBlockZ();
                 BlockPos blockpos = level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, level.getBlockRandomPos(i, 0, j, 15));
-                LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level);
+                LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level, EntitySpawnReason.SPAWN_ITEM_USE);
                 assert lightningbolt != null;
                 lightningbolt.moveTo(Vec3.atBottomCenterOf(blockpos));
                 level.addFreshEntity(lightningbolt);

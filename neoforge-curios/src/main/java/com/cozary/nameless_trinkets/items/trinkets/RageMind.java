@@ -8,6 +8,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -41,9 +42,9 @@ public class RageMind extends RageMindBase implements ICurioItem {
             String entityString = stack.get(ModDataComponents.RAGE_MIND_REVENGE_TARGET.get());
             ResourceLocation resourceLocation = ResourceLocation.parse(entityString);
 
-            EntityType<?> entityType = BuiltInRegistries.ENTITY_TYPE.get(resourceLocation);
+            EntityType<?> entityType = BuiltInRegistries.ENTITY_TYPE.get(resourceLocation).get().value();
 
-            Entity entity = entityType.create(player.level());
+            Entity entity = entityType.create(player.level(), EntitySpawnReason.SPAWN_ITEM_USE);
 
             if (entity == null) {
                 return;

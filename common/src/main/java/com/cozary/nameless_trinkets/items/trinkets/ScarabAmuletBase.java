@@ -17,7 +17,7 @@ public class ScarabAmuletBase extends TrinketItem<ScarabAmuletBase.Stats> {
     public static ScarabAmuletBase INSTANCE;
 
     public ScarabAmuletBase() {
-        super(new TrinketData(null, null, Stats.class));
+        super(new TrinketData("scarab_amulet",null, null, Stats.class));
 
         INSTANCE = this;
     }

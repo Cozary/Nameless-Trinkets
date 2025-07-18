@@ -15,7 +15,7 @@ public class GhastEyeBase extends TrinketItem<GhastEyeBase.Stats> {
     public static GhastEyeBase INSTANCE;
 
     public GhastEyeBase() {
-        super(new TrinketData(null, null, Stats.class));
+        super(new TrinketData("ghast_eye",null, null, Stats.class));
 
         INSTANCE = this;
     }

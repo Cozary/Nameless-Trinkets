@@ -15,7 +15,7 @@ public class BrokenMagnetBase extends TrinketItem<BrokenMagnetBase.Stats> {
     public static BrokenMagnetBase INSTANCE;
 
     public BrokenMagnetBase() {
-        super(new TrinketData(null, null, Stats.class));
+        super(new TrinketData("broken_magnet",null, null, Stats.class));
 
         INSTANCE = this;
     }

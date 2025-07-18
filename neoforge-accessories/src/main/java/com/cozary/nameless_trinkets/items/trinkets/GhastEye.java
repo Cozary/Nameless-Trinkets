@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
-import com.cozary.nameless_trinkets.utils.EntityUtils;
+import com.cozary.nameless_trinkets.utils.CommonUtils;
 import io.wispforest.accessories.api.AccessoriesAPI;
 import io.wispforest.accessories.api.Accessory;
 import io.wispforest.accessories.api.slot.SlotReference;
@@ -52,12 +52,12 @@ public class GhastEye extends GhastEyeBase implements Accessory {
                 AttributeModifier.Operation.ADD_VALUE);
 
         assert attribSpeed != null;
-        EntityUtils.applyAttributeModifier(attribSpeed, healthModifier);
+        CommonUtils.applyAttributeModifier(attribSpeed, healthModifier);
     }
 
     @Override
     public void onUnequip(ItemStack stack, SlotReference reference) {
-        EntityUtils.removeAttributeModifier(Objects.requireNonNull(reference.entity().getAttribute(Attributes.MAX_HEALTH)),
+        CommonUtils.removeAttributeModifier(Objects.requireNonNull(reference.entity().getAttribute(Attributes.MAX_HEALTH)),
                 new AttributeModifier(
                         ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "ghast_eye_extra_health"),
                         trinketConfig.extraHearts,

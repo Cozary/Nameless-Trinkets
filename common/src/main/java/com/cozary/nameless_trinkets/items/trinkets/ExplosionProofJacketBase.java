@@ -15,7 +15,7 @@ public class ExplosionProofJacketBase extends TrinketItem<ExplosionProofJacketBa
     public static ExplosionProofJacketBase INSTANCE;
 
     public ExplosionProofJacketBase() {
-        super(new TrinketData(null, null, Stats.class));
+        super(new TrinketData("explosion_proof_jacket",null, null, Stats.class));
 
         INSTANCE = this;
     }

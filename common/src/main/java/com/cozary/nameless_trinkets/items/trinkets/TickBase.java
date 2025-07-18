@@ -17,7 +17,7 @@ public class TickBase extends TrinketItem<TickBase.Stats> {
     public static TickBase INSTANCE;
 
     public TickBase() {
-        super(new TrinketData(null, null, Stats.class));
+        super(new TrinketData("tick",null, null, Stats.class));
 
         INSTANCE = this;
     }

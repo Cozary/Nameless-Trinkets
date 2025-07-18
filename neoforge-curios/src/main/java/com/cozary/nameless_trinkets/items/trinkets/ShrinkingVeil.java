@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
-import com.cozary.nameless_trinkets.utils.EntityUtils;
+import com.cozary.nameless_trinkets.utils.CommonUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
@@ -46,7 +46,7 @@ public class ShrinkingVeil extends ShrinkingVeilBase implements ICurioItem {
                 AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
 
         assert attribScale != null;
-        EntityUtils.applyAttributeModifier(attribScale, scaleModifier);
+        CommonUtils.applyAttributeModifier(attribScale, scaleModifier);
 
         AttributeInstance attribSpeed = livingEntity.getAttribute(Attributes.MOVEMENT_SPEED);
         AttributeModifier speedModifier = new AttributeModifier(
@@ -55,20 +55,20 @@ public class ShrinkingVeil extends ShrinkingVeilBase implements ICurioItem {
                 AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
 
         assert attribSpeed != null;
-        EntityUtils.applyAttributeModifier(attribSpeed, speedModifier);
+        CommonUtils.applyAttributeModifier(attribSpeed, speedModifier);
     }
 
     @Override
     public void onUnequip(SlotContext slotContext, ItemStack pstack, ItemStack stack) {
         LivingEntity livingEntity = slotContext.entity();
 
-        EntityUtils.removeAttributeModifier(Objects.requireNonNull(livingEntity.getAttribute(Attributes.SCALE)),
+        CommonUtils.removeAttributeModifier(Objects.requireNonNull(livingEntity.getAttribute(Attributes.SCALE)),
                 new AttributeModifier(
                         ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "shrinking_veil_scale"),
                         -trinketConfig.shrinkScalePercentage / 100,
                         AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
 
-        EntityUtils.removeAttributeModifier(Objects.requireNonNull(livingEntity.getAttribute(Attributes.MOVEMENT_SPEED)),
+        CommonUtils.removeAttributeModifier(Objects.requireNonNull(livingEntity.getAttribute(Attributes.MOVEMENT_SPEED)),
                 new AttributeModifier(
                         ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "shrinking_veil_speed"),
                         trinketConfig.speedPercentage / 100,

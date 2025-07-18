@@ -15,7 +15,7 @@ public class PufferFishLiverBase extends TrinketItem<PufferFishLiverBase.Stats> 
     public static PufferFishLiverBase INSTANCE;
 
     public PufferFishLiverBase() {
-        super(new TrinketData(null, null, Stats.class));
+        super(new TrinketData("puffer_fish_liver",null, null, Stats.class));
 
         INSTANCE = this;
     }

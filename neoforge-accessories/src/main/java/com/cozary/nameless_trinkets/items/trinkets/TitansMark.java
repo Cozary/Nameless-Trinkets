@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
-import com.cozary.nameless_trinkets.utils.EntityUtils;
+import com.cozary.nameless_trinkets.utils.CommonUtils;
 import io.wispforest.accessories.api.AccessoriesAPI;
 import io.wispforest.accessories.api.Accessory;
 import io.wispforest.accessories.api.slot.SlotReference;
@@ -52,7 +52,7 @@ public class TitansMark extends TitansMarkBase implements Accessory {
                 AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
 
         assert attribScale != null;
-        EntityUtils.applyAttributeModifier(attribScale, scaleModifier);
+        CommonUtils.applyAttributeModifier(attribScale, scaleModifier);
 
         AttributeInstance attribAttackDamage = livingEntity.getAttribute(Attributes.ATTACK_DAMAGE);
         AttributeModifier attackDamageModifier = new AttributeModifier(
@@ -61,20 +61,20 @@ public class TitansMark extends TitansMarkBase implements Accessory {
                 AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
 
         assert attribAttackDamage != null;
-        EntityUtils.applyAttributeModifier(attribAttackDamage, attackDamageModifier);
+        CommonUtils.applyAttributeModifier(attribAttackDamage, attackDamageModifier);
     }
 
     @Override
     public void onUnequip(ItemStack stack, SlotReference reference) {
         LivingEntity livingEntity = reference.entity();
 
-        EntityUtils.removeAttributeModifier(Objects.requireNonNull(livingEntity.getAttribute(Attributes.SCALE)),
+        CommonUtils.removeAttributeModifier(Objects.requireNonNull(livingEntity.getAttribute(Attributes.SCALE)),
                 new AttributeModifier(
                         ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "titans_mark_scale"),
                         trinketConfig.extraScalePercentage / 100,
                         AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
 
-        EntityUtils.removeAttributeModifier(Objects.requireNonNull(livingEntity.getAttribute(Attributes.ATTACK_DAMAGE)),
+        CommonUtils.removeAttributeModifier(Objects.requireNonNull(livingEntity.getAttribute(Attributes.ATTACK_DAMAGE)),
                 new AttributeModifier(
                         ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "titans_mark_attack_damage"),
                         trinketConfig.attackDamagePercentage / 100,

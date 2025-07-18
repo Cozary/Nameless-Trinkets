@@ -16,7 +16,7 @@ public class LuckyRockBase extends TrinketItem<LuckyRockBase.Stats> {
     public static LuckyRockBase INSTANCE;
 
     public LuckyRockBase() {
-        super(new TrinketData(null, null, Stats.class));
+        super(new TrinketData("lucky_rock",null, null, Stats.class));
 
         INSTANCE = this;
     }

@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
-import com.cozary.nameless_trinkets.utils.EntityUtils;
+import com.cozary.nameless_trinkets.utils.CommonUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
@@ -82,13 +82,13 @@ public class TrueHeartOfTheSea extends TrueHeartOfTheSeaBase implements ICurioIt
                 config.swimSpeedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_VALUE);
 
         assert attribSpeed != null;
-        EntityUtils.applyAttributeModifier(attribSpeed, speedModifier);
+        CommonUtils.applyAttributeModifier(attribSpeed, speedModifier);
     }
 
 
     @Override
     public void onUnequip(SlotContext slotContext, ItemStack pstack, ItemStack stack) {
-        EntityUtils.removeAttributeModifier(Objects.requireNonNull(slotContext.entity().getAttribute(Attributes.WATER_MOVEMENT_EFFICIENCY)),
+        CommonUtils.removeAttributeModifier(Objects.requireNonNull(slotContext.entity().getAttribute(Attributes.WATER_MOVEMENT_EFFICIENCY)),
                 new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "true_heart_of_the_sea_swim_speed"),
                         trinketConfig.swimSpeedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_VALUE));
     }
