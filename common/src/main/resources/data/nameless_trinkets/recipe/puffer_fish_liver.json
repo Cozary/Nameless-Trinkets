@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:pufferfish",
+    "nameless_trinkets:dubious_dust"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:puffer_fish_liver"
+  }
+}

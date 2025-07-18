@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "nameless_trinkets:dubious_dust",
+    "/": "minecraft:blaze_rod",
+    "G": "minecraft:glowstone",
+    "Q": "minecraft:quartz"
+  },
+  "pattern": [
+    "#G#",
+    "/Q/",
+    "#G#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:glowing_dust"
+  }
+}

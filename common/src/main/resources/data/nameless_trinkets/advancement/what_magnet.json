@@ -1,0 +1,34 @@
+{
+  "parent": "nameless_trinkets:root",
+  "criteria": {
+    "what_magnet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "nameless_trinkets:what_magnet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.nameless_trinkets.what_magnet.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "nameless_trinkets:what_magnet"
+    },
+    "title": {
+      "translate": "advancements.nameless_trinkets.what_magnet.title"
+    }
+  },
+  "requirements": [
+    [
+      "what_magnet"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

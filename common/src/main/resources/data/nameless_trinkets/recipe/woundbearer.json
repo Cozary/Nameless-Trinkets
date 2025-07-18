@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:blaze_rod",
+    "S": "nameless_trinkets:ultimate_dust",
+    "X": "minecraft:netherite_ingot"
+  },
+  "pattern": [
+    "###",
+    "#S#",
+    "#X#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:woundbearer"
+  }
+}

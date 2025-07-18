@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:bone_block",
+    "L": "minecraft:leather",
+    "S": "nameless_trinkets:glowing_dust"
+  },
+  "pattern": [
+    "###",
+    "LSL",
+    "LLL"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:fertilizer"
+  }
+}

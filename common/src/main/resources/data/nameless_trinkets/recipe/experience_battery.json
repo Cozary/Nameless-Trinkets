@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:glass_bottle",
+    "R": "minecraft:redstone",
+    "S": "nameless_trinkets:glowing_dust",
+    "i": "minecraft:iron_ingot"
+  },
+  "pattern": [
+    "#R#",
+    "#S#",
+    "#i#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:experience_battery"
+  }
+}

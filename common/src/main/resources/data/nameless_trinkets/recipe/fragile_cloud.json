@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "/": "minecraft:white_wool",
+    "S": "nameless_trinkets:glowing_dust"
+  },
+  "pattern": [
+    "///",
+    "/S/",
+    "///"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:fragile_cloud"
+  }
+}

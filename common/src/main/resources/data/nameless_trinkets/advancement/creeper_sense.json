@@ -1,0 +1,34 @@
+{
+  "parent": "nameless_trinkets:root",
+  "criteria": {
+    "creeper_sense": {
+      "conditions": {
+        "items": [
+          {
+            "items": "nameless_trinkets:creeper_sense"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.nameless_trinkets.creeper_sense.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "nameless_trinkets:creeper_sense"
+    },
+    "title": {
+      "translate": "advancements.nameless_trinkets.creeper_sense.title"
+    }
+  },
+  "requirements": [
+    [
+      "creeper_sense"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

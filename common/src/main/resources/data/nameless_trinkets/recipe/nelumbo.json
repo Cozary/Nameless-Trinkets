@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:lily_pad",
+    "O": "minecraft:oak_log",
+    "Q": "nameless_trinkets:dubious_dust",
+    "S": "minecraft:sponge"
+  },
+  "pattern": [
+    "#S#",
+    "OQO",
+    "#O#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:nelumbo"
+  }
+}

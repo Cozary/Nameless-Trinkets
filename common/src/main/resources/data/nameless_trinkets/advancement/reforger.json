@@ -1,0 +1,34 @@
+{
+  "parent": "nameless_trinkets:root",
+  "criteria": {
+    "reforger": {
+      "conditions": {
+        "items": [
+          {
+            "items": "nameless_trinkets:reforger"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.nameless_trinkets.reforger.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "nameless_trinkets:reforger"
+    },
+    "title": {
+      "translate": "advancements.nameless_trinkets.reforger.title"
+    }
+  },
+  "requirements": [
+    [
+      "reforger"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

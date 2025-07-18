@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:sugar",
+    "R": "minecraft:rabbit_foot",
+    "S": "nameless_trinkets:glowing_dust"
+  },
+  "pattern": [
+    "###",
+    "#SR",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:speed_force"
+  }
+}

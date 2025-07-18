@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:leather",
+    "G": "minecraft:golden_carrot",
+    "S": "nameless_trinkets:dubious_dust"
+  },
+  "pattern": [
+    "#G#",
+    "GSG",
+    "#G#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:blindfold"
+  }
+}

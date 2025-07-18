@@ -1,0 +1,34 @@
+{
+  "parent": "nameless_trinkets:root",
+  "criteria": {
+    "broken_magnet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "nameless_trinkets:broken_magnet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.nameless_trinkets.broken_magnet.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "nameless_trinkets:broken_magnet"
+    },
+    "title": {
+      "translate": "advancements.nameless_trinkets.broken_magnet.title"
+    }
+  },
+  "requirements": [
+    [
+      "broken_magnet"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": "minecraft:bone",
+    "L": "minecraft:leather",
+    "P": "minecraft:porkchop",
+    "R": "minecraft:rotten_flesh",
+    "S": "nameless_trinkets:glowing_dust",
+    "i": "minecraft:iron_ingot"
+  },
+  "pattern": [
+    "iRi",
+    "PSL",
+    "iBi"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:what_magnet"
+  }
+}

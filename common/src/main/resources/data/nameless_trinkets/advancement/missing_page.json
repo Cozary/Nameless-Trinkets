@@ -1,0 +1,34 @@
+{
+  "parent": "nameless_trinkets:root",
+  "criteria": {
+    "missing_page": {
+      "conditions": {
+        "items": [
+          {
+            "items": "nameless_trinkets:missing_page"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.nameless_trinkets.missing_page.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "nameless_trinkets:missing_page"
+    },
+    "title": {
+      "translate": "advancements.nameless_trinkets.missing_page.title"
+    }
+  },
+  "requirements": [
+    [
+      "missing_page"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

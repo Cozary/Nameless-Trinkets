@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:cod",
+    "K": "minecraft:salmon",
+    "P": "minecraft:pufferfish",
+    "S": "nameless_trinkets:dubious_dust",
+    "T": "minecraft:tropical_fish"
+  },
+  "pattern": [
+    " # ",
+    "TSK",
+    " P "
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:gills"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "nameless_trinkets:root",
+  "criteria": {
+    "unknown_fragment": {
+      "conditions": {
+        "items": [
+          {
+            "items": "nameless_trinkets:unknown_fragment"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.nameless_trinkets.unknown_fragment.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "nameless_trinkets:unknown_fragment"
+    },
+    "title": {
+      "translate": "advancements.nameless_trinkets.unknown_fragment.title"
+    }
+  },
+  "requirements": [
+    [
+      "unknown_fragment"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

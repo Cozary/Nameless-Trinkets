@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:feather",
+    "K": "nameless_trinkets:dubious_dust",
+    "S": "minecraft:sponge"
+  },
+  "pattern": [
+    "###",
+    "SKS",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:moon_stone"
+  }
+}

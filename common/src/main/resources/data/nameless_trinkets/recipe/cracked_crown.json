@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:gold_block",
+    "N": "minecraft:netherite_scrap",
+    "S": "nameless_trinkets:ultimate_dust"
+  },
+  "pattern": [
+    "#N#",
+    "#S#",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:cracked_crown"
+  }
+}

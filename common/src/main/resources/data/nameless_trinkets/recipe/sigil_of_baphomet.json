@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:obsidian",
+    "N": "minecraft:netherite_scrap",
+    "S": "nameless_trinkets:ultimate_dust",
+    "W": "minecraft:wither_skeleton_skull"
+  },
+  "pattern": [
+    "#W#",
+    "#S#",
+    "#N#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:sigil_of_baphomet"
+  }
+}

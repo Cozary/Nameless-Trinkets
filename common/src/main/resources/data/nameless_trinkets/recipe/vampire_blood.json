@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:redstone_block",
+    "B": "minecraft:blaze_powder",
+    "C": "minecraft:crying_obsidian",
+    "Q": "minecraft:clock",
+    "S": "nameless_trinkets:glowing_dust"
+  },
+  "pattern": [
+    "#C#",
+    "BSB",
+    "#Q#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:vampire_blood"
+  }
+}

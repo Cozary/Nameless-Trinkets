@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:rotten_flesh",
+    "C": "minecraft:cobblestone",
+    "H": "minecraft:hay_block",
+    "S": "nameless_trinkets:glowing_dust"
+  },
+  "pattern": [
+    "#C#",
+    "HSH",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:callus"
+  }
+}

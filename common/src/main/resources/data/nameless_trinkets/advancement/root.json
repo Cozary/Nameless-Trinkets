@@ -1,0 +1,34 @@
+{
+  "criteria": {
+    "obtain": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#nameless_trinkets:nameless_trinkets_tag"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
+    "description": {
+      "translate": "advancements.nameless_trinkets.root.description"
+    },
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "nameless_trinkets:mysterious_trinket"
+    },
+    "title": {
+      "translate": "advancements.nameless_trinkets.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

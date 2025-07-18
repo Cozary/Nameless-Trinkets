@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:gold_block",
+    "I": "minecraft:iron_ingot",
+    "S": "nameless_trinkets:ultimate_dust"
+  },
+  "pattern": [
+    "###",
+    "ISI",
+    " I "
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:reforger"
+  }
+}

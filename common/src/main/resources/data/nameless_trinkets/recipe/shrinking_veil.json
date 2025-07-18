@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": "minecraft:feather",
+    "L": "minecraft:leather",
+    "S": "nameless_trinkets:dubious_dust"
+  },
+  "pattern": [
+    " L ",
+    "FSF",
+    " L "
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:shrinking_veil"
+  }
+}

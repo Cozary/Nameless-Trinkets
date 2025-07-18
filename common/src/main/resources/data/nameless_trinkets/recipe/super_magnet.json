@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": "nameless_trinkets:glowing_dust",
+    "I": "minecraft:iron_block",
+    "L": "nameless_trinkets:experience_magnet",
+    "S": "nameless_trinkets:broken_magnet",
+    "i": "minecraft:iron_ingot"
+  },
+  "pattern": [
+    "iIi",
+    "LDS",
+    "iIi"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:super_magnet"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:cobblestone",
+    "C": "minecraft:coal",
+    "R": "minecraft:redstone",
+    "S": "nameless_trinkets:dubious_dust",
+    "g": "minecraft:gold_ingot",
+    "i": "minecraft:iron_ingot"
+  },
+  "pattern": [
+    "#R#",
+    "iSg",
+    "#C#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:lucky_rock"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:oak_boat",
+    "&": "minecraft:redstone_block",
+    "S": "nameless_trinkets:glowing_dust"
+  },
+  "pattern": [
+    "#&#",
+    "&S&",
+    "#&#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:electric_paddle"
+  }
+}

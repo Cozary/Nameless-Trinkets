@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:ender_eye",
+    "S": "nameless_trinkets:dubious_dust",
+    "W": "minecraft:end_stone"
+  },
+  "pattern": [
+    "#W#",
+    "#S#",
+    "#W#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:dragons_eye"
+  }
+}

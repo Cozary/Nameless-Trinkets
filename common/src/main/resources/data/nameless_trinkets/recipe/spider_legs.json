@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:cobweb",
+    "R": "minecraft:string",
+    "S": "minecraft:spider_eye",
+    "U": "nameless_trinkets:dubious_dust"
+  },
+  "pattern": [
+    "#S#",
+    "RUR",
+    "#R#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:spider_legs"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:emerald_block",
+    "S": "nameless_trinkets:ultimate_dust",
+    "W": "minecraft:bell"
+  },
+  "pattern": [
+    "#W#",
+    "#S#",
+    "#W#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:fate_emerald"
+  }
+}

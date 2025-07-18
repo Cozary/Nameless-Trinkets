@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "nameless_trinkets:unknown_fragment",
+    "S": "minecraft:bundle"
+  },
+  "pattern": [
+    "###",
+    "#S#",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:trinket_bundle"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:heart_of_the_sea",
+    "M": "nameless_trinkets:tear_of_the_sea",
+    "P": "nameless_trinkets:gills",
+    "S": "nameless_trinkets:ultimate_dust",
+    "Y": "nameless_trinkets:amphibious_hands"
+  },
+  "pattern": [
+    " # ",
+    "PSM",
+    " Y "
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:true_heart_of_the_sea"
+  }
+}

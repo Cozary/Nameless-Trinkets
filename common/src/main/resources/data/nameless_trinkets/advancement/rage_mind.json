@@ -1,0 +1,34 @@
+{
+  "parent": "nameless_trinkets:root",
+  "criteria": {
+    "rage_mind": {
+      "conditions": {
+        "items": [
+          {
+            "items": "nameless_trinkets:rage_mind"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.nameless_trinkets.rage_mind.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "nameless_trinkets:rage_mind"
+    },
+    "title": {
+      "translate": "advancements.nameless_trinkets.rage_mind.title"
+    }
+  },
+  "requirements": [
+    [
+      "rage_mind"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
