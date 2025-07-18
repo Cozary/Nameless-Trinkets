@@ -13,6 +13,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipDisplay;
 
 import java.util.function.Consumer;
+
 public class TickBase extends TrinketItem<TickBase.Stats> {
     public static TickBase INSTANCE;
 

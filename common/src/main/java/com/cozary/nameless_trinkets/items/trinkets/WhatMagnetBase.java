@@ -11,6 +11,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipDisplay;
 
 import java.util.function.Consumer;
+
 public class WhatMagnetBase extends TrinketItem<WhatMagnetBase.Stats> {
     public static WhatMagnetBase INSTANCE;
 

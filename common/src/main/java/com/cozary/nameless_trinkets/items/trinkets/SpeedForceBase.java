@@ -11,6 +11,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipDisplay;
 
 import java.util.function.Consumer;
+
 public class SpeedForceBase extends TrinketItem<SpeedForceBase.Stats> {
     public static SpeedForceBase INSTANCE;
 

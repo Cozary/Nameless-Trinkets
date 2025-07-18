@@ -18,6 +18,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(Player.class)
 public class PlayerMixinFabric {
 
+    //Modifies damage ? -> player
+    @Unique
+    private DamageSource lastDamageSource;
+
     //Modifies destroy speed.
     @Inject(method = "getDestroySpeed", at = @At("RETURN"), cancellable = true)
     private void onGetDestroySpeed(BlockState state, CallbackInfoReturnable<Float> cir) {
@@ -28,10 +32,6 @@ public class PlayerMixinFabric {
 
         cir.setReturnValue(newSpeed);
     }
-
-    //Modifies damage ? -> player
-    @Unique
-    private DamageSource lastDamageSource;
 
     @Inject(method = "actuallyHurt", at = @At("HEAD"))
     private void cacheDamageSource(ServerLevel level, DamageSource damageSource, float amount, CallbackInfo ci) {
