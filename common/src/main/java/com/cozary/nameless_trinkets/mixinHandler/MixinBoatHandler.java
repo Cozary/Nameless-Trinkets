@@ -3,11 +3,13 @@ package com.cozary.nameless_trinkets.mixinHandler;
 import com.cozary.nameless_trinkets.items.trinkets.ElectricPaddleBase;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.vehicle.AbstractBoat;
 import net.minecraft.world.entity.vehicle.Boat;
+import net.minecraft.world.entity.vehicle.ChestBoat;
 
 public class MixinBoatHandler {
 
-    public static void applyBoostedBoatControl(Boat boat, Player player) {
+    public static void applyBoostedBoatControl(AbstractBoat boat, Player player) {
         ElectricPaddleBase.Stats config = ElectricPaddleBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return;
