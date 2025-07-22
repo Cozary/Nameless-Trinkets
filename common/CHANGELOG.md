@@ -1,1 +1,5 @@
-# Changelog 1.21.5 Port
+# Changelog
+
+### Fixed
+
+- [Electric Paddle] crash and trinket not working when it should.
