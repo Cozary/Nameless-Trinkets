@@ -16,14 +16,14 @@ public class MixinBoat {
 
     @Inject(at = @At(value = "HEAD"), method = "controlBoat")
     protected void controlSpeed(CallbackInfo ci) {
-        if (((Boat) (Object) this).getFirstPassenger() instanceof Player player) {
+        if (((AbstractBoat) (Object) this).getFirstPassenger() instanceof Player player) {
 
             var stack = TrinketUtils.getEquippedTrinket(player, ModItems.ELECTRIC_PADDLE.get());
 
             if (stack.isEmpty())
                 return;
 
-            MixinBoatHandler.applyBoostedBoatControl((Boat) (Object) this, player);
+            MixinBoatHandler.applyBoostedBoatControl((AbstractBoat) (Object) this, player);
         }
     }
 }
