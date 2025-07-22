@@ -15,7 +15,7 @@ public class EtherealWingsBase extends TrinketItem<EtherealWingsBase.Stats> {
     public static EtherealWingsBase INSTANCE;
 
     public EtherealWingsBase() {
-        super(new TrinketData("ethereal_wings",null, null, Stats.class));
+        super(new TrinketData("ethereal_wings", null, null, Stats.class));
 
         INSTANCE = this;
     }

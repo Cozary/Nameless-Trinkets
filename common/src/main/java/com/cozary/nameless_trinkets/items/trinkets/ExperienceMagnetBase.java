@@ -15,7 +15,7 @@ public class ExperienceMagnetBase extends TrinketItem<ExperienceMagnetBase.Stats
     public static ExperienceMagnetBase INSTANCE;
 
     public ExperienceMagnetBase() {
-        super(new TrinketData("experience_magnet",null, null, Stats.class));
+        super(new TrinketData("experience_magnet", null, null, Stats.class));
 
         INSTANCE = this;
     }

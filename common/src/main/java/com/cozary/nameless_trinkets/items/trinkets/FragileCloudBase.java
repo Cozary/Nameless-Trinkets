@@ -15,7 +15,7 @@ public class FragileCloudBase extends TrinketItem<FragileCloudBase.Stats> {
     public static FragileCloudBase INSTANCE;
 
     public FragileCloudBase() {
-        super(new TrinketData("fragile_cloud",null, null, Stats.class));
+        super(new TrinketData("fragile_cloud", null, null, Stats.class));
 
         INSTANCE = this;
     }

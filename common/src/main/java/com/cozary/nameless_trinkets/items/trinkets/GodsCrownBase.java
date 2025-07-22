@@ -28,7 +28,7 @@ public class GodsCrownBase extends TrinketItem<GodsCrownBase.Stats> {
     protected final Map<String, List<String>> modifiers = new HashMap<>();
 
     public GodsCrownBase() {
-        super(new TrinketData("gods_crown",null, null, Stats.class));
+        super(new TrinketData("gods_crown", null, null, Stats.class));
 
         INSTANCE = this;
 

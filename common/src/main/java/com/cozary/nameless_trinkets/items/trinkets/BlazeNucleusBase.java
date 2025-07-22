@@ -15,7 +15,7 @@ public class BlazeNucleusBase extends TrinketItem<BlazeNucleusBase.Stats> {
     public static BlazeNucleusBase INSTANCE;
 
     public BlazeNucleusBase() {
-        super(new TrinketData("blaze_nucleus",null, null, Stats.class));
+        super(new TrinketData("blaze_nucleus", null, null, Stats.class));
 
         INSTANCE = this;
     }

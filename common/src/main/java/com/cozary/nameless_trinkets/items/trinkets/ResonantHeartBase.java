@@ -15,7 +15,7 @@ public class ResonantHeartBase extends TrinketItem<ResonantHeartBase.Stats> {
     public static ResonantHeartBase INSTANCE;
 
     public ResonantHeartBase() {
-        super(new TrinketData("resonant_heart",null, null, Stats.class));
+        super(new TrinketData("resonant_heart", null, null, Stats.class));
 
         INSTANCE = this;
     }

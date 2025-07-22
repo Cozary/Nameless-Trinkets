@@ -15,7 +15,7 @@ public class RageMindBase extends TrinketItem<RageMindBase.Stats> {
     public static RageMindBase INSTANCE;
 
     public RageMindBase() {
-        super(new TrinketData("rage_mind",null, null, Stats.class));
+        super(new TrinketData("rage_mind", null, null, Stats.class));
 
         INSTANCE = this;
     }

@@ -10,11 +10,14 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
+
+    //Damage player -> entity
+    @Unique
+    private DamageSource lastDamageSource;
 
     //Attack player -> entity
     @Inject(method = "actuallyHurt", at = @At(value = "HEAD"))
@@ -23,10 +26,6 @@ public abstract class LivingEntityMixin {
 
         ModEvents.DamageModifyCallback.EVENT.invoker().onDamage(targetEntity, damageSource, amount);
     }
-
-    //Damage player -> entity
-    @Unique
-    private DamageSource lastDamageSource;
 
     @Inject(method = "actuallyHurt", at = @At("HEAD"))
     private void cacheDamageSource(ServerLevel level, DamageSource damageSource, float amount, CallbackInfo ci) {
@@ -41,7 +40,7 @@ public abstract class LivingEntityMixin {
             index = 1
     )
     private float modifyDamageAmount(float originalAmount) {
-        LivingEntity self = (LivingEntity)(Object)this;
+        LivingEntity self = (LivingEntity) (Object) this;
         return ModEvents.DamageModifyCallback.EVENT.invoker().onDamage(self, lastDamageSource, originalAmount);
     }
 

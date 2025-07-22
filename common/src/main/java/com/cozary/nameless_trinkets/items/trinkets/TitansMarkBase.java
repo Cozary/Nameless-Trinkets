@@ -15,7 +15,7 @@ public class TitansMarkBase extends TrinketItem<TitansMarkBase.Stats> {
     public static TitansMarkBase INSTANCE;
 
     public TitansMarkBase() {
-        super(new TrinketData("titans_mark",null, null, Stats.class));
+        super(new TrinketData("titans_mark", null, null, Stats.class));
 
         INSTANCE = this;
     }

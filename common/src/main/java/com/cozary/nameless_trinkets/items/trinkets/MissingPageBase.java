@@ -15,7 +15,7 @@ public class MissingPageBase extends TrinketItem<MissingPageBase.Stats> {
     public static MissingPageBase INSTANCE;
 
     public MissingPageBase() {
-        super(new TrinketData("missing_page",null, null, Stats.class));
+        super(new TrinketData("missing_page", null, null, Stats.class));
 
         INSTANCE = this;
     }

@@ -31,7 +31,7 @@ public class DyingStarBase extends TrinketItem<DyingStarBase.Stats> {
     public static DyingStarBase INSTANCE;
 
     public DyingStarBase() {
-        super(new TrinketData("dying_star",null, null, Stats.class));
+        super(new TrinketData("dying_star", null, null, Stats.class));
 
         INSTANCE = this;
     }

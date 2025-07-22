@@ -15,7 +15,7 @@ public class SuperMagnetBase extends TrinketItem<SuperMagnetBase.Stats> {
     public static SuperMagnetBase INSTANCE;
 
     public SuperMagnetBase() {
-        super(new TrinketData("super_magnet",null, null, Stats.class));
+        super(new TrinketData("super_magnet", null, null, Stats.class));
 
         INSTANCE = this;
     }

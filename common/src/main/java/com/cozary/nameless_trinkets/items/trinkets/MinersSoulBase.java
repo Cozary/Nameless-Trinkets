@@ -16,7 +16,7 @@ public class MinersSoulBase extends TrinketItem<MinersSoulBase.Stats> {
     public static MinersSoulBase INSTANCE;
 
     public MinersSoulBase() {
-        super(new TrinketData("miners_soul",null, null, Stats.class));
+        super(new TrinketData("miners_soul", null, null, Stats.class));
 
         INSTANCE = this;
     }

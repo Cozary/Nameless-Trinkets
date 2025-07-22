@@ -15,7 +15,7 @@ public class BlindfoldBase extends TrinketItem<BlindfoldBase.Stats> {
     public static BlindfoldBase INSTANCE;
 
     public BlindfoldBase() {
-        super(new TrinketData("blindfold",null, null, Stats.class));
+        super(new TrinketData("blindfold", null, null, Stats.class));
 
         INSTANCE = this;
     }

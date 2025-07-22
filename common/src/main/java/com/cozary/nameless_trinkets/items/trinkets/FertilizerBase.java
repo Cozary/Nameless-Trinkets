@@ -32,7 +32,7 @@ public class FertilizerBase extends TrinketItem<FertilizerBase.Stats> {
     public static FertilizerBase INSTANCE;
 
     public FertilizerBase() {
-        super(new TrinketData("fertilizer",null, null, Stats.class));
+        super(new TrinketData("fertilizer", null, null, Stats.class));
 
         INSTANCE = this;
     }

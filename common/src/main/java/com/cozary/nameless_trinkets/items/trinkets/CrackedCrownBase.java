@@ -28,7 +28,7 @@ public class CrackedCrownBase extends TrinketItem<CrackedCrownBase.Stats> {
     protected final Map<String, List<String>> modifiers = new HashMap<>();
 
     public CrackedCrownBase() {
-        super(new TrinketData("cracked_crown",null, null, Stats.class));
+        super(new TrinketData("cracked_crown", null, null, Stats.class));
 
         INSTANCE = this;
 

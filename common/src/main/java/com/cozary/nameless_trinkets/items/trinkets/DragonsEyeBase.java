@@ -15,7 +15,7 @@ public class DragonsEyeBase extends TrinketItem<DragonsEyeBase.Stats> {
     public static DragonsEyeBase INSTANCE;
 
     public DragonsEyeBase() {
-        super(new TrinketData("dragons_eye",null, null, Stats.class));
+        super(new TrinketData("dragons_eye", null, null, Stats.class));
 
         INSTANCE = this;
     }

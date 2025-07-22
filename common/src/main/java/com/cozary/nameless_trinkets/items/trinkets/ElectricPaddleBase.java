@@ -15,7 +15,7 @@ public class ElectricPaddleBase extends TrinketItem<ElectricPaddleBase.Stats> {
     public static ElectricPaddleBase INSTANCE;
 
     public ElectricPaddleBase() {
-        super(new TrinketData("electric_paddle",null, null, Stats.class));
+        super(new TrinketData("electric_paddle", null, null, Stats.class));
 
         INSTANCE = this;
     }

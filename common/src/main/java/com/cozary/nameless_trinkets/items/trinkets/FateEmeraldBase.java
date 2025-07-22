@@ -15,7 +15,7 @@ public class FateEmeraldBase extends TrinketItem<FateEmeraldBase.Stats> {
     public static FateEmeraldBase INSTANCE;
 
     public FateEmeraldBase() {
-        super(new TrinketData("fate_emerald",null, null, Stats.class));
+        super(new TrinketData("fate_emerald", null, null, Stats.class));
 
         INSTANCE = this;
     }

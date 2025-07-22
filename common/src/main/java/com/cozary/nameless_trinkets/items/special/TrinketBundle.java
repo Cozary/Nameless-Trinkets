@@ -34,7 +34,7 @@ import static com.cozary.nameless_trinkets.utils.CommonUtils.itemId;
  * ehe{@link BundleItem}
  */
 public class TrinketBundle extends BundleItem {
-    private static final int BAR_COLOR = ARGB.colorFromFloat(1.0f,1.0F, 0.4F, 0.4F);
+    private static final int BAR_COLOR = ARGB.colorFromFloat(1.0f, 1.0F, 0.4F, 0.4F);
 
     public TrinketBundle() {
         super(new Properties()

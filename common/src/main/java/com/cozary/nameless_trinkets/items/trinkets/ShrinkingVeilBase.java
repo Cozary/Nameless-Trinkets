@@ -15,7 +15,7 @@ public class ShrinkingVeilBase extends TrinketItem<ShrinkingVeilBase.Stats> {
     public static ShrinkingVeilBase INSTANCE;
 
     public ShrinkingVeilBase() {
-        super(new TrinketData("shrinking_veil",null, null, Stats.class));
+        super(new TrinketData("shrinking_veil", null, null, Stats.class));
 
         INSTANCE = this;
     }

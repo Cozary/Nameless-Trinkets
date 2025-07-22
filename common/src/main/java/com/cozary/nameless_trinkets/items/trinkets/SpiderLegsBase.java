@@ -15,7 +15,7 @@ public class SpiderLegsBase extends TrinketItem<SpiderLegsBase.Stats> {
     public static SpiderLegsBase INSTANCE;
 
     public SpiderLegsBase() {
-        super(new TrinketData("spider_legs",null, null, Stats.class));
+        super(new TrinketData("spider_legs", null, null, Stats.class));
 
         INSTANCE = this;
     }

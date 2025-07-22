@@ -15,7 +15,7 @@ public class GillsBase extends TrinketItem<GillsBase.Stats> {
     public static GillsBase INSTANCE;
 
     public GillsBase() {
-        super(new TrinketData("gills",null, null, Stats.class));
+        super(new TrinketData("gills", null, null, Stats.class));
 
         INSTANCE = this;
     }

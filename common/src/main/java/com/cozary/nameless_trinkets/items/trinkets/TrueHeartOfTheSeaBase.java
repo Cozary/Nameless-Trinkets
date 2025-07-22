@@ -15,7 +15,7 @@ public class TrueHeartOfTheSeaBase extends TrinketItem<TrueHeartOfTheSeaBase.Sta
     public static TrueHeartOfTheSeaBase INSTANCE;
 
     public TrueHeartOfTheSeaBase() {
-        super(new TrinketData("true_heart_of_the_sea",null, null, Stats.class));
+        super(new TrinketData("true_heart_of_the_sea", null, null, Stats.class));
 
         INSTANCE = this;
     }

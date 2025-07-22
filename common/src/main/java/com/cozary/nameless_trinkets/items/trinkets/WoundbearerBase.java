@@ -16,7 +16,7 @@ public class WoundbearerBase extends TrinketItem<WoundbearerBase.Stats> {
     public static WoundbearerBase INSTANCE;
 
     public WoundbearerBase() {
-        super(new TrinketData("woundbearer",null, null, Stats.class));
+        super(new TrinketData("woundbearer", null, null, Stats.class));
 
         INSTANCE = this;
     }

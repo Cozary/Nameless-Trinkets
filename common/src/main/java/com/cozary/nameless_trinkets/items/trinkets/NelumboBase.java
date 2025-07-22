@@ -15,7 +15,7 @@ public class NelumboBase extends TrinketItem<NelumboBase.Stats> {
     public static NelumboBase INSTANCE;
 
     public NelumboBase() {
-        super(new TrinketData("nelumbo",null, null, Stats.class));
+        super(new TrinketData("nelumbo", null, null, Stats.class));
 
         INSTANCE = this;
     }

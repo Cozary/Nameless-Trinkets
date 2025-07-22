@@ -15,7 +15,7 @@ public class WhatMagnetBase extends TrinketItem<WhatMagnetBase.Stats> {
     public static WhatMagnetBase INSTANCE;
 
     public WhatMagnetBase() {
-        super(new TrinketData("what_magnet",null, null, Stats.class));
+        super(new TrinketData("what_magnet", null, null, Stats.class));
 
         INSTANCE = this;
     }
