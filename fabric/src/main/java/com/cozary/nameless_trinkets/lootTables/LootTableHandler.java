@@ -25,14 +25,14 @@ public class LootTableHandler {
             for (TrinketLootConfig config : TrinketLootConfigsManager.getConfigs()) {
 
                 if (!config.getLootTables().contains(key.location()))
-                    return;
+                    continue;
 
                 Optional<RegistryObject<Item>> optionalItem = ModItems.CREATIVE_TAB_ITEMS.stream()
                         .filter(item -> getItemName((TrinketItem<?>) item.get()).equals(config.getItemId()))
                         .findFirst();
 
                 if (optionalItem.isEmpty())
-                    return;
+                    continue;
 
                 Item item = optionalItem.get().get();
                 float chance = (float) config.getChance();

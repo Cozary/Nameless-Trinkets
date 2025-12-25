@@ -1,0 +1,12 @@
+{
+  "files.exclude": {
+    "**/neoforge/**": true
+  },
+  "search.exclude": {
+    "**/neoforge/**": true
+  },
+  "java.configuration.exclusions": [
+    "**/neoforge/**"
+  ],
+  "java.compile.nullAnalysis.mode": "automatic"
+}

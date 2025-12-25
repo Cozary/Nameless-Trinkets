@@ -78,15 +78,20 @@ public class ModItems {
     public static final RegistryObject<Item> UNKNOWN_FRAGMENT = registerWithTab("unknown_fragment", UnknownFragment::new);
 
     //Recipe Items
-    public static final RegistryObject<Item> DUBIOUS_DUST = registerWithTab("dubious_dust", DubiousDust::new);
-    public static final RegistryObject<Item> GLOWING_DUST = registerWithTab("glowing_dust", GlowingDust::new);
-    public static final RegistryObject<Item> ULTIMATE_DUST = registerWithTab("ultimate_dust", UltimateDust::new);
+    // change the dust to be hidden items will not appear in crafting tab or in creative inventory
+    public static final RegistryObject<Item> DUBIOUS_DUST = registerHidden("dubious_dust", DubiousDust::new);
+    public static final RegistryObject<Item> GLOWING_DUST = registerHidden("glowing_dust", GlowingDust::new);
+    public static final RegistryObject<Item> ULTIMATE_DUST = registerHidden("ultimate_dust", UltimateDust::new);
 
     public static RegistryObject<Item> registerWithTab(final String name, final Supplier<? extends Item> supplier) {
         RegistryObject<Item> item = ITEMS.register(name, supplier);
         CREATIVE_TAB_ITEMS.add(item);
 
         return item;
+    }
+
+    public static RegistryObject<Item> registerHidden(final String name, final Supplier<? extends Item> supplier) {
+        return ITEMS.register(name, supplier);
     }
 
     public static void loadClass() {
