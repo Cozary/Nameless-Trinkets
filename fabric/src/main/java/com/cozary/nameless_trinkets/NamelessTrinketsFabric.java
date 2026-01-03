@@ -19,7 +19,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.fml.config.ModConfig;
-
+import com.cozary.nameless_trinkets.recipe.RecipeGate;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 
 public class NamelessTrinketsFabric implements ModInitializer {
 
@@ -30,6 +31,14 @@ public class NamelessTrinketsFabric implements ModInitializer {
         NamelessTrinkets.init();
 
         NeoForgeConfigRegistry.INSTANCE.register(NamelessTrinkets.MOD_ID, ModConfig.Type.COMMON, ConfigurationHandler.spec);
+
+        // Applies recipe gating on server start + after /reload
+        ServerLifecycleEvents.SERVER_STARTED.register(server -> {
+            RecipeGate.apply(server);
+        });
+        ServerLifecycleEvents.END_DATA_PACK_RELOAD.register((server, resourceManager, success) -> {
+            if (success) RecipeGate.apply(server);
+        });
 
         eventLoad();
         itemGroupLoad();

@@ -7,6 +7,8 @@ import com.cozary.nameless_trinkets.config.looTables.TrinketLootConfigsManager;
 import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.init.RegistryObject;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
+import com.cozary.nameless_trinkets.utils.ConfigurationHandler;
+
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -49,7 +51,17 @@ public class LootTableHandler {
                     return;
 
                 Item item = optionalItem.get().get();
-                float chance = (float) config.getChance();
+                double baseChance = config.getChance();
+                double multiplier = ConfigurationHandler.GENERAL.globalLootMultiplier.get(); // Double → double (auto-unboxed)
+
+                // Apply multiplier (see note below)
+                double scaledChance = baseChance * (1.0 + multiplier);
+
+                // Clamp to [0.0, 1.0]
+                scaledChance = Math.max(0.0, Math.min(1.0, scaledChance));
+
+                // Final value used by loot table
+                float chance = (float) scaledChance;
 
                 String poolName = "nameless_trinkets_pool_" + BuiltInRegistries.ITEM.getKey(item).getPath();
                 if (event.getTable().getPool(poolName) != null)

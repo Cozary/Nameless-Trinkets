@@ -43,7 +43,7 @@ public final class ConfigurationHandler {
             builder.pop();
 
             builder.push("Loot Settings");
-            globalLootMultiplier = builder.defineInRange("globalLootMultiplier", 0.1, 0.0, 1.0);
+            globalLootMultiplier = builder.defineInRange("globalLootMultiplier", 0.0, 0.0, 1.0);
             builder.pop();  
         }
     }
