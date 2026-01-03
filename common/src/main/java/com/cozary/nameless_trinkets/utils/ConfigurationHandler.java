@@ -13,6 +13,10 @@ public final class ConfigurationHandler {
         public final ModConfigSpec.BooleanValue getFragments;
         //public final ModConfigSpec.IntValue trinketSlots;
         public final ModConfigSpec.BooleanValue disableFOV;
+        // enable trinket crafting
+        public final ModConfigSpec.BooleanValue enableTrinketCrafting;
+        // global loot multiplier
+        public final ModConfigSpec.DoubleValue globalLootMultiplier;
 
         public General(ModConfigSpec.Builder builder) {
             /*
@@ -33,6 +37,14 @@ public final class ConfigurationHandler {
             builder.push("FOV Disable Settings");
             disableFOV = builder.define("disableFOV", false);
             builder.pop();
+
+            builder.push("Trinket Crafting Settings");
+            enableTrinketCrafting = builder.define("enableTrinketCrafting", false);
+            builder.pop();
+
+            builder.push("Loot Settings");
+            globalLootMultiplier = builder.defineInRange("globalLootMultiplier", 0.1, 0.0, 1.0);
+            builder.pop();  
         }
     }
 }

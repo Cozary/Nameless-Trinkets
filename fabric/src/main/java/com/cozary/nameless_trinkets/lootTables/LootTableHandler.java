@@ -5,6 +5,8 @@ import com.cozary.nameless_trinkets.config.looTables.TrinketLootConfigsManager;
 import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.init.RegistryObject;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
+import com.cozary.nameless_trinkets.utils.ConfigurationHandler;
+
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -35,7 +37,17 @@ public class LootTableHandler {
                     continue;
 
                 Item item = optionalItem.get().get();
-                float chance = (float) config.getChance();
+                double baseChance = config.getChance();
+                double multiplier = ConfigurationHandler.GENERAL.globalLootMultiplier.get(); // Double → double (auto-unboxed)
+
+                // Apply multiplier (see note below)
+                double scaledChance = baseChance * (1.0 + multiplier);
+
+                // Clamp to [0.0, 1.0]
+                scaledChance = Math.max(0.0, Math.min(1.0, scaledChance));
+
+                // Final value used by loot table
+                float chance = (float) scaledChance;
 
                 LootPool.Builder poolBuilder = LootPool.lootPool()
                         .setRolls(ConstantValue.exactly(1))

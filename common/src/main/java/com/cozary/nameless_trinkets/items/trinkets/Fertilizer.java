@@ -283,7 +283,7 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
 
         // If we got here, it failed
         if (config.debugLogging) {
-            NamelessTrinkets.LOG.info("[Fertilizer] attempt: entity={} bucket={} target={} block={} crop={} sapling={} result=FAIL",
+            NamelessTrinkets.LOG.info("[Nameless-Trinkets][Fertilizer] attempt: entity={} bucket={} target={} block={} crop={} sapling={} result=FAIL",
                     entity.getName().getString(),
                     targetBucket,
                     targetPos,
