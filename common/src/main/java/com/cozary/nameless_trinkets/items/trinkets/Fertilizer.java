@@ -151,37 +151,146 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
     @Override
     public void tick(ItemStack stack, SlotReference reference) {
         super.tick(stack, reference);
-        Stats config = Fertilizer.INSTANCE.getTrinketConfig();
 
+        Stats config = Fertilizer.INSTANCE.getTrinketConfig();
         LivingEntity entity = reference.entity();
         Level level = entity.level();
 
-        if (level.isClientSide) {
-            return;
-        }
+        if (level.isClientSide) return;
+        if (!config.isEnable) return;
+
+        // Run once every N ticks (default = 100 ticks = 5s)
+        int effectInterval = Math.max(1, config.effectIntervalInTicks);
+        if (entity.tickCount % effectInterval != 0) return;
 
         RandomSource random = level.getRandom();
         BlockPos playerPos = entity.blockPosition();
-        BlockPos targetPos = playerPos.offset(
-                random.nextInt(5) - 3,
-                random.nextInt(3) - 2,
-                random.nextInt(5) - 3
-        );
 
-        int effectInterval = 1;//
-        if (entity.tickCount % effectInterval == 0) {
-            BlockState targetState = level.getBlockState(targetPos);
-            BlockState stateBelow = level.getBlockState(playerPos.below());
+        // --- Scan a small area around the player and prioritize crops/saplings ---
+        // Radius choices: keep small to stay cheap. (Only runs once per 10s anyway.)
+        final int rx = 4;     // X/Z radius
+        final int ryDown = 2; // scan below
+        final int ryUp = 2;   // scan above
 
-            if (stateBelow.is(Blocks.GRASS_BLOCK)) {
-                if (applyBonemeal(level, targetPos)) {
-                    spawnGrowthParticles(level, targetPos, 3);
-                }
-            } else if (targetState.is(Blocks.WATER)) {
-                if (growWaterPlant(level, targetPos, null)) {
-                    spawnGrowthParticles(level, targetPos, 3);
+        // We keep three candidate lists:
+        // 1) crops/saplings first
+        // 2) any bonemealable blocks second
+        // 3) water-source blocks last (for underwater plant spread)
+        java.util.ArrayList<BlockPos> priority = new java.util.ArrayList<>();
+        java.util.ArrayList<BlockPos> bonemealable = new java.util.ArrayList<>();
+        java.util.ArrayList<BlockPos> waterSources = new java.util.ArrayList<>();
+
+        BlockPos.MutableBlockPos cursor = new BlockPos.MutableBlockPos();
+
+        for (int dx = -rx; dx <= rx; dx++) {
+            for (int dz = -rx; dz <= rx; dz++) {
+                for (int dy = -ryDown; dy <= ryUp; dy++) {
+                    cursor.set(playerPos.getX() + dx, playerPos.getY() + dy, playerPos.getZ() + dz);
+
+                    BlockState st = level.getBlockState(cursor);
+
+                    // Skip air to reduce noise
+                    if (st.isAir()) continue;
+
+                    // Priority 1: tagged crops or saplings (modded-friendly)
+                    if (st.is(BlockTags.CROPS) || st.is(BlockTags.SAPLINGS)) {
+                        if (isValidBonemealTarget(level, cursor, st)) {
+                            priority.add(cursor.immutable());
+                        }
+                        continue;
+                    }
+
+                    // Priority 2: anything bonemealable
+                    if (isValidBonemealTarget(level, cursor, st)) {
+                        bonemealable.add(cursor.immutable());
+                        continue;
+                    }
+
+                    // Priority 3: water sources (for kelp/seagrass spread behavior)
+                    if (level.getFluidState(cursor).is(net.minecraft.tags.FluidTags.WATER)
+                            && level.getFluidState(cursor).getAmount() == 8
+                            && st.is(Blocks.WATER)) {
+                        waterSources.add(cursor.immutable());
+                    }
                 }
             }
+        }
+
+        // Pick a target with priority:
+        BlockPos targetPos = null;
+        String targetBucket = "none";
+
+        if (!priority.isEmpty()) {
+            targetPos = priority.get(random.nextInt(priority.size()));
+            targetBucket = "crops/saplings";
+        } else if (!bonemealable.isEmpty()) {
+            targetPos = bonemealable.get(random.nextInt(bonemealable.size()));
+            targetBucket = "bonemealable";
+        } else if (!waterSources.isEmpty()) {
+            targetPos = waterSources.get(random.nextInt(waterSources.size()));
+            targetBucket = "waterSource";
+        } else {
+            // Nothing useful found in scan radius; do nothing (avoids random spam)
+            if (config.debugLogging) {
+                NamelessTrinkets.LOG.info("[Fertilizer] attempt: entity={} bucket={} result=NO_TARGET at={}",
+                        entity.getName().getString(), targetBucket, playerPos);
+            }
+            return;
+        }
+
+        BlockState targetState = level.getBlockState(targetPos);
+        boolean isCrop = targetState.is(BlockTags.CROPS);
+        boolean isSapling = targetState.is(BlockTags.SAPLINGS);
+
+        // Attempt 1: bonemeal for crops/saplings/bonemealable
+        boolean success = false;
+
+        if (targetBucket.equals("crops/saplings") || targetBucket.equals("bonemealable")) {
+            success = applyBonemeal(level, targetPos);
+
+            // Optional: 2nd roll for crops/saplings to make farms feel better
+            if (!success && (isCrop || isSapling) && random.nextFloat() < 0.35f) {
+                success = applyBonemeal(level, targetPos);
+            }
+
+            if (success) {
+                playFertilizerEffect(level, targetPos);
+                if (config.debugLogging) {
+                    NamelessTrinkets.LOG.info("[Fertilizer] attempt: entity={} bucket={} target={} block={} crop={} sapling={} result=SUCCESS",
+                            entity.getName().getString(),
+                            targetBucket,
+                            targetPos,
+                            net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(targetState.getBlock()),
+                            isCrop,
+                            isSapling
+                    );
+                }
+                return;
+            }
+        }
+
+        // Attempt 2: water-source spread (kelp/seagrass/coral behavior)
+        if (targetBucket.equals("waterSource")) {
+            if (growWaterPlant(level, targetPos, null)) {
+                playFertilizerEffect(level, targetPos);
+                if (config.debugLogging) {
+                    NamelessTrinkets.LOG.info("[Fertilizer] attempt: entity={} bucket={} target={} result=SUCCESS (waterSpread)",
+                            entity.getName().getString(), targetBucket, targetPos);
+                }
+                return;
+            }
+        }
+
+        // If we got here, it failed
+        if (config.debugLogging) {
+            NamelessTrinkets.LOG.info("[Fertilizer] attempt: entity={} bucket={} target={} block={} crop={} sapling={} result=FAIL",
+                    entity.getName().getString(),
+                    targetBucket,
+                    targetPos,
+                    net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(targetState.getBlock()),
+                    isCrop,
+                    isSapling
+            );
         }
     }
 
@@ -201,9 +310,48 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
         }
     }
 
+    private void playFertilizerEffect(Level level, BlockPos pos) {
+        // Sound
+        level.playSound(
+            null,
+            pos,
+            net.minecraft.sounds.SoundEvents.BONE_MEAL_USE,
+            net.minecraft.sounds.SoundSource.PLAYERS,
+            0.4f,
+            1.0f + (level.getRandom().nextFloat() * 0.2f)
+        );
+
+        // Particles (bonemeal + small sparkle)
+        spawnGrowthParticles(level, pos, 15);
+
+        if (level instanceof net.minecraft.server.level.ServerLevel server) {
+            server.sendParticles(
+                net.minecraft.core.particles.ParticleTypes.HAPPY_VILLAGER,
+                pos.getX() + 0.5,
+                pos.getY() + 0.8,
+                pos.getZ() + 0.5,
+                3,
+                0.25, 0.25, 0.25,
+                0.02
+            );
+        }
+    }
+
+    private static boolean isValidBonemealTarget(Level level, BlockPos pos, BlockState state) {
+        if (state.getBlock() instanceof BonemealableBlock bonemealable) {
+            return bonemealable.isValidBonemealTarget(level, pos, state);
+        }
+        return false;
+    }
+
+
+
     public static class Stats extends TrinketsStats {
         public int effectIntervalInTicks = 100;
         public boolean isEnable = true;
+
+        // Turn on/off attempt logs without recompiling
+        public boolean debugLogging = true;
 
     }
 
