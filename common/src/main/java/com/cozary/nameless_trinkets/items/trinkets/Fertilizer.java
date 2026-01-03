@@ -310,6 +310,7 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
         }
     }
 
+    // creates a sound and particle effect at the given position
     private void playFertilizerEffect(Level level, BlockPos pos) {
         // Sound
         level.playSound(

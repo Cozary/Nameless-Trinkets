@@ -22,3 +22,8 @@ build
 eclipse
 run
 runs
+
+
+# user settings
+.vscode/launch.json
+.vscode/settings.json
