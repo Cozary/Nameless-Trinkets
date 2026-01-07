@@ -20,6 +20,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
@@ -48,8 +49,30 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
         INSTANCE = this;
     }
 
+    /**
+     * "Don't grow near surface" safety:
+     * Require this many WATER blocks above the underwater target position before we allow underwater growth.
+     * 2 = must have at least 2 full water blocks above the target.
+     */
+    private static final int UNDERWATER_SURFACE_BUFFER = 2;
+
+    private static boolean hasWaterAbove(Level level, BlockPos pos, int waterBlocks) {
+        for (int i = 1; i <= waterBlocks; i++) {
+            if (!level.getFluidState(pos.above(i)).is(FluidTags.WATER)) {
+                return false; // hit air or non-water too soon => near surface
+            }
+        }
+        return true;
+    }
+
     public static boolean growWaterPlant(Level level, BlockPos pos, @Nullable Direction clickedSide) {
         if (!level.getBlockState(pos).is(Blocks.WATER) || level.getFluidState(pos).getAmount() != 8) {
+            return false;
+        }
+
+        // --- Surface safety: do not attempt underwater-growth if we're too close to the surface ---
+        // This prevents kelp/seagrass/coral behavior from creating water blocks into air and causing "upward spread".
+        if (!hasWaterAbove(level, pos, UNDERWATER_SURFACE_BUFFER)) {
             return false;
         }
 
@@ -70,7 +93,8 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
                         random.nextInt(3) - 1
                 );
 
-                if (!level.getBlockState(currentPos).is(Blocks.WATER) && !level.getBlockState(currentPos).is(Blocks.KELP) && !level.getBlockState(currentPos).is(Blocks.KELP_PLANT)) {
+                BlockState curState = level.getBlockState(currentPos);
+                if (!curState.is(Blocks.WATER) && !curState.is(Blocks.KELP) && !curState.is(Blocks.KELP_PLANT)) {
                     break;
                 }
             }
@@ -78,11 +102,17 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
             BlockState state = level.getBlockState(currentPos);
 
             if (state.is(Blocks.KELP) || state.is(Blocks.KELP_PLANT)) {
-                growKelp(level, currentPos);
-                success = true;
-            } else if (state.is(Blocks.WATER) && level.getFluidState(currentPos).getAmount() == 8) {
-                if (applyBiomeModifiers(level, currentPos, random, clickedSide, Blocks.SEAGRASS.defaultBlockState())) {
+                // --- Surface safety: if kelp is near surface, do not extend it upward ---
+                if (hasWaterAbove(level, currentPos, UNDERWATER_SURFACE_BUFFER)) {
+                    growKelp(level, currentPos);
                     success = true;
+                }
+            } else if (state.is(Blocks.WATER) && level.getFluidState(currentPos).getAmount() == 8) {
+                // --- Surface safety: do not place seagrass/coral near surface ---
+                if (hasWaterAbove(level, currentPos, UNDERWATER_SURFACE_BUFFER)) {
+                    if (applyBiomeModifiers(level, currentPos, random, clickedSide, Blocks.SEAGRASS.defaultBlockState())) {
+                        success = true;
+                    }
                 }
             }
         }
@@ -111,6 +141,12 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
 
     private static void growKelp(Level level, BlockPos pos) {
         BlockPos abovePos = pos.above();
+
+        // Must still be fully submerged above (and not near surface)
+        if (!hasWaterAbove(level, abovePos, UNDERWATER_SURFACE_BUFFER)) {
+            return;
+        }
+
         if (level.getBlockState(abovePos).is(Blocks.WATER) && level.getFluidState(abovePos).getAmount() == 8) {
             level.setBlock(abovePos, Blocks.KELP_PLANT.defaultBlockState(), 3);
         }
@@ -167,15 +203,15 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
         BlockPos playerPos = entity.blockPosition();
 
         // --- Scan a small area around the player and prioritize crops/saplings ---
-        // Radius choices: keep small to stay cheap. (Only runs once per 10s anyway.)
+        // Radius choices: keep small to stay cheap.
         final int rx = 4;     // X/Z radius
         final int ryDown = 2; // scan below
         final int ryUp = 2;   // scan above
 
-        // We keep three candidate lists:
+        // Candidate lists:
         // 1) crops/saplings first
         // 2) any bonemealable blocks second
-        // 3) water-source blocks last (for underwater plant spread)
+        // 3) water-source blocks last (for underwater plant spread), BUT NOT near surface
         java.util.ArrayList<BlockPos> priority = new java.util.ArrayList<>();
         java.util.ArrayList<BlockPos> bonemealable = new java.util.ArrayList<>();
         java.util.ArrayList<BlockPos> waterSources = new java.util.ArrayList<>();
@@ -207,10 +243,14 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
                     }
 
                     // Priority 3: water sources (for kelp/seagrass spread behavior)
-                    if (level.getFluidState(cursor).is(net.minecraft.tags.FluidTags.WATER)
+                    // BUT: do NOT allow near-surface water sources to avoid "flooding upward".
+                    if (level.getFluidState(cursor).is(FluidTags.WATER)
                             && level.getFluidState(cursor).getAmount() == 8
                             && st.is(Blocks.WATER)) {
-                        waterSources.add(cursor.immutable());
+
+                        if (hasWaterAbove(level, cursor, UNDERWATER_SURFACE_BUFFER)) {
+                            waterSources.add(cursor.immutable());
+                        }
                     }
                 }
             }
@@ -260,7 +300,7 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
                             entity.getName().getString(),
                             targetBucket,
                             targetPos,
-                            net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(targetState.getBlock()),
+                            BuiltInRegistries.BLOCK.getKey(targetState.getBlock()),
                             isCrop,
                             isSapling
                     );
@@ -271,6 +311,15 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
 
         // Attempt 2: water-source spread (kelp/seagrass/coral behavior)
         if (targetBucket.equals("waterSource")) {
+            // Extra safety (even though we already filtered the list)
+            if (!hasWaterAbove(level, targetPos, UNDERWATER_SURFACE_BUFFER)) {
+                if (config.debugLogging) {
+                    NamelessTrinkets.LOG.info("[Fertilizer] attempt: entity={} bucket={} target={} result=SKIP_NEAR_SURFACE",
+                            entity.getName().getString(), targetBucket, targetPos);
+                }
+                return;
+            }
+
             if (growWaterPlant(level, targetPos, null)) {
                 playFertilizerEffect(level, targetPos);
                 if (config.debugLogging) {
@@ -287,7 +336,7 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
                     entity.getName().getString(),
                     targetBucket,
                     targetPos,
-                    net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(targetState.getBlock()),
+                    BuiltInRegistries.BLOCK.getKey(targetState.getBlock()),
                     isCrop,
                     isSapling
             );
@@ -314,26 +363,26 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
     private void playFertilizerEffect(Level level, BlockPos pos) {
         // Sound
         level.playSound(
-            null,
-            pos,
-            net.minecraft.sounds.SoundEvents.BONE_MEAL_USE,
-            net.minecraft.sounds.SoundSource.PLAYERS,
-            0.4f,
-            1.0f + (level.getRandom().nextFloat() * 0.2f)
+                null,
+                pos,
+                net.minecraft.sounds.SoundEvents.BONE_MEAL_USE,
+                net.minecraft.sounds.SoundSource.PLAYERS,
+                0.4f,
+                1.0f + (level.getRandom().nextFloat() * 0.2f)
         );
 
         // Particles (bonemeal + small sparkle)
         spawnGrowthParticles(level, pos, 15);
 
-        if (level instanceof net.minecraft.server.level.ServerLevel server) {
+        if (level instanceof ServerLevel server) {
             server.sendParticles(
-                net.minecraft.core.particles.ParticleTypes.HAPPY_VILLAGER,
-                pos.getX() + 0.5,
-                pos.getY() + 0.8,
-                pos.getZ() + 0.5,
-                3,
-                0.25, 0.25, 0.25,
-                0.02
+                    ParticleTypes.HAPPY_VILLAGER,
+                    pos.getX() + 0.5,
+                    pos.getY() + 0.8,
+                    pos.getZ() + 0.5,
+                    3,
+                    0.25, 0.25, 0.25,
+                    0.02
             );
         }
     }
@@ -345,15 +394,11 @@ public class Fertilizer extends TrinketItem<Fertilizer.Stats> {
         return false;
     }
 
-
-
     public static class Stats extends TrinketsStats {
         public int effectIntervalInTicks = 100;
         public boolean isEnable = true;
 
         // Turn on/off attempt logs without recompiling
         public boolean debugLogging = true;
-
     }
-
 }
