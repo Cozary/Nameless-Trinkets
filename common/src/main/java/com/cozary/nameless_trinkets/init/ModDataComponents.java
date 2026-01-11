@@ -5,6 +5,8 @@ import com.cozary.nameless_trinkets.utils.TrinketBundleContents;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
 
 
 public class ModDataComponents {
@@ -14,6 +16,7 @@ public class ModDataComponents {
     public static final RegistryObject<DataComponentType<Integer>> BROKEN_ANKH_COOLDOWN = DATA_COMPONENTS.register("broken_ankh_cooldown",
             () -> DataComponentType.<Integer>builder()
                     .persistent(Codec.INT)
+                    .networkSynchronized(ByteBufCodecs.INT)
                     .build()
     );
 
@@ -32,6 +35,7 @@ public class ModDataComponents {
     public static final RegistryObject<DataComponentType<Float>> WOUNDBEARER_DAMAGE = DATA_COMPONENTS.register("woundbearer_damage",
             () -> DataComponentType.<Float>builder()
                     .persistent(Codec.FLOAT)
+                    .networkSynchronized(ByteBufCodecs.FLOAT)
                     .build()
     );
 

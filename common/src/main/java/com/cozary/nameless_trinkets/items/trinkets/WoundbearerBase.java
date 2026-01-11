@@ -7,16 +7,19 @@ import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 
 import java.util.List;
 
+import static com.cozary.nameless_trinkets.utils.CommonUtils.itemId;
+
 public class WoundbearerBase extends TrinketItem<WoundbearerBase.Stats> {
     public static WoundbearerBase INSTANCE;
 
     public WoundbearerBase() {
-        super(new TrinketData("woundbearer", null, null, Stats.class));
+        super(new TrinketData("woundbearer", new Item.Properties().stacksTo(1).setId(itemId("woundbearer")).component(ModDataComponents.WOUNDBEARER_DAMAGE.get(),0.0f), null, Stats.class));
 
         INSTANCE = this;
     }
