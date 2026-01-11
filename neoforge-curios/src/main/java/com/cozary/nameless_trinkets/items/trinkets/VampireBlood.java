@@ -45,6 +45,7 @@ public class VampireBlood extends VampireBloodBase implements ICurioItem {
             if (!stack.isEmpty() && livingEntity instanceof ServerPlayer) {
 
                 if (livingEntity.level().isDay() && livingEntity.level().canSeeSky(livingEntity.blockPosition()) && !livingEntity.level().isClientSide) {
+                    if (livingEntity.fireImmune()) return;
 
                     ((ServerLevel) livingEntity.getCommandSenderWorld()).sendParticles(ParticleTypes.FLAME, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), 1, 1D, 1D, 1D, 0.01);
                     livingEntity.hurt(livingEntity.damageSources().onFire(), (float) config.sunDamage);
