@@ -1,9 +1,5 @@
-# Changelog
+# Changelog 1.21.4
 
 ### Added
 
-- [Electric Paddle] now works with ChestBoats.
-
-### Fixed
-
-- [Electric Paddle] not working when it should.
+- Rusian language
