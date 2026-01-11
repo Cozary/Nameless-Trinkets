@@ -16,7 +16,7 @@ public class SigilOfBaphometEvents {
 
         ModEvents.DamageModifyCallback.EVENT.register((targetEntity, damageSource, damageAmount) -> {
             if (targetEntity instanceof Player player) {
-                if (SigilOfBaphometHandler.grantSigilImmunityOnDamage(player)) {
+                if (damageAmount > 0 && SigilOfBaphometHandler.grantSigilImmunityOnDamage(player)) {
                     return 0.0f;
                 }
             }

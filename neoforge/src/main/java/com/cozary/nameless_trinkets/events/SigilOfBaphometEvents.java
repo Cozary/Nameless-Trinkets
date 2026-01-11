@@ -20,14 +20,11 @@ public class SigilOfBaphometEvents {
 
     @SubscribeEvent
     public static void grantSigilImmunityOnDamage(LivingIncomingDamageEvent event) {
-
-        if (event.getEntity() instanceof Player player) {
-
-            event.setCanceled(SigilOfBaphometHandler.grantSigilImmunityOnDamage(player));
-
+        if (event.getAmount() > 0 && event.getEntity() instanceof Player player) {
+            if (SigilOfBaphometHandler.grantSigilImmunityOnDamage(player)) {
+                event.setCanceled(true);
+            }
         }
-
-
     }
 
 }

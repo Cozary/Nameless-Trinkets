@@ -8,7 +8,9 @@ public class ReverseCardEvents {
     public static void register() {
         ModEvents.DamageModifyCallback.EVENT.register((targetEntity, damageSource, damageAmount) -> {
             if (targetEntity instanceof Player player) {
-                ReverseCardHandler.reverseDamage(player, damageSource, damageAmount);
+                if (damageAmount > 0) {
+                    ReverseCardHandler.reverseDamage(player, damageSource, damageAmount);
+                }
             }
             return damageAmount;
         });

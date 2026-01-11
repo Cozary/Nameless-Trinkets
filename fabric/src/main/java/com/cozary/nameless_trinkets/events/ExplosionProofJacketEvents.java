@@ -8,7 +8,9 @@ public class ExplosionProofJacketEvents {
     public static void register() {
         ModEvents.DamageModifyCallback.EVENT.register((targetEntity, damageSource, amount) -> {
             if (targetEntity instanceof Player player) {
-                return ExplosionProofJacketHandler.handleExplosionDamageReduction(player, damageSource, amount);
+                if (amount > 0) {
+                    return ExplosionProofJacketHandler.handleExplosionDamageReduction(player, damageSource, amount);
+                }
             }
             return amount;
         });

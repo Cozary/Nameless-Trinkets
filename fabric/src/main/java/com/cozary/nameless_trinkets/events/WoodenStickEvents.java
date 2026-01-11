@@ -8,7 +8,7 @@ public class WoodenStickEvents {
     public static void register() {
         ModEvents.DamageModifyCallback.EVENT.register((targetEntity, damageSource, damageAmount) -> {
             if (targetEntity instanceof Player player) {
-                if (WoodenStickHandler.cancelWoodenStick(player)) {
+                if (damageAmount > 0 && WoodenStickHandler.cancelWoodenStick(player)) {
                     return 0.0f;
                 }
             }

@@ -11,11 +11,10 @@ public class ExplosionProofJacketEvents {
 
     @SubscribeEvent
     public static void handleExplosionDamageReduction(LivingDamageEvent.Pre event) {
-
-        if (!(event.getEntity() instanceof Player player))
-            return;
-
-        ExplosionProofJacketHandler.handleExplosionDamageReduction(player, event.getSource(), event.getOriginalDamage());
+        if (event.getOriginalDamage() > 0 && event.getEntity() instanceof Player player) {
+            float newDamage = ExplosionProofJacketHandler.handleExplosionDamageReduction(player, event.getSource(), event.getOriginalDamage());
+            event.setNewDamage(newDamage);
+        }
     }
 
 }

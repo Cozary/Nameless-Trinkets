@@ -11,9 +11,7 @@ public class ResonantHeartEvents {
 
     @SubscribeEvent
     public static void heartSonicBoom(LivingDamageEvent.Post event) {
-
-        if (event.getEntity() instanceof Player player) {
-
+        if (event.getOriginalDamage() > 0 && event.getEntity() instanceof Player player) {
             ResonantHeartHandler.heartSonicBoom(player, event.getSource());
         }
     }

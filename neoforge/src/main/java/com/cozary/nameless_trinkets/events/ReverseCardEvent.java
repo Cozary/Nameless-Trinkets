@@ -11,8 +11,7 @@ public class ReverseCardEvent {
 
     @SubscribeEvent
     public static void reverseDamage(LivingDamageEvent.Post event) {
-
-        if (event.getEntity() instanceof Player player) {
+        if (event.getOriginalDamage() > 0 && event.getEntity() instanceof Player player) {
             ReverseCardHandler.reverseDamage(player, event.getSource(), event.getOriginalDamage());
         }
     }

@@ -11,9 +11,10 @@ public class WoodenStickEvents {
 
     @SubscribeEvent
     public static void cancelWoodenStick(LivingIncomingDamageEvent event) {
-
-        if (event.getEntity() instanceof Player player) {
-            event.setCanceled(WoodenStickHandler.cancelWoodenStick(player));
+        if (event.getAmount() > 0 && event.getEntity() instanceof Player player) {
+            if (WoodenStickHandler.cancelWoodenStick(player)) {
+                event.setCanceled(true);
+            }
         }
     }
 }

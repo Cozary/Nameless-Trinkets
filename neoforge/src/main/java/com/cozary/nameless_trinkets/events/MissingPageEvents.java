@@ -11,9 +11,7 @@ public class MissingPageEvents {
 
     @SubscribeEvent
     public static void triggerDamageReflection(LivingDamageEvent.Post event) {
-
-        if (event.getEntity() instanceof Player player) {
-
+        if (event.getOriginalDamage() > 0 && event.getEntity() instanceof Player player) {
             MissingPageHandler.triggerDamageReflection(player, event.getSource(), event.getEntity());
         }
     }

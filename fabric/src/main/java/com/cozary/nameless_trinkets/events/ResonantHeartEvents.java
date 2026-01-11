@@ -8,7 +8,9 @@ public class ResonantHeartEvents {
     public static void register() {
         ModEvents.DamageModifyCallback.EVENT.register((targetEntity, damageSource, damageAmount) -> {
             if (targetEntity instanceof Player player) {
-                ResonantHeartHandler.heartSonicBoom(player, damageSource);
+                if (damageAmount > 0) {
+                    ResonantHeartHandler.heartSonicBoom(player, damageSource);
+                }
             }
             return damageAmount;
         });
