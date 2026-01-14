@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_dubious_dust": {
+    "has_nelumbo": {
       "conditions": {
         "items": [
           {
-            "items": "nameless_trinkets:dubious_dust"
+            "items": "nameless_trinkets:nelumbo"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_dubious_dust"
+      "has_nelumbo"
     ]
   ],
   "rewards": {

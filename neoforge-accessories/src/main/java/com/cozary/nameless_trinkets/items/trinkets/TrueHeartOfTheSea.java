@@ -2,8 +2,8 @@ package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.utils.CommonUtils;
-import io.wispforest.accessories.api.AccessoriesAPI;
-import io.wispforest.accessories.api.Accessory;
+import io.wispforest.accessories.api.core.Accessory;
+import io.wispforest.accessories.api.core.AccessoryRegistry;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -28,11 +28,11 @@ public class TrueHeartOfTheSea extends TrueHeartOfTheSeaBase implements Accessor
 
     public TrueHeartOfTheSea() {
         super();
-        AccessoriesAPI.registerAccessory(this, this);
+        AccessoryRegistry.register(this, this);
     }
 
     @Override
-    public boolean canEquipFromUse(ItemStack stack) {
+    public boolean canEquipFromUse(ItemStack stack, SlotReference reference) {
         return true;
     }
 
@@ -75,12 +75,8 @@ public class TrueHeartOfTheSea extends TrueHeartOfTheSeaBase implements Accessor
     public void onEquip(ItemStack stack, SlotReference reference) {
         LivingEntity livingEntity = reference.entity();
         Stats config = TrueHeartOfTheSeaBase.INSTANCE.getTrinketConfig();
+
         if (!config.isEnable)
-            return;
-
-        Level world = livingEntity.getCommandSenderWorld();
-
-        if (world.isClientSide() || livingEntity.tickCount % 20 != 0)
             return;
 
         AttributeInstance attribSpeed = livingEntity.getAttribute(Attributes.WATER_MOVEMENT_EFFICIENCY);

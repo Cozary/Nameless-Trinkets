@@ -2,8 +2,8 @@ package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.utils.CommonUtils;
-import io.wispforest.accessories.api.AccessoriesAPI;
-import io.wispforest.accessories.api.Accessory;
+import io.wispforest.accessories.api.core.Accessory;
+import io.wispforest.accessories.api.core.AccessoryRegistry;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
@@ -20,11 +20,11 @@ public class TitansMark extends TitansMarkBase implements Accessory {
 
     public TitansMark() {
         super();
-        AccessoriesAPI.registerAccessory(this, this);
+        AccessoryRegistry.register(this, this);
     }
 
     @Override
-    public boolean canEquipFromUse(ItemStack stack) {
+    public boolean canEquipFromUse(ItemStack stack, SlotReference reference) {
         return true;
     }
 

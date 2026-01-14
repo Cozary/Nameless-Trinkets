@@ -1,0 +1,34 @@
+{
+  "parent": "nameless_trinkets:root",
+  "criteria": {
+    "spider_legs": {
+      "conditions": {
+        "items": [
+          {
+            "items": "nameless_trinkets:spider_legs"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.nameless_trinkets.spider_legs.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "nameless_trinkets:spider_legs"
+    },
+    "title": {
+      "translate": "advancements.nameless_trinkets.spider_legs.title"
+    }
+  },
+  "requirements": [
+    [
+      "spider_legs"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

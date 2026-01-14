@@ -8,8 +8,8 @@ import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import java.util.concurrent.CompletableFuture;
 
 public class ModBlockTagProvider extends BlockTagsProvider {
-    public ModBlockTagProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
-        super(packOutput, lookupProvider, NamelessTrinkets.MOD_ID);
+    public ModBlockTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+        super(output, lookupProvider, NamelessTrinkets.MOD_ID);
     }
 
     @Override

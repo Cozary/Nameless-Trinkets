@@ -7,7 +7,7 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_unknown_fragment_dust": {
+    "has_unknown_fragment": {
       "conditions": {
         "items": [
           {
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_unknown_fragment_dust"
+      "has_unknown_fragment"
     ]
   ],
   "rewards": {

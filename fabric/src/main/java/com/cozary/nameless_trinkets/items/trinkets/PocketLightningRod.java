@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
-import io.wispforest.accessories.api.AccessoriesAPI;
-import io.wispforest.accessories.api.Accessory;
+import io.wispforest.accessories.api.core.Accessory;
+import io.wispforest.accessories.api.core.AccessoryRegistry;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
@@ -18,11 +18,11 @@ public class PocketLightningRod extends PocketLightningRodBase implements Access
 
     public PocketLightningRod() {
         super();
-        AccessoriesAPI.registerAccessory(this, this);
+        AccessoryRegistry.register(this, this);
     }
 
     @Override
-    public boolean canEquipFromUse(ItemStack stack) {
+    public boolean canEquipFromUse(ItemStack stack, SlotReference reference) {
         return true;
     }
 
@@ -50,7 +50,7 @@ public class PocketLightningRod extends PocketLightningRodBase implements Access
                 BlockPos blockpos = level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, level.getBlockRandomPos(i, 0, j, 15));
                 LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level, EntitySpawnReason.SPAWN_ITEM_USE);
                 assert lightningbolt != null;
-                lightningbolt.moveTo(Vec3.atBottomCenterOf(blockpos));
+                lightningbolt.snapTo(Vec3.atBottomCenterOf(blockpos));
                 level.addFreshEntity(lightningbolt);
             }
         }

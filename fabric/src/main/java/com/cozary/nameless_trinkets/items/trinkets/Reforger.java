@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
-import io.wispforest.accessories.api.AccessoriesAPI;
-import io.wispforest.accessories.api.Accessory;
+import io.wispforest.accessories.api.core.Accessory;
+import io.wispforest.accessories.api.core.AccessoryRegistry;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.player.Player;
@@ -11,7 +11,7 @@ public class Reforger extends ReforgerBase implements Accessory {
 
     public Reforger() {
         super();
-        AccessoriesAPI.registerAccessory(this, this);
+        AccessoryRegistry.register(this, this);
     }
 
     @Override
@@ -24,7 +24,7 @@ public class Reforger extends ReforgerBase implements Accessory {
             return;
 
         if (!player.isSpectator()) {
-            for (int i = 0; i < player.getInventory().items.size(); i++) {
+            for (int i = 0; i < player.getInventory().getNonEquipmentItems().size(); i++) {
                 ItemStack itemstack = player.getInventory().getItem(i);
 
                 if (itemstack.isDamaged()) {
@@ -39,7 +39,7 @@ public class Reforger extends ReforgerBase implements Accessory {
 
 
     @Override
-    public boolean canEquipFromUse(ItemStack stack) {
+    public boolean canEquipFromUse(ItemStack stack, SlotReference reference) {
         return true;
     }
 

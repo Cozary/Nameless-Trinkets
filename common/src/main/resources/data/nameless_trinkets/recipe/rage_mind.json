@@ -3,13 +3,13 @@
   "category": "misc",
   "ingredients": [
     "minecraft:redstone_block",
+    "minecraft:redstone_block",
+    "minecraft:redstone_block",
+    "minecraft:redstone_block",
     "minecraft:crying_obsidian",
-    "minecraft:redstone_block",
     "minecraft:diamond",
     "minecraft:diamond",
-    "minecraft:redstone_block",
     "minecraft:magma_block",
-    "minecraft:redstone_block",
     "nameless_trinkets:ultimate_dust"
   ],
   "result": {

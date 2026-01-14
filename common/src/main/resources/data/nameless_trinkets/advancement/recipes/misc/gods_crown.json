@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_netherite_ingot": {
+    "has_cracked_crown": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:nether_star"
+            "items": "nameless_trinkets:cracked_crown"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_netherite_ingot"
+      "has_cracked_crown"
     ]
   ],
   "rewards": {

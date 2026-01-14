@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
-import io.wispforest.accessories.api.AccessoriesAPI;
-import io.wispforest.accessories.api.Accessory;
+import io.wispforest.accessories.api.core.Accessory;
+import io.wispforest.accessories.api.core.AccessoryRegistry;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.ChatFormatting;
 import net.minecraft.sounds.SoundEvents;
@@ -21,11 +21,11 @@ public class DragonsEye extends DragonsEyeBase implements Accessory {
 
     public DragonsEye() {
         super();
-        AccessoriesAPI.registerAccessory(this, this);
+        AccessoryRegistry.register(this, this);
     }
 
     @Override
-    public boolean canEquipFromUse(ItemStack stack) {
+    public boolean canEquipFromUse(ItemStack stack, SlotReference reference) {
         return true;
     }
 

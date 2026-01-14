@@ -2,8 +2,8 @@ package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.utils.CommonUtils;
-import io.wispforest.accessories.api.AccessoriesAPI;
-import io.wispforest.accessories.api.Accessory;
+import io.wispforest.accessories.api.core.Accessory;
+import io.wispforest.accessories.api.core.AccessoryRegistry;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
@@ -23,11 +23,11 @@ public class VampireBlood extends VampireBloodBase implements Accessory {
 
     public VampireBlood() {
         super();
-        AccessoriesAPI.registerAccessory(this, this);
+        AccessoryRegistry.register(this, this);
     }
 
     @Override
-    public boolean canEquipFromUse(ItemStack stack) {
+    public boolean canEquipFromUse(ItemStack stack, SlotReference reference) {
         return true;
     }
 
@@ -50,7 +50,7 @@ public class VampireBlood extends VampireBloodBase implements Accessory {
 
             if (!stack.isEmpty() && livingEntity instanceof ServerPlayer) {
 
-                if (livingEntity.level().isDay() && livingEntity.level().canSeeSky(livingEntity.blockPosition()) && !livingEntity.level().isClientSide) {
+                if (livingEntity.level().isBrightOutside() && livingEntity.level().canSeeSky(livingEntity.blockPosition()) && !livingEntity.level().isClientSide) {
                     if (livingEntity.fireImmune()) return;
 
                     ((ServerLevel) livingEntity.getCommandSenderWorld()).sendParticles(ParticleTypes.FLAME, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), 1, 1D, 1D, 1D, 0.01);

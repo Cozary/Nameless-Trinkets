@@ -1,8 +1,8 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.init.ModDataComponents;
-import io.wispforest.accessories.api.AccessoriesAPI;
-import io.wispforest.accessories.api.Accessory;
+import io.wispforest.accessories.api.core.Accessory;
+import io.wispforest.accessories.api.core.AccessoryRegistry;
 import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -26,7 +26,7 @@ public class RageMind extends RageMindBase implements Accessory {
 
     public RageMind() {
         super();
-        AccessoriesAPI.registerAccessory(this, this);
+        AccessoryRegistry.register(this, this);
     }
 
     @SuppressWarnings("unchecked")
@@ -87,7 +87,7 @@ public class RageMind extends RageMindBase implements Accessory {
 
 
     @Override
-    public boolean canEquipFromUse(ItemStack stack) {
+    public boolean canEquipFromUse(ItemStack stack, SlotReference reference) {
         return true;
     }
 
