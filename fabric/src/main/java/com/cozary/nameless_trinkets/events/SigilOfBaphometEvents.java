@@ -10,7 +10,7 @@ import net.minecraft.world.entity.player.Player;
 public class SigilOfBaphometEvents {
 
     public static void register() {
-        ServerEntityCombatEvents.AFTER_KILLED_OTHER_ENTITY.register((world, entity, killedEntity) -> {
+        ServerEntityCombatEvents.AFTER_KILLED_OTHER_ENTITY.register((world, entity, killedEntity, damageSource) -> {
             if (entity instanceof Player player) {
 
                 var stack = TrinketUtils.getEquippedTrinket(player, ModItems.SIGIL_OF_BAPHOMET.get());

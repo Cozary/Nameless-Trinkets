@@ -5,7 +5,7 @@ import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import com.cozary.nameless_trinkets.utils.CommonUtils;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
@@ -66,7 +66,7 @@ public class GodsCrownBase extends TrinketItem<GodsCrownBase.Stats> {
         } else {
             tooltip.accept(Component.translatable("tooltip.nameless_trinkets.gods_crown_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
 
-            if (Screen.hasShiftDown()) {
+            if (Minecraft.getInstance().hasShiftDown()) {
                 Map<String, Double> stats = new HashMap<>();
                 stats.put("Max Health", config.percentageExtraMaxHealth);
                 stats.put("Movement Speed", config.percentageExtraSpeed);

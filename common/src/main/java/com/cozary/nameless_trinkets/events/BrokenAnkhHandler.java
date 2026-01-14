@@ -17,7 +17,7 @@ public class BrokenAnkhHandler {
     private static final BrokenAnkhBase.Stats config = BrokenAnkhBase.INSTANCE.getTrinketConfig();
 
     public static boolean tryPreventDeath(Player player, Item stack) {
-        if (!config.isEnable || player.isSpectator() || player.level().isClientSide) return false;
+        if (!config.isEnable || player.isSpectator() || player.level().isClientSide()) return false;
 
 
         if (player.isDeadOrDying()

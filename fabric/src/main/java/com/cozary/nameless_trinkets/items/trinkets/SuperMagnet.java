@@ -46,7 +46,7 @@ public class SuperMagnet extends SuperMagnetBase implements Accessory {
             if (item.getOwner() != null && item.getOwner().equals(livingEntity.getUUID()) && item.hasPickUpDelay())
                 continue;
 
-            if (!world.isClientSide) {
+            if (!world.isClientSide()) {
                 item.setNoPickUpDelay();
                 item.setPos(livingEntity.getX(), livingEntity.getY(), livingEntity.getZ());
             }
@@ -54,7 +54,7 @@ public class SuperMagnet extends SuperMagnetBase implements Accessory {
 
         List<ExperienceOrb> xporbs = world.getEntitiesOfClass(ExperienceOrb.class, livingEntity.getBoundingBox().inflate(config.range));
         for (ExperienceOrb orb : xporbs) {
-            if (!world.isClientSide) {
+            if (!world.isClientSide()) {
                 orb.setPos(livingEntity.getX(), livingEntity.getY(), livingEntity.getZ());
             }
 

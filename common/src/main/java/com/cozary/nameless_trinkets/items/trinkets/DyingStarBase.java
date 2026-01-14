@@ -7,7 +7,6 @@ import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.network.chat.Component;
@@ -21,7 +20,6 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipDisplay;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
 import java.util.function.Consumer;
@@ -48,7 +46,7 @@ public class DyingStarBase extends TrinketItem<DyingStarBase.Stats> {
         return super.overrideOtherStackedOnMe(stack, other, slot, action, player, access);
     }
 
-    private void applyRandomStat(@Nullable ItemStack other, ItemStack stack, Player player) {
+    private void applyRandomStat(ItemStack other, ItemStack stack, Player player) {
 
         if (stack.isEmpty())
             return;
@@ -92,14 +90,14 @@ public class DyingStarBase extends TrinketItem<DyingStarBase.Stats> {
             tooltip.accept(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
         } else {
             tooltip.accept(Component.translatable("tooltip.nameless_trinkets.dying_star_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
-            if (Screen.hasShiftDown()) {
+            if (Minecraft.getInstance().hasShiftDown()) {
                 if (Minecraft.getInstance().player.tickCount % 5 == 0) {
                     tooltip.accept(Component.translatable("tooltip.nameless_trinkets.dying_star_1").withStyle(ChatFormatting.GOLD, ChatFormatting.ITALIC));
                 } else {
                     tooltip.accept(Component.translatable("tooltip.nameless_trinkets.dying_star_1").withStyle(ChatFormatting.GOLD, ChatFormatting.OBFUSCATED));
 
                 }
-            } else if (InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), InputConstants.KEY_LCONTROL)) {
+            } else if (InputConstants.isKeyDown(Minecraft.getInstance().getWindow(), InputConstants.KEY_LCONTROL)) {
                 Map<String, Float> stats = new HashMap<>();
                 stats.put("Max Health: +", stack.getOrDefault(ModDataComponents.DYING_STAR_MAX_HEALTH.get(), 0.0f));
                 stats.put("Movement Speed: +", stack.getOrDefault(ModDataComponents.DYING_STAR_MOVEMENT_SPEED.get(), 0.0f));

@@ -34,7 +34,7 @@ public class MissingPageHandler {
             List<LivingEntity> foundTarget =
                     entity.level().getEntitiesOfClass(LivingEntity.class, targetBox, MissingPageHandler::isValidTarget);
 
-            if (src != null && !(src instanceof Player) && !foundTarget.isEmpty() && !player.level().isClientSide) {
+            if (src != null && !(src instanceof Player) && !foundTarget.isEmpty() && !player.level().isClientSide()) {
 
                 for (LivingEntity livingEntity : foundTarget) {
                     ((ServerLevel) livingEntity.level()).sendParticles(ParticleTypes.SOUL, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), 35, 1D, 1D, 1D, 0.1);

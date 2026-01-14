@@ -47,7 +47,7 @@ public class DragonsEye extends DragonsEyeBase implements Accessory {
 
         Level world = player.level();
         List<Mob> entities = world.getEntitiesOfClass(Mob.class, player.getBoundingBox().inflate(config.radius));
-        Scoreboard scoreboard = player.getScoreboard();
+        Scoreboard scoreboard = player.level().getScoreboard();
 
         PlayerTeam playerTeam = scoreboard.getPlayerTeam("dragonsEyeTargets");
         if (playerTeam == null) {
@@ -56,7 +56,7 @@ public class DragonsEye extends DragonsEyeBase implements Accessory {
         }
 
         for (Mob entity : entities) {
-            if (entity.shouldDespawnInPeaceful() || entity.getSoundSource() == SoundSource.HOSTILE || entity.isAggressive()) {
+            if (entity.isAggressive() || entity.getSoundSource() == SoundSource.HOSTILE || entity.isAggressive()) {
                 entity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 20, 30));
                 scoreboard.addPlayerToTeam(entity.getStringUUID(), playerTeam);
             }

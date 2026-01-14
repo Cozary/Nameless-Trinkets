@@ -22,7 +22,7 @@ public class FourLeafCloverHandler {
         if (!config.isEnable)
             return;
 
-        if (!player.level().isClientSide) {
+        if (!player.level().isClientSide()) {
 
 
             Level level = player.level();

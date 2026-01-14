@@ -37,7 +37,7 @@ public class IceCube extends IceCubeBase implements Accessory {
             return;
         }
 
-        if (!(player instanceof ServerPlayer) || player.isSpectator() || player.level().isClientSide) {
+        if (!(player instanceof ServerPlayer) || player.isSpectator() || player.level().isClientSide()) {
             return;
         }
 

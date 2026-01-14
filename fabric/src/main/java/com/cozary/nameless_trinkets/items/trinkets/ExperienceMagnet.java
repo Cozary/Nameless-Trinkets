@@ -38,7 +38,7 @@ public class ExperienceMagnet extends ExperienceMagnetBase implements Accessory 
         LivingEntity livingEntity = reference.entity();
         Level world = livingEntity.level();
 
-        if (world.isClientSide) {
+        if (world.isClientSide()) {
             return;
         }
 

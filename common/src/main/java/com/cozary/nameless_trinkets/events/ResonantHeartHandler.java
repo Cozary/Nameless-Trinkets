@@ -25,12 +25,12 @@ public class ResonantHeartHandler {
         Entity src = damageSource.getEntity();
         Random random = new Random();
 
-        if (player.level().isClientSide)
+        if (player.level().isClientSide())
             return;
 
         if (random.nextInt(100) <= config.chanceToActivateProbability) {
 
-            if (src != null && !(src instanceof Player) && !player.level().isClientSide) {
+            if (src != null && !(src instanceof Player) && !player.level().isClientSide()) {
 
                 launchSonicBoom(player, src, player.level());
             }

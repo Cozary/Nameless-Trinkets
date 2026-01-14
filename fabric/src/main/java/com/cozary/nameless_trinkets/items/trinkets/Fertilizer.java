@@ -36,7 +36,7 @@ public class Fertilizer extends FertilizerBase implements Accessory {
         LivingEntity entity = reference.entity();
         Level level = entity.level();
 
-        if (level.isClientSide) {
+        if (level.isClientSide()) {
             return;
         }
 

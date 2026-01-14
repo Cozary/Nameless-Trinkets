@@ -13,7 +13,7 @@ public class WoundbearerHandler {
             return;
 
 
-        if (!player.level().isClientSide) {
+        if (!player.level().isClientSide()) {
             float damageIncrement = damageAmount * (config.damageConversionPercentage / 100);
 
             float currentDamage = stack.getDefaultInstance().getOrDefault(ModDataComponents.WOUNDBEARER_DAMAGE.get(), 0f);

@@ -24,7 +24,7 @@ public class LuckyRockHandler {
         Random random = new Random();
 
 
-        if (random.nextInt(100) <= config.percentageOfObtaining && config.blockList.contains(BuiltInRegistries.BLOCK.getKey(blockState.getBlock()).toString()) && !player.level().isClientSide) {
+        if (random.nextInt(100) <= config.percentageOfObtaining && config.blockList.contains(BuiltInRegistries.BLOCK.getKey(blockState.getBlock()).toString()) && !player.level().isClientSide()) {
             String itemStack = config.itemList.get(random.nextInt(config.itemList.size()));
 
 

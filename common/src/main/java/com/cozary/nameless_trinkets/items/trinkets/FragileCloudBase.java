@@ -4,7 +4,7 @@ import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -28,7 +28,7 @@ public class FragileCloudBase extends TrinketItem<FragileCloudBase.Stats> {
             tooltip.accept(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
         } else {
             tooltip.accept(Component.translatable("tooltip.nameless_trinkets.fragile_cloud_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
-            if (Screen.hasShiftDown()) {
+            if (Minecraft.getInstance().hasShiftDown()) {
                 tooltip.accept(Component.translatable("tooltip.nameless_trinkets.fragile_cloud_1").withStyle(ChatFormatting.GOLD));
             } else {
                 tooltip.accept(Component.translatable("tooltip.nameless_trinkets.hold_shift"));

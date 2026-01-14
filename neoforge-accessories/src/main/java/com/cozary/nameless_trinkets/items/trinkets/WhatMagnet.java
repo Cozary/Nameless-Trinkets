@@ -43,7 +43,7 @@ public class WhatMagnet extends WhatMagnetBase implements Accessory {
         float rz = random.nextFloat() * 5F - 2.5F;
         List<LivingEntity> entitiesOfClass = world.getEntitiesOfClass(LivingEntity.class, livingEntity.getBoundingBox().inflate(config.range));
         for (LivingEntity entity : entitiesOfClass) {
-            if (!world.isClientSide) {
+            if (!world.isClientSide()) {
                 entity.setPos(livingEntity.getX() + rx, livingEntity.getY(), livingEntity.getZ() + rz);
             }
         }

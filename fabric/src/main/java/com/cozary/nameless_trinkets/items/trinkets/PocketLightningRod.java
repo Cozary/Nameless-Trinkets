@@ -41,7 +41,7 @@ public class PocketLightningRod extends PocketLightningRodBase implements Access
 
         Level level = reference.entity().level();
 
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             boolean flag = level.isRaining();
             if (flag && level.isThundering() && level.random.nextInt(config.thunders) == 0) {
                 ChunkPos chunkpos = reference.entity().chunkPosition();

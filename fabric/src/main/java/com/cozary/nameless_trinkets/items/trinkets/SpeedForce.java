@@ -46,7 +46,7 @@ public class SpeedForce extends SpeedForceBase implements Accessory {
         LivingEntity livingEntity = reference.entity();
 
 
-        if (!livingEntity.level().isClientSide && !stack.isEmpty() && config.speedForceParticles) {
+        if (!livingEntity.level().isClientSide() && !stack.isEmpty() && config.speedForceParticles) {
 
             Vec3 vector3d = livingEntity.getDeltaMovement();
             ((ServerLevel) livingEntity.level()).sendParticles(ParticleTypes.CLOUD, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), 5, vector3d.x * -4.0D, 0.3D, vector3d.z * -4.0D, 0.1);

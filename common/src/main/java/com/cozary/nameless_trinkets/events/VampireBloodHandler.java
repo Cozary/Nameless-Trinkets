@@ -13,7 +13,7 @@ public class VampireBloodHandler {
         if (!config.isEnable)
             return;
 
-        if (!player.level().isClientSide) {
+        if (!player.level().isClientSide()) {
             ((ServerLevel) entity.level()).sendParticles(ParticleTypes.SNEEZE, entity.getX(), entity.getY(), entity.getZ(), 35, 1D, 1D, 1D, 0.1);
             player.heal(entity.getMaxHealth() * (config.healingPercentage / 100));
         }

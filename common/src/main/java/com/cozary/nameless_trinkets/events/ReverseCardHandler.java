@@ -22,7 +22,7 @@ public class ReverseCardHandler {
 
         if (random.nextInt(100) <= config.chanceToActivate) {
 
-            if (src != null && !(src instanceof Player) && !player.level().isClientSide) {
+            if (src != null && !(src instanceof Player) && !player.level().isClientSide()) {
                 ((ServerLevel) src.level()).sendParticles(ParticleTypes.WITCH, src.getX(), src.getY(), src.getZ(), 35, 1D, 1D, 1D, 0.1);
                 src.hurt(src.damageSources().generic(), originalDamage);
             }

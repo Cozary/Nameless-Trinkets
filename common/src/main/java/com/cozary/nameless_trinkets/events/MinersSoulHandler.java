@@ -28,7 +28,7 @@ public class MinersSoulHandler {
 
     public static void playerBreakBlock(Player player, BlockState state, BlockPos pos, Level level) {
         MinersSoulBase.Stats config = MinersSoulBase.INSTANCE.getTrinketConfig();
-        if (!config.isEnable || level.isClientSide || player == null || player.isSpectator()) return;
+        if (!config.isEnable || level.isClientSide() || player == null || player.isSpectator()) return;
 
         ItemStack itemStack = player.getMainHandItem();
         ItemStack fakeItemStack = new ItemStack(itemStack.getItem());
@@ -81,4 +81,3 @@ public class MinersSoulHandler {
         }
     }
 }
-

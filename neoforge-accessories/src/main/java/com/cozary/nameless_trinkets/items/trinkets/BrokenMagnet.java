@@ -44,7 +44,7 @@ public class BrokenMagnet extends BrokenMagnetBase implements Accessory {
             if (item.getOwner() != null && item.getOwner().equals(reference.entity().getUUID()) && item.hasPickUpDelay())
                 continue;
 
-            if (!world.isClientSide) {
+            if (!world.isClientSide()) {
                 item.setNoPickUpDelay();
                 item.setPos(reference.entity().getX(), reference.entity().getY(), reference.entity().getZ());
             }

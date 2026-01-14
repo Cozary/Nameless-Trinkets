@@ -50,7 +50,7 @@ repositories {
 }
 
 dependencies {
-    implementation("io.wispforest:accessories-neoforge:${project.accessories_version}")
+    implementation("io.wispforest:accessories-neoforge:${project.accessories_version}+${project.minecraft_version}")
 
     // Moddev Projects - Neoforge
     implementation "io.wispforest:owo-lib-neoforge:${project.owo_version_neoforge}"

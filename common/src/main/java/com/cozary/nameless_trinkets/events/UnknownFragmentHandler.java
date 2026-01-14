@@ -28,7 +28,7 @@ public class UnknownFragmentHandler {
         BlockState blockstate = level.getBlockState(blockPos);
 
         if (CommonConfigManager.getConfig().isGetFragments()) {
-            if (!level.isClientSide && blockstate.getBlock() == Blocks.AMETHYST_BLOCK) {
+            if (!level.isClientSide() && blockstate.getBlock() == Blocks.AMETHYST_BLOCK) {
                 Item itemstack = ModItems.UNKNOWN_FRAGMENT.get();
 
                 List<Holder<Item>> trinketItems = BuiltInRegistries.ITEM.getOrThrow(RECYCLABLE_TRINKETS_TAG).stream().toList();

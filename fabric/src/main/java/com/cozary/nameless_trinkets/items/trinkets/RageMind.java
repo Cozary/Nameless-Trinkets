@@ -40,7 +40,7 @@ public class RageMind extends RageMindBase implements Accessory {
         if (!(reference.entity() instanceof Player player))
             return;
 
-        if (player.level().isClientSide)
+        if (player.level().isClientSide())
             return;
 
         if (stack.get(ModDataComponents.RAGE_MIND_REVENGE_TARGET.get()) != null) {
@@ -62,7 +62,7 @@ public class RageMind extends RageMindBase implements Accessory {
 
             List<LivingEntity> foundTarget = (List<LivingEntity>) player.level().getEntitiesOfClass(classEntity, targetBox);
 
-            Scoreboard scoreboard = player.getScoreboard();
+            Scoreboard scoreboard = player.level().getScoreboard();
 
             PlayerTeam playerTeam = scoreboard.getPlayerTeam("rageMindRevengeTargets");
             if (playerTeam == null) {

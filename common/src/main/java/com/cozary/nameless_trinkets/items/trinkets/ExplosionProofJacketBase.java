@@ -4,7 +4,7 @@ import com.cozary.nameless_trinkets.items.subTrinket.TrinketData;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -37,7 +37,7 @@ public class ExplosionProofJacketBase extends TrinketItem<ExplosionProofJacketBa
             tooltip.accept(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
         } else {
             tooltip.accept(Component.translatable("tooltip.nameless_trinkets.explosion_proof_jacket_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
-            if (Screen.hasShiftDown()) {
+            if (Minecraft.getInstance().hasShiftDown()) {
                 tooltip.accept(Component.translatable("tooltip.nameless_trinkets.explosion_proof_jacket_1", Component.translatable(String.format("%.1f", config.blastDamagePercentageReduction) + "%")).withStyle(ChatFormatting.GOLD));
                 tooltip.accept(Component.translatable("tooltip.nameless_trinkets.explosion_proof_jacket_2").withStyle(ChatFormatting.GOLD));
             } else {

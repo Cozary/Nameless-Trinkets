@@ -43,7 +43,7 @@ public class FragileCloud extends FragileCloudBase implements Accessory {
 
         if (!(reference.entity() instanceof Player player)) return;
 
-        if (!player.level().isClientSide && !player.isSpectator()) {
+        if (!player.level().isClientSide() && !player.isSpectator()) {
 
             var stack0 = TrinketUtils.getEquippedTrinket(player, ModItems.FRAGILE_CLOUD.get());
             var stack1 = TrinketUtils.getEquippedTrinket(player, ModItems.MOON_STONE.get());

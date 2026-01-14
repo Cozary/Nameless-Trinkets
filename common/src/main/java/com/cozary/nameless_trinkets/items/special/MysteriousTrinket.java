@@ -45,7 +45,7 @@ public class MysteriousTrinket extends Item {
 
         level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.WOOL_BREAK, SoundSource.NEUTRAL, 0.5F, 0.4F / (player.getRandom().nextFloat() * 0.4F + 0.8F));
 
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             List<Holder<Item>> trinketItems = BuiltInRegistries.ITEM.getOrThrow(NAMELESS_TRINKETS_TAG).stream().toList();
             Item selectedTrinket = trinketItems.get(random.nextInt(trinketItems.size())).value();
             BlockPos playerPos = player.getOnPos();

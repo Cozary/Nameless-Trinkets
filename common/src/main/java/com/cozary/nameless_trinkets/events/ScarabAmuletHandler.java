@@ -10,10 +10,9 @@ public class ScarabAmuletHandler {
     public static boolean shouldPreventHuskTargeting(Player player, Entity attacker) {
         ScarabAmuletBase.Stats config = ScarabAmuletBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable) return false;
-        if (player.level().isClientSide) return false;
+        if (player.level().isClientSide()) return false;
 
 
         return attacker instanceof Husk;
     }
 }
-
