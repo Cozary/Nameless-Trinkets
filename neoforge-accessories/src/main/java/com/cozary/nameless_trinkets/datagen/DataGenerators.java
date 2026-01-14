@@ -4,10 +4,10 @@ import com.cozary.nameless_trinkets.NamelessTrinkets;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.ItemTagsProvider;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
+import net.neoforged.neoforge.common.data.ItemTagsProvider;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import java.util.List;
@@ -26,7 +26,7 @@ public class DataGenerators {
         generator.addProvider(true, new ModRecipeProvider.Runner(packOutput, lookupProvider));
         BlockTagsProvider blockTagsProvider = new ModBlockTagProvider(packOutput, lookupProvider);
         generator.addProvider(true, blockTagsProvider);
-        ItemTagsProvider itemTagsProvider = new ModItemTagProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter());
+        ItemTagsProvider itemTagsProvider = new ModItemTagProvider(packOutput, lookupProvider);
         generator.addProvider(true, itemTagsProvider);
         generator.addProvider(true, new ModAdvancementProvider(packOutput, lookupProvider, List.of(new ModAdvancementProvider.ModAdvancements())));
     }
@@ -42,7 +42,7 @@ public class DataGenerators {
 
         BlockTagsProvider blockTagsProvider = new ModBlockTagProvider(packOutput, lookupProvider);
         generator.addProvider(true, blockTagsProvider);
-        ItemTagsProvider itemTagsProvider = new ModItemTagProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter());
+        ItemTagsProvider itemTagsProvider = new ModItemTagProvider(packOutput, lookupProvider);
         generator.addProvider(true, itemTagsProvider);
         generator.addProvider(true, new ModAdvancementProvider(packOutput, lookupProvider, List.of(new ModAdvancementProvider.ModAdvancements())));
     }

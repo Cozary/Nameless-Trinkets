@@ -51,7 +51,7 @@ public class MysteriousTrinket extends Item {
             BlockPos playerPos = player.getOnPos();
 
             if (selectedTrinket != null) {
-                ServerLevel serverLevel = (ServerLevel) player.getCommandSenderWorld();
+                ServerLevel serverLevel = (ServerLevel) player.level();
                 spawnParticles(serverLevel, player);
                 spawnItemEntity(serverLevel, selectedTrinket, playerPos);
                 //maybeAddTrinketSlot(player, random);

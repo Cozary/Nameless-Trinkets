@@ -53,7 +53,7 @@ public class VampireBlood extends VampireBloodBase implements Accessory {
                 if (livingEntity.level().isBrightOutside() && livingEntity.level().canSeeSky(livingEntity.blockPosition()) && !livingEntity.level().isClientSide) {
                     if (livingEntity.fireImmune()) return;
 
-                    ((ServerLevel) livingEntity.getCommandSenderWorld()).sendParticles(ParticleTypes.FLAME, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), 1, 1D, 1D, 1D, 0.01);
+                    ((ServerLevel) livingEntity.level()).sendParticles(ParticleTypes.FLAME, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), 1, 1D, 1D, 1D, 0.01);
                     livingEntity.hurt(livingEntity.damageSources().onFire(), (float) config.sunDamage);
 
                 }
@@ -68,7 +68,7 @@ public class VampireBlood extends VampireBloodBase implements Accessory {
             return;
 
         LivingEntity livingEntity = reference.entity();
-        Level world = livingEntity.getCommandSenderWorld();
+        Level world = livingEntity.level();
 
         if (world.isClientSide())
             return;

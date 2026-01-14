@@ -14,7 +14,7 @@ public class VampireBloodHandler {
             return;
 
         if (!player.level().isClientSide) {
-            ((ServerLevel) entity.getCommandSenderWorld()).sendParticles(ParticleTypes.SNEEZE, entity.getX(), entity.getY(), entity.getZ(), 35, 1D, 1D, 1D, 0.1);
+            ((ServerLevel) entity.level()).sendParticles(ParticleTypes.SNEEZE, entity.getX(), entity.getY(), entity.getZ(), 35, 1D, 1D, 1D, 0.1);
             player.heal(entity.getMaxHealth() * (config.healingPercentage / 100));
         }
     }

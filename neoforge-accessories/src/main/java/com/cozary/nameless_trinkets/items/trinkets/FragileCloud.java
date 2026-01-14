@@ -60,7 +60,7 @@ public class FragileCloud extends FragileCloudBase implements Accessory {
                         double particleX = player.getX() + (player.getRandom().nextBoolean() ? -1 : 1) * Math.pow(player.getRandom().nextFloat(), 1) * 1;
                         double particleY = player.getY() + player.getRandom().nextFloat() * 1 - 2;
                         double particleZ = player.getZ() + (player.getRandom().nextBoolean() ? -1 : 1) * Math.pow(player.getRandom().nextFloat(), 1) * 1;
-                        ((ServerLevel) player.getCommandSenderWorld()).sendParticles(ParticleTypes.CLOUD, particleX, particleY, particleZ, 1, 1D, 1D, 1D, 0.1);
+                        ((ServerLevel) player.level()).sendParticles(ParticleTypes.CLOUD, particleX, particleY, particleZ, 1, 1D, 1D, 1D, 0.1);
                     }
                 } else {
                     assert gravity != null;

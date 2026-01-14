@@ -23,7 +23,7 @@ public class BrokenAnkhHandler {
         if (player.isDeadOrDying()
                 && !player.getCooldowns().isOnCooldown(stack.getDefaultInstance())) {
 
-            var level = (ServerLevel) player.getCommandSenderWorld();
+            var level = (ServerLevel) player.level();
 
             level.sendParticles(ParticleTypes.SMOKE, player.getX(), player.getY(), player.getZ(), 100, 1D, 1D, 1D, 0.1);
             level.sendParticles(ParticleTypes.CAMPFIRE_COSY_SMOKE, player.getX(), player.getY(), player.getZ(), 50, 1D, 1D, 1D, 0.1);

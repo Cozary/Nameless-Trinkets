@@ -41,8 +41,8 @@ public class UnknownFragmentHandler {
                         itemstack1.shrink(1);
                         level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_BREAK, SoundSource.NEUTRAL, 0.5F, 0.4F / (player.getRandom().nextFloat() * 0.4F + 0.8F));
 
-                        ((ServerLevel) player.getCommandSenderWorld()).sendParticles(ParticleTypes.ENCHANT, blockPos.getX() + 0.5, blockPos.getY(), blockPos.getZ() + 0.5, 200, 1D, 1D, 1D, 0.1);
-                        ((ServerLevel) player.getCommandSenderWorld()).sendParticles(ParticleTypes.GLOW, blockPos.getX() + 0.5, blockPos.getY(), blockPos.getZ() + 0.5, 100, 1D, 1D, 1D, 0.1);
+                        ((ServerLevel) player.level()).sendParticles(ParticleTypes.ENCHANT, blockPos.getX() + 0.5, blockPos.getY(), blockPos.getZ() + 0.5, 200, 1D, 1D, 1D, 0.1);
+                        ((ServerLevel) player.level()).sendParticles(ParticleTypes.GLOW, blockPos.getX() + 0.5, blockPos.getY(), blockPos.getZ() + 0.5, 100, 1D, 1D, 1D, 0.1);
 
                         BlockPos pos = player.blockPosition();
                         ItemEntity itementity = new ItemEntity(level, pos.getX(), pos.getY() + 1, pos.getZ(), itemstack.getDefaultInstance());

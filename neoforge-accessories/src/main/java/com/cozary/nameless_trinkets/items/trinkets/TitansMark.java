@@ -40,7 +40,7 @@ public class TitansMark extends TitansMarkBase implements Accessory {
             return;
 
         LivingEntity livingEntity = reference.entity();
-        Level world = livingEntity.getCommandSenderWorld();
+        Level world = livingEntity.level();
 
         if (world.isClientSide())
             return;

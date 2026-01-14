@@ -32,7 +32,7 @@ public class GodsCrown extends GodsCrownBase implements Accessory {
         if (!config.isEnable) return;
 
         LivingEntity livingEntity = reference.entity();
-        Level world = livingEntity.getCommandSenderWorld();
+        Level world = livingEntity.level();
 
         if (world.isClientSide()) return;
 

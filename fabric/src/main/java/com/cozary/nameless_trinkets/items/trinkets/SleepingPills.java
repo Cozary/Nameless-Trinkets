@@ -59,7 +59,7 @@ public class SleepingPills extends SleepingPillsBase implements Accessory {
                         if (!phantomEntity.level().isClientSide) {
 
                             Vec3 vector3d = phantomEntity.getDeltaMovement();
-                            ((ServerLevel) phantomEntity.getCommandSenderWorld()).sendParticles(ParticleTypes.ASH, phantomEntity.getX(), phantomEntity.getY(), phantomEntity.getZ(), 250, vector3d.x, 0.3D, vector3d.z, 5);
+                            ((ServerLevel) phantomEntity.level()).sendParticles(ParticleTypes.ASH, phantomEntity.getX(), phantomEntity.getY(), phantomEntity.getZ(), 250, vector3d.x, 0.3D, vector3d.z, 5);
                         }
 
                         phantomEntity.discard();

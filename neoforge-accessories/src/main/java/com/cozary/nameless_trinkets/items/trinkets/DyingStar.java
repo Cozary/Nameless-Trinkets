@@ -37,7 +37,7 @@ public class DyingStar extends DyingStarBase implements Accessory {
             return;
 
         LivingEntity livingEntity = reference.entity();
-        Level world = livingEntity.getCommandSenderWorld();
+        Level world = livingEntity.level();
 
         if (world.isClientSide())
             return;

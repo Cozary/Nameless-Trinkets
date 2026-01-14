@@ -40,7 +40,7 @@ public class MoonStone extends MoonStoneBase implements Accessory {
             return;
 
         LivingEntity livingEntity = reference.entity();
-        Level world = livingEntity.getCommandSenderWorld();
+        Level world = livingEntity.level();
 
         if (world.isClientSide() || livingEntity.tickCount % 20 != 0)
             return;
