@@ -114,7 +114,8 @@ processResources {
             'issueTrackerURL'              : issueTrackerURL,
             'accessories_version'          : accessories_version,
             'curios_version'               : curios_version,
-            'owo_version'                  : owo_version
+            'owo_version_fabric'           : owo_version_fabric,
+            'owo_version_neoforge'         : owo_version_neoforge
     ]
 
     var jsonExpandProps = expandProps.collectEntries {

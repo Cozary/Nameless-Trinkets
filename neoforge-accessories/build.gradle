@@ -51,6 +51,10 @@ repositories {
 
 dependencies {
     implementation("io.wispforest:accessories-neoforge:${project.accessories_version}")
+
+    // Moddev Projects - Neoforge
+    implementation "io.wispforest:owo-lib-neoforge:${project.owo_version_neoforge}"
+    interfaceInjectionData "io.wispforest:owo-lib-neoforge:${project.owo_version_neoforge}"
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
