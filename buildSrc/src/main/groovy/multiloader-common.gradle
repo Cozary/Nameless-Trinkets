@@ -113,7 +113,8 @@ processResources {
             'mod_publish_version'          : mod_publish_version,
             'issueTrackerURL'              : issueTrackerURL,
             'accessories_version'          : accessories_version,
-            'curios_version'               : curios_version
+            'curios_version'               : curios_version,
+            'owo_version'                  : owo_version
     ]
 
     var jsonExpandProps = expandProps.collectEntries {
