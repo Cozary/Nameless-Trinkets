@@ -5,23 +5,23 @@ import com.cozary.nameless_trinkets.items.trinkets.SigilOfBaphometBase;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 
 public class SigilOfBaphometHandler {
 
-    public static void handleSigilKillCount(Item stack) {
+    public static void handleSigilKillCount(ItemStack stack) {
         SigilOfBaphometBase.Stats config = SigilOfBaphometBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return;
 
 
-        if (stack.getDefaultInstance().getOrDefault(ModDataComponents.SIGIL_COUNT.get(), 0) <= 10) {
-            stack.getDefaultInstance().set(ModDataComponents.SIGIL_COUNT.get(), stack.getDefaultInstance().getOrDefault(ModDataComponents.SIGIL_COUNT.get(), 0) + 1);
+        if (stack.getOrDefault(ModDataComponents.SIGIL_COUNT.get(), 0) <= 10) {
+            stack.set(ModDataComponents.SIGIL_COUNT.get(), stack.getOrDefault(ModDataComponents.SIGIL_COUNT.get(), 0) + 1);
         }
 
     }
 
-    public static boolean grantSigilImmunityOnDamage(Player player, Item stack) {
+    public static boolean grantSigilImmunityOnDamage(Player player, ItemStack stack) {
         SigilOfBaphometBase.Stats config = SigilOfBaphometBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return false;
