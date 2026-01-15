@@ -4,12 +4,15 @@ import com.cozary.nameless_trinkets.config.TrinketConfigs;
 import com.cozary.nameless_trinkets.config.common.CommonConfigManager;
 import com.cozary.nameless_trinkets.config.looTables.TrinketLootConfigsManager;
 import com.cozary.nameless_trinkets.init.ModTabs;
+import com.cozary.nameless_trinkets.recipe.RecipeGate;
 import com.cozary.nameless_trinkets.util.RemoveRendering;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.event.server.ServerStartedEvent;
 
 @Mod(NamelessTrinkets.MOD_ID)
 public class NamelessTrinketsNeoForgeAccessories {
@@ -22,6 +25,7 @@ public class NamelessTrinketsNeoForgeAccessories {
 
         eventBus.addListener(EventPriority.LOWEST, this::setup);
 
+        eventBus.register(this);
     }
 
     private void setup(final FMLCommonSetupEvent event) {
@@ -29,5 +33,10 @@ public class NamelessTrinketsNeoForgeAccessories {
         TrinketConfigs.loadClass();
         CommonConfigManager.loadConfig();
         RemoveRendering.noRenderingList();
+    }
+
+    @SubscribeEvent
+    public void onServerStarted(ServerStartedEvent event) {
+        RecipeGate.apply(event.getServer());
     }
 }

@@ -6,8 +6,10 @@ import com.cozary.nameless_trinkets.config.looTables.TrinketLootConfigsManager;
 import com.cozary.nameless_trinkets.events.*;
 import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.lootTables.LootTableHandler;
+import com.cozary.nameless_trinkets.recipe.RecipeGate;
 import com.cozary.nameless_trinkets.util.RemoveRendering;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -37,6 +39,13 @@ public class NamelessTrinketsFabric implements ModInitializer {
         CommonConfigManager.loadConfig();
         RemoveRendering.noRenderingList();
 
+        // Applies recipe gating on server start + after /reload
+        ServerLifecycleEvents.SERVER_STARTED.register(server -> {
+            RecipeGate.apply(server);
+        });
+        ServerLifecycleEvents.END_DATA_PACK_RELOAD.register((server, resourceManager, success) -> {
+            if (success) RecipeGate.apply(server);
+        });
     }
 
     private void eventLoad() {
