@@ -2,7 +2,6 @@ package com.cozary.nameless_trinkets.recipe;
 
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
-import com.cozary.nameless_trinkets.config.common.CommonConfig;
 import com.cozary.nameless_trinkets.config.common.CommonConfigManager;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
@@ -14,11 +13,12 @@ import java.util.Iterator;
 import java.util.Map;
 
 public final class RecipeGate {
-    private RecipeGate() {}
-
     // Change this to match where you put the gated recipes:
     // data/nameless_trinkets/recipes/trinkets/*.json  ->  nameless_trinkets:trinkets/<file>
     private static final String PATH_PREFIX = "";
+
+    private RecipeGate() {
+    }
 
     public static void apply(MinecraftServer server) {
         boolean craftingEnabled = CommonConfigManager.getConfig().isEnableTrinketCrafting();
@@ -53,7 +53,7 @@ public final class RecipeGate {
     private static Map<ResourceLocation, RecipeHolder<?>> findRecipeByNameMap(RecipeManager rm) {
         // Mojang names vary a bit; try common candidates.
         // We only need the "byName" style map to stop crafting.
-        String[] candidates = new String[] {
+        String[] candidates = new String[]{
                 "byName",      // common
                 "recipes",     // sometimes used
                 "f_44007_",    // obf-like (example)
@@ -76,7 +76,8 @@ public final class RecipeGate {
                         return (Map<ResourceLocation, RecipeHolder<?>>) m;
                     }
                 }
-            } catch (Throwable ignored) {}
+            } catch (Throwable ignored) {
+            }
         }
 
         return null;
@@ -89,7 +90,8 @@ public final class RecipeGate {
             f.setAccessible(true);
             Object val = f.get(rm);
             if (val instanceof Map<?, ?>) return (Map<ResourceLocation, RecipeHolder<?>>) val;
-        } catch (Throwable ignored) {}
+        } catch (Throwable ignored) {
+        }
         return null;
     }
 }

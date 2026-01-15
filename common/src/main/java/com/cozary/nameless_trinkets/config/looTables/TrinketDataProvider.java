@@ -11,12 +11,6 @@ import java.util.List;
 
 public class TrinketDataProvider {
 
-    // Tier chances
-    private static final double CHANCE_COMMON = 0.01;
-    private static final double CHANCE_RARE = 0.005;
-    private static final double CHANCE_LEGEND = 0.0025;
-    private static final double CHANCE_MYTHIC = 0.0;
-
     public static final List<ResourceKey<LootTable>> LOOT_TABLES = List.of(
             BuiltInLootTables.SPAWN_BONUS_CHEST,
             BuiltInLootTables.END_CITY_TREASURE,
@@ -44,6 +38,11 @@ public class TrinketDataProvider {
             BuiltInLootTables.RUINED_PORTAL,
             BuiltInLootTables.CAT_MORNING_GIFT
     );
+    // Tier chances
+    private static final double CHANCE_COMMON = 0.01;
+    private static final double CHANCE_RARE = 0.005;
+    private static final double CHANCE_LEGEND = 0.0025;
+    private static final double CHANCE_MYTHIC = 0.0;
 
     public static List<List<Object>> getTrinketList() {
         return new ArrayList<>(Arrays.asList(

@@ -35,14 +35,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FertilizerBase extends TrinketItem<FertilizerBase.Stats> {
-    public static FertilizerBase INSTANCE;
-
     /**
      * "Don't grow near surface" safety:
      * Require this many WATER blocks above the underwater target position before we allow underwater growth.
      * 2 = must have at least 2 full water blocks above the target.
      */
     private static final int UNDERWATER_SURFACE_BUFFER = 2;
+    public static FertilizerBase INSTANCE;
 
     public FertilizerBase() {
         super(new TrinketData(null, null, Stats.class));
@@ -57,6 +56,122 @@ public class FertilizerBase extends TrinketItem<FertilizerBase.Stats> {
             }
         }
         return true;
+    }
+
+    public static boolean growWaterPlant(Level level, BlockPos pos, @Nullable Direction clickedSide) {
+        if (!level.getBlockState(pos).is(Blocks.WATER) || level.getFluidState(pos).getAmount() != 8) {
+            return false;
+        }
+
+        // --- Surface safety: do not attempt underwater-growth if we're too close to the surface ---
+        // This prevents kelp/seagrass/coral behavior from creating water blocks into air and causing "upward spread".
+        if (!hasWaterAbove(level, pos, UNDERWATER_SURFACE_BUFFER)) {
+            return false;
+        }
+
+        if (!(level instanceof ServerLevel serverLevel)) {
+            return true;
+        }
+
+        RandomSource random = level.getRandom();
+        boolean success = false;
+
+        for (int i = 0; i < 128; ++i) {
+            BlockPos currentPos = pos;
+
+            for (int j = 0; j < i / 16; ++j) {
+                currentPos = currentPos.offset(
+                        random.nextInt(3) - 1,
+                        (random.nextInt(3) - 1) * random.nextInt(3) / 2,
+                        random.nextInt(3) - 1
+                );
+
+                BlockState curState = level.getBlockState(currentPos);
+                if (!curState.is(Blocks.WATER) && !curState.is(Blocks.KELP) && !curState.is(Blocks.KELP_PLANT)) {
+                    break;
+                }
+            }
+
+            BlockState state = level.getBlockState(currentPos);
+
+            if (state.is(Blocks.KELP) || state.is(Blocks.KELP_PLANT)) {
+                // --- Surface safety: if kelp is near surface, do not extend it upward ---
+                if (hasWaterAbove(level, currentPos, UNDERWATER_SURFACE_BUFFER)) {
+                    growKelp(level, currentPos);
+                    success = true;
+                }
+            } else if (state.is(Blocks.WATER) && level.getFluidState(currentPos).getAmount() == 8) {
+                // --- Surface safety: do not place seagrass/coral near surface ---
+                if (hasWaterAbove(level, currentPos, UNDERWATER_SURFACE_BUFFER)) {
+                    if (applyBiomeModifiers(level, currentPos, random, clickedSide, Blocks.SEAGRASS.defaultBlockState())) {
+                        success = true;
+                    }
+                }
+            }
+        }
+
+        return success;
+    }
+
+    private static boolean applyBiomeModifiers(Level level, BlockPos pos, RandomSource random, @Nullable Direction clickedSide, BlockState newState) {
+        Holder<Biome> biome = level.getBiome(pos);
+        if (biome.is(BiomeTags.PRODUCES_CORALS_FROM_BONEMEAL)) {
+            if (random.nextInt(4) == 0) {
+                newState = BuiltInRegistries.BLOCK
+                        .getRandomElementOf(BlockTags.UNDERWATER_BONEMEALS, random)
+                        .map((block) -> ((Block) block.value()).defaultBlockState())
+                        .orElse(newState);
+            }
+        }
+
+        if (newState.canSurvive(level, pos)) {
+            level.setBlock(pos, newState, 3);
+            return true;
+        }
+
+        return false;
+    }
+
+    private static void growKelp(Level level, BlockPos pos) {
+        BlockPos abovePos = pos.above();
+
+        // Must still be fully submerged above (and not near surface)
+        if (!hasWaterAbove(level, abovePos, UNDERWATER_SURFACE_BUFFER)) {
+            return;
+        }
+
+        if (level.getBlockState(abovePos).is(Blocks.WATER) && level.getFluidState(abovePos).getAmount() == 8) {
+            level.setBlock(abovePos, Blocks.KELP_PLANT.defaultBlockState(), 3);
+        }
+    }
+
+    static boolean applyBonemeal(Level level, BlockPos pos) {
+        BlockState blockState = level.getBlockState(pos);
+        if (blockState.getBlock() instanceof BonemealableBlock bonemealable &&
+                bonemealable.isValidBonemealTarget(level, pos, blockState)) {
+            if (level instanceof ServerLevel serverLevel && bonemealable.isBonemealSuccess(level, level.random, pos, blockState)) {
+                bonemealable.performBonemeal(serverLevel, level.random, pos, blockState);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    static void spawnGrowthParticles(LevelAccessor level, BlockPos pos, int count) {
+        if (level instanceof ServerLevel serverLevel) {
+            serverLevel.sendParticles(
+                    ParticleTypes.HAPPY_VILLAGER,
+                    pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D,
+                    count, 0.25D, 0.25D, 0.25D, 0.05D
+            );
+        }
+    }
+
+    private static boolean isValidBonemealTarget(Level level, BlockPos pos, BlockState state) {
+        if (state.getBlock() instanceof BonemealableBlock bonemealable) {
+            return bonemealable.isValidBonemealTarget(level, pos, state);
+        }
+        return false;
     }
 
     public void commonTick(ItemStack stack, LivingEntity entity) {
@@ -214,105 +329,6 @@ public class FertilizerBase extends TrinketItem<FertilizerBase.Stats> {
         }
     }
 
-    public static boolean growWaterPlant(Level level, BlockPos pos, @Nullable Direction clickedSide) {
-        if (!level.getBlockState(pos).is(Blocks.WATER) || level.getFluidState(pos).getAmount() != 8) {
-            return false;
-        }
-
-        // --- Surface safety: do not attempt underwater-growth if we're too close to the surface ---
-        // This prevents kelp/seagrass/coral behavior from creating water blocks into air and causing "upward spread".
-        if (!hasWaterAbove(level, pos, UNDERWATER_SURFACE_BUFFER)) {
-            return false;
-        }
-
-        if (!(level instanceof ServerLevel serverLevel)) {
-            return true;
-        }
-
-        RandomSource random = level.getRandom();
-        boolean success = false;
-
-        for (int i = 0; i < 128; ++i) {
-            BlockPos currentPos = pos;
-
-            for (int j = 0; j < i / 16; ++j) {
-                currentPos = currentPos.offset(
-                        random.nextInt(3) - 1,
-                        (random.nextInt(3) - 1) * random.nextInt(3) / 2,
-                        random.nextInt(3) - 1
-                );
-
-                BlockState curState = level.getBlockState(currentPos);
-                if (!curState.is(Blocks.WATER) && !curState.is(Blocks.KELP) && !curState.is(Blocks.KELP_PLANT)) {
-                    break;
-                }
-            }
-
-            BlockState state = level.getBlockState(currentPos);
-
-            if (state.is(Blocks.KELP) || state.is(Blocks.KELP_PLANT)) {
-                // --- Surface safety: if kelp is near surface, do not extend it upward ---
-                if (hasWaterAbove(level, currentPos, UNDERWATER_SURFACE_BUFFER)) {
-                    growKelp(level, currentPos);
-                    success = true;
-                }
-            } else if (state.is(Blocks.WATER) && level.getFluidState(currentPos).getAmount() == 8) {
-                // --- Surface safety: do not place seagrass/coral near surface ---
-                if (hasWaterAbove(level, currentPos, UNDERWATER_SURFACE_BUFFER)) {
-                    if (applyBiomeModifiers(level, currentPos, random, clickedSide, Blocks.SEAGRASS.defaultBlockState())) {
-                        success = true;
-                    }
-                }
-            }
-        }
-
-        return success;
-    }
-
-    private static boolean applyBiomeModifiers(Level level, BlockPos pos, RandomSource random, @Nullable Direction clickedSide, BlockState newState) {
-        Holder<Biome> biome = level.getBiome(pos);
-        if (biome.is(BiomeTags.PRODUCES_CORALS_FROM_BONEMEAL)) {
-            if (random.nextInt(4) == 0) {
-                newState = BuiltInRegistries.BLOCK
-                        .getRandomElementOf(BlockTags.UNDERWATER_BONEMEALS, random)
-                        .map((block) -> ((Block) block.value()).defaultBlockState())
-                        .orElse(newState);
-            }
-        }
-
-        if (newState.canSurvive(level, pos)) {
-            level.setBlock(pos, newState, 3);
-            return true;
-        }
-
-        return false;
-    }
-
-    private static void growKelp(Level level, BlockPos pos) {
-        BlockPos abovePos = pos.above();
-
-        // Must still be fully submerged above (and not near surface)
-        if (!hasWaterAbove(level, abovePos, UNDERWATER_SURFACE_BUFFER)) {
-            return;
-        }
-
-        if (level.getBlockState(abovePos).is(Blocks.WATER) && level.getFluidState(abovePos).getAmount() == 8) {
-            level.setBlock(abovePos, Blocks.KELP_PLANT.defaultBlockState(), 3);
-        }
-    }
-
-    static boolean applyBonemeal(Level level, BlockPos pos) {
-        BlockState blockState = level.getBlockState(pos);
-        if (blockState.getBlock() instanceof BonemealableBlock bonemealable &&
-                bonemealable.isValidBonemealTarget(level, pos, blockState)) {
-            if (level instanceof ServerLevel serverLevel && bonemealable.isBonemealSuccess(level, level.random, pos, blockState)) {
-                bonemealable.performBonemeal(serverLevel, level.random, pos, blockState);
-                return true;
-            }
-        }
-        return false;
-    }
-
     private void playFertilizerEffect(Level level, BlockPos pos) {
         // Sound
         level.playSound(
@@ -338,23 +354,6 @@ public class FertilizerBase extends TrinketItem<FertilizerBase.Stats> {
                     0.02
             );
         }
-    }
-
-    static void spawnGrowthParticles(LevelAccessor level, BlockPos pos, int count) {
-        if (level instanceof ServerLevel serverLevel) {
-            serverLevel.sendParticles(
-                    ParticleTypes.HAPPY_VILLAGER,
-                    pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D,
-                    count, 0.25D, 0.25D, 0.25D, 0.05D
-            );
-        }
-    }
-
-    private static boolean isValidBonemealTarget(Level level, BlockPos pos, BlockState state) {
-        if (state.getBlock() instanceof BonemealableBlock bonemealable) {
-            return bonemealable.isValidBonemealTarget(level, pos, state);
-        }
-        return false;
     }
 
     @Override

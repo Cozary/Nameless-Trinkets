@@ -43,7 +43,7 @@ public class LootTableHandler {
                 continue;
 
             Item item = optionalItem.get().get();
-            
+
             double baseChance = config.getChance();
             double multiplier = CommonConfigManager.getConfig().getGlobalLootMultiplier();
 
