@@ -1,5 +1,6 @@
 package com.cozary.nameless_trinkets.events;
 
+import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.items.trinkets.FourLeafCloverBase;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
@@ -32,12 +33,14 @@ public class FourLeafCloverHandler {
                     .withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(entity.blockPosition()))
                     .withParameter(LootContextParams.THIS_ENTITY, entity)
                     .withParameter(LootContextParams.DAMAGE_SOURCE, player.damageSources().playerAttack(player))
+                    .withParameter(LootContextParams.LAST_DAMAGE_PLAYER, player)
                     .create(LootContextParamSets.ENTITY);
 
-            List<ItemStack> drops = loot.getRandomItems(context);
             for (int i = 1; i < (config.extraLoots); i++) {
+                List<ItemStack> drops = loot.getRandomItems(context);
+
                 for (ItemStack drop : drops) {
-                    ItemEntity itementity = new ItemEntity(level, entity.getX(), entity.getY(), entity.getZ(), drop);
+                    ItemEntity itementity = new ItemEntity(level, entity.getX(), entity.getY(), entity.getZ(), drop.copy());
                     itementity.setDefaultPickUpDelay();
                     itementity.setDeltaMovement(itementity.getDeltaMovement().add((level.random.nextFloat() - level.random.nextFloat()) * 0.1F, level.random.nextFloat() * 0.05F, (level.random.nextFloat() - level.random.nextFloat()) * 0.1F));
                     level.addFreshEntity(itementity);
