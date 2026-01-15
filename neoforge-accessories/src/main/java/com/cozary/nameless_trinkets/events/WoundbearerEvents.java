@@ -21,7 +21,7 @@ public class WoundbearerEvents {
             if (stack.isEmpty())
                 return;
 
-            WoundbearerHandler.savePlayerDamageIncrement(player, event.getAmount(), stack.getFirst().stack().getItem());
+            WoundbearerHandler.savePlayerDamageIncrement(player, event.getAmount(), stack.getFirst().stack());
         }
     }
 }

@@ -22,7 +22,7 @@ public class SigilOfBaphometEvents {
             if (stack.isEmpty())
                 return;
 
-            SigilOfBaphometHandler.handleSigilKillCount(stack.getItem());
+            SigilOfBaphometHandler.handleSigilKillCount(stack);
         }
     }
 
@@ -36,7 +36,7 @@ public class SigilOfBaphometEvents {
             if (stack.isEmpty())
                 return;
 
-            event.setCanceled(SigilOfBaphometHandler.grantSigilImmunityOnDamage(player, stack.getItem()));
+            event.setCanceled(SigilOfBaphometHandler.grantSigilImmunityOnDamage(player, stack));
 
         }
 
