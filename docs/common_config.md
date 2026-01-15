@@ -1,5 +1,13 @@
 This is the configuration you can find in 📂 `config/nameless_trinkets-common.toml`.
 
+> **Global Loot Multiplier**
+>
+> - "globalLootMultiplier": A multiplier to globally adjust the drop rates of all trinkets.
+
+> **Enable Trinket Crafting**
+>
+> - "enableTrinketCrafting": Enables or disables all crafting recipes for trinkets. Valus from 0.0 to 1.0.
+
 > **Fragments from Trinket Destruction**  
 
 > - "getFragments": Decides whether you get an **Unknown Fragment** when recycling a trinket.

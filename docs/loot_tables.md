@@ -1,3 +1,7 @@
+!!! note
+
+    As of recent versions, trinkets have been made rarer by removing them from many loot tables. You can globally adjust their drop rates using the `globalLootMultiplier` option in the common configuration file.
+
 This section covers how you can modify the loot tables that change the spawn frequency and location of trinkets.
 
 From versions **+1.21.x-1.1.x**, this can be modified from the configuration found at 📂 `config/nameless_trinkets/trinket_loot_configs`.
