@@ -23,7 +23,7 @@ public class RageMindEvents {
                 return;
 
             if (event.getSource().getEntity() instanceof LivingEntity attacker) {
-                RageMindHandler.getEntity(attacker, stack.getFirst().stack().getItem());
+                RageMindHandler.getEntity(attacker, stack.getFirst().stack());
             }
         }
     }
@@ -38,7 +38,7 @@ public class RageMindEvents {
             if (stack.isEmpty())
                 return;
 
-            RageMindHandler.dealDamage(player, event.getEntity(), event.getOriginalDamage(), stack.getFirst().stack().getItem());
+            RageMindHandler.dealDamage(player, event.getEntity(), event.getOriginalDamage(), stack.getFirst().stack());
         }
     }
 
