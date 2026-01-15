@@ -18,7 +18,7 @@ public class SigilOfBaphometEvents {
                 if (stack.isEmpty())
                     return;
 
-                SigilOfBaphometHandler.handleSigilKillCount(stack.getFirst().stack().getItem());
+                SigilOfBaphometHandler.handleSigilKillCount(stack.getFirst().stack());
             }
         });
 
@@ -30,7 +30,7 @@ public class SigilOfBaphometEvents {
                 if (stack.isEmpty())
                     return damageAmount;
 
-                if (SigilOfBaphometHandler.grantSigilImmunityOnDamage(player, stack.getFirst().stack().getItem())) {
+                if (SigilOfBaphometHandler.grantSigilImmunityOnDamage(player, stack.getFirst().stack())) {
                     return 0.0f;
                 }
             }
