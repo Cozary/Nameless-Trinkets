@@ -19,7 +19,7 @@ public class MixinBoat {
 
             var stack = TrinketUtils.getEquippedTrinket(player, ModItems.ELECTRIC_PADDLE.get());
 
-            if (!stack.isEmpty())
+            if (stack.isEmpty())
                 return;
 
             MixinBoatHandler.applyBoostedBoatControl((Boat) (Object) this, player);
