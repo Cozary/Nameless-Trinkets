@@ -12,6 +12,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartedEvent;
 
 @Mod(NamelessTrinkets.MOD_ID)
@@ -25,7 +26,7 @@ public class NamelessTrinketsNeoForgeAccessories {
 
         eventBus.addListener(EventPriority.LOWEST, this::setup);
 
-        eventBus.register(this);
+        NeoForge.EVENT_BUS.register(this);
     }
 
     private void setup(final FMLCommonSetupEvent event) {
