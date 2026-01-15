@@ -26,7 +26,7 @@ public class SigilOfBaphometHandler {
         if (!config.isEnable)
             return false;
 
-        if (stack.getOrDefault(ModDataComponents.SIGIL_COUNT.get(), 0) > 0 && !player.level().isClientSide) {
+        if (stack.getOrDefault(ModDataComponents.SIGIL_COUNT.get(), 0) > 0 && !player.level().isClientSide()) {
             ((ServerLevel) player.level()).sendParticles(ParticleTypes.ENCHANT, player.getX(), player.getY(), player.getZ(), 50, 0.5D, 1D, 0.5D, 0.1);
             return true;
         }
