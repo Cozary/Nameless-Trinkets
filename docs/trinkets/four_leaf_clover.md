@@ -3,7 +3,7 @@
 ## How it works:
 The **Four Leaf Clover** trinket grants the following effect:
 
-- Grants the player a chance to receive extra loot when they kill an entity.
+- Causes entities to roll their loot table an additional time when killed, generating extra drops.
 
 ## Configuration:
 - **Is Enable**: Determines whether the trinket's effect is active or not.  
