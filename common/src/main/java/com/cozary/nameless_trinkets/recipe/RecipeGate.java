@@ -2,155 +2,199 @@ package com.cozary.nameless_trinkets.recipe;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.config.common.CommonConfigManager;
-import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.init.ModTags;
-import com.google.common.collect.ImmutableListMultimap;
-import com.google.common.collect.Multimap;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
-import net.minecraft.world.item.crafting.RecipeType;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.*;
 
 public final class RecipeGate {
     private RecipeGate() {}
 
+    private static final List<String> EXEMPT_RECIPES = List.of(
+            "mysterious_trinket",
+            "trinket_bundle"
+    );
+
     public static void apply(MinecraftServer server) {
-        if (CommonConfigManager.getConfig().isEnableTrinketCrafting()) {
-            return;
-        }
+        boolean craftingEnabled = CommonConfigManager.getConfig().isEnableTrinketCrafting();
+        if (craftingEnabled) return;
 
         RecipeManager rm = server.getRecipeManager();
-        List<ResourceLocation> removedRecipes = new ArrayList<>();
+        int totalRemoved = 0;
 
+        // 1. Scan fields directly in RecipeManager
+        totalRemoved += scanAndClean(rm);
+
+        // 2. Scan fields inside the 'recipes' field (RecipeMap) if it exists
         try {
-            // 1. Handle 'byName' map: Map<ResourceLocation, RecipeHolder<?>>
-            Field byNameField = findByNameField(rm);
-            if (byNameField != null) {
-                @SuppressWarnings("unchecked")
-                Map<ResourceLocation, RecipeHolder<?>> originalMap = (Map<ResourceLocation, RecipeHolder<?>>) byNameField.get(rm);
-                Map<ResourceLocation, RecipeHolder<?>> mutableMap = new HashMap<>(originalMap);
+            Field recipesField = getField(rm.getClass(), "recipes");
+            if (recipesField != null) {
+                Object recipeMap = recipesField.get(rm);
+                if (recipeMap != null) {
+                    totalRemoved += scanAndClean(recipeMap);
+                }
+            }
+        } catch (Exception e) {
+            // Ignore errors, they don't exist, trust me :)
+        }
 
-                Iterator<Map.Entry<ResourceLocation, RecipeHolder<?>>> it = mutableMap.entrySet().iterator();
-                while (it.hasNext()) {
-                    Map.Entry<ResourceLocation, RecipeHolder<?>> e = it.next();
-                    if (shouldRemove(e.getValue())) {
-                        removedRecipes.add(e.getKey());
-                        it.remove();
+        if (totalRemoved > 0) {
+            // Divide by 2 roughly because we remove from both byKey and byType
+            //System.out.println("[Nameless Trinkets] RecipeGate: Disabled trinket crafting. Removed " + totalRemoved + " internal recipe references.");
+        }
+    }
+
+    private static int scanAndClean(Object targetObj) {
+        int removedCount = 0;
+        for (Field f : targetObj.getClass().getDeclaredFields()) {
+            try {
+                f.setAccessible(true);
+                Object val = f.get(targetObj);
+
+                if (val == null) continue;
+
+                // Handle Map
+                if (val instanceof Map<?, ?> map) {
+                    if (map.isEmpty()) continue;
+
+                    Map.Entry<?, ?> firstEntry = map.entrySet().iterator().next();
+                    Object firstValue = firstEntry.getValue();
+
+                    // Case A: Map<Key, RecipeHolder>
+                    if (firstValue instanceof RecipeHolder) {
+                        removedCount += cleanMapDirect(f, targetObj, (Map<Object, RecipeHolder<?>>) map);
+                    }
+                    // Case B: Map<Key, List<RecipeHolder>>
+                    else if (firstValue instanceof List<?> list && !list.isEmpty() && list.get(0) instanceof RecipeHolder) {
+                        removedCount += cleanMapOfLists(f, targetObj, (Map<Object, List<RecipeHolder<?>>>) map);
                     }
                 }
-                byNameField.set(rm, mutableMap);
-            } else {
-                System.err.println("[Nameless Trinkets] RecipeGate: Could not find 'byName' recipe map.");
-            }
+                // Handle  Multimap (via reflection to avoid direct dependency issues)
+                else if (isMultimap(val.getClass())) {
+                    removedCount += cleanMultimap(f, targetObj, val);
+                }
 
-            // 2. Handle 'byType' map: Multimap<RecipeType<?>, RecipeHolder<?>>
-            Field byTypeField = findByTypeField(rm);
-            if (byTypeField != null) {
-                Object originalByType = byTypeField.get(rm);
-                
-                if (originalByType instanceof Multimap) {
-                    @SuppressWarnings("unchecked")
-                    Multimap<RecipeType<?>, RecipeHolder<?>> multimap = (Multimap<RecipeType<?>, RecipeHolder<?>>) originalByType;
-                    
-                    ImmutableListMultimap.Builder<RecipeType<?>, RecipeHolder<?>> builder = ImmutableListMultimap.builder();
-                    
-                    for (Map.Entry<RecipeType<?>, RecipeHolder<?>> entry : multimap.entries()) {
-                        if (!shouldRemove(entry.getValue())) {
-                            builder.put(entry);
-                        }
-                    }
-                    
-                    byTypeField.set(rm, builder.build());
+            } catch (Exception ignored) {
+            }
+        }
+        return removedCount;
+    }
+
+    private static boolean isMultimap(Class<?> clazz) {
+        if (clazz.getName().contains("Multimap")) return true;
+        for (Class<?> iface : clazz.getInterfaces()) {
+            if (iface.getName().contains("Multimap")) return true;
+        }
+        return false;
+    }
+
+    private static int cleanMultimap(Field field, Object holder, Object multimapObj) {
+        try {
+            // 1. Get entries using reflection: Collection<Map.Entry<K, V>> entries()
+            Method entriesMethod = multimapObj.getClass().getMethod("entries");
+            Collection<?> entries = (Collection<?>) entriesMethod.invoke(multimapObj);
+
+            // 2. Create new ArrayListMultimap
+            Class<?> arrayListMultimapClass = Class.forName("com.google.common.collect.ArrayListMultimap");
+            Method createMethod = arrayListMultimapClass.getMethod("create");
+            Object newMultimap = createMethod.invoke(null);
+            Method putMethod = arrayListMultimapClass.getMethod("put", Object.class, Object.class);
+
+            int removed = 0;
+            for (Object entryObj : entries) {
+                Map.Entry<?, ?> entry = (Map.Entry<?, ?>) entryObj;
+                Object value = entry.getValue();
+
+                boolean remove = false;
+                if (value instanceof RecipeHolder<?> holderVal) {
+                    if (shouldRemove(holderVal)) remove = true;
+                }
+
+                if (!remove) {
+                    putMethod.invoke(newMultimap, entry.getKey(), entry.getValue());
                 } else {
-                     System.err.println("[Nameless Trinkets] RecipeGate: 'byType' field is not a Multimap as expected.");
+                    removed++;
                 }
-            } else {
-                System.err.println("[Nameless Trinkets] RecipeGate: Could not find 'byType' recipe map.");
             }
 
-            // Log results
-            if (!removedRecipes.isEmpty()) {
-                /*System.out.println("[Nameless Trinkets] RecipeGate: Disabled " + removedRecipes.size() + " recipes:");
-                for (ResourceLocation id : removedRecipes) {
-                    System.out.println(" - " + id);
-                }*/
-            } else {
-                System.out.println("[Nameless Trinkets] RecipeGate: No recipes found to disable.");
+            if (removed > 0) {
+                field.set(holder, newMultimap);
             }
+            return removed;
 
         } catch (Exception e) {
-            System.err.println("[Nameless Trinkets] RecipeGate: Error disabling recipes.");
             e.printStackTrace();
+            return 0;
         }
+    }
+
+    private static int cleanMapDirect(Field field, Object holder, Map<Object, RecipeHolder<?>> map) throws IllegalAccessException {
+        Map<Object, RecipeHolder<?>> mutable = new HashMap<>(map);
+        int removed = 0;
+
+        Iterator<Map.Entry<Object, RecipeHolder<?>>> it = mutable.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry<Object, RecipeHolder<?>> e = it.next();
+            if (shouldRemove(e.getValue())) {
+                it.remove();
+                removed++;
+            }
+        }
+
+        if (removed > 0) {
+            field.set(holder, mutable);
+        }
+        return removed;
+    }
+
+    private static int cleanMapOfLists(Field field, Object holder, Map<Object, List<RecipeHolder<?>>> map) throws IllegalAccessException {
+        Map<Object, List<RecipeHolder<?>>> mutable = new HashMap<>();
+        int removed = 0;
+
+        for (Map.Entry<Object, List<RecipeHolder<?>>> entry : map.entrySet()) {
+            List<RecipeHolder<?>> originalList = entry.getValue();
+            List<RecipeHolder<?>> mutableList = new ArrayList<>(originalList);
+            
+            int listRemoved = 0;
+            Iterator<RecipeHolder<?>> it = mutableList.iterator();
+            while (it.hasNext()) {
+                if (shouldRemove(it.next())) {
+                    it.remove();
+                    listRemoved++;
+                }
+            }
+            
+            if (listRemoved > 0) {
+                removed += listRemoved;
+            }
+            mutable.put(entry.getKey(), mutableList);
+        }
+
+        if (removed > 0) {
+            field.set(holder, mutable);
+        }
+        return removed;
     }
 
     private static boolean shouldRemove(RecipeHolder<?> holder) {
-        if (!NamelessTrinkets.MOD_ID.equals(holder.id().getNamespace())) {
-            return false;
+        ResourceLocation id = holder.id().location();
+        if (NamelessTrinkets.MOD_ID.equals(id.getNamespace())) {
+            return !EXEMPT_RECIPES.contains(id.getPath());
         }
-
-        ItemStack result = holder.value().getResultItem(null); // Registry access can be null for simple item checks usually
-        if (result.isEmpty()) return false;
-
-        // Check if it is one of the dusts
-        if (result.is(ModItems.DUBIOUS_DUST.get()) ||
-            result.is(ModItems.GLOWING_DUST.get()) ||
-            result.is(ModItems.ULTIMATE_DUST.get())) {
-            return true;
-        }
-
-        // Check if it is in the tag
-        return result.is(ModTags.NAMELESS_TRINKETS_TAG);
+        return false;
     }
 
-    private static Field findByNameField(RecipeManager rm) {
-        String[] candidates = {"byName", "recipes", "f_44007_"};
-        for (String name : candidates) {
-            try {
-                Field f = rm.getClass().getDeclaredField(name);
-                f.setAccessible(true);
-                return f;
-            } catch (Exception ignored) {}
-        }
-        
-        // Fallback scan
-        for (Field f : rm.getClass().getDeclaredFields()) {
+    private static Field getField(Class<?> clazz, String name) {
+        try {
+            Field f = clazz.getDeclaredField(name);
             f.setAccessible(true);
-            if (Map.class.isAssignableFrom(f.getType())) {
-                try {
-                    Object val = f.get(rm);
-                    if (val instanceof Map<?, ?> map && !map.isEmpty()) {
-                        Object key = map.keySet().iterator().next();
-                        if (key instanceof ResourceLocation) return f;
-                    }
-                } catch (Exception ignored) {}
-            }
+            return f;
+        } catch (NoSuchFieldException e) {
+            return null;
         }
-        return null;
-    }
-
-    private static Field findByTypeField(RecipeManager rm) {
-        String[] candidates = {"byType", "recipesByType", "f_44008_"};
-        for (String name : candidates) {
-            try {
-                Field f = rm.getClass().getDeclaredField(name);
-                f.setAccessible(true);
-                return f;
-            } catch (Exception ignored) {}
-        }
-        
-        // Fallback scan for Multimap
-        for (Field f : rm.getClass().getDeclaredFields()) {
-            f.setAccessible(true);
-            if (Multimap.class.isAssignableFrom(f.getType())) {
-                return f;
-            }
-        }
-        return null;
     }
 }
