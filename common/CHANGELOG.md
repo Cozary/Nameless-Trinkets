@@ -1,10 +1,9 @@
 # Changelog 1.21.4
 
-### Added
-
-- Rusian language
-
 ### Fixed
 
-- [Rage Mind] a server crash when an entity was damaged by a projectile. The game was incorrectly trying to identify the attacker, causing an error.
-- [Vampire Blood] an issue where zero-damage events would incorrectly trigger the effects of several trinkets (e.g., Wooden Stick, Resonant Heart, Sigil of Baphomet).
+- [Four Leaf Clover] Fixed an issue where player-kill loot (e.g. Blaze Rods) wouldn't drop and extra rolls were not randomized.
+- [Woundbearer] Fixed an issue where damage accumulation was not being saved correctly.
+- [Sigil of Baphomet] Fixed an issue where kill counts were not being tracked.
+- [Rage Mind] Fixed an issue where the revenge target was not being stored.
+- [Electric Paddle] Fixed an issue where the effect was applied when not equipped and deactivated when equipped.
