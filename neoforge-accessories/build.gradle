@@ -83,3 +83,21 @@ publishMods {
         requires("accessories")
     }
 }
+
+// Task to move generated resources to common module
+tasks.register('moveGeneratedResources', Copy) {
+    group = "floral-enchantment"
+    description = "Moves generated resources to common module, overwriting duplicates."
+    from 'src/generated/resources'
+    into rootProject.project(':common').file('src/main/resources')
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+
+    doLast {
+        file('src/generated/resources').deleteDir()
+    }
+}
+
+// Automatically run moveGeneratedResources after runData (Only works when running the Gradle task, not the IDE Run Config)
+tasks.named('runData') {
+    finalizedBy 'moveGeneratedResources'
+}
