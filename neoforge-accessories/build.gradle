@@ -86,7 +86,7 @@ publishMods {
 
 // Task to move generated resources to common module
 tasks.register('moveGeneratedResources', Copy) {
-    group = "nameless-trinkets"
+    group = mod_id
     description = "Moves generated resources to common module, overwriting duplicates."
     from 'src/generated/resources'
     into rootProject.project(':common').file('src/main/resources')
