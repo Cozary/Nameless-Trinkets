@@ -320,5 +320,12 @@
   "item.nameless_trinkets.dying_star": "Estrella Moribunda",
   "advancements.nameless_trinkets.dying_star.title": "Hambrienta",
   "advancements.nameless_trinkets.dying_star.description": "Obtén la Estrella Moribunda.",
-  "item.nameless_trinkets.trinket_bundle": "Trinket Bundle"
+  "item.nameless_trinkets.trinket_bundle": "Trinket Bundle",
+  "item.nameless_trinkets.gravity_anchor": "Ancla de Gravedad",
+  "tooltip.nameless_trinkets.gravity_anchor_lore": "Pesada como la tierra misma.",
+  "tooltip.nameless_trinkets.gravity_anchor_1": "%s resistencia al retroceso.",
+  "tooltip.nameless_trinkets.gravity_anchor_2": "Golpe Sísmico: Daño en área al aterrizar (multiplicador %s).",
+  "tooltip.nameless_trinkets.gravity_anchor_3": "%s velocidad de movimiento.",
+  "advancements.nameless_trinkets.gravity_anchor.title": "Con los pies en la tierra",
+  "advancements.nameless_trinkets.gravity_anchor.description": "Obtén el Ancla de Gravedad."
 }

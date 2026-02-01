@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "nameless_trinkets:ultimate_dust",
+    "minecraft:anvil",
+    "minecraft:iron_block",
+    "minecraft:iron_ingot"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:gravity_anchor"
+  }
+}

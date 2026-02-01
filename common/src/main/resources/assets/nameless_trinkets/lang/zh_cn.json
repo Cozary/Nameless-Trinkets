@@ -41,5 +41,12 @@
   "item.nameless_trinkets.mysterious_trinket": "神秘饰品",
   "item.nameless_trinkets.unknown_fragment": "不明碎片",
   "itemGroup.nameless_trinkets": "无名饰品",
-  "accessories.slot.trinket": "饰品"
+  "accessories.slot.trinket": "饰品",
+  "item.nameless_trinkets.gravity_anchor": "重力锚",
+  "tooltip.nameless_trinkets.gravity_anchor_lore": "如大地般沉重。",
+  "tooltip.nameless_trinkets.gravity_anchor_1": "%s 击退抗性。",
+  "tooltip.nameless_trinkets.gravity_anchor_2": "地震冲击：落地时造成范围伤害（倍率 %s）。",
+  "tooltip.nameless_trinkets.gravity_anchor_3": "%s 移动速度。",
+  "advancements.nameless_trinkets.gravity_anchor.title": "脚踏实地",
+  "advancements.nameless_trinkets.gravity_anchor.description": "获得重力锚。"
 }

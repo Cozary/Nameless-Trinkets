@@ -106,4 +106,6 @@ public interface IPlatformAbstractions {
     Item createDyingStarItem();
 
     Item createResonantHeartItem();
+
+    Item createGravityAnchorItem();
 }

@@ -322,5 +322,12 @@
   "item.nameless_trinkets.dying_star": "Steaua pe moarte",
   "advancements.nameless_trinkets.dying_star.title": "Foame",
   "advancements.nameless_trinkets.dying_star.description": "Obține Steaua pe moarte",
-  "item.nameless_trinkets.trinket_bundle": "Mănunchi de brelocuri"
+  "item.nameless_trinkets.trinket_bundle": "Mănunchi de brelocuri",
+  "item.nameless_trinkets.gravity_anchor": "Ancoră de Gravitație",
+  "tooltip.nameless_trinkets.gravity_anchor_lore": "Greu ca pământul însuși.",
+  "tooltip.nameless_trinkets.gravity_anchor_1": "%s rezistență la împingere.",
+  "tooltip.nameless_trinkets.gravity_anchor_2": "Lovitură seismică: Daune în zonă la aterizare (multiplicator %s).",
+  "tooltip.nameless_trinkets.gravity_anchor_3": "%s viteză de mers.",
+  "advancements.nameless_trinkets.gravity_anchor.title": "Cu picioarele pe pământ",
+  "advancements.nameless_trinkets.gravity_anchor.description": "Obține Ancora de Gravitație."
 }

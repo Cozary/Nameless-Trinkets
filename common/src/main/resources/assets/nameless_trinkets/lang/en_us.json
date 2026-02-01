@@ -320,5 +320,12 @@
   "item.nameless_trinkets.dying_star": "Dying Star",
   "advancements.nameless_trinkets.dying_star.title": "Hungry",
   "advancements.nameless_trinkets.dying_star.description": "Obtain the Dying Star",
-  "item.nameless_trinkets.trinket_bundle": "Trinket Bundle"
+  "item.nameless_trinkets.trinket_bundle": "Trinket Bundle",
+  "item.nameless_trinkets.gravity_anchor": "Gravity Anchor",
+  "tooltip.nameless_trinkets.gravity_anchor_lore": "Heavy as the earth itself.",
+  "tooltip.nameless_trinkets.gravity_anchor_1": "%s knockback resistance.",
+  "tooltip.nameless_trinkets.gravity_anchor_2": "Seismic Slam: AOE damage on landing (%s multiplier).",
+  "tooltip.nameless_trinkets.gravity_anchor_3": "%s movement speed.",
+  "advancements.nameless_trinkets.gravity_anchor.title": "Grounded",
+  "advancements.nameless_trinkets.gravity_anchor.description": "Obtain the Gravity Anchor."
 }

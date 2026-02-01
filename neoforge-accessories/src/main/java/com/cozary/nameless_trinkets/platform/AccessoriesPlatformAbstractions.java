@@ -267,4 +267,9 @@ public class AccessoriesPlatformAbstractions implements IPlatformAbstractions {
     public Item createResonantHeartItem() {
         return new ResonantHeart();
     }
+
+    @Override
+    public Item createGravityAnchorItem() {
+        return new GravityAnchor();
+    }
 }

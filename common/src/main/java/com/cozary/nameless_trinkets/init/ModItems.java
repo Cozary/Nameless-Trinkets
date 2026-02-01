@@ -71,6 +71,7 @@ public class ModItems {
     public static final RegistryObject<Item> WOUNDBEARER = registerWithTab("woundbearer", PlatformAbstractions::createWoundbearerItem);
     public static final RegistryObject<Item> DYING_STAR = registerWithTab("dying_star", PlatformAbstractions::createDyingStarItem);
     public static final RegistryObject<Item> RESONANT_HEART = registerWithTab("resonant_heart", PlatformAbstractions::createResonantHeartItem);
+    public static final RegistryObject<Item> GRAVITY_ANCHOR = registerWithTab("gravity_anchor", PlatformAbstractions::createGravityAnchorItem);
 
     public static final RegistryObject<Item> TRINKET_BUNDLE = registerWithTab("trinket_bundle", TrinketBundle::new);
 
