@@ -15,7 +15,7 @@ public class ExperienceBatteryEvents {
     public static void handleExperienceDrop(LivingExperienceDropEvent event) {
         Player player = event.getAttackingPlayer();
 
-        if (player == null) {
+        if (player == null || event.getEntity() == null) {
             return;
         }
 
