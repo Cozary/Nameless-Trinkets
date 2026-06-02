@@ -8,12 +8,13 @@ import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 
 @EventBusSubscriber(modid = NamelessTrinkets.MOD_ID)
 public class BlazeNucleusEvents {
 
     @SubscribeEvent
-    public static void setFireEntity(LivingDamageEvent.Pre event) {
+    public static void setFireEntity(LivingIncomingDamageEvent event) {
         Entity src = event.getSource().getEntity();
         Entity target = event.getEntity();
 
@@ -25,8 +26,8 @@ public class BlazeNucleusEvents {
         if (stack.isEmpty())
             return;
 
-        float modified = BlazeNucleusHandler.onAttackerHit(src, target, event.getOriginalDamage());
-        event.setNewDamage(modified);
+        float modified = BlazeNucleusHandler.onAttackerHit(src, target, event.getAmount());
+        event.setAmount(modified);
     }
 
     @SubscribeEvent
