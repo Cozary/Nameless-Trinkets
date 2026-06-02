@@ -44,7 +44,10 @@ public class NamelessTrinketsFabric implements ModInitializer {
             RecipeGate.apply(server);
         });
         ServerLifecycleEvents.END_DATA_PACK_RELOAD.register((server, resourceManager, success) -> {
-            if (success) RecipeGate.apply(server);
+            if (success) {
+                CommonConfigManager.loadConfig();
+                RecipeGate.apply(server);
+            }
         });
     }
 
