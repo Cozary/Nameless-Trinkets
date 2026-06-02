@@ -20,6 +20,7 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.scores.PlayerTeam;
 import net.minecraft.world.scores.Scoreboard;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RageMind extends RageMindBase implements Accessory {
@@ -29,63 +30,79 @@ public class RageMind extends RageMindBase implements Accessory {
         AccessoryRegistry.register(this, this);
     }
 
+    private String getTeamName(Player player) {
+        return "nt_rage_" + player.getStringUUID().substring(0, 8);
+    }
+
     @SuppressWarnings("unchecked")
     @Override
     public void tick(ItemStack stack, SlotReference reference) {
         Stats config = RageMindBase.INSTANCE.getTrinketConfig();
 
-        if (!config.isEnable)
+        if (!config.isEnable || !(reference.entity() instanceof Player player) || player.level().isClientSide) {
             return;
-
-        if (!(reference.entity() instanceof Player player))
-            return;
-
-        if (player.level().isClientSide())
-            return;
+        }
 
         Scoreboard scoreboard = player.getScoreboard();
-        PlayerTeam playerTeam = scoreboard.getPlayerTeam("rageMindRevengeTargets");
+        String teamName = getTeamName(player);
+        PlayerTeam playerTeam = scoreboard.getPlayerTeam(teamName);
 
-        // Clear existing targets from the team to avoid bloat
-        if (playerTeam != null) {
-            for (String member : List.copyOf(playerTeam.getPlayers())) {
-                scoreboard.removePlayerFromTeam(member, playerTeam);
+        List<? extends LivingEntity> foundTargets = new ArrayList<>();
+        String revengeTarget = stack.get(ModDataComponents.RAGE_MIND_REVENGE_TARGET.get());
+
+        if (revengeTarget != null) {
+            ResourceLocation resourceLocation = ResourceLocation.parse(revengeTarget);
+            EntityType<?> entityType = BuiltInRegistries.ENTITY_TYPE.get(resourceLocation).get().value();
+            Entity dummyEntity = entityType.create(player.level(), EntitySpawnReason.SPAWN_ITEM_USE);
+
+            if (dummyEntity instanceof LivingEntity) {
+                Class<? extends LivingEntity> classEntity = (Class<? extends LivingEntity>) dummyEntity.getClass();
+                AABB targetBox = new AABB(player.position(), player.position()).inflate(config.range);
+                foundTargets = player.level().getEntitiesOfClass(classEntity, targetBox);
             }
         }
 
-        if (stack.get(ModDataComponents.RAGE_MIND_REVENGE_TARGET.get()) != null) {
-
-            String entityString = stack.get(ModDataComponents.RAGE_MIND_REVENGE_TARGET.get());
-            ResourceLocation resourceLocation = ResourceLocation.parse(entityString);
-
-            EntityType<?> entityType = BuiltInRegistries.ENTITY_TYPE.get(resourceLocation).get().value();
-
-            Entity entity = entityType.create(player.level(), EntitySpawnReason.SPAWN_ITEM_USE);
-
-            if (entity == null) {
-                return;
+        if (foundTargets.isEmpty()) {
+            if (playerTeam != null) {
+                scoreboard.removePlayerTeam(playerTeam);
             }
+            return;
+        }
 
-            Class<? extends LivingEntity> classEntity = (Class<? extends LivingEntity>) entity.getClass();
+        if (playerTeam == null) {
+            playerTeam = scoreboard.addPlayerTeam(teamName);
+            playerTeam.setColor(ChatFormatting.DARK_RED);
+        }
 
-            AABB targetBox = new AABB(player.position(), player.position()).inflate(config.range);
+        List<String> validTargetUUIDs = foundTargets.stream().map(Entity::getStringUUID).toList();
+        List<String> currentMembers = List.copyOf(playerTeam.getPlayers());
 
-            List<LivingEntity> foundTarget = (List<LivingEntity>) player.level().getEntitiesOfClass(classEntity, targetBox);
-
-            if (!foundTarget.isEmpty()) {
-                if (playerTeam == null) {
-                    playerTeam = scoreboard.addPlayerTeam("rageMindRevengeTargets");
-                    playerTeam.setColor(ChatFormatting.DARK_RED);
-                }
-
-                for (LivingEntity revengeTarget : foundTarget) {
-                    MobEffectInstance effectinstance = new MobEffectInstance(MobEffects.GLOWING, 20, 20);
-
-                    scoreboard.addPlayerToTeam(revengeTarget.getStringUUID(), playerTeam);
-
-                    revengeTarget.addEffect(effectinstance);
-                }
+        for (String memberUUID : currentMembers) {
+            if (!validTargetUUIDs.contains(memberUUID)) {
+                scoreboard.removePlayerFromTeam(memberUUID, playerTeam);
             }
+        }
+
+        for (LivingEntity target : foundTargets) {
+            if (!currentMembers.contains(target.getStringUUID())) {
+                scoreboard.addPlayerToTeam(target.getStringUUID(), playerTeam);
+            }
+            target.addEffect(new MobEffectInstance(MobEffects.GLOWING, 40, 0, false, false));
+        }
+    }
+
+    @Override
+    public void onUnequip(ItemStack stack, SlotReference reference) {
+        if (!(reference.entity() instanceof Player player) || player.level().isClientSide) {
+            return;
+        }
+
+        Scoreboard scoreboard = player.getScoreboard();
+        String teamName = getTeamName(player);
+        PlayerTeam playerTeam = scoreboard.getPlayerTeam(teamName);
+
+        if (playerTeam != null) {
+            scoreboard.removePlayerTeam(playerTeam);
         }
     }
 
