@@ -7,13 +7,13 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 
 @EventBusSubscriber(modid = NamelessTrinkets.MOD_ID)
 public class CallusEvents {
 
     @SubscribeEvent
-    public static void applyCallusDamageReduction(LivingDamageEvent.Pre event) {
+    public static void applyCallusDamageReduction(LivingIncomingDamageEvent event) {
         if (!(event.getEntity() instanceof Player player))
             return;
 
@@ -23,9 +23,9 @@ public class CallusEvents {
             return;
 
         DamageSource damageSource = event.getSource();
-        float originalDamage = event.getNewDamage();
+        float originalDamage = event.getAmount();
         float newDamage = CallusHandler.onPlayerHurt(damageSource, originalDamage);
 
-        event.setNewDamage(newDamage);
+        event.setAmount(newDamage);
     }
 }

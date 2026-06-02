@@ -6,13 +6,13 @@ import com.cozary.nameless_trinkets.util.TrinketUtils;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 
 @EventBusSubscriber(modid = NamelessTrinkets.MOD_ID)
 public class ExplosionProofJacketEvents {
 
     @SubscribeEvent
-    public static void handleExplosionDamageReduction(LivingDamageEvent.Pre event) {
+    public static void handleExplosionDamageReduction(LivingIncomingDamageEvent event) {
 
         if (!(event.getEntity() instanceof Player player))
             return;
@@ -22,7 +22,8 @@ public class ExplosionProofJacketEvents {
         if (stack.isEmpty())
             return;
 
-        ExplosionProofJacketHandler.handleExplosionDamageReduction(player, event.getSource(), event.getOriginalDamage());
+        float newDamage = ExplosionProofJacketHandler.handleExplosionDamageReduction(player, event.getSource(), event.getAmount());
+        event.setAmount(newDamage);
     }
 
 }
