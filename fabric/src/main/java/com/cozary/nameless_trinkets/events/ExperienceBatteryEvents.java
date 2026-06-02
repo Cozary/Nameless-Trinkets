@@ -11,6 +11,7 @@ public class ExperienceBatteryEvents {
 
     public static void register() {
         ModEvents.ExperienceDropModifierCallback.EVENT.register((entity, livingEntity) -> {
+            if (livingEntity == null) return;
             if (entity instanceof Player player) {
                 if (livingEntity.level() instanceof ServerLevel serverLevel) {
                     int originalExperience = livingEntity.getExperienceReward(serverLevel, player);
