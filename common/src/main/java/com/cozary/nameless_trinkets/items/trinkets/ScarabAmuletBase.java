@@ -32,7 +32,6 @@ public class ScarabAmuletBase extends TrinketItem<ScarabAmuletBase.Stats> {
             if (Screen.hasShiftDown()) {
                 tooltip.add(Component.translatable("tooltip.nameless_trinkets.scarab_amulet_1", config.speedMultiplierPercentage + "%").withStyle(ChatFormatting.GOLD));
                 tooltip.add(Component.translatable("tooltip.nameless_trinkets.scarab_amulet_2").withStyle(ChatFormatting.GOLD));
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.scarab_amulet_3").withStyle(ChatFormatting.GRAY));
             } else {
                 tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
                 tooltip.add(Component.translatable(ChatFormatting.GRAY + "Suggested By: AzrouStone"));
