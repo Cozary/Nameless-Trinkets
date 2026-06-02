@@ -12,6 +12,7 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.OnDatapackSyncEvent;
 import net.neoforged.neoforge.event.server.ServerStartedEvent;
 
 @Mod(NamelessTrinkets.MOD_ID)
@@ -37,5 +38,11 @@ public class NamelessTrinketsNeoForgeCurios {
     @SubscribeEvent
     public void onServerStarted(ServerStartedEvent event) {
         RecipeGate.apply(event.getServer());
+    }
+
+    @SubscribeEvent
+    public void onDatapackSync(OnDatapackSyncEvent event) {
+        CommonConfigManager.loadConfig();
+        RecipeGate.apply(event.getPlayerList().getServer());
     }
 }
