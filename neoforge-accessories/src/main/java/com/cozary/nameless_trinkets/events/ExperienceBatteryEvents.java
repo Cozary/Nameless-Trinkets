@@ -15,6 +15,10 @@ public class ExperienceBatteryEvents {
     public static void handleExperienceDrop(LivingExperienceDropEvent event) {
         Player player = event.getAttackingPlayer();
 
+        if (player == null) {
+            return;
+        }
+
         var stack = TrinketUtils.getEquippedTrinket(player, ModItems.EXPERIENCE_BATTERY.get());
 
         if (stack.isEmpty())
