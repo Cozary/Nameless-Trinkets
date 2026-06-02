@@ -45,20 +45,30 @@ public class DragonsEye extends DragonsEyeBase implements Accessory {
             player.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 120, 1));
         }
 
-        Level world = player.level();
-        List<Mob> entities = world.getEntitiesOfClass(Mob.class, player.getBoundingBox().inflate(config.radius));
         Scoreboard scoreboard = player.getScoreboard();
-
         PlayerTeam playerTeam = scoreboard.getPlayerTeam("dragonsEyeTargets");
-        if (playerTeam == null) {
-            playerTeam = scoreboard.addPlayerTeam("dragonsEyeTargets");
-            playerTeam.setColor(ChatFormatting.LIGHT_PURPLE);
+
+        // Clear existing targets from the team to avoid bloat
+        if (playerTeam != null) {
+            for (String member : List.copyOf(playerTeam.getPlayers())) {
+                scoreboard.removePlayerFromTeam(member, playerTeam);
+            }
         }
 
-        for (Mob entity : entities) {
-            if (entity.shouldDespawnInPeaceful() || entity.getSoundSource() == SoundSource.HOSTILE || entity.isAggressive()) {
-                entity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 20, 30));
-                scoreboard.addPlayerToTeam(entity.getStringUUID(), playerTeam);
+        Level world = player.level();
+        List<Mob> entities = world.getEntitiesOfClass(Mob.class, player.getBoundingBox().inflate(config.radius));
+
+        if (!entities.isEmpty()) {
+            if (playerTeam == null) {
+                playerTeam = scoreboard.addPlayerTeam("dragonsEyeTargets");
+                playerTeam.setColor(ChatFormatting.LIGHT_PURPLE);
+            }
+
+            for (Mob entity : entities) {
+                if (entity.shouldDespawnInPeaceful() || entity.getSoundSource() == SoundSource.HOSTILE || entity.isAggressive()) {
+                    entity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 20, 30));
+                    scoreboard.addPlayerToTeam(entity.getStringUUID(), playerTeam);
+                }
             }
         }
     }
