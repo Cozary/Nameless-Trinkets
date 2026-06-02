@@ -30,7 +30,6 @@ public class SpeedForceBase extends TrinketItem<SpeedForceBase.Stats> {
             tooltip.accept(Component.translatable("tooltip.nameless_trinkets.speed_force_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
             if (Minecraft.getInstance().hasShiftDown()) {
                 tooltip.accept(Component.translatable("tooltip.nameless_trinkets.speed_force_1", config.speedMultiplierPercentage + "%").withStyle(ChatFormatting.GOLD));
-                tooltip.accept(Component.translatable("tooltip.nameless_trinkets.speed_force_2").withStyle(ChatFormatting.GOLD));
             } else {
                 tooltip.accept(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
             }

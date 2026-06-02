@@ -33,7 +33,6 @@ public class ScarabAmuletBase extends TrinketItem<ScarabAmuletBase.Stats> {
             if (Minecraft.getInstance().hasShiftDown()) {
                 tooltip.accept(Component.translatable("tooltip.nameless_trinkets.scarab_amulet_1", config.speedMultiplierPercentage + "%").withStyle(ChatFormatting.GOLD));
                 tooltip.accept(Component.translatable("tooltip.nameless_trinkets.scarab_amulet_2").withStyle(ChatFormatting.GOLD));
-                tooltip.accept(Component.translatable("tooltip.nameless_trinkets.scarab_amulet_3").withStyle(ChatFormatting.GRAY));
             } else {
                 tooltip.accept(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
                 tooltip.accept(Component.translatable(ChatFormatting.GRAY + "Suggested By: AzrouStone"));
