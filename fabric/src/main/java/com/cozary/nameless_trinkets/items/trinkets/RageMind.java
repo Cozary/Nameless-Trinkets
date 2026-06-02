@@ -43,6 +43,16 @@ public class RageMind extends RageMindBase implements Accessory {
         if (player.level().isClientSide())
             return;
 
+        Scoreboard scoreboard = player.getScoreboard();
+        PlayerTeam playerTeam = scoreboard.getPlayerTeam("rageMindRevengeTargets");
+
+        // Clear existing targets from the team to avoid bloat
+        if (playerTeam != null) {
+            for (String member : List.copyOf(playerTeam.getPlayers())) {
+                scoreboard.removePlayerFromTeam(member, playerTeam);
+            }
+        }
+
         if (stack.get(ModDataComponents.RAGE_MIND_REVENGE_TARGET.get()) != null) {
 
             String entityString = stack.get(ModDataComponents.RAGE_MIND_REVENGE_TARGET.get());
@@ -62,24 +72,18 @@ public class RageMind extends RageMindBase implements Accessory {
 
             List<LivingEntity> foundTarget = (List<LivingEntity>) player.level().getEntitiesOfClass(classEntity, targetBox);
 
-            Scoreboard scoreboard = player.level().getScoreboard();
-
-            PlayerTeam playerTeam = scoreboard.getPlayerTeam("rageMindRevengeTargets");
-            if (playerTeam == null) {
-                playerTeam = scoreboard.addPlayerTeam("rageMindRevengeTargets");
-                playerTeam.setColor(ChatFormatting.DARK_RED);
-            }
-
             if (!foundTarget.isEmpty()) {
-                for (Entity revengeTarget : foundTarget) {
-                    if (revengeTarget instanceof LivingEntity livingRevengeTarget) {
+                if (playerTeam == null) {
+                    playerTeam = scoreboard.addPlayerTeam("rageMindRevengeTargets");
+                    playerTeam.setColor(ChatFormatting.DARK_RED);
+                }
 
-                        MobEffectInstance effectinstance = new MobEffectInstance(MobEffects.GLOWING, 20, 20);
+                for (LivingEntity revengeTarget : foundTarget) {
+                    MobEffectInstance effectinstance = new MobEffectInstance(MobEffects.GLOWING, 20, 20);
 
-                        scoreboard.addPlayerToTeam(entity.getStringUUID(), playerTeam);
+                    scoreboard.addPlayerToTeam(revengeTarget.getStringUUID(), playerTeam);
 
-                        livingRevengeTarget.addEffect(effectinstance);
-                    }
+                    revengeTarget.addEffect(effectinstance);
                 }
             }
         }
