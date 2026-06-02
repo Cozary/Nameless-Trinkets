@@ -108,10 +108,12 @@ public class TrinketConfigs {
     }
 
     private static Path getBackupPath(Path sourcePath) {
-        return getRootPath()
+        Path backupDir = getRootPath()
                 .resolve("backups")
-                .resolve(new SimpleDateFormat("yyyy.MM.dd-HH.mm.ss").format(getLaunchStartDate()))
-                .resolve(getRootPath().relativize(sourcePath).getParent());
+                .resolve(new SimpleDateFormat("yyyy.MM.dd-HH.mm.ss").format(getLaunchStartDate()));
+
+        Path relativeParent = getRootPath().relativize(sourcePath).getParent();
+        return relativeParent != null ? backupDir.resolve(relativeParent) : backupDir;
     }
 
     private static void logError(Exception e, String message) {
@@ -119,4 +121,3 @@ public class TrinketConfigs {
         e.printStackTrace();
     }
 }
-
