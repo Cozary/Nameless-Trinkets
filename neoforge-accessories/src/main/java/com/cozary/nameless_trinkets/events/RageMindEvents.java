@@ -7,7 +7,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 
 @EventBusSubscriber(modid = NamelessTrinkets.MOD_ID)
@@ -29,7 +28,7 @@ public class RageMindEvents {
     }
 
     @SubscribeEvent
-    public static void dealDamage(LivingDamageEvent.Pre event) {
+    public static void dealDamage(LivingIncomingDamageEvent event) {
 
         if (event.getSource().getEntity() instanceof Player player) {
 
@@ -38,7 +37,8 @@ public class RageMindEvents {
             if (stack.isEmpty())
                 return;
 
-            RageMindHandler.dealDamage(player, event.getEntity(), event.getOriginalDamage(), stack.getFirst().stack());
+            float newDamage = RageMindHandler.dealDamage(player, event.getEntity(), event.getAmount(), stack.getFirst().stack());
+            event.setAmount(newDamage);
         }
     }
 
