@@ -29,7 +29,6 @@ public class SpeedForceBase extends TrinketItem<SpeedForceBase.Stats> {
             tooltip.add(Component.translatable("tooltip.nameless_trinkets.speed_force_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
             if (Screen.hasShiftDown()) {
                 tooltip.add(Component.translatable("tooltip.nameless_trinkets.speed_force_1", config.speedMultiplierPercentage + "%").withStyle(ChatFormatting.GOLD));
-                tooltip.add(Component.translatable("tooltip.nameless_trinkets.speed_force_2").withStyle(ChatFormatting.GOLD));
             } else {
                 tooltip.add(Component.translatable("tooltip.nameless_trinkets.hold_shift"));
             }
