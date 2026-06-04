@@ -9,6 +9,9 @@ import top.theillusivec4.curios.api.SlotResult;
 public class TrinketUtils {
 
     public static ItemStack getEquippedTrinket(Player player, Item item) {
+        if (player == null) {
+            return ItemStack.EMPTY;
+        }
         return CuriosApi.getCuriosInventory(player).map(handler ->
                 handler.findCurios(item).stream()
                         .findFirst()
