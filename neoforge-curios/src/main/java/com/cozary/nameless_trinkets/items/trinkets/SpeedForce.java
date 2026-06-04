@@ -38,6 +38,8 @@ public class SpeedForce extends SpeedForceBase implements ICurioItem {
             return;
 
         LivingEntity livingEntity = slotContext.entity();
+        if (livingEntity.level().isClientSide())
+            return;
 
 
         if (!livingEntity.level().isClientSide && !stack.isEmpty() && config.speedForceParticles) {

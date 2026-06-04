@@ -39,6 +39,8 @@ public class TearOfTheSea extends TearOfTheSeaBase implements Accessory {
             return;
 
         LivingEntity livingEntity = reference.entity();
+        if (livingEntity.level().isClientSide())
+            return;
 
 
         AttributeInstance attribSpeed = livingEntity.getAttribute(Attributes.WATER_MOVEMENT_EFFICIENCY);
