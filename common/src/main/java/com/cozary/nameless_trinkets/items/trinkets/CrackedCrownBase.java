@@ -7,7 +7,7 @@ import com.cozary.nameless_trinkets.utils.CommonUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -100,7 +100,7 @@ public class CrackedCrownBase extends TrinketItem<CrackedCrownBase.Stats> {
             for (String key : entry.getValue()) {
                 AttributeInstance attribute = getAttribute(livingEntity, key);
                 if (attribute != null) {
-                    ResourceLocation modifierData = ResourceLocation.fromNamespaceAndPath(entry.getKey(), key);
+                    Identifier modifierData = Identifier.fromNamespaceAndPath(entry.getKey(), key);
                     AttributeModifier modifier = createAttributeModifier(modifierData, config, key);
                     CommonUtils.applyAttributeModifier(attribute, modifier);
                 }
@@ -128,7 +128,7 @@ public class CrackedCrownBase extends TrinketItem<CrackedCrownBase.Stats> {
         };
     }
 
-    protected AttributeModifier createAttributeModifier(ResourceLocation modifierData, Stats config, String key) {
+    protected AttributeModifier createAttributeModifier(Identifier modifierData, Stats config, String key) {
         double percentage = getPercentageForKey(config, key);
         return new AttributeModifier(modifierData,
                 percentage / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
@@ -159,7 +159,7 @@ public class CrackedCrownBase extends TrinketItem<CrackedCrownBase.Stats> {
             for (String key : entry.getValue()) {
                 AttributeInstance attribute = getAttribute(wearer, key);
                 if (attribute != null) {
-                    ResourceLocation modifierData = ResourceLocation.fromNamespaceAndPath(entry.getKey(), key);
+                    Identifier modifierData = Identifier.fromNamespaceAndPath(entry.getKey(), key);
                     AttributeModifier modifier = createAttributeModifier(modifierData, config, key);
                     CommonUtils.removeAttributeModifier(attribute, modifier);
                 }

@@ -2,7 +2,7 @@ package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.utils.CommonUtils;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
@@ -41,7 +41,7 @@ public class TitansMark extends TitansMarkBase implements ICurioItem {
 
         AttributeInstance attribScale = livingEntity.getAttribute(Attributes.SCALE);
         AttributeModifier scaleModifier = new AttributeModifier(
-                ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "titans_mark_scale"),
+                Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "titans_mark_scale"),
                 config.extraScalePercentage / 100,
                 AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
 
@@ -50,7 +50,7 @@ public class TitansMark extends TitansMarkBase implements ICurioItem {
 
         AttributeInstance attribAttackDamage = livingEntity.getAttribute(Attributes.ATTACK_DAMAGE);
         AttributeModifier attackDamageModifier = new AttributeModifier(
-                ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "titans_mark_attack_damage"),
+                Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "titans_mark_attack_damage"),
                 config.attackDamagePercentage / 100,
                 AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
 
@@ -64,13 +64,13 @@ public class TitansMark extends TitansMarkBase implements ICurioItem {
 
         CommonUtils.removeAttributeModifier(Objects.requireNonNull(livingEntity.getAttribute(Attributes.SCALE)),
                 new AttributeModifier(
-                        ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "titans_mark_scale"),
+                        Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "titans_mark_scale"),
                         trinketConfig.extraScalePercentage / 100,
                         AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
 
         CommonUtils.removeAttributeModifier(Objects.requireNonNull(livingEntity.getAttribute(Attributes.ATTACK_DAMAGE)),
                 new AttributeModifier(
-                        ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "titans_mark_attack_damage"),
+                        Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "titans_mark_attack_damage"),
                         trinketConfig.attackDamagePercentage / 100,
                         AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
     }

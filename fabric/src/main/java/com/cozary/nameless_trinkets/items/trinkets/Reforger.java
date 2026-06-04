@@ -1,26 +1,25 @@
 package com.cozary.nameless_trinkets.items.trinkets;
+import net.minecraft.world.entity.LivingEntity;
+import dev.emi.trinkets.api.Trinket;
+import dev.emi.trinkets.api.SlotReference;
 
-import io.wispforest.accessories.api.core.Accessory;
-import io.wispforest.accessories.api.core.AccessoryRegistry;
-import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
-public class Reforger extends ReforgerBase implements Accessory {
+public class Reforger extends ReforgerBase implements Trinket {
 
     public Reforger() {
         super();
-        AccessoryRegistry.register(this, this);
-    }
+        }
 
     @Override
-    public void tick(ItemStack stack, SlotReference reference) {
+    public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
         Stats config = ReforgerBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return;
 
-        if (!(reference.entity() instanceof Player player))
+        if (!(entity instanceof Player player))
             return;
 
         if (!player.isSpectator()) {
@@ -38,14 +37,8 @@ public class Reforger extends ReforgerBase implements Accessory {
     }
 
 
-    @Override
-    public boolean canEquipFromUse(ItemStack stack, SlotReference reference) {
-        return true;
-    }
+    
 
-    @Override
-    public void onEquipFromUse(ItemStack stack, SlotReference reference) {
-        reference.entity().playSound(SoundEvents.ARMOR_EQUIP_ELYTRA.value(), 1.0F, 1.0F);
-    }
+    
 
 }

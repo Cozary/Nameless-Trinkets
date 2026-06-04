@@ -2,7 +2,7 @@ package com.cozary.nameless_trinkets.recipe;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.config.common.CommonConfigManager;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
@@ -12,12 +12,13 @@ import java.lang.reflect.Method;
 import java.util.*;
 
 public final class RecipeGate {
-    private RecipeGate() {}
-
     private static final List<String> EXEMPT_RECIPES = List.of(
             "mysterious_trinket",
             "trinket_bundle"
     );
+
+    private RecipeGate() {
+    }
 
     public static void apply(MinecraftServer server) {
         boolean craftingEnabled = CommonConfigManager.getConfig().isEnableTrinketCrafting();
@@ -158,7 +159,7 @@ public final class RecipeGate {
         for (Map.Entry<Object, List<RecipeHolder<?>>> entry : map.entrySet()) {
             List<RecipeHolder<?>> originalList = entry.getValue();
             List<RecipeHolder<?>> mutableList = new ArrayList<>(originalList);
-            
+
             int listRemoved = 0;
             Iterator<RecipeHolder<?>> it = mutableList.iterator();
             while (it.hasNext()) {
@@ -167,7 +168,7 @@ public final class RecipeGate {
                     listRemoved++;
                 }
             }
-            
+
             if (listRemoved > 0) {
                 removed += listRemoved;
             }
@@ -181,7 +182,7 @@ public final class RecipeGate {
     }
 
     private static boolean shouldRemove(RecipeHolder<?> holder) {
-        ResourceLocation id = holder.id().location();
+        Identifier id = holder.id().identifier();
         if (NamelessTrinkets.MOD_ID.equals(id.getNamespace())) {
             return !EXEMPT_RECIPES.contains(id.getPath());
         }

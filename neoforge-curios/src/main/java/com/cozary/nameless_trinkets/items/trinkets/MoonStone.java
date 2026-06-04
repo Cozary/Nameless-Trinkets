@@ -2,7 +2,7 @@ package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.utils.CommonUtils;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
@@ -40,7 +40,7 @@ public class MoonStone extends MoonStoneBase implements ICurioItem {
             return;
 
         AttributeInstance attribSpeed = livingEntity.getAttribute(Attributes.GRAVITY);
-        AttributeModifier speedModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "moon_stone_gravity"),
+        AttributeModifier speedModifier = new AttributeModifier(Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "moon_stone_gravity"),
                 config.gravityValue, AttributeModifier.Operation.ADD_VALUE);
 
         assert attribSpeed != null;
@@ -50,7 +50,7 @@ public class MoonStone extends MoonStoneBase implements ICurioItem {
     @Override
     public void onUnequip(SlotContext slotContext, ItemStack pstack, ItemStack stack) {
         CommonUtils.removeAttributeModifier(Objects.requireNonNull(slotContext.entity().getAttribute(Attributes.GRAVITY)),
-                new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "moon_stone_gravity"),
+                new AttributeModifier(Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "moon_stone_gravity"),
                         trinketConfig.gravityValue, AttributeModifier.Operation.ADD_VALUE));
     }
 

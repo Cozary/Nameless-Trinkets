@@ -188,8 +188,8 @@
   "tooltip.nameless_trinkets.four_leaf_clover_1": "You get %1$s times more loot from entities.",
   "tooltip.nameless_trinkets.isDisabled": "This trinket is disabled.",
   "itemGroup.nameless_trinkets": "Nameless Trinkets",
-  "accessories.slot_group.nameless_trinkets:trinket": "Trinket",
-  "accessories.slot.trinket": "Trinket",
+  "trinkets.slot_group.trinket": "Trinket",
+  "trinkets.slot.trinket.trinket": "Trinket",
   "tag.item.nameless_trinkets.nameless_trinkets_tag": "Nameless Trinkets Tag",
   "tag.item.nameless_trinkets.recyclable_trinkets_tag": "Recyclable Nameless Trinkets Tag",
   "advancements.nameless_trinkets.unknown_fragment.title": "Let's Reroll!",
@@ -320,5 +320,8 @@
   "item.nameless_trinkets.dying_star": "Dying Star",
   "advancements.nameless_trinkets.dying_star.title": "Hungry",
   "advancements.nameless_trinkets.dying_star.description": "Obtain the Dying Star",
-  "item.nameless_trinkets.trinket_bundle": "Trinket Bundle"
+  "item.nameless_trinkets.trinket_bundle": "Trinket Bundle",
+  "trinkets.group.trinket": "Trinkets",
+  "trinkets.slot.trinket.trinket": "Trinket",
+  "trinkets.slot.chest.charm": "Charm"
 }

@@ -2,7 +2,7 @@ package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.utils.CommonUtils;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
@@ -38,7 +38,7 @@ public class TearOfTheSea extends TearOfTheSeaBase implements ICurioItem {
 
 
         AttributeInstance attribSpeed = livingEntity.getAttribute(Attributes.WATER_MOVEMENT_EFFICIENCY);
-        AttributeModifier speedModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "tear_of_the_sea_swim_speed"),
+        AttributeModifier speedModifier = new AttributeModifier(Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "tear_of_the_sea_swim_speed"),
                 config.swimSpeedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_VALUE);
 
         assert attribSpeed != null;
@@ -49,7 +49,7 @@ public class TearOfTheSea extends TearOfTheSeaBase implements ICurioItem {
     @Override
     public void onUnequip(SlotContext slotContext, ItemStack pstack, ItemStack stack) {
         CommonUtils.removeAttributeModifier(Objects.requireNonNull(slotContext.entity().getAttribute(Attributes.WATER_MOVEMENT_EFFICIENCY)),
-                new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "tear_of_the_sea_swim_speed"),
+                new AttributeModifier(Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "tear_of_the_sea_swim_speed"),
                         trinketConfig.swimSpeedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_VALUE));
     }
 

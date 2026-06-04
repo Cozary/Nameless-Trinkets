@@ -7,7 +7,9 @@ import com.cozary.nameless_trinkets.events.*;
 import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.lootTables.LootTableHandler;
 import com.cozary.nameless_trinkets.recipe.RecipeGate;
-import com.cozary.nameless_trinkets.util.RemoveRendering;
+import dev.emi.trinkets.api.Trinket;
+import dev.emi.trinkets.api.TrinketsApi;
+
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
@@ -16,14 +18,14 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 
 
 public class NamelessTrinketsFabric implements ModInitializer {
 
-    private static final ResourceKey<CreativeModeTab> ITEM_GROUP = ResourceKey.create(Registries.CREATIVE_MODE_TAB, ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "nameless_trinkets"));
+    private static final ResourceKey<CreativeModeTab> ITEM_GROUP = ResourceKey.create(Registries.CREATIVE_MODE_TAB, Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "nameless_trinkets"));
 
     @Override
     public void onInitialize() {
@@ -32,12 +34,19 @@ public class NamelessTrinketsFabric implements ModInitializer {
         eventLoad();
         itemGroupLoad();
 
+        for (var itemObj : ModItems.CREATIVE_TAB_ITEMS) {
+            net.minecraft.world.item.Item item = itemObj.get();
+            if (item instanceof Trinket trinket) {
+                TrinketsApi.registerTrinket(item, trinket);
+            }
+        }
+
         LootTableHandler.modifyLootTable();
 
         TrinketConfigs.loadClass();
         TrinketLootConfigsManager.loadConfigs();
         CommonConfigManager.loadConfig();
-        RemoveRendering.noRenderingList();
+
 
         // Applies recipe gating on server start + after /reload
         ServerLifecycleEvents.SERVER_STARTED.register(server -> {

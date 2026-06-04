@@ -2,7 +2,7 @@ package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.utils.CommonUtils;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.LivingEntity;
@@ -41,7 +41,7 @@ public class ScarabAmulet extends ScarabAmuletBase implements ICurioItem {
             return;
 
         AttributeInstance attribSpeed = livingEntity.getAttribute(Attributes.MOVEMENT_SPEED);
-        AttributeModifier speedModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "scarab_amulet_movement_speed"),
+        AttributeModifier speedModifier = new AttributeModifier(Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "scarab_amulet_movement_speed"),
                 config.speedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL);
 
         assert attribSpeed != null;
@@ -49,7 +49,7 @@ public class ScarabAmulet extends ScarabAmuletBase implements ICurioItem {
             CommonUtils.applyAttributeModifier(attribSpeed, speedModifier);
         } else {
             CommonUtils.removeAttributeModifier(Objects.requireNonNull(slotContext.entity().getAttribute(Attributes.MOVEMENT_SPEED)),
-                    new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "scarab_amulet_movement_speed"),
+                    new AttributeModifier(Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "scarab_amulet_movement_speed"),
                             config.speedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
         }
     }
@@ -57,7 +57,7 @@ public class ScarabAmulet extends ScarabAmuletBase implements ICurioItem {
     @Override
     public void onUnequip(SlotContext slotContext, ItemStack pstack, ItemStack stack) {
         CommonUtils.removeAttributeModifier(Objects.requireNonNull(slotContext.entity().getAttribute(Attributes.MOVEMENT_SPEED)),
-                new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "scarab_amulet_movement_speed"),
+                new AttributeModifier(Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "scarab_amulet_movement_speed"),
                         trinketConfig.speedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
     }
 

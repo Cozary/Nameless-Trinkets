@@ -1,38 +1,31 @@
 package com.cozary.nameless_trinkets.items.trinkets;
+import net.minecraft.world.entity.LivingEntity;
+import dev.emi.trinkets.api.Trinket;
+import dev.emi.trinkets.api.SlotReference;
 
 import com.cozary.nameless_trinkets.init.ModDataComponents;
-import io.wispforest.accessories.api.core.Accessory;
-import io.wispforest.accessories.api.core.AccessoryRegistry;
-import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ItemStack;
 
-public class SigilOfBaphomet extends SigilOfBaphometBase implements Accessory {
+public class SigilOfBaphomet extends SigilOfBaphometBase implements Trinket {
 
     public SigilOfBaphomet() {
         super();
-        AccessoryRegistry.register(this, this);
-    }
+        }
+
+    
+
+    
 
     @Override
-    public boolean canEquipFromUse(ItemStack stack, SlotReference reference) {
-        return true;
-    }
-
-    @Override
-    public void onEquipFromUse(ItemStack stack, SlotReference reference) {
-        reference.entity().playSound(SoundEvents.ARMOR_EQUIP_ELYTRA.value(), 1.0F, 1.0F);
-    }
-
-    @Override
-    public void tick(ItemStack stack, SlotReference reference) {
+    public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
         Stats config = SigilOfBaphometBase.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable)
             return;
 
-        if (!(reference.entity() instanceof ServerPlayer))
+        if (!(entity instanceof ServerPlayer))
             return;
 
         if (!stack.isEmpty() && stack.getOrDefault(ModDataComponents.SIGIL_COUNT.get(), 0) > 0) {

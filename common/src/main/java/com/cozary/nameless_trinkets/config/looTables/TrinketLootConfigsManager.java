@@ -3,8 +3,8 @@ package com.cozary.nameless_trinkets.config.looTables;
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.config.ConfigUtils;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 
 import java.io.IOException;
@@ -39,8 +39,8 @@ public class TrinketLootConfigsManager {
                 }
             }
 
-            List<ResourceLocation> defaultLootTables = TrinketDataProvider.LOOT_TABLES.stream()
-                    .map(ResourceKey::location)
+            List<Identifier> defaultLootTables = TrinketDataProvider.LOOT_TABLES.stream()
+                    .map(ResourceKey::identifier)
                     .toList();
 
             boolean missingConfigs = false;
@@ -87,8 +87,8 @@ public class TrinketLootConfigsManager {
     private static void generateDefaultConfigs() {
         configs.clear();
 
-        List<ResourceLocation> defaultLootTables = TrinketDataProvider.LOOT_TABLES.stream()
-                .map(ResourceKey::location)
+        List<Identifier> defaultLootTables = TrinketDataProvider.LOOT_TABLES.stream()
+                .map(ResourceKey::identifier)
                 .toList();
 
         TrinketDataProvider.getTrinketList().forEach(entry -> {

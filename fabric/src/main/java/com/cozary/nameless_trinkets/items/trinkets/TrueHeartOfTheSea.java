@@ -1,13 +1,12 @@
 package com.cozary.nameless_trinkets.items.trinkets;
+import dev.emi.trinkets.api.Trinket;
+import dev.emi.trinkets.api.SlotReference;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.utils.CommonUtils;
-import io.wispforest.accessories.api.core.Accessory;
-import io.wispforest.accessories.api.core.AccessoryRegistry;
-import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -23,27 +22,20 @@ import net.minecraft.world.phys.Vec3;
 import java.util.Objects;
 import java.util.Random;
 
-public class TrueHeartOfTheSea extends TrueHeartOfTheSeaBase implements Accessory {
+public class TrueHeartOfTheSea extends TrueHeartOfTheSeaBase implements Trinket {
 
     public TrueHeartOfTheSea() {
         super();
-        AccessoryRegistry.register(this, this);
-    }
+        }
 
-    @Override
-    public boolean canEquipFromUse(ItemStack stack, SlotReference reference) {
-        return true;
-    }
+    
 
-    @Override
-    public void onEquipFromUse(ItemStack stack, SlotReference reference) {
-        reference.entity().playSound(SoundEvents.ARMOR_EQUIP_ELYTRA.value(), 1.0F, 1.0F);
-    }
+    
 
 
     @Override
-    public void tick(ItemStack stack, SlotReference reference) {
-        LivingEntity livingEntity = reference.entity();
+    public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
+        LivingEntity livingEntity = entity;
         Stats config = TrueHeartOfTheSeaBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return;
@@ -71,15 +63,15 @@ public class TrueHeartOfTheSea extends TrueHeartOfTheSeaBase implements Accessor
     }
 
     @Override
-    public void onEquip(ItemStack stack, SlotReference reference) {
-        LivingEntity livingEntity = reference.entity();
+    public void onEquip(ItemStack stack, SlotReference slot, LivingEntity entity) {
+        LivingEntity livingEntity = entity;
         Stats config = TrueHeartOfTheSeaBase.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable)
             return;
 
         AttributeInstance attribSpeed = livingEntity.getAttribute(Attributes.WATER_MOVEMENT_EFFICIENCY);
-        AttributeModifier speedModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "true_heart_of_the_sea_swim_speed"),
+        AttributeModifier speedModifier = new AttributeModifier(Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "true_heart_of_the_sea_swim_speed"),
                 config.swimSpeedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_VALUE);
 
         assert attribSpeed != null;
@@ -87,9 +79,9 @@ public class TrueHeartOfTheSea extends TrueHeartOfTheSeaBase implements Accessor
     }
 
     @Override
-    public void onUnequip(ItemStack stack, SlotReference reference) {
-        CommonUtils.removeAttributeModifier(Objects.requireNonNull(reference.entity().getAttribute(Attributes.WATER_MOVEMENT_EFFICIENCY)),
-                new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "true_heart_of_the_sea_swim_speed"),
+    public void onUnequip(ItemStack stack, SlotReference slot, LivingEntity entity) {
+        CommonUtils.removeAttributeModifier(Objects.requireNonNull(entity.getAttribute(Attributes.WATER_MOVEMENT_EFFICIENCY)),
+                new AttributeModifier(Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "true_heart_of_the_sea_swim_speed"),
                         trinketConfig.swimSpeedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_VALUE));
     }
 

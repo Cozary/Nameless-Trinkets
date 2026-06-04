@@ -1,0 +1,8 @@
+{
+  "icon": "trinkets:gui/slots/charm",
+  "order": 10,
+  "drop_rule": "default",
+  "validator_predicates": [
+    "trinkets:tag"
+  ]
+}

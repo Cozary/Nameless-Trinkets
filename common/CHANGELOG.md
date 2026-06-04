@@ -1,5 +1,5 @@
-# Changelog 1.21.10
+# Changelog 1.21.11
 
-### Fixed
+### Changed
 
-- Fixed a crash when getting into chest boats while the Electric Paddle is equipped. #50
+- Migrated accessory dependency from Accessories API & owo-lib to Trinkets Updated.

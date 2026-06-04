@@ -25,7 +25,7 @@ public class LootTableHandler {
 
             for (TrinketLootConfig config : TrinketLootConfigsManager.getConfigs()) {
 
-                if (!config.getLootTables().contains(key.location()))
+                if (!config.getLootTables().contains(key.identifier()))
                     continue;
 
                 Optional<RegistryObject<Item>> optionalItem = ModItems.CREATIVE_TAB_ITEMS.stream()

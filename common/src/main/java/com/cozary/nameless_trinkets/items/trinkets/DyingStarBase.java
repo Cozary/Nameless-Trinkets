@@ -38,7 +38,7 @@ public class DyingStarBase extends TrinketItem<DyingStarBase.Stats> {
 
     @Override
     public boolean overrideOtherStackedOnMe(ItemStack stack, ItemStack other, Slot slot, ClickAction action,
-            Player player, SlotAccess access) {
+                                            Player player, SlotAccess access) {
         Stats config = DyingStarBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return false;
@@ -247,7 +247,7 @@ public class DyingStarBase extends TrinketItem<DyingStarBase.Stats> {
         private final Float maxIncrease;
 
         AttributeSelector(Holder<Attribute> attributeHolder, DataComponentType<Float> dataComponentType, Float maxValue,
-                Float minIncrease, Float maxIncrease) {
+                          Float minIncrease, Float maxIncrease) {
             this.attributeHolder = attributeHolder;
             this.dataComponentType = dataComponentType;
             this.maxValue = maxValue;

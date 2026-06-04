@@ -2,7 +2,7 @@ package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.utils.CommonUtils;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
@@ -46,7 +46,7 @@ public class DyingStar extends DyingStarBase implements ICurioItem {
             if (attributeIncrement > 0) {
 
                 AttributeInstance attributeDamage = livingEntity.getAttribute(attributeSelector.getAttributeHolder());
-                AttributeModifier attributeModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dying_star_" + attributeSelector.getAttributeHolder().getRegisteredName().replace(".", "_").replace(":", "_")),
+                AttributeModifier attributeModifier = new AttributeModifier(Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dying_star_" + attributeSelector.getAttributeHolder().getRegisteredName().replace(".", "_").replace(":", "_")),
                         attributeIncrement, AttributeModifier.Operation.ADD_VALUE);
 
                 if (attributeDamage != null && attributeModifier != null) {
@@ -68,7 +68,7 @@ public class DyingStar extends DyingStarBase implements ICurioItem {
             if (attributeIncrement > 0) {
 
                 AttributeInstance attributeDamage = slotContext.entity().getAttribute(attributeSelector.getAttributeHolder());
-                AttributeModifier attributeModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dying_star_" + attributeSelector.getAttributeHolder().getRegisteredName().replace(".", "_").replace(":", "_")),
+                AttributeModifier attributeModifier = new AttributeModifier(Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dying_star_" + attributeSelector.getAttributeHolder().getRegisteredName().replace(".", "_").replace(":", "_")),
                         attributeIncrement, AttributeModifier.Operation.ADD_VALUE);
 
                 if (attributeDamage != null && attributeModifier != null) {

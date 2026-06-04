@@ -3,7 +3,7 @@ package com.cozary.nameless_trinkets.mixinHandler;
 import com.cozary.nameless_trinkets.items.trinkets.ElectricPaddleBase;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.vehicle.AbstractBoat;
+import net.minecraft.world.entity.vehicle.boat.AbstractBoat;
 
 public class MixinBoatHandler {
 

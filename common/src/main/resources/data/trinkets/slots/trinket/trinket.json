@@ -1,0 +1,10 @@
+{
+  "amount": 4,
+  "icon": "nameless_trinkets:gui/slots/trinket_slot",
+  "order": 0,
+  "drop_rule": "default",
+  "validator_predicates": [
+    "trinkets:tag"
+  ]
+}
+

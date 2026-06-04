@@ -17,9 +17,9 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
 
-    modImplementation("io.wispforest:accessories-fabric:${project.accessories_version}+${project.minecraft_version}")
-    modImplementation "io.wispforest:owo-lib:${project.owo_version_fabric}"
-    include "io.wispforest:owo-sentinel:${project.owo_version_fabric}"
+    modImplementation "maven.modrinth:trinkets-updated:${project.trinkets_version}"
+    modImplementation "org.ladysnake.cardinal-components-api:cardinal-components-base:7.3.0"
+    modImplementation "org.ladysnake.cardinal-components-api:cardinal-components-entity:7.3.0"
 }
 
 loom {
@@ -59,15 +59,14 @@ publishMods {
         accessToken = providers.environmentVariable("CURSEFORGE_API_KEY")
         projectId = curseforge_project_id
         minecraftVersions.add(minecraft_version)
-        requires("accessories")
+        requires("trinkets-updated")
     }
-
 
     modrinth {
         accessToken = accessToken = providers.environmentVariable("MODRINTH_API_KEY")
         projectId = modrinth_project_id
         minecraftVersions.add(minecraft_version)
-        requires("accessories")
+        requires("trinkets-updated")
     }
 
 }

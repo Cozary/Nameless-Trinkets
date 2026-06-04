@@ -2,7 +2,7 @@ package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.utils.CommonUtils;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
@@ -41,7 +41,7 @@ public class GhastEye extends GhastEyeBase implements ICurioItem {
 
         AttributeInstance attribSpeed = livingEntity.getAttribute(Attributes.MAX_HEALTH);
         AttributeModifier healthModifier = new AttributeModifier(
-                ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "ghast_eye_extra_health"),
+                Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "ghast_eye_extra_health"),
                 config.extraHearts,
                 AttributeModifier.Operation.ADD_VALUE);
 
@@ -54,7 +54,7 @@ public class GhastEye extends GhastEyeBase implements ICurioItem {
     public void onUnequip(SlotContext slotContext, ItemStack pstack, ItemStack stack) {
         CommonUtils.removeAttributeModifier(Objects.requireNonNull(slotContext.entity().getAttribute(Attributes.MAX_HEALTH)),
                 new AttributeModifier(
-                        ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "ghast_eye_extra_health"),
+                        Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "ghast_eye_extra_health"),
                         trinketConfig.extraHearts,
                         AttributeModifier.Operation.ADD_VALUE));
     }

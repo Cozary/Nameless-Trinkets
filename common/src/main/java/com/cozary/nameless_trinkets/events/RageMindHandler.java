@@ -3,7 +3,7 @@ package com.cozary.nameless_trinkets.events;
 import com.cozary.nameless_trinkets.init.ModDataComponents;
 import com.cozary.nameless_trinkets.items.trinkets.RageMindBase;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
@@ -39,7 +39,7 @@ public class RageMindHandler {
 
             String entityString = stack.get(ModDataComponents.RAGE_MIND_REVENGE_TARGET.get());
 
-            ResourceLocation resourceLocation = ResourceLocation.parse(entityString);
+            Identifier resourceLocation = Identifier.parse(entityString);
 
             EntityType<?> entityType = BuiltInRegistries.ENTITY_TYPE.get(resourceLocation).get().value();
 

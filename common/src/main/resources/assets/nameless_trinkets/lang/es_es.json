@@ -188,8 +188,8 @@
   "tooltip.nameless_trinkets.four_leaf_clover_1": "Obtienes %1$s veces más de botín de las entidades.",
   "tooltip.nameless_trinkets.isDisabled": "Este Trinket está deshabilitado.",
   "itemGroup.nameless_trinkets": "Nameless Trinkets",
-  "accessories.slot_group.nameless_trinkets:trinket": "Trinket",
-  "accessories.slot.trinket": "Trinket",
+  "trinkets.slot_group.trinket": "Trinket",
+  "trinkets.slot.trinket.trinket": "Trinket",
   "tag.item.nameless_trinkets.nameless_trinkets_tag": "Nameless Trinkets Tag",
   "tag.item.nameless_trinkets.recyclable_trinkets_tag": "Reciclaje Nameless Trinkets Tag",
   "advancements.nameless_trinkets.unknown_fragment.title": "¡Vamos a repetir!",
@@ -320,5 +320,8 @@
   "item.nameless_trinkets.dying_star": "Estrella Moribunda",
   "advancements.nameless_trinkets.dying_star.title": "Hambrienta",
   "advancements.nameless_trinkets.dying_star.description": "Obtén la Estrella Moribunda.",
-  "item.nameless_trinkets.trinket_bundle": "Trinket Bundle"
+  "item.nameless_trinkets.trinket_bundle": "Trinket Bundle",
+  "trinkets.group.trinket": "Trinkets",
+  "trinkets.slot.trinket.trinket": "Trinket",
+  "trinkets.slot.chest.charm": "Amuleto"
 }

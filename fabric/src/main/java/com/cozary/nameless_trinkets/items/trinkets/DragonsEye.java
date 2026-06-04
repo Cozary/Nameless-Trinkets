@@ -1,8 +1,8 @@
 package com.cozary.nameless_trinkets.items.trinkets;
+import net.minecraft.world.entity.LivingEntity;
+import dev.emi.trinkets.api.Trinket;
+import dev.emi.trinkets.api.SlotReference;
 
-import io.wispforest.accessories.api.core.Accessory;
-import io.wispforest.accessories.api.core.AccessoryRegistry;
-import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.ChatFormatting;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -19,30 +19,23 @@ import net.minecraft.world.scores.Scoreboard;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class DragonsEye extends DragonsEyeBase implements Accessory {
+public class DragonsEye extends DragonsEyeBase implements Trinket {
 
     public DragonsEye() {
         super();
-        AccessoryRegistry.register(this, this);
-    }
+        }
 
     private String getTeamName(Player player) {
         return "nt_dragon_" + player.getStringUUID().substring(0, 8);
     }
 
-    @Override
-    public boolean canEquipFromUse(ItemStack stack, SlotReference reference) {
-        return true;
-    }
+    
+
+    
 
     @Override
-    public void onEquipFromUse(ItemStack stack, SlotReference reference) {
-        reference.entity().playSound(SoundEvents.ARMOR_EQUIP_ELYTRA.value(), 1.0F, 1.0F);
-    }
-
-    @Override
-    public void onUnequip(ItemStack stack, SlotReference reference) {
-        if (!(reference.entity() instanceof Player player) || player.level().isClientSide()) {
+    public void onUnequip(ItemStack stack, SlotReference slot, LivingEntity entity) {
+        if (!(entity instanceof Player player) || player.level().isClientSide()) {
             return;
         }
 
@@ -56,9 +49,9 @@ public class DragonsEye extends DragonsEyeBase implements Accessory {
     }
 
     @Override
-    public void tick(ItemStack stack, SlotReference reference) {
+    public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
         Stats config = DragonsEyeBase.INSTANCE.getTrinketConfig();
-        if (!config.isEnable || !(reference.entity() instanceof Player player) || player.level().isClientSide()) {
+        if (!config.isEnable || !(entity instanceof Player player) || player.level().isClientSide()) {
             return;
         }
 
@@ -73,7 +66,7 @@ public class DragonsEye extends DragonsEyeBase implements Accessory {
         Level world = player.level();
         List<Mob> entities = world.getEntitiesOfClass(Mob.class, player.getBoundingBox().inflate(config.radius));
         List<Mob> validTargets = entities.stream()
-                .filter(entity -> entity.getSoundSource() == SoundSource.HOSTILE || entity.isAggressive())
+                .filter(targetMob -> targetMob.getSoundSource() == SoundSource.HOSTILE || targetMob.isAggressive())
                 .collect(Collectors.toList());
 
         if (validTargets.isEmpty()) {

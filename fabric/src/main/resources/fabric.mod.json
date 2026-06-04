@@ -27,7 +27,7 @@
     "fabric-api": "*",
     "minecraft": "~${minecraft_version}",
     "java": ">=${java_version}",
-    "accessories": ">=${accessories_version}"
+    "trinkets": ">=${trinkets_version}"
   },
   "accessWidener": "nameless_trinkets.accesswidener"
 }

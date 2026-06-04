@@ -51,6 +51,18 @@ repositories {
         name = "Illusive Soulworks maven"
         url = "https://maven.theillusivec4.top/"
     }
+    maven {
+        name = "Nucleoid"
+        url = "https://maven.nucleoid.xyz/releases"
+    }
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
+    }
+    maven {
+        name = "Ladysnake Mods"
+        url = "https://maven.ladysnake.org/releases"
+    }
 }
 
 // Declare capabilities on the outgoing configurations.
@@ -95,7 +107,6 @@ processResources {
     var expandProps = [
             'version_fabric'               : version_fabric,
             'version_neoforge_curios'      : version_neoforge_curios,
-            'version_neoforge_accessories' : version_neoforge_accessories,
             'curios_version'               : curios_version,
             'group'                        : project.group, //Else we target the task's group.
             'minecraft_version'            : minecraft_version,
@@ -113,9 +124,7 @@ processResources {
             'java_version'                 : java_version,
             'mod_publish_version'          : mod_publish_version,
             'issueTrackerURL'              : issueTrackerURL,
-            'accessories_version'          : accessories_version,
-            'owo_version_fabric'           : owo_version_fabric,
-            'owo_version_neoforge'         : owo_version_neoforge
+            'trinkets_version'             : trinkets_version
     ]
 
     var jsonExpandProps = expandProps.collectEntries {

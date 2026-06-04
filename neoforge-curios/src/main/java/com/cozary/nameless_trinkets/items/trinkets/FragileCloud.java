@@ -4,7 +4,7 @@ import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.util.TrinketUtils;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
@@ -16,7 +16,7 @@ import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
 public class FragileCloud extends FragileCloudBase implements ICurioItem {
-    private static final AttributeModifier SLOW_FALLING = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "slow_falling"), -0.07, AttributeModifier.Operation.ADD_VALUE); // Add -0.07 to 0.08 so we get the vanilla default of 0.01
+    private static final AttributeModifier SLOW_FALLING = new AttributeModifier(Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "slow_falling"), -0.07, AttributeModifier.Operation.ADD_VALUE); // Add -0.07 to 0.08 so we get the vanilla default of 0.01
 
     @Override
     public boolean canEquipFromUse(SlotContext slotContext, ItemStack stack) {

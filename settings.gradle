@@ -37,5 +37,4 @@ plugins {
 rootProject.name = 'Nameless-Trinkets'
 include('common')
 include('fabric')
-include('neoforge-accessories')
 include('neoforge-curios')

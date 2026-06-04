@@ -4,7 +4,7 @@ import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.utils.CommonUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -78,7 +78,7 @@ public class TrueHeartOfTheSea extends TrueHeartOfTheSeaBase implements ICurioIt
             return;
 
         AttributeInstance attribSpeed = livingEntity.getAttribute(Attributes.WATER_MOVEMENT_EFFICIENCY);
-        AttributeModifier speedModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "true_heart_of_the_sea_swim_speed"),
+        AttributeModifier speedModifier = new AttributeModifier(Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "true_heart_of_the_sea_swim_speed"),
                 config.swimSpeedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_VALUE);
 
         assert attribSpeed != null;
@@ -89,7 +89,7 @@ public class TrueHeartOfTheSea extends TrueHeartOfTheSeaBase implements ICurioIt
     @Override
     public void onUnequip(SlotContext slotContext, ItemStack pstack, ItemStack stack) {
         CommonUtils.removeAttributeModifier(Objects.requireNonNull(slotContext.entity().getAttribute(Attributes.WATER_MOVEMENT_EFFICIENCY)),
-                new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "true_heart_of_the_sea_swim_speed"),
+                new AttributeModifier(Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "true_heart_of_the_sea_swim_speed"),
                         trinketConfig.swimSpeedMultiplierPercentage / 100, AttributeModifier.Operation.ADD_VALUE));
     }
 

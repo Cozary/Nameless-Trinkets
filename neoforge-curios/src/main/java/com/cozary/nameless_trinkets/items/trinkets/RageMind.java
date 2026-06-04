@@ -3,7 +3,7 @@ package com.cozary.nameless_trinkets.items.trinkets;
 import com.cozary.nameless_trinkets.init.ModDataComponents;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -45,7 +45,7 @@ public class RageMind extends RageMindBase implements ICurioItem {
         String revengeTarget = stack.get(ModDataComponents.RAGE_MIND_REVENGE_TARGET.get());
 
         if (revengeTarget != null) {
-            ResourceLocation resourceLocation = ResourceLocation.parse(revengeTarget);
+            Identifier resourceLocation = Identifier.parse(revengeTarget);
             EntityType<?> entityType = BuiltInRegistries.ENTITY_TYPE.get(resourceLocation).get().value();
             Entity dummyEntity = entityType.create(player.level(), EntitySpawnReason.SPAWN_ITEM_USE);
 

@@ -7,7 +7,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
@@ -175,7 +175,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 ModItems.GODS_CROWN.get()
         )
                 .unlocks("has_cracked_crown", has(ModItems.CRACKED_CROWN.get()))
-                .save(output, ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "gods_crown").toString());
+                .save(output, Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "gods_crown").toString());
 
         shaped(RecipeCategory.MISC, ModItems.LUCKY_ROCK.get())
                 .pattern("#R#")
@@ -596,7 +596,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('M', Blocks.MAGMA_BLOCK)
                 .define('S', ModItems.DUBIOUS_DUST.get())
                 .unlockedBy("has_dubious_dust", has(ModItems.DUBIOUS_DUST.get()))
-                .save(output, ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dark_nelumbo_crimson").toString());
+                .save(output, Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dark_nelumbo_crimson").toString());
 
         shaped(RecipeCategory.MISC, ModItems.DARK_NELUMBO.get())
                 .pattern("#M#")
@@ -607,7 +607,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('M', Blocks.MAGMA_BLOCK)
                 .define('S', ModItems.NELUMBO.get())
                 .unlockedBy("has_nelumbo", has(ModItems.NELUMBO.get()))
-                .save(output, ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dark_nelumbo_crimson_nelumbo").toString());
+                .save(output, Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dark_nelumbo_crimson_nelumbo").toString());
 
         shaped(RecipeCategory.MISC, ModItems.DARK_NELUMBO.get())
                 .pattern("#M#")
@@ -618,7 +618,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('M', Blocks.MAGMA_BLOCK)
                 .define('S', ModItems.DUBIOUS_DUST.get())
                 .unlockedBy("has_dubious_dust", has(ModItems.DUBIOUS_DUST.get()))
-                .save(output, ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dark_nelumbo_stripped_warped").toString());
+                .save(output, Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dark_nelumbo_stripped_warped").toString());
 
         shaped(RecipeCategory.MISC, ModItems.DARK_NELUMBO.get())
                 .pattern("#M#")
@@ -629,7 +629,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('M', Blocks.MAGMA_BLOCK)
                 .define('S', ModItems.NELUMBO.get())
                 .unlockedBy("has_nelumbo", has(ModItems.NELUMBO.get()))
-                .save(output, ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dark_nelumbo_stripped_warped_nelumbo").toString());
+                .save(output, Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dark_nelumbo_stripped_warped_nelumbo").toString());
 
         shaped(RecipeCategory.MISC, ModItems.TRINKET_BUNDLE.get())
                 .pattern("###")

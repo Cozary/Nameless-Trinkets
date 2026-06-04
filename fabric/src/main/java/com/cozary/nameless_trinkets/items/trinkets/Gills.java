@@ -1,8 +1,7 @@
 package com.cozary.nameless_trinkets.items.trinkets;
+import dev.emi.trinkets.api.Trinket;
+import dev.emi.trinkets.api.SlotReference;
 
-import io.wispforest.accessories.api.core.Accessory;
-import io.wispforest.accessories.api.core.AccessoryRegistry;
-import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
@@ -16,33 +15,26 @@ import net.minecraft.world.phys.Vec3;
 
 import java.util.Random;
 
-public class Gills extends GillsBase implements Accessory {
+public class Gills extends GillsBase implements Trinket {
 
     public Gills() {
         super();
-        AccessoryRegistry.register(this, this);
-    }
+        }
 
-    @Override
-    public boolean canEquipFromUse(ItemStack stack, SlotReference reference) {
-        return true;
-    }
+    
 
-    @Override
-    public void onEquipFromUse(ItemStack stack, SlotReference reference) {
-        reference.entity().playSound(SoundEvents.ARMOR_EQUIP_ELYTRA.value(), 1.0F, 1.0F);
-    }
+    
 
 
     @Override
-    public boolean canUnequip(ItemStack stack, SlotReference reference) {
-        LivingEntity livingEntity = reference.entity();
+    public boolean canUnequip(ItemStack stack, SlotReference reference, LivingEntity entity) {
+        LivingEntity livingEntity = entity;
         return livingEntity.isEyeInFluid(FluidTags.WATER);
     }
 
     @Override
-    public void tick(ItemStack stack, SlotReference reference) {
-        LivingEntity livingEntity = reference.entity();
+    public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
+        LivingEntity livingEntity = entity;
         Stats config = GillsBase.INSTANCE.getTrinketConfig();
 
         if (!config.isEnable)

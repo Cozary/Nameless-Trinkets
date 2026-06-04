@@ -4,7 +4,7 @@ import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.events.WoundbearerHandler;
 import com.cozary.nameless_trinkets.init.ModDataComponents;
 import com.cozary.nameless_trinkets.utils.CommonUtils;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
@@ -57,12 +57,12 @@ public class Woundbearer extends WoundbearerBase implements ICurioItem {
 
         AttributeInstance attributeDamage = livingEntity.getAttribute(Attributes.ATTACK_DAMAGE);
         if (attributeDamage != null) {
-            AttributeModifier dummyModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "woundbearer_attack_damage"),
+            AttributeModifier dummyModifier = new AttributeModifier(Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "woundbearer_attack_damage"),
                     0.0f, AttributeModifier.Operation.ADD_VALUE);
             CommonUtils.removeAttributeModifier(attributeDamage, dummyModifier);
 
             if (newDamage > 0) {
-                AttributeModifier damageModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "woundbearer_attack_damage"),
+                AttributeModifier damageModifier = new AttributeModifier(Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "woundbearer_attack_damage"),
                         newDamage, AttributeModifier.Operation.ADD_VALUE);
                 CommonUtils.applyAttributeModifier(attributeDamage, damageModifier);
             }
@@ -76,7 +76,7 @@ public class Woundbearer extends WoundbearerBase implements ICurioItem {
         float damageIncrement = stack.getOrDefault(ModDataComponents.WOUNDBEARER_DAMAGE.get(), 0).floatValue();
         if (damageIncrement > 0) {
             CommonUtils.removeAttributeModifier(Objects.requireNonNull(slotContext.entity().getAttribute(Attributes.ATTACK_DAMAGE)),
-                    new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "woundbearer_attack_damage"),
+                    new AttributeModifier(Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "woundbearer_attack_damage"),
                             damageIncrement, AttributeModifier.Operation.ADD_VALUE));
         }
     }

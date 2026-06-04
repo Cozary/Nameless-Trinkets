@@ -1,13 +1,12 @@
 package com.cozary.nameless_trinkets.items.trinkets;
+import dev.emi.trinkets.api.Trinket;
+import dev.emi.trinkets.api.SlotReference;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.events.WoundbearerHandler;
 import com.cozary.nameless_trinkets.init.ModDataComponents;
 import com.cozary.nameless_trinkets.utils.CommonUtils;
-import io.wispforest.accessories.api.core.Accessory;
-import io.wispforest.accessories.api.core.AccessoryRegistry;
-import io.wispforest.accessories.api.slot.SlotReference;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
@@ -18,30 +17,23 @@ import net.minecraft.world.level.Level;
 
 import java.util.Objects;
 
-public class Woundbearer extends WoundbearerBase implements Accessory {
+public class Woundbearer extends WoundbearerBase implements Trinket {
 
     public Woundbearer() {
         super();
-        AccessoryRegistry.register(this, this);
-    }
+        }
+
+    
+
+    
 
     @Override
-    public boolean canEquipFromUse(ItemStack stack, SlotReference reference) {
-        return true;
-    }
-
-    @Override
-    public void onEquipFromUse(ItemStack stack, SlotReference reference) {
-        reference.entity().playSound(SoundEvents.ARMOR_EQUIP_ELYTRA.value(), 1.0F, 1.0F);
-    }
-
-    @Override
-    public void tick(ItemStack stack, SlotReference reference) {
+    public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
         Stats config = WoundbearerBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return;
 
-        LivingEntity livingEntity = reference.entity();
+        LivingEntity livingEntity = entity;
         Level world = livingEntity.level();
 
         if (world.isClientSide())
@@ -63,12 +55,12 @@ public class Woundbearer extends WoundbearerBase implements Accessory {
 
         AttributeInstance attributeDamage = livingEntity.getAttribute(Attributes.ATTACK_DAMAGE);
         if (attributeDamage != null) {
-            AttributeModifier dummyModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "woundbearer_attack_damage"),
+            AttributeModifier dummyModifier = new AttributeModifier(Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "woundbearer_attack_damage"),
                     0.0f, AttributeModifier.Operation.ADD_VALUE);
             CommonUtils.removeAttributeModifier(attributeDamage, dummyModifier);
 
             if (newDamage > 0) {
-                AttributeModifier damageModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "woundbearer_attack_damage"),
+                AttributeModifier damageModifier = new AttributeModifier(Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "woundbearer_attack_damage"),
                         newDamage, AttributeModifier.Operation.ADD_VALUE);
                 CommonUtils.applyAttributeModifier(attributeDamage, damageModifier);
             }
@@ -77,12 +69,12 @@ public class Woundbearer extends WoundbearerBase implements Accessory {
     }
 
     @Override
-    public void onUnequip(ItemStack stack, SlotReference reference) {
+    public void onUnequip(ItemStack stack, SlotReference slot, LivingEntity entity) {
 
         float damageIncrement = stack.getOrDefault(ModDataComponents.WOUNDBEARER_DAMAGE.get(), 0).floatValue();
         if (damageIncrement > 0) {
-            CommonUtils.removeAttributeModifier(Objects.requireNonNull(reference.entity().getAttribute(Attributes.ATTACK_DAMAGE)),
-                    new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "woundbearer_attack_damage"),
+            CommonUtils.removeAttributeModifier(Objects.requireNonNull(entity.getAttribute(Attributes.ATTACK_DAMAGE)),
+                    new AttributeModifier(Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "woundbearer_attack_damage"),
                             damageIncrement, AttributeModifier.Operation.ADD_VALUE));
         }
     }

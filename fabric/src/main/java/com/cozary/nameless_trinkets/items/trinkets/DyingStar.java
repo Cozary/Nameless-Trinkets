@@ -1,11 +1,10 @@
 package com.cozary.nameless_trinkets.items.trinkets;
+import dev.emi.trinkets.api.Trinket;
+import dev.emi.trinkets.api.SlotReference;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.utils.CommonUtils;
-import io.wispforest.accessories.api.core.Accessory;
-import io.wispforest.accessories.api.core.AccessoryRegistry;
-import io.wispforest.accessories.api.slot.SlotReference;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
@@ -13,30 +12,23 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-public class DyingStar extends DyingStarBase implements Accessory {
+public class DyingStar extends DyingStarBase implements Trinket {
 
     public DyingStar() {
         super();
-        AccessoryRegistry.register(this, this);
-    }
+        }
+
+    
+
+    
 
     @Override
-    public boolean canEquipFromUse(ItemStack stack, SlotReference reference) {
-        return true;
-    }
-
-    @Override
-    public void onEquipFromUse(ItemStack stack, SlotReference reference) {
-        reference.entity().playSound(SoundEvents.ARMOR_EQUIP_ELYTRA.value(), 1.0F, 1.0F);
-    }
-
-    @Override
-    public void tick(ItemStack stack, SlotReference reference) {
+    public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
         Stats config = DyingStarBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable)
             return;
 
-        LivingEntity livingEntity = reference.entity();
+        LivingEntity livingEntity = entity;
         Level world = livingEntity.level();
 
         if (world.isClientSide())
@@ -52,7 +44,7 @@ public class DyingStar extends DyingStarBase implements Accessory {
             if (attributeIncrement > 0) {
 
                 AttributeInstance attributeDamage = livingEntity.getAttribute(attributeSelector.getAttributeHolder());
-                AttributeModifier attributeModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dying_star_" + attributeSelector.getAttributeHolder().getRegisteredName().replace(".", "_").replace(":", "_")),
+                AttributeModifier attributeModifier = new AttributeModifier(Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dying_star_" + attributeSelector.getAttributeHolder().getRegisteredName().replace(".", "_").replace(":", "_")),
                         attributeIncrement, AttributeModifier.Operation.ADD_VALUE);
 
                 if (attributeDamage != null && attributeModifier != null) {
@@ -64,7 +56,7 @@ public class DyingStar extends DyingStarBase implements Accessory {
     }
 
     @Override
-    public void onUnequip(ItemStack stack, SlotReference reference) {
+    public void onUnequip(ItemStack stack, SlotReference slot, LivingEntity entity) {
 
         for (int i = 0; i < AttributeSelector.values().length; i++) {
 
@@ -73,8 +65,8 @@ public class DyingStar extends DyingStarBase implements Accessory {
             float attributeIncrement = stack.getOrDefault(attributeSelector.getDataComponentType(), 0.0f);
             if (attributeIncrement > 0) {
 
-                AttributeInstance attributeDamage = reference.entity().getAttribute(attributeSelector.getAttributeHolder());
-                AttributeModifier attributeModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dying_star_" + attributeSelector.getAttributeHolder().getRegisteredName().replace(".", "_").replace(":", "_")),
+                AttributeInstance attributeDamage = entity.getAttribute(attributeSelector.getAttributeHolder());
+                AttributeModifier attributeModifier = new AttributeModifier(Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "dying_star_" + attributeSelector.getAttributeHolder().getRegisteredName().replace(".", "_").replace(":", "_")),
                         attributeIncrement, AttributeModifier.Operation.ADD_VALUE);
 
                 if (attributeDamage != null && attributeModifier != null) {

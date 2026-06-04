@@ -1,7 +1,7 @@
 package com.cozary.nameless_trinkets.config.looTables;
 
 import com.google.gson.annotations.SerializedName;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import java.util.List;
 
@@ -14,9 +14,9 @@ public class TrinketLootConfig {
     private final double chance;
 
     @SerializedName("loot_tables")
-    private final List<ResourceLocation> lootTables;
+    private final List<Identifier> lootTables;
 
-    public TrinketLootConfig(String itemId, double chance, List<ResourceLocation> lootTables) {
+    public TrinketLootConfig(String itemId, double chance, List<Identifier> lootTables) {
         this.itemId = itemId;
         this.chance = chance;
         this.lootTables = lootTables;
@@ -30,7 +30,7 @@ public class TrinketLootConfig {
         return chance;
     }
 
-    public List<ResourceLocation> getLootTables() {
+    public List<Identifier> getLootTables() {
         return lootTables;
     }
 }

@@ -4,7 +4,7 @@ import com.cozary.nameless_trinkets.items.trinkets.LuckyRockBase;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -30,7 +30,7 @@ public class LuckyRockHandler {
 
             assert itemStack != null;
             ((ServerLevel) player.level()).sendParticles(ParticleTypes.HAPPY_VILLAGER, blockPos.getX(), blockPos.getY(), blockPos.getZ(), 25, 1D, 1D, 1D, 0.1);
-            ItemEntity itementity = new ItemEntity(world, blockPos.getX(), blockPos.getY() + 1, blockPos.getZ(), BuiltInRegistries.ITEM.get(ResourceLocation.parse(itemStack)).get().value().getDefaultInstance());
+            ItemEntity itementity = new ItemEntity(world, blockPos.getX(), blockPos.getY() + 1, blockPos.getZ(), BuiltInRegistries.ITEM.get(Identifier.parse(itemStack)).get().value().getDefaultInstance());
             itementity.setDefaultPickUpDelay();
             world.addFreshEntity(itementity);
         }

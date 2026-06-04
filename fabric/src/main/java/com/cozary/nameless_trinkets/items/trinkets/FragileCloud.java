@@ -1,13 +1,13 @@
 package com.cozary.nameless_trinkets.items.trinkets;
+import net.minecraft.world.entity.LivingEntity;
+import dev.emi.trinkets.api.Trinket;
+import dev.emi.trinkets.api.SlotReference;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.util.TrinketUtils;
-import io.wispforest.accessories.api.core.Accessory;
-import io.wispforest.accessories.api.core.AccessoryRegistry;
-import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
@@ -16,32 +16,25 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
-public class FragileCloud extends FragileCloudBase implements Accessory {
+public class FragileCloud extends FragileCloudBase implements Trinket {
 
-    private static final AttributeModifier SLOW_FALLING = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "slow_falling"), -0.07, AttributeModifier.Operation.ADD_VALUE); // Add -0.07 to 0.08 so we get the vanilla default of 0.01
+    private static final AttributeModifier SLOW_FALLING = new AttributeModifier(Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "slow_falling"), -0.07, AttributeModifier.Operation.ADD_VALUE); // Add -0.07 to 0.08 so we get the vanilla default of 0.01
 
     public FragileCloud() {
         super();
-        AccessoryRegistry.register(this, this);
-    }
+        }
+
+    
+
+    
 
     @Override
-    public boolean canEquipFromUse(ItemStack stack, SlotReference reference) {
-        return true;
-    }
-
-    @Override
-    public void onEquipFromUse(ItemStack stack, SlotReference reference) {
-        reference.entity().playSound(SoundEvents.ARMOR_EQUIP_ELYTRA.value(), 1.0F, 1.0F);
-    }
-
-    @Override
-    public void tick(ItemStack stack, SlotReference reference) {
+    public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
 
         Stats config = FragileCloudBase.INSTANCE.getTrinketConfig();
         if (!config.isEnable) return;
 
-        if (!(reference.entity() instanceof Player player)) return;
+        if (!(entity instanceof Player player)) return;
 
         if (!player.level().isClientSide() && !player.isSpectator()) {
 

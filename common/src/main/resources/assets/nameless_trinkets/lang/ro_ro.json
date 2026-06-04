@@ -190,8 +190,8 @@
   "tooltip.nameless_trinkets.four_leaf_clover_1": "Primești %1$s mai multă pradă.",
   "tooltip.nameless_trinkets.isDisabled": "Acest breloc este dezactivat.",
   "itemGroup.nameless_trinkets": "Nameless Trinkets",
-  "accessories.slot_group.nameless_trinkets:trinket": "Trinket",
-  "accessories.slot.trinket": "Trinket",
+  "trinkets.slot_group.trinket": "Trinket",
+  "trinkets.slot.trinket.trinket": "Trinket",
   "tag.item.nameless_trinkets.nameless_trinkets_tag": "Nameless Trinkets Tag",
   "tag.item.nameless_trinkets.recyclable_trinkets_tag": "Recyclable Nameless Trinkets Tag",
   "advancements.nameless_trinkets.unknown_fragment.title": "Hai să aruncăm din nou!",
@@ -322,5 +322,8 @@
   "item.nameless_trinkets.dying_star": "Steaua pe moarte",
   "advancements.nameless_trinkets.dying_star.title": "Foame",
   "advancements.nameless_trinkets.dying_star.description": "Obține Steaua pe moarte",
-  "item.nameless_trinkets.trinket_bundle": "Mănunchi de brelocuri"
+  "item.nameless_trinkets.trinket_bundle": "Mănunchi de brelocuri",
+  "trinkets.group.trinket": "Trinkets",
+  "trinkets.slot.trinket.trinket": "Trinket",
+  "trinkets.slot.chest.charm": "Talisman"
 }

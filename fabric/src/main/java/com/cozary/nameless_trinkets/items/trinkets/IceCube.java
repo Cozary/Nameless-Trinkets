@@ -1,8 +1,8 @@
 package com.cozary.nameless_trinkets.items.trinkets;
+import net.minecraft.world.entity.LivingEntity;
+import dev.emi.trinkets.api.Trinket;
+import dev.emi.trinkets.api.SlotReference;
 
-import io.wispforest.accessories.api.core.Accessory;
-import io.wispforest.accessories.api.core.AccessoryRegistry;
-import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
@@ -19,16 +19,15 @@ import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 
-public class IceCube extends IceCubeBase implements Accessory {
+public class IceCube extends IceCubeBase implements Trinket {
 
     public IceCube() {
         super();
-        AccessoryRegistry.register(this, this);
-    }
+        }
 
     @Override
-    public void tick(ItemStack stack, SlotReference reference) {
-        if (!(reference.entity() instanceof Player player)) {
+    public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
+        if (!(entity instanceof Player player)) {
             return;
         }
 
@@ -73,14 +72,8 @@ public class IceCube extends IceCubeBase implements Accessory {
     }
 
 
-    @Override
-    public boolean canEquipFromUse(ItemStack stack, SlotReference reference) {
-        return true;
-    }
+    
 
-    @Override
-    public void onEquipFromUse(ItemStack stack, SlotReference reference) {
-        reference.entity().playSound(SoundEvents.ARMOR_EQUIP_ELYTRA.value(), 1.0F, 1.0F);
-    }
+    
 
 }

@@ -8,7 +8,7 @@ import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.init.RegistryObject;
 import com.cozary.nameless_trinkets.items.subTrinket.TrinketItem;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -28,7 +28,7 @@ public class LootTableHandler {
 
     @SubscribeEvent(priority = EventPriority.NORMAL)
     public static void onLootTableLoad(LootTableLoadEvent event) {
-        ResourceLocation tableId = event.getName();
+        Identifier tableId = event.getName();
 
         for (TrinketLootConfig config : TrinketLootConfigsManager.getConfigs()) {
 

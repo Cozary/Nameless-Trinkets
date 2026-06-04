@@ -1,9 +1,9 @@
 accessWidener v2 named
-accessible field net/minecraft/world/entity/vehicle/AbstractBoat deltaRotation F
-accessible field net/minecraft/world/entity/vehicle/AbstractBoat inputLeft Z
-accessible field net/minecraft/world/entity/vehicle/AbstractBoat inputRight Z
-accessible field net/minecraft/world/entity/vehicle/AbstractBoat inputUp Z
-accessible field net/minecraft/world/entity/vehicle/AbstractBoat inputDown Z
+accessible field net/minecraft/world/entity/vehicle/boat/AbstractBoat deltaRotation F
+accessible field net/minecraft/world/entity/vehicle/boat/AbstractBoat inputLeft Z
+accessible field net/minecraft/world/entity/vehicle/boat/AbstractBoat inputRight Z
+accessible field net/minecraft/world/entity/vehicle/boat/AbstractBoat inputUp Z
+accessible field net/minecraft/world/entity/vehicle/boat/AbstractBoat inputDown Z
 
 
 extendable class net/minecraft/world/item/component/BundleContents

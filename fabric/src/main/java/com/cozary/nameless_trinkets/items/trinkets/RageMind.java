@@ -1,12 +1,11 @@
 package com.cozary.nameless_trinkets.items.trinkets;
+import dev.emi.trinkets.api.Trinket;
+import dev.emi.trinkets.api.SlotReference;
 
 import com.cozary.nameless_trinkets.init.ModDataComponents;
-import io.wispforest.accessories.api.core.Accessory;
-import io.wispforest.accessories.api.core.AccessoryRegistry;
-import io.wispforest.accessories.api.slot.SlotReference;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -23,12 +22,11 @@ import net.minecraft.world.scores.Scoreboard;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RageMind extends RageMindBase implements Accessory {
+public class RageMind extends RageMindBase implements Trinket {
 
     public RageMind() {
         super();
-        AccessoryRegistry.register(this, this);
-    }
+        }
 
     private String getTeamName(Player player) {
         return "nt_rage_" + player.getStringUUID().substring(0, 8);
@@ -36,10 +34,10 @@ public class RageMind extends RageMindBase implements Accessory {
 
     @SuppressWarnings("unchecked")
     @Override
-    public void tick(ItemStack stack, SlotReference reference) {
+    public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
         Stats config = RageMindBase.INSTANCE.getTrinketConfig();
 
-        if (!config.isEnable || !(reference.entity() instanceof Player player) || player.level().isClientSide()) {
+        if (!config.isEnable || !(entity instanceof Player player) || player.level().isClientSide()) {
             return;
         }
 
@@ -51,7 +49,7 @@ public class RageMind extends RageMindBase implements Accessory {
         String revengeTarget = stack.get(ModDataComponents.RAGE_MIND_REVENGE_TARGET.get());
 
         if (revengeTarget != null) {
-            ResourceLocation resourceLocation = ResourceLocation.parse(revengeTarget);
+            Identifier resourceLocation = Identifier.parse(revengeTarget);
             EntityType<?> entityType = BuiltInRegistries.ENTITY_TYPE.get(resourceLocation).get().value();
             Entity dummyEntity = entityType.create(player.level(), EntitySpawnReason.SPAWN_ITEM_USE);
 
@@ -92,8 +90,8 @@ public class RageMind extends RageMindBase implements Accessory {
     }
 
     @Override
-    public void onUnequip(ItemStack stack, SlotReference reference) {
-        if (!(reference.entity() instanceof Player player) || player.level().isClientSide()) {
+    public void onUnequip(ItemStack stack, SlotReference slot, LivingEntity entity) {
+        if (!(entity instanceof Player player) || player.level().isClientSide()) {
             return;
         }
 
@@ -107,14 +105,8 @@ public class RageMind extends RageMindBase implements Accessory {
     }
 
 
-    @Override
-    public boolean canEquipFromUse(ItemStack stack, SlotReference reference) {
-        return true;
-    }
+    
 
-    @Override
-    public void onEquipFromUse(ItemStack stack, SlotReference reference) {
-        reference.entity().playSound(SoundEvents.ARMOR_EQUIP_ELYTRA.value(), 1.0F, 1.0F);
-    }
+    
 
 }
