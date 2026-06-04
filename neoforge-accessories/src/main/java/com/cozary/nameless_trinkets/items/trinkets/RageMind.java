@@ -39,11 +39,11 @@ public class RageMind extends RageMindBase implements Accessory {
     public void tick(ItemStack stack, SlotReference reference) {
         Stats config = RageMindBase.INSTANCE.getTrinketConfig();
 
-        if (!config.isEnable || !(reference.entity() instanceof Player player) || player.level().isClientSide) {
+        if (!config.isEnable || !(reference.entity() instanceof Player player) || player.level().isClientSide()) {
             return;
         }
 
-        Scoreboard scoreboard = player.getScoreboard();
+        Scoreboard scoreboard = player.level().getScoreboard();
         String teamName = getTeamName(player);
         PlayerTeam playerTeam = scoreboard.getPlayerTeam(teamName);
 
@@ -93,11 +93,11 @@ public class RageMind extends RageMindBase implements Accessory {
 
     @Override
     public void onUnequip(ItemStack stack, SlotReference reference) {
-        if (!(reference.entity() instanceof Player player) || player.level().isClientSide) {
+        if (!(reference.entity() instanceof Player player) || player.level().isClientSide()) {
             return;
         }
 
-        Scoreboard scoreboard = player.getScoreboard();
+        Scoreboard scoreboard = player.level().getScoreboard();
         String teamName = getTeamName(player);
         PlayerTeam playerTeam = scoreboard.getPlayerTeam(teamName);
 

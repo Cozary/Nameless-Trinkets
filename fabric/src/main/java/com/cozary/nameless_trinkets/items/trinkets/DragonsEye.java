@@ -42,11 +42,11 @@ public class DragonsEye extends DragonsEyeBase implements Accessory {
 
     @Override
     public void onUnequip(ItemStack stack, SlotReference reference) {
-        if (!(reference.entity() instanceof Player player) || player.level().isClientSide) {
+        if (!(reference.entity() instanceof Player player) || player.level().isClientSide()) {
             return;
         }
 
-        Scoreboard scoreboard = player.getScoreboard();
+        Scoreboard scoreboard = player.level().getScoreboard();
         String teamName = getTeamName(player);
         PlayerTeam playerTeam = scoreboard.getPlayerTeam(teamName);
 
@@ -58,7 +58,7 @@ public class DragonsEye extends DragonsEyeBase implements Accessory {
     @Override
     public void tick(ItemStack stack, SlotReference reference) {
         Stats config = DragonsEyeBase.INSTANCE.getTrinketConfig();
-        if (!config.isEnable || !(reference.entity() instanceof Player player) || player.level().isClientSide) {
+        if (!config.isEnable || !(reference.entity() instanceof Player player) || player.level().isClientSide()) {
             return;
         }
 
@@ -73,7 +73,7 @@ public class DragonsEye extends DragonsEyeBase implements Accessory {
         Level world = player.level();
         List<Mob> entities = world.getEntitiesOfClass(Mob.class, player.getBoundingBox().inflate(config.radius));
         List<Mob> validTargets = entities.stream()
-                .filter(entity -> entity.shouldDespawnInPeaceful() || entity.getSoundSource() == SoundSource.HOSTILE || entity.isAggressive())
+                .filter(entity -> entity.getSoundSource() == SoundSource.HOSTILE || entity.isAggressive())
                 .collect(Collectors.toList());
 
         if (validTargets.isEmpty()) {
