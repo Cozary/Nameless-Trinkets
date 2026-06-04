@@ -1,0 +1,87 @@
+plugins {
+    id 'multiloader-loader'
+    id 'net.neoforged.moddev'
+    id "me.modmuss50.mod-publish-plugin" version "${mod_publish_version}"
+}
+
+base {
+    archivesName = "${mod_name}-neoforge-${minecraft_version}-${version_neoforge_curios}"
+}
+
+neoForge {
+    version = neoforge_version
+    // Automatically enable neoforge AccessTransformers if the file exists
+    def at = project(':common').file('src/main/resources/META-INF/accesstransformer.cfg')
+    if (at.exists()) {
+        accessTransformers.from(at.absolutePath)
+    }
+    parchment {
+        minecraftVersion = parchment_minecraft
+        mappingsVersion = parchment_version
+    }
+    runs {
+        configureEach {
+            systemProperty('neoforge.enabledGameTestNamespaces', mod_id)
+            ideName = "NeoForge ${it.name.capitalize()} (${project.path})" // Unify the run config names with fabric
+        }
+        client {
+            client()
+        }
+        data {
+            clientData()
+            // DataGen can be run by - "./gradlew :neoforge:runData" in Terminal.
+            // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
+            programArguments = ['--mod', project.mod_id, '--all', '--output', file('src/generated/').getAbsolutePath(), '--existing', file('../common/src/main/resources/').getAbsolutePath()]
+        }
+        server {
+            server()
+        }
+    }
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+repositories {
+    maven {
+        name = "Illusive Soulworks maven"
+        url = "https://maven.theillusivec4.top/"
+    }
+    mavenCentral()
+}
+
+dependencies {
+// Compile against only the API artifact
+    compileOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}:api"
+    // Use the full Curios API jar at runtime
+    runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}"
+}
+
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+publishMods {
+    file = jar.archiveFile
+    changelog = project(":common").file("CHANGELOG.md").text
+    type = STABLE
+    modLoaders.add("neoforge")
+    displayName = "${mod_name}-neoforge-curios-${minecraft_version}-${version_neoforge_curios}"
+    dryRun = dry_run.toBoolean()
+    version = version_neoforge_curios
+
+    curseforge {
+        accessToken = providers.environmentVariable("CURSEFORGE_API_KEY")
+        projectId = curseforge_project_id
+        minecraftVersions.add(minecraft_version)
+        requires("curios")
+    }
+
+
+    modrinth {
+        accessToken = accessToken = providers.environmentVariable("MODRINTH_API_KEY")
+        projectId = modrinth_project_id
+        minecraftVersions.add(minecraft_version)
+        requires("curios")
+    }
+}
