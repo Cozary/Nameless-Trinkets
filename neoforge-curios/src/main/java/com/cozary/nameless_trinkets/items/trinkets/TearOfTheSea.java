@@ -33,6 +33,8 @@ public class TearOfTheSea extends TearOfTheSeaBase implements ICurioItem {
             return;
 
         LivingEntity livingEntity = slotContext.entity();
+        if (livingEntity.level().isClientSide())
+            return;
 
 
         AttributeInstance attribSpeed = livingEntity.getAttribute(Attributes.WATER_MOVEMENT_EFFICIENCY);
