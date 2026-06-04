@@ -2,6 +2,7 @@ package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.init.ModDataComponents;
+import com.cozary.nameless_trinkets.events.WoundbearerHandler;
 import com.cozary.nameless_trinkets.utils.EntityUtils;
 import io.wispforest.accessories.api.AccessoriesAPI;
 import io.wispforest.accessories.api.Accessory;
@@ -46,16 +47,31 @@ public class Woundbearer extends WoundbearerBase implements Accessory {
         if (world.isClientSide())
             return;
 
-        float damageIncrement = stack.getOrDefault(ModDataComponents.WOUNDBEARER_DAMAGE.get(), 0).floatValue();
+        float currentDamage = stack.getOrDefault(ModDataComponents.WOUNDBEARER_DAMAGE.get(), 0.0f);
+        float newDamage = currentDamage;
 
-        if (damageIncrement > 0) {
+        int lastDamageTick = WoundbearerHandler.LAST_DAMAGE_TICKS.getOrDefault(livingEntity.getUUID(), 0);
+        int ticksSinceDamage = livingEntity.tickCount - lastDamageTick;
 
-            AttributeInstance attributeDamage = livingEntity.getAttribute(Attributes.ATTACK_DAMAGE);
-            AttributeModifier damageModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "woundbearer_attack_damage"),
-                    damageIncrement, AttributeModifier.Operation.ADD_VALUE);
+        if ((ticksSinceDamage < 0 || ticksSinceDamage >= config.decayDelayTicks) && currentDamage > 0) {
+            float ratio = Math.max(0.0f, Math.min(1.0f, currentDamage / config.maxDamageLimit));
+            float decay = config.baseDecayAmount * (1.0f + 3.0f * ratio * ratio);
+            newDamage = Math.max(0.0f, currentDamage - decay);
 
-            assert attributeDamage != null;
-            EntityUtils.applyAttributeModifier(attributeDamage, damageModifier);
+            stack.set(ModDataComponents.WOUNDBEARER_DAMAGE.get(), newDamage);
+        }
+
+        AttributeInstance attributeDamage = livingEntity.getAttribute(Attributes.ATTACK_DAMAGE);
+        if (attributeDamage != null) {
+            AttributeModifier dummyModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "woundbearer_attack_damage"),
+                    0.0f, AttributeModifier.Operation.ADD_VALUE);
+            EntityUtils.removeAttributeModifier(attributeDamage, dummyModifier);
+
+            if (newDamage > 0) {
+                AttributeModifier damageModifier = new AttributeModifier(ResourceLocation.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "woundbearer_attack_damage"),
+                        newDamage, AttributeModifier.Operation.ADD_VALUE);
+                EntityUtils.applyAttributeModifier(attributeDamage, damageModifier);
+            }
         }
 
     }

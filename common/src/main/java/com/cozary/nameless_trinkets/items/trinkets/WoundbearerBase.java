@@ -39,6 +39,9 @@ public class WoundbearerBase extends TrinketItem<WoundbearerBase.Stats> {
 
     public static class Stats extends TrinketsStats {
         public float damageConversionPercentage = 1.0f;
+        public float maxDamageLimit = 10.0f;
+        public float baseDecayAmount = 0.000166f;
+        public int decayDelayTicks = 60;
         public boolean isEnable = true;
     }
 
