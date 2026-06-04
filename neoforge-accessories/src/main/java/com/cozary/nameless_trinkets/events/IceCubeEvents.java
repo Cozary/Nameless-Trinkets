@@ -32,7 +32,7 @@ public class IceCubeEvents {
             if (stack.isEmpty())
                 return;
 
-            IceCubeHandler.applySlowEffect((LivingEntity) event.getSource().getEntity());
+            IceCubeHandler.applySlowEffect(event.getEntity());
 
         }
     }
