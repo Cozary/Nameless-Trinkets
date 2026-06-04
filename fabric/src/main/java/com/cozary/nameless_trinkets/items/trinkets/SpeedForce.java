@@ -44,6 +44,8 @@ public class SpeedForce extends SpeedForceBase implements Accessory {
             return;
 
         LivingEntity livingEntity = reference.entity();
+        if (livingEntity.level().isClientSide())
+            return;
 
 
         if (!livingEntity.level().isClientSide() && !stack.isEmpty() && config.speedForceParticles) {
