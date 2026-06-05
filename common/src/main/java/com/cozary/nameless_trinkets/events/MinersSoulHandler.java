@@ -72,9 +72,9 @@ public class MinersSoulHandler {
                 itemEntity.setDefaultPickUpDelay();
                 itemEntity.setPos(Vec3.atCenterOf(pos));
                 itemEntity.setDeltaMovement(itemEntity.getDeltaMovement().add(
-                        (level.random.nextFloat() - level.random.nextFloat()) * 0.1F,
-                        level.random.nextFloat() * 0.05F,
-                        (level.random.nextFloat() - level.random.nextFloat()) * 0.1F
+                        (level.getRandom().nextFloat() - level.getRandom().nextFloat()) * 0.1F,
+                        level.getRandom().nextFloat() * 0.05F,
+                        (level.getRandom().nextFloat() - level.getRandom().nextFloat()) * 0.1F
                 ));
                 level.addFreshEntity(itemEntity);
             }

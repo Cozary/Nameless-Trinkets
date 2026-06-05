@@ -1,5 +1,1 @@
-# Changelog 1.21.11
-
-### Changed
-
-- Migrated accessory dependency from Accessories API & owo-lib to Trinkets Updated.
+# Changelog 26.1.2 Port

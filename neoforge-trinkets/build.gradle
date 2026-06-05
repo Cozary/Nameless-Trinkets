@@ -15,24 +15,29 @@ neoForge {
     if (at.exists()) {
         accessTransformers.from(at.absolutePath)
     }
-    parchment {
-        minecraftVersion = parchment_minecraft
-        mappingsVersion = parchment_version
-    }
+
     runs {
         configureEach {
             systemProperty('neoforge.enabledGameTestNamespaces', mod_id)
-            ideName = "NeoForge ${it.name.capitalize()} (${project.path})" // Unify the run config names with fabric
+            ideName = "NeoForge Trinkets ${it.name.capitalize()} (${project.path})"
+            // Unify the run config names with fabric
         }
         client {
             client()
+            gameDirectory = this.mkdir(this.file("runs/client"))
         }
         data {
             clientData()
-            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
+
+            gameDirectory = this.mkdir(this.file("runs/data"))
+            // DataGen can be run by - "./gradlew :neoforge:runData" in Terminal.
+            // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
+            programArguments = ['--mod', project.mod_id, '--all', '--output', file('src/generated/').getAbsolutePath(), '--existing', file('../common/src/main/resources/').getAbsolutePath()]
         }
         server {
             server()
+            this.file("runs/server").createParentDirectories()
+            gameDirectory = this.mkdir(this.file("runs/server"))
         }
     }
     mods {
@@ -42,33 +47,8 @@ neoForge {
     }
 }
 
-repositories {
-    maven { url 'https://maven.wispforest.io/releases' }
-    maven { url 'https://maven.su5ed.dev/releases' }
-    maven { url 'https://maven.shedaniel.me/' }
-    mavenCentral()
-    
-    // Dynamic repository addition to resolve Loom's remapped dependencies
-    afterEvaluate {
-        project(':fabric').repositories.each { repo ->
-            if (repo instanceof MavenArtifactRepository) {
-                maven {
-                    url = repo.url
-                    name = "Fabric_" + repo.name
-                }
-            }
-        }
-    }
-}
-
 dependencies {
-    compileOnly(project(':fabric')) {
-        exclude group: 'net.fabricmc.fabric-api'
-        exclude group: 'net.fabricmc'
-        exclude group: 'remapped.net.fabricmc.fabric-api'
-    }
-    
-    runtimeOnly "maven.modrinth:trinkets-updated:${trinkets_version}"
+    implementation "maven.modrinth:trinkets-updated:${project.trinkets_version}"
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
@@ -86,32 +66,32 @@ publishMods {
         accessToken = providers.environmentVariable("CURSEFORGE_API_KEY")
         projectId = curseforge_project_id
         minecraftVersions.add(minecraft_version)
-        requires("trinkets")
+        requires("trinkets-updated")
     }
-
 
     modrinth {
         accessToken = accessToken = providers.environmentVariable("MODRINTH_API_KEY")
         projectId = modrinth_project_id
         minecraftVersions.add(minecraft_version)
-        requires("trinkets")
+        requires("trinkets-updated")
     }
 }
 
-// Task to move generated resources to common module
-tasks.register('moveGeneratedResources', Copy) {
-    group = mod_id
-    description = "Moves generated resources to common module, overwriting duplicates."
-    from 'src/generated/resources'
-    into rootProject.project(':common').file('src/main/resources')
-    duplicatesStrategy = DuplicatesStrategy.INCLUDE
-
-    doLast {
-        file('src/generated/resources').deleteDir()
+// Implement mcgradleconventions loader attribute
+def loaderAttribute = Attribute.of('io.github.mcgradleconventions.loader', String)
+['apiElements', 'runtimeElements', 'sourcesElements', 'javadocElements'].each { variant ->
+    configurations.named("$variant") {
+        attributes {
+            attribute(loaderAttribute, 'neoforge')
+        }
     }
 }
-
-// Automatically run moveGeneratedResources after runData (Only works when running the Gradle task, not the IDE Run Config)
-tasks.named('runData') {
-    finalizedBy 'moveGeneratedResources'
+sourceSets.configureEach {
+    [it.compileClasspathConfigurationName, it.runtimeClasspathConfigurationName, it.getTaskName(null, 'jarJar')].each { variant ->
+        configurations.named("$variant") {
+            attributes {
+                attribute(loaderAttribute, 'neoforge')
+            }
+        }
+    }
 }

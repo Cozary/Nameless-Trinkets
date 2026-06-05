@@ -7,18 +7,16 @@ import com.cozary.nameless_trinkets.events.*;
 import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.lootTables.LootTableHandler;
 import com.cozary.nameless_trinkets.recipe.RecipeGate;
-import dev.emi.trinkets.api.Trinket;
-import dev.emi.trinkets.api.TrinketsApi;
-
+import eu.pb4.trinkets.api.callback.TrinketCallback;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 
@@ -36,8 +34,8 @@ public class NamelessTrinketsFabric implements ModInitializer {
 
         for (var itemObj : ModItems.CREATIVE_TAB_ITEMS) {
             net.minecraft.world.item.Item item = itemObj.get();
-            if (item instanceof Trinket trinket) {
-                TrinketsApi.registerTrinket(item, trinket);
+            if (item instanceof TrinketCallback callback) {
+                TrinketCallback.setCallback(item, callback);
             }
         }
 
@@ -92,7 +90,7 @@ public class NamelessTrinketsFabric implements ModInitializer {
     }
 
     private void itemGroupLoad() {
-        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ITEM_GROUP, FabricItemGroup.builder()
+        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ITEM_GROUP, FabricCreativeModeTab.builder()
                 .title(Component.translatable("itemGroup.nameless_trinkets"))
                 .icon(() -> new ItemStack(ModItems.MYSTERIOUS_TRINKET.get()))
                 .displayItems((parameters, output) -> ModItems.CREATIVE_TAB_ITEMS.forEach((item) -> output.accept(item.get())))

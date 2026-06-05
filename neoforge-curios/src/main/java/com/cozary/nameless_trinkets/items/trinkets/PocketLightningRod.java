@@ -37,7 +37,7 @@ public class PocketLightningRod extends PocketLightningRodBase implements ICurio
 
         if (!level.isClientSide()) {
             boolean flag = level.isRaining();
-            if (flag && level.isThundering() && level.random.nextInt(config.thunders) == 0) {
+            if (flag && level.isThundering() && level.getRandom().nextInt(config.thunders) == 0) {
                 ChunkPos chunkpos = slotContext.entity().chunkPosition();
                 int i = chunkpos.getMinBlockX();
                 int j = chunkpos.getMinBlockZ();

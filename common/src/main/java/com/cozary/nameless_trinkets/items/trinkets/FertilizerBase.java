@@ -150,8 +150,8 @@ public class FertilizerBase extends TrinketItem<FertilizerBase.Stats> {
         BlockState blockState = level.getBlockState(pos);
         if (blockState.getBlock() instanceof BonemealableBlock bonemealable &&
                 bonemealable.isValidBonemealTarget(level, pos, blockState)) {
-            if (level instanceof ServerLevel serverLevel && bonemealable.isBonemealSuccess(level, level.random, pos, blockState)) {
-                bonemealable.performBonemeal(serverLevel, level.random, pos, blockState);
+            if (level instanceof ServerLevel serverLevel && bonemealable.isBonemealSuccess(level, level.getRandom(), pos, blockState)) {
+                bonemealable.performBonemeal(serverLevel, level.getRandom(), pos, blockState);
                 return true;
             }
         }

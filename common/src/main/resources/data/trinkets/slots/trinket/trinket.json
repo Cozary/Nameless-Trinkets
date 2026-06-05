@@ -1,6 +1,6 @@
 {
   "amount": 4,
-  "icon": "nameless_trinkets:gui/slots/trinket_slot",
+  "icon": "nameless_trinkets:container/slots/trinket_slot",
   "order": 0,
   "drop_rule": "default",
   "validator_predicates": [

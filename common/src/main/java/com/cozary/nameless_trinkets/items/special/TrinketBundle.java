@@ -137,13 +137,13 @@ public class TrinketBundle extends BundleItem {
     @Override
     public boolean isBarVisible(ItemStack itemStack) {
         TrinketBundleContents bundlecontents = itemStack.getOrDefault(ModDataComponents.TRINKET_BUNDLE_CONTENTS.get(), TrinketBundleContents.EMPTY);
-        return bundlecontents.weight().compareTo(Fraction.ZERO) > 0;
+        return bundlecontents.weight().result().orElse(Fraction.ZERO).compareTo(Fraction.ZERO) > 0;
     }
 
     @Override
     public int getBarWidth(ItemStack itemStack) {
         TrinketBundleContents bundlecontents = itemStack.getOrDefault(ModDataComponents.TRINKET_BUNDLE_CONTENTS.get(), TrinketBundleContents.EMPTY);
-        return (int) Math.min(bundlecontents.weight().doubleValue() * 64.0D * (13.0D / (double) 64), 13.0D);
+        return (int) Math.min(bundlecontents.weight().result().orElse(Fraction.ZERO).doubleValue() * 64.0D * (13.0D / (double) 64), 13.0D);
     }
 
     @Override
@@ -162,7 +162,7 @@ public class TrinketBundle extends BundleItem {
         TrinketBundleContents bundlecontents = (TrinketBundleContents) itemEntity.getItem().get((DataComponentType) ModDataComponents.TRINKET_BUNDLE_CONTENTS.get());
         if (bundlecontents != null) {
             itemEntity.getItem().set((DataComponentType) ModDataComponents.TRINKET_BUNDLE_CONTENTS.get(), TrinketBundleContents.EMPTY);
-            ItemUtils.onContainerDestroyed(itemEntity, bundlecontents.itemsCopy());
+            ItemUtils.onContainerDestroyed(itemEntity, bundlecontents.itemList().stream());
         }
 
     }

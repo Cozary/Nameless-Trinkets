@@ -80,8 +80,8 @@ public class DyingStarBase extends TrinketItem<DyingStarBase.Stats> {
         }
 
         if (!applied) {
-            player.displayClientMessage(Component.translatable("message.nameless_trinkets.dying_star_all_maxed")
-                    .withStyle(ChatFormatting.BLACK), true);
+            player.sendSystemMessage(Component.translatable("message.nameless_trinkets.dying_star_all_maxed")
+                    .withStyle(ChatFormatting.BLACK));
         }
     }
 

@@ -2,19 +2,20 @@ package com.cozary.nameless_trinkets.utils;
 
 import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.DataResult;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.component.BundleContents;
 import org.apache.commons.lang3.math.Fraction;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.stream.Stream;
 
 import static com.cozary.nameless_trinkets.init.ModTags.NAMELESS_TRINKETS_TAG;
 
@@ -38,7 +39,7 @@ public class TrinketBundleContents extends BundleContents {
     final Fraction weight;
 
     TrinketBundleContents(List<ItemStack> itemStacks, Fraction fraction) {
-        super(itemStacks);
+        super(itemStacks.stream().filter(s -> !s.isEmpty()).map(ItemStackTemplate::fromNonEmptyStack).toList());
         this.items = itemStacks;
         this.weight = fraction;
     }
@@ -63,25 +64,14 @@ public class TrinketBundleContents extends BundleContents {
     }
 
     @Override
-    public ItemStack getItemUnsafe(int index) {
-        return (ItemStack) this.items.get(index);
-    }
-
-    @Override
-    public Stream<ItemStack> itemCopyStream() {
-        return this.items.stream().map(ItemStack::copy);
-    }
-
-    @Override
-    public Iterable<ItemStack> items() {
-        return this.items;
+    public List<ItemStackTemplate> items() {
+        return this.items.stream().filter(s -> !s.isEmpty()).map(ItemStackTemplate::fromNonEmptyStack).toList();
     }
 
     public List<ItemStack> itemList() {
         return this.items;
     }
 
-    @Override
     public Iterable<ItemStack> itemsCopy() {
         return Lists.transform(this.items, ItemStack::copy);
     }
@@ -92,8 +82,8 @@ public class TrinketBundleContents extends BundleContents {
     }
 
     @Override
-    public Fraction weight() {
-        return this.weight;
+    public DataResult<Fraction> weight() {
+        return DataResult.success(this.weight);
     }
 
     @Override

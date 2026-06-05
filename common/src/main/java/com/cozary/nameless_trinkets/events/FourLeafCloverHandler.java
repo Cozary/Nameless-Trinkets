@@ -41,7 +41,7 @@ public class FourLeafCloverHandler {
                 for (ItemStack drop : drops) {
                     ItemEntity itementity = new ItemEntity(level, entity.getX(), entity.getY(), entity.getZ(), drop.copy());
                     itementity.setDefaultPickUpDelay();
-                    itementity.setDeltaMovement(itementity.getDeltaMovement().add((level.random.nextFloat() - level.random.nextFloat()) * 0.1F, level.random.nextFloat() * 0.05F, (level.random.nextFloat() - level.random.nextFloat()) * 0.1F));
+                    itementity.setDeltaMovement(itementity.getDeltaMovement().add((level.getRandom().nextFloat() - level.getRandom().nextFloat()) * 0.1F, level.getRandom().nextFloat() * 0.05F, (level.getRandom().nextFloat() - level.getRandom().nextFloat()) * 0.1F));
                     level.addFreshEntity(itementity);
                 }
             }
