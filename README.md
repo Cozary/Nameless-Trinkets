@@ -1,6 +1,6 @@
 # Nameless Trinkets
 
-### **[Check out the wiki!](https://nameless-trinkets.wiki)**
+### **[Check out the wiki!](https://cozarycore.com/wiki/nameless-trinkets/)**
 
 Looking for a mod that adds powerful trinkets? This mod adds a wide variety of trinkets to the game, each one with a different ability that will be effective depending on the situation or the way you play.
 
