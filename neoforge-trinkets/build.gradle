@@ -55,7 +55,7 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 publishMods {
     file = jar.archiveFile
-    changelog = project(":common").file("CHANGELOG.md").text
+    changelog = getLatestChangelog()
     type = STABLE
     modLoaders.add("neoforge")
     displayName = "${mod_name}-neoforge-trinkets-${minecraft_version}-${version_neoforge_trinkets}"

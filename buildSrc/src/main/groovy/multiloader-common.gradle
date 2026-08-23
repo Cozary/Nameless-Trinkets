@@ -127,3 +127,25 @@ publishing {
         }
     }
 }
+
+ext.getLatestChangelog = {
+    def changelogFile = rootProject.file("common/CHANGELOG.md")
+    if (!changelogFile.exists()) return "No changelog available"
+    
+    def lines = changelogFile.readLines()
+    def versionLines = []
+    def foundVersion = false
+    
+    for (line in lines) {
+        if (line.startsWith("## [")) {
+            if (foundVersion) break
+            foundVersion = true
+            continue
+        }
+        if (foundVersion) {
+            versionLines.add(line)
+        }
+    }
+    return versionLines.join("\n").trim()
+}
+
