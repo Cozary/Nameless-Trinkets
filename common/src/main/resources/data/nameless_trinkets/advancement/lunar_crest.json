@@ -1,0 +1,34 @@
+{
+  "parent": "nameless_trinkets:root",
+  "criteria": {
+    "lunar_crest": {
+      "conditions": {
+        "items": [
+          {
+            "items": "nameless_trinkets:lunar_crest"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.nameless_trinkets.lunar_crest.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "nameless_trinkets:lunar_crest"
+    },
+    "title": {
+      "translate": "advancements.nameless_trinkets.lunar_crest.title"
+    }
+  },
+  "requirements": [
+    [
+      "lunar_crest"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

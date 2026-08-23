@@ -7,8 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Fabric 1.2.5 - NeoForge Curios 1.2.4 - NeoForge Trinkets 1.0.1] - 2026-08-23
 
-26.1.2 Port
-
 ### Changed
 
 - Ported to Minecraft 26.1.2 (NeoForge & Fabric).

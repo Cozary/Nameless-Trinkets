@@ -267,4 +267,9 @@ public class CuriosPlatformAbstractions implements IPlatformAbstractions {
     public Item createResonantHeartItem() {
         return new ResonantHeart();
     }
+
+    @Override
+    public Item createLunarCrestItem() {
+        return new LunarCrest();
+    }
 }

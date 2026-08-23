@@ -321,6 +321,12 @@
   "advancements.nameless_trinkets.dying_star.title": "Hungry",
   "advancements.nameless_trinkets.dying_star.description": "Obtain the Dying Star",
   "item.nameless_trinkets.trinket_bundle": "Trinket Bundle",
+  "item.nameless_trinkets.lunar_crest": "Lunar Crest",
+  "tooltip.nameless_trinkets.lunar_crest_lore": "Inside you there are two wolves...",
+  "tooltip.nameless_trinkets.lunar_crest_1": "At night, attack damage scales with moon phases up to +%1$s (Current: +%2$s).",
+  "tooltip.nameless_trinkets.lunar_crest_2": "At night, your tamed wolves deal +%1$s extra damage.",
+  "advancements.nameless_trinkets.lunar_crest.title": "Both of them want violence.",
+  "advancements.nameless_trinkets.lunar_crest.description": "Obtain the Lunar Crest.",
   "trinkets.group.trinket": "Trinkets",
   "trinkets.slot.trinket.trinket": "Trinket",
   "trinkets.slot.chest.charm": "Charm"

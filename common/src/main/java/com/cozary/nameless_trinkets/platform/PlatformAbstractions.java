@@ -222,4 +222,8 @@ public class PlatformAbstractions {
     public static Item createResonantHeartItem() {
         return IMPL.createResonantHeartItem();
     }
+
+    public static Item createLunarCrestItem() {
+        return IMPL.createLunarCrestItem();
+    }
 }

@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "nameless_trinkets:item/lunar_crest_7"
+                 },
+    "parent":  "minecraft:item/generated"
+}

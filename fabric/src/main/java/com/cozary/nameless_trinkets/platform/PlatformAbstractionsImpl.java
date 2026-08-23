@@ -267,4 +267,9 @@ public class PlatformAbstractionsImpl implements IPlatformAbstractions {
     public Item createResonantHeartItem() {
         return new ResonantHeart();
     }
+
+    @Override
+    public Item createLunarCrestItem() {
+        return new LunarCrest();
+    }
 }

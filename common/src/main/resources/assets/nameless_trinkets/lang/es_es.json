@@ -321,6 +321,12 @@
   "advancements.nameless_trinkets.dying_star.title": "Hambrienta",
   "advancements.nameless_trinkets.dying_star.description": "Obtén la Estrella Moribunda.",
   "item.nameless_trinkets.trinket_bundle": "Trinket Bundle",
+  "item.nameless_trinkets.lunar_crest": "Cresta Lunar",
+  "tooltip.nameless_trinkets.lunar_crest_lore": "Dentro de ti hay dos lobos...",
+  "tooltip.nameless_trinkets.lunar_crest_1": "De noche, el daño de ataque escala con las fases lunares hasta +%1$s (Actual: +%2$s).",
+  "tooltip.nameless_trinkets.lunar_crest_2": "De noche, tus lobos domesticados infligen +%1$s de daño extra.",
+  "advancements.nameless_trinkets.lunar_crest.title": "Ambos quieren violencia.",
+  "advancements.nameless_trinkets.lunar_crest.description": "Obtén la Cresta Lunar.",
   "trinkets.group.trinket": "Trinkets",
   "trinkets.slot.trinket.trinket": "Trinket",
   "trinkets.slot.chest.charm": "Amuleto"

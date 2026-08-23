@@ -647,6 +647,16 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('#', ModItems.UNKNOWN_FRAGMENT.get())
                 .unlockedBy("has_unknown_fragment", has(ModItems.UNKNOWN_FRAGMENT.get()))
                 .save(output);
+
+        shaped(RecipeCategory.MISC, ModItems.LUNAR_CREST.get())
+                .pattern("#B#")
+                .pattern("BSB")
+                .pattern("#B#")
+                .define('#', Items.LAPIS_LAZULI)
+                .define('B', Items.BONE)
+                .define('S', ModItems.GLOWING_DUST.get())
+                .unlockedBy("has_glowing_dust", has(ModItems.GLOWING_DUST.get()))
+                .save(output);
     }
 
     public static class Runner extends RecipeProvider.Runner {
