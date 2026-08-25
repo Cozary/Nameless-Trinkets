@@ -327,6 +327,11 @@
   "tooltip.nameless_trinkets.lunar_crest_2": "De noche, tus lobos domesticados infligen +%1$s de daño extra.",
   "advancements.nameless_trinkets.lunar_crest.title": "Ambos quieren violencia.",
   "advancements.nameless_trinkets.lunar_crest.description": "Obtén la Cresta Lunar.",
+  "item.nameless_trinkets.eclipse_ashes": "Cenizas del Eclipse",
+  "tooltip.nameless_trinkets.eclipse_ashes_lore": "Ser de la ceniza, ¿puedes oír aún mi voz?",
+  "tooltip.nameless_trinkets.eclipse_ashes_1": "Al recibir daño, invoca perros fantasmales durante %1$s segundos que atacan al agresor y desaparecen al golpear.",
+  "advancements.nameless_trinkets.eclipse_ashes.title": "Toca la oscuridad dentro de mí.",
+  "advancements.nameless_trinkets.eclipse_ashes.description": "Obtén las Cenizas del Eclipse.",
   "trinkets.group.trinket": "Trinkets",
   "trinkets.slot.trinket.trinket": "Trinket",
   "trinkets.slot.chest.charm": "Amuleto"

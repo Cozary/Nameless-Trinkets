@@ -87,6 +87,7 @@ public class NamelessTrinketsFabric implements ModInitializer {
         WoodenStickEvents.register();
         WoundbearerEvents.register();
         LunarCrestEvents.register();
+        EclipseAshesEvents.register();
         UnknownFragmentEvent.register();
     }
 

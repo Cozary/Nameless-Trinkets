@@ -70,7 +70,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
                         ModItems.WOUNDBEARER.get(),
                         ModItems.RESONANT_HEART.get(),
                         ModItems.DYING_STAR.get(),
-                        ModItems.LUNAR_CREST.get()
+                        ModItems.LUNAR_CREST.get(),
+                        ModItems.ECLIPSE_ASHES.get()
                 );
 
         tag(ModTags.RECYCLABLE_TRINKETS_TAG)
@@ -127,7 +128,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
                         ModItems.WOUNDBEARER.get(),
                         ModItems.RESONANT_HEART.get(),
                         ModItems.DYING_STAR.get(),
-                        ModItems.LUNAR_CREST.get()
+                        ModItems.LUNAR_CREST.get(),
+                        ModItems.ECLIPSE_ASHES.get()
                 );
     }
 }

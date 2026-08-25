@@ -272,4 +272,9 @@ public class TrinketsPlatformAbstractions implements IPlatformAbstractions {
     public Item createLunarCrestItem() {
         return new LunarCrest();
     }
+
+    @Override
+    public Item createEclipseAshesItem() {
+        return new EclipseAshes();
+    }
 }

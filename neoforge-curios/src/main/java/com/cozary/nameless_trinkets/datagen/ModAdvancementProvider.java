@@ -100,6 +100,7 @@ public class ModAdvancementProvider extends AdvancementProvider {
             addTrinketAdvancement(consumer, root, ModItems.EXPLOSION_PROOF_JACKET.get(), "explosion_proof_jacket");
             addTrinketAdvancement(consumer, root, ModItems.SPIDER_LEGS.get(), "spider_legs");
             addTrinketAdvancement(consumer, root, ModItems.LUNAR_CREST.get(), "lunar_crest");
+            addTrinketAdvancement(consumer, root, ModItems.ECLIPSE_ASHES.get(), "eclipse_ashes");
         }
 
         private void addTrinketAdvancement(Consumer<AdvancementHolder> consumer, AdvancementHolder parent, Item item, String name) {

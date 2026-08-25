@@ -657,6 +657,16 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('S', ModItems.GLOWING_DUST.get())
                 .unlockedBy("has_glowing_dust", has(ModItems.GLOWING_DUST.get()))
                 .save(output);
+
+        shaped(RecipeCategory.MISC, ModItems.ECLIPSE_ASHES.get())
+                .pattern("#B#")
+                .pattern("BSB")
+                .pattern("#B#")
+                .define('#', Items.BLAZE_POWDER)
+                .define('B', Items.SOUL_SOIL)
+                .define('S', ModItems.GLOWING_DUST.get())
+                .unlockedBy("has_glowing_dust", has(ModItems.GLOWING_DUST.get()))
+                .save(output);
     }
 
     public static class Runner extends RecipeProvider.Runner {

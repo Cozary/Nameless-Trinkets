@@ -107,4 +107,5 @@ public interface IPlatformAbstractions {
 
     Item createResonantHeartItem();
     Item createLunarCrestItem();
+    Item createEclipseAshesItem();
 }

@@ -327,6 +327,11 @@
   "tooltip.nameless_trinkets.lunar_crest_2": "At night, your tamed wolves deal +%1$s extra damage.",
   "advancements.nameless_trinkets.lunar_crest.title": "Both of them want violence.",
   "advancements.nameless_trinkets.lunar_crest.description": "Obtain the Lunar Crest.",
+  "item.nameless_trinkets.eclipse_ashes": "Eclipse Ashes",
+  "tooltip.nameless_trinkets.eclipse_ashes_lore": "Ashen one, hearest thou my voice, still?",
+  "tooltip.nameless_trinkets.eclipse_ashes_1": "When attacked, summons phantom wolves for %1$s seconds that relentlessly assault the assailant and vanish upon striking.",
+  "advancements.nameless_trinkets.eclipse_ashes.title": "Touch the darkness inside me.",
+  "advancements.nameless_trinkets.eclipse_ashes.description": "Obtain the Eclipse Ashes.",
   "trinkets.group.trinket": "Trinkets",
   "trinkets.slot.trinket.trinket": "Trinket",
   "trinkets.slot.chest.charm": "Charm"

@@ -226,4 +226,8 @@ public class PlatformAbstractions {
     public static Item createLunarCrestItem() {
         return IMPL.createLunarCrestItem();
     }
+
+    public static Item createEclipseAshesItem() {
+        return IMPL.createEclipseAshesItem();
+    }
 }
