@@ -1,0 +1,74 @@
+{
+    "targets": {
+        "swap": {}
+    },
+    "passes": [
+        {
+            "vertex_shader": "minecraft:core/screenquad",
+            "fragment_shader": "nameless_trinkets:post/square_temporal",
+            "inputs": [
+                {
+                    "sampler_name": "In",
+                    "target": "minecraft:main"
+                }
+            ],
+            "output": "swap",
+            "uniforms": {
+                "ColorConfig": [
+                    {
+                        "name": "RedMatrix",
+                        "type": "vec3",
+                        "value": [ 1.3, -0.15, -0.15 ]
+                    },
+                    {
+                        "name": "GreenMatrix",
+                        "type": "vec3",
+                        "value": [ -0.15, 1.3, -0.15 ]
+                    },
+                    {
+                        "name": "BlueMatrix",
+                        "type": "vec3",
+                        "value": [ -0.15, -0.15, 1.3 ]
+                    }
+                ],
+                "SquareConfig": [
+                    {
+                        "name": "Progress",
+                        "type": "float",
+                        "value": 0.0
+                    },
+                    {
+                        "name": "BorderWidth",
+                        "type": "float",
+                        "value": 0.008
+                    },
+                    {
+                        "name": "BorderColor",
+                        "type": "vec3",
+                        "value": [ 0.2, 0.9, 1.0 ]
+                    }
+                ]
+            }
+        },
+        {
+            "vertex_shader": "minecraft:core/screenquad",
+            "fragment_shader": "minecraft:post/blit",
+            "inputs": [
+                {
+                    "sampler_name": "In",
+                    "target": "swap"
+                }
+            ],
+            "uniforms": {
+                "BlitConfig": [
+                    {
+                        "name": "ColorModulate",
+                        "type": "vec4",
+                        "value": [ 1.0, 1.0, 1.0, 1.0 ]
+                    }
+                ]
+            },
+            "output": "minecraft:main"
+        }
+    ]
+}

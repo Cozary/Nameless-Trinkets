@@ -277,4 +277,9 @@ public class CuriosPlatformAbstractions implements IPlatformAbstractions {
     public Item createEclipseAshesItem() {
         return new EclipseAshes();
     }
+
+    @Override
+    public Item createShatteredHourglassItem() {
+        return new ShatteredHourglass();
+    }
 }

@@ -73,6 +73,7 @@ public class ModItems {
     public static final RegistryObject<Item> RESONANT_HEART = registerWithTab("resonant_heart", PlatformAbstractions::createResonantHeartItem);
     public static final RegistryObject<Item> LUNAR_CREST = registerWithTab("lunar_crest", PlatformAbstractions::createLunarCrestItem);
     public static final RegistryObject<Item> ECLIPSE_ASHES = registerWithTab("eclipse_ashes", PlatformAbstractions::createEclipseAshesItem);
+    public static final RegistryObject<Item> SHATTERED_HOURGLASS = registerWithTab("shattered_hourglass", PlatformAbstractions::createShatteredHourglassItem);
 
     public static final RegistryObject<Item> TRINKET_BUNDLE = registerWithTab("trinket_bundle", TrinketBundle::new);
 

@@ -4,6 +4,7 @@ import com.cozary.nameless_trinkets.config.TrinketConfigs;
 import com.cozary.nameless_trinkets.config.common.CommonConfigManager;
 import com.cozary.nameless_trinkets.config.looTables.TrinketLootConfigsManager;
 import com.cozary.nameless_trinkets.init.ModTabs;
+import com.cozary.nameless_trinkets.network.NeoForgeNetworkHandler;
 import com.cozary.nameless_trinkets.recipe.RecipeGate;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;
@@ -21,6 +22,7 @@ public class NamelessTrinketsNeoForgeCurios {
     public NamelessTrinketsNeoForgeCurios(IEventBus eventBus, ModContainer container) {
 
         eventBus.addListener(EventPriority.LOWEST, this::setup);
+        eventBus.addListener(NeoForgeNetworkHandler::register);
 
         NamelessTrinkets.init();
 

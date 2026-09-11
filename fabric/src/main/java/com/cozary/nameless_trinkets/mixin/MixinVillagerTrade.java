@@ -1,7 +1,6 @@
 package com.cozary.nameless_trinkets.mixin;
 
 import com.cozary.nameless_trinkets.init.ModItems;
-import com.cozary.nameless_trinkets.mixinHandler.MixinVillagerTradeHandler;
 import com.cozary.nameless_trinkets.util.TrinketUtils;
 import net.minecraft.world.entity.npc.villager.AbstractVillager;
 import net.minecraft.world.entity.npc.villager.Villager;

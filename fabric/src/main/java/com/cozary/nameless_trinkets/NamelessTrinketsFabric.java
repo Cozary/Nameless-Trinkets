@@ -6,6 +6,7 @@ import com.cozary.nameless_trinkets.config.looTables.TrinketLootConfigsManager;
 import com.cozary.nameless_trinkets.events.*;
 import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.lootTables.LootTableHandler;
+import com.cozary.nameless_trinkets.network.FabricNetworkHandler;
 import com.cozary.nameless_trinkets.recipe.RecipeGate;
 import eu.pb4.trinkets.api.callback.TrinketCallback;
 import net.fabricmc.api.ModInitializer;
@@ -28,6 +29,7 @@ public class NamelessTrinketsFabric implements ModInitializer {
     @Override
     public void onInitialize() {
         NamelessTrinkets.init();
+        FabricNetworkHandler.registerCommon();
 
         eventLoad();
         itemGroupLoad();
@@ -89,6 +91,7 @@ public class NamelessTrinketsFabric implements ModInitializer {
         LunarCrestEvents.register();
         EclipseAshesEvents.register();
         UnknownFragmentEvent.register();
+        ShatteredHourglassEvents.register();
     }
 
     private void itemGroupLoad() {

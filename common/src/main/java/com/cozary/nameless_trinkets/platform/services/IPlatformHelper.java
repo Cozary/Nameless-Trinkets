@@ -1,5 +1,7 @@
 package com.cozary.nameless_trinkets.platform.services;
 
+import net.minecraft.server.level.ServerPlayer;
+
 public interface IPlatformHelper {
 
     /**
@@ -33,4 +35,9 @@ public interface IPlatformHelper {
 
         return isDevelopmentEnvironment() ? "development" : "production";
     }
+
+    /**
+     * Sends temporal effect packet to player.
+     */
+    default void sendTemporalEffectToPlayer(ServerPlayer player, int mode, boolean isReverse) {}
 }

@@ -230,4 +230,8 @@ public class PlatformAbstractions {
     public static Item createEclipseAshesItem() {
         return IMPL.createEclipseAshesItem();
     }
+
+    public static Item createShatteredHourglassItem() {
+        return IMPL.createShatteredHourglassItem();
+    }
 }

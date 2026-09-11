@@ -667,6 +667,16 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('S', ModItems.GLOWING_DUST.get())
                 .unlockedBy("has_glowing_dust", has(ModItems.GLOWING_DUST.get()))
                 .save(output);
+
+        shaped(RecipeCategory.MISC, ModItems.SHATTERED_HOURGLASS.get())
+                .pattern("#B#")
+                .pattern("BSB")
+                .pattern("#B#")
+                .define('#', Items.AMETHYST_SHARD)
+                .define('B', Items.CLOCK)
+                .define('S', ModItems.GLOWING_DUST.get())
+                .unlockedBy("has_glowing_dust", has(ModItems.GLOWING_DUST.get()))
+                .save(output);
     }
 
     public static class Runner extends RecipeProvider.Runner {
