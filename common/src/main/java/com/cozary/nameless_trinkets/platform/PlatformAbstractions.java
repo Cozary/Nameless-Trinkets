@@ -234,4 +234,16 @@ public class PlatformAbstractions {
     public static Item createShatteredHourglassItem() {
         return IMPL.createShatteredHourglassItem();
     }
+
+    public static Item createAwakenedHourglassTimeStopItem() {
+        return IMPL.createAwakenedHourglassTimeStopItem();
+    }
+
+    public static Item createAwakenedHourglassAccelerationItem() {
+        return IMPL.createAwakenedHourglassAccelerationItem();
+    }
+
+    public static Item createAwakenedHourglassDilationItem() {
+        return IMPL.createAwakenedHourglassDilationItem();
+    }
 }

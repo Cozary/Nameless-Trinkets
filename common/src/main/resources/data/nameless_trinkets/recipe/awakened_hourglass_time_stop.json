@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": "nameless_trinkets:dying_star",
+    "H": "nameless_trinkets:shattered_hourglass",
+    "N": "minecraft:nether_star",
+    "U": "nameless_trinkets:ultimate_dust"
+  },
+  "pattern": [
+    "NDN",
+    "UHU",
+    "NUN"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:awakened_hourglass_time_stop"
+  }
+}

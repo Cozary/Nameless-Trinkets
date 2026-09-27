@@ -48,6 +48,9 @@ public class TrinketDataProvider {
         return new ArrayList<>(Arrays.asList(
                 List.of(CHANCE_MYTHIC, ModItems.GODS_CROWN.get()),
                 List.of(CHANCE_MYTHIC, ModItems.DYING_STAR.get()),
+                List.of(CHANCE_MYTHIC, ModItems.AWAKENED_HOURGLASS_TIME_STOP.get()),
+                List.of(CHANCE_MYTHIC, ModItems.AWAKENED_HOURGLASS_DILATION.get()),
+                List.of(CHANCE_MYTHIC, ModItems.AWAKENED_HOURGLASS_ACCELERATION.get()),
                 List.of(CHANCE_LEGEND, ModItems.REVERSE_CARD.get()),
                 List.of(CHANCE_LEGEND, ModItems.BROKEN_ANKH.get()),
                 List.of(CHANCE_LEGEND, ModItems.RAGE_MIND.get()),
@@ -59,6 +62,7 @@ public class TrinketDataProvider {
                 List.of(CHANCE_LEGEND, ModItems.LIGHT_GLOVES.get()),
                 List.of(CHANCE_LEGEND, ModItems.FOUR_LEAF_CLOVER.get()),
                 List.of(CHANCE_LEGEND, ModItems.MINERS_SOUL.get()),
+                List.of(CHANCE_LEGEND, ModItems.SHATTERED_HOURGLASS.get()),
                 List.of(CHANCE_RARE, ModItems.MISSING_PAGE.get()),
                 List.of(CHANCE_RARE, ModItems.EXPERIENCE_BATTERY.get()),
                 List.of(CHANCE_RARE, ModItems.SUPER_MAGNET.get()),

@@ -109,4 +109,7 @@ public interface IPlatformAbstractions {
     Item createLunarCrestItem();
     Item createEclipseAshesItem();
     Item createShatteredHourglassItem();
+    Item createAwakenedHourglassTimeStopItem();
+    Item createAwakenedHourglassAccelerationItem();
+    Item createAwakenedHourglassDilationItem();
 }

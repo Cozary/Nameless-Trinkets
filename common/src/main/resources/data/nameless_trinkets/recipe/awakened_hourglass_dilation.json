@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "H": "nameless_trinkets:shattered_hourglass",
+    "I": "minecraft:blue_ice",
+    "O": "minecraft:crying_obsidian",
+    "U": "nameless_trinkets:ultimate_dust"
+  },
+  "pattern": [
+    "IUI",
+    "UHU",
+    "OUO"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nameless_trinkets:awakened_hourglass_dilation"
+  }
+}

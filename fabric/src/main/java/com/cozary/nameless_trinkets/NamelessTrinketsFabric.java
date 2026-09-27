@@ -92,6 +92,7 @@ public class NamelessTrinketsFabric implements ModInitializer {
         EclipseAshesEvents.register();
         UnknownFragmentEvent.register();
         ShatteredHourglassEvents.register();
+        AwakenedHourglassEvents.register();
     }
 
     private void itemGroupLoad() {

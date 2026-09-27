@@ -101,11 +101,14 @@ public class ModAdvancementProvider extends AdvancementProvider {
             addTrinketAdvancement(consumer, root, ModItems.SPIDER_LEGS.get(), "spider_legs");
             addTrinketAdvancement(consumer, root, ModItems.LUNAR_CREST.get(), "lunar_crest");
             addTrinketAdvancement(consumer, root, ModItems.ECLIPSE_ASHES.get(), "eclipse_ashes");
-            addTrinketAdvancement(consumer, root, ModItems.SHATTERED_HOURGLASS.get(), "shattered_hourglass");
+            AdvancementHolder shatteredHourglass = addTrinketAdvancement(consumer, root, ModItems.SHATTERED_HOURGLASS.get(), "shattered_hourglass");
+            addAwakenedHourglassAdvancement(consumer, shatteredHourglass, ModItems.AWAKENED_HOURGLASS_TIME_STOP.get(), "awakened_hourglass_time_stop");
+            addAwakenedHourglassAdvancement(consumer, shatteredHourglass, ModItems.AWAKENED_HOURGLASS_ACCELERATION.get(), "awakened_hourglass_acceleration");
+            addAwakenedHourglassAdvancement(consumer, shatteredHourglass, ModItems.AWAKENED_HOURGLASS_DILATION.get(), "awakened_hourglass_dilation");
         }
 
-        private void addTrinketAdvancement(Consumer<AdvancementHolder> consumer, AdvancementHolder parent, Item item, String name) {
-            Advancement.Builder.advancement()
+        private AdvancementHolder addTrinketAdvancement(Consumer<AdvancementHolder> consumer, AdvancementHolder parent, Item item, String name) {
+            return Advancement.Builder.advancement()
                     .parent(parent)
                     .display(
                             item,
@@ -113,6 +116,23 @@ public class ModAdvancementProvider extends AdvancementProvider {
                             Component.translatable("advancements.nameless_trinkets." + name + ".description"),
                             null,
                             AdvancementType.GOAL,
+                            true,
+                            true,
+                            false
+                    )
+                    .addCriterion(name, InventoryChangeTrigger.TriggerInstance.hasItems(item))
+                    .save(consumer, NamelessTrinkets.MOD_ID + ":" + name);
+        }
+
+        private void addAwakenedHourglassAdvancement(Consumer<AdvancementHolder> consumer, AdvancementHolder parent, Item item, String name) {
+            Advancement.Builder.advancement()
+                    .parent(parent)
+                    .display(
+                            item,
+                            Component.translatable("advancements.nameless_trinkets." + name + ".title"),
+                            Component.translatable("advancements.nameless_trinkets." + name + ".description"),
+                            null,
+                            AdvancementType.CHALLENGE,
                             true,
                             true,
                             false

@@ -677,6 +677,39 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('S', ModItems.GLOWING_DUST.get())
                 .unlockedBy("has_glowing_dust", has(ModItems.GLOWING_DUST.get()))
                 .save(output);
+
+        shaped(RecipeCategory.MISC, ModItems.AWAKENED_HOURGLASS_ACCELERATION.get())
+                .pattern("BUB")
+                .pattern("UHU")
+                .pattern("SUS")
+                .define('B', Items.BREEZE_ROD)
+                .define('U', ModItems.ULTIMATE_DUST.get())
+                .define('H', ModItems.SHATTERED_HOURGLASS.get())
+                .define('S', Items.RABBIT_FOOT)
+                .unlockedBy("has_shattered_hourglass", has(ModItems.SHATTERED_HOURGLASS.get()))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, ModItems.AWAKENED_HOURGLASS_DILATION.get())
+                .pattern("IUI")
+                .pattern("UHU")
+                .pattern("OUO")
+                .define('I', Blocks.BLUE_ICE)
+                .define('U', ModItems.ULTIMATE_DUST.get())
+                .define('H', ModItems.SHATTERED_HOURGLASS.get())
+                .define('O', Blocks.CRYING_OBSIDIAN)
+                .unlockedBy("has_shattered_hourglass", has(ModItems.SHATTERED_HOURGLASS.get()))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, ModItems.AWAKENED_HOURGLASS_TIME_STOP.get())
+                .pattern("NDN")
+                .pattern("UHU")
+                .pattern("NUN")
+                .define('N', Items.NETHER_STAR)
+                .define('D', ModItems.DYING_STAR.get())
+                .define('U', ModItems.ULTIMATE_DUST.get())
+                .define('H', ModItems.SHATTERED_HOURGLASS.get())
+                .unlockedBy("has_shattered_hourglass", has(ModItems.SHATTERED_HOURGLASS.get()))
+                .save(output);
     }
 
     public static class Runner extends RecipeProvider.Runner {

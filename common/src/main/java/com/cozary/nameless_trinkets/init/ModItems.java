@@ -74,6 +74,9 @@ public class ModItems {
     public static final RegistryObject<Item> LUNAR_CREST = registerWithTab("lunar_crest", PlatformAbstractions::createLunarCrestItem);
     public static final RegistryObject<Item> ECLIPSE_ASHES = registerWithTab("eclipse_ashes", PlatformAbstractions::createEclipseAshesItem);
     public static final RegistryObject<Item> SHATTERED_HOURGLASS = registerWithTab("shattered_hourglass", PlatformAbstractions::createShatteredHourglassItem);
+    public static final RegistryObject<Item> AWAKENED_HOURGLASS_TIME_STOP = registerWithTab("awakened_hourglass_time_stop", PlatformAbstractions::createAwakenedHourglassTimeStopItem);
+    public static final RegistryObject<Item> AWAKENED_HOURGLASS_ACCELERATION = registerWithTab("awakened_hourglass_acceleration", PlatformAbstractions::createAwakenedHourglassAccelerationItem);
+    public static final RegistryObject<Item> AWAKENED_HOURGLASS_DILATION = registerWithTab("awakened_hourglass_dilation", PlatformAbstractions::createAwakenedHourglassDilationItem);
 
     public static final RegistryObject<Item> TRINKET_BUNDLE = registerWithTab("trinket_bundle", TrinketBundle::new);
 

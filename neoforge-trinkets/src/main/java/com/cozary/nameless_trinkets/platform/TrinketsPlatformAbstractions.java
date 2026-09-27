@@ -1,5 +1,6 @@
 package com.cozary.nameless_trinkets.platform;
 
+import com.cozary.nameless_trinkets.events.ShatteredHourglassHandler;
 import com.cozary.nameless_trinkets.items.trinkets.*;
 import net.minecraft.world.item.Item;
 
@@ -281,5 +282,20 @@ public class TrinketsPlatformAbstractions implements IPlatformAbstractions {
     @Override
     public Item createShatteredHourglassItem() {
         return new ShatteredHourglass();
+    }
+
+    @Override
+    public Item createAwakenedHourglassTimeStopItem() {
+        return new AwakenedHourglass("awakened_hourglass_time_stop", ShatteredHourglassHandler.TemporalState.TIME_STOP);
+    }
+
+    @Override
+    public Item createAwakenedHourglassAccelerationItem() {
+        return new AwakenedHourglass("awakened_hourglass_acceleration", ShatteredHourglassHandler.TemporalState.ACCELERATION);
+    }
+
+    @Override
+    public Item createAwakenedHourglassDilationItem() {
+        return new AwakenedHourglass("awakened_hourglass_dilation", ShatteredHourglassHandler.TemporalState.DILATION);
     }
 }

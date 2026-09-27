@@ -72,7 +72,10 @@ public class ModItemTagProvider extends ItemTagsProvider {
                         ModItems.DYING_STAR.get(),
                         ModItems.LUNAR_CREST.get(),
                         ModItems.ECLIPSE_ASHES.get(),
-                        ModItems.SHATTERED_HOURGLASS.get()
+                        ModItems.SHATTERED_HOURGLASS.get(),
+                        ModItems.AWAKENED_HOURGLASS_TIME_STOP.get(),
+                        ModItems.AWAKENED_HOURGLASS_ACCELERATION.get(),
+                        ModItems.AWAKENED_HOURGLASS_DILATION.get()
                 );
 
         tag(ModTags.RECYCLABLE_TRINKETS_TAG)
@@ -131,7 +134,10 @@ public class ModItemTagProvider extends ItemTagsProvider {
                         ModItems.DYING_STAR.get(),
                         ModItems.LUNAR_CREST.get(),
                         ModItems.ECLIPSE_ASHES.get(),
-                        ModItems.SHATTERED_HOURGLASS.get()
+                        ModItems.SHATTERED_HOURGLASS.get(),
+                        ModItems.AWAKENED_HOURGLASS_TIME_STOP.get(),
+                        ModItems.AWAKENED_HOURGLASS_ACCELERATION.get(),
+                        ModItems.AWAKENED_HOURGLASS_DILATION.get()
                 );
     }
 }

@@ -55,6 +55,9 @@
     "nameless_trinkets:resonant_heart",
     "nameless_trinkets:lunar_crest",
     "nameless_trinkets:eclipse_ashes",
-    "nameless_trinkets:shattered_hourglass"
+    "nameless_trinkets:shattered_hourglass",
+    "nameless_trinkets:awakened_hourglass_time_stop",
+    "nameless_trinkets:awakened_hourglass_acceleration",
+    "nameless_trinkets:awakened_hourglass_dilation"
   ]
 }
