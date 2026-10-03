@@ -75,7 +75,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
                         ModItems.SHATTERED_HOURGLASS.get(),
                         ModItems.AWAKENED_HOURGLASS_TIME_STOP.get(),
                         ModItems.AWAKENED_HOURGLASS_ACCELERATION.get(),
-                        ModItems.AWAKENED_HOURGLASS_DILATION.get()
+                        ModItems.AWAKENED_HOURGLASS_DILATION.get(),
+                        ModItems.PARASITE_HIVE.get()
                 );
 
         tag(ModTags.RECYCLABLE_TRINKETS_TAG)
@@ -137,7 +138,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
                         ModItems.SHATTERED_HOURGLASS.get(),
                         ModItems.AWAKENED_HOURGLASS_TIME_STOP.get(),
                         ModItems.AWAKENED_HOURGLASS_ACCELERATION.get(),
-                        ModItems.AWAKENED_HOURGLASS_DILATION.get()
+                        ModItems.AWAKENED_HOURGLASS_DILATION.get(),
+                        ModItems.PARASITE_HIVE.get()
                 );
     }
 }

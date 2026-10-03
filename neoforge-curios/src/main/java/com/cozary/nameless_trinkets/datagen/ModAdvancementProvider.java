@@ -105,6 +105,7 @@ public class ModAdvancementProvider extends AdvancementProvider {
             addAwakenedHourglassAdvancement(consumer, shatteredHourglass, ModItems.AWAKENED_HOURGLASS_TIME_STOP.get(), "awakened_hourglass_time_stop");
             addAwakenedHourglassAdvancement(consumer, shatteredHourglass, ModItems.AWAKENED_HOURGLASS_ACCELERATION.get(), "awakened_hourglass_acceleration");
             addAwakenedHourglassAdvancement(consumer, shatteredHourglass, ModItems.AWAKENED_HOURGLASS_DILATION.get(), "awakened_hourglass_dilation");
+            addTrinketAdvancement(consumer, root, ModItems.PARASITE_HIVE.get(), "parasite_hive");
         }
 
         private AdvancementHolder addTrinketAdvancement(Consumer<AdvancementHolder> consumer, AdvancementHolder parent, Item item, String name) {

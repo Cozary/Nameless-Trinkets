@@ -298,4 +298,9 @@ public class TrinketsPlatformAbstractions implements IPlatformAbstractions {
     public Item createAwakenedHourglassDilationItem() {
         return new AwakenedHourglass("awakened_hourglass_dilation", ShatteredHourglassHandler.TemporalState.DILATION);
     }
+
+    @Override
+    public Item createParasiteHiveItem() {
+        return new ParasiteHive();
+    }
 }

@@ -710,6 +710,16 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('H', ModItems.SHATTERED_HOURGLASS.get())
                 .unlockedBy("has_shattered_hourglass", has(ModItems.SHATTERED_HOURGLASS.get()))
                 .save(output);
+
+        shaped(RecipeCategory.MISC, ModItems.PARASITE_HIVE.get())
+                .pattern("#B#")
+                .pattern("BSB")
+                .pattern("#B#")
+                .define('#', Items.FERMENTED_SPIDER_EYE)
+                .define('B', Items.STRING)
+                .define('S', ModItems.GLOWING_DUST.get())
+                .unlockedBy("has_glowing_dust", has(ModItems.GLOWING_DUST.get()))
+                .save(output);
     }
 
     public static class Runner extends RecipeProvider.Runner {

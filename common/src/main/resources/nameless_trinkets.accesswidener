@@ -8,3 +8,6 @@ accessible field net/minecraft/world/entity/vehicle/boat/AbstractBoat inputDown 
 
 extendable class net/minecraft/world/item/component/BundleContents
 mutable field net/minecraft/world/item/component/BundleContents items Ljava/util/List;
+
+accessible field net/minecraft/world/entity/Mob goalSelector Lnet/minecraft/world/entity/ai/goal/GoalSelector;
+accessible field net/minecraft/world/entity/Mob targetSelector Lnet/minecraft/world/entity/ai/goal/GoalSelector;

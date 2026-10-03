@@ -81,6 +81,8 @@ public class TrinketDataProvider {
                 List.of(CHANCE_RARE, ModItems.SCARAB_AMULET.get()),
                 List.of(CHANCE_RARE, ModItems.RESONANT_HEART.get()),
                 List.of(CHANCE_RARE, ModItems.LUNAR_CREST.get()),
+                List.of(CHANCE_RARE, ModItems.ECLIPSE_ASHES.get()),
+                List.of(CHANCE_RARE, ModItems.PARASITE_HIVE.get()),
                 List.of(CHANCE_COMMON, ModItems.EXPERIENCE_MAGNET.get()),
                 List.of(CHANCE_COMMON, ModItems.BROKEN_MAGNET.get()),
                 List.of(CHANCE_COMMON, ModItems.LUCKY_ROCK.get()),

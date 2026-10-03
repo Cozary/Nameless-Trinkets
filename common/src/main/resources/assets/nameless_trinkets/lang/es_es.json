@@ -360,6 +360,11 @@
   "advancements.nameless_trinkets.awakened_hourglass_acceleration.description": "Obtén el Reloj de Arena Despertado de Aceleración.",
   "advancements.nameless_trinkets.awakened_hourglass_dilation.title": "C-Moon.",
   "advancements.nameless_trinkets.awakened_hourglass_dilation.description": "Obtén el Reloj de Arena Despertado de Dilatación.",
+  "item.nameless_trinkets.parasite_hive": "Colmena Parásita",
+  "tooltip.nameless_trinkets.parasite_hive_lore": "Encontraron un nuevo hogar.",
+  "tooltip.nameless_trinkets.parasite_hive_1": "Al ser golpeado, %1$s de probabilidad de spawnear %2$s-%3$s lepismas que van a por el atacante y mueren tras golpear una vez.",
+  "advancements.nameless_trinkets.parasite_hive.title": "Huéspedes no deseados.",
+  "advancements.nameless_trinkets.parasite_hive.description": "Obtén la Colmena Parásita.",
   "trinkets.group.trinket": "Trinkets",
   "trinkets.slot.trinket.trinket": "Trinket",
   "trinkets.slot.chest.charm": "Amuleto"

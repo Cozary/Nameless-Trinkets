@@ -246,4 +246,8 @@ public class PlatformAbstractions {
     public static Item createAwakenedHourglassDilationItem() {
         return IMPL.createAwakenedHourglassDilationItem();
     }
+
+    public static Item createParasiteHiveItem() {
+        return IMPL.createParasiteHiveItem();
+    }
 }

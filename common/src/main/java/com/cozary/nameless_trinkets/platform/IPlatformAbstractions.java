@@ -112,4 +112,5 @@ public interface IPlatformAbstractions {
     Item createAwakenedHourglassTimeStopItem();
     Item createAwakenedHourglassAccelerationItem();
     Item createAwakenedHourglassDilationItem();
+    Item createParasiteHiveItem();
 }

@@ -360,6 +360,11 @@
   "advancements.nameless_trinkets.awakened_hourglass_acceleration.description": "Obtain the Awakened Hourglass of Acceleration.",
   "advancements.nameless_trinkets.awakened_hourglass_dilation.title": "C-Moon.",
   "advancements.nameless_trinkets.awakened_hourglass_dilation.description": "Obtain the Awakened Hourglass of Dilation.",
+  "item.nameless_trinkets.parasite_hive": "Parasite Hive",
+  "tooltip.nameless_trinkets.parasite_hive_lore": "They found a new home.",
+  "tooltip.nameless_trinkets.parasite_hive_1": "When hit, %1$s chance to spawn %2$s-%3$s silverfish that go after the attacker and die after hitting once.",
+  "advancements.nameless_trinkets.parasite_hive.title": "Unwanted Guests.",
+  "advancements.nameless_trinkets.parasite_hive.description": "Obtain the Parasite Hive.",
   "trinkets.group.trinket": "Trinkets",
   "trinkets.slot.trinket.trinket": "Trinket",
   "trinkets.slot.chest.charm": "Charm"

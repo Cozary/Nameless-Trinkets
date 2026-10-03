@@ -77,6 +77,7 @@ public class ModItems {
     public static final RegistryObject<Item> AWAKENED_HOURGLASS_TIME_STOP = registerWithTab("awakened_hourglass_time_stop", PlatformAbstractions::createAwakenedHourglassTimeStopItem);
     public static final RegistryObject<Item> AWAKENED_HOURGLASS_ACCELERATION = registerWithTab("awakened_hourglass_acceleration", PlatformAbstractions::createAwakenedHourglassAccelerationItem);
     public static final RegistryObject<Item> AWAKENED_HOURGLASS_DILATION = registerWithTab("awakened_hourglass_dilation", PlatformAbstractions::createAwakenedHourglassDilationItem);
+    public static final RegistryObject<Item> PARASITE_HIVE = registerWithTab("parasite_hive", PlatformAbstractions::createParasiteHiveItem);
 
     public static final RegistryObject<Item> TRINKET_BUNDLE = registerWithTab("trinket_bundle", TrinketBundle::new);
 
