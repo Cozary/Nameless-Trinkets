@@ -26,7 +26,7 @@ public class EclipseAshesBase extends TrinketItem<EclipseAshesBase.Stats> {
         if (!config.isEnable) {
             tooltip.accept(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
         } else {
-            tooltip.accept(Component.translatable("tooltip.nameless_trinkets.eclipse_ashes_lore").withStyle(ChatFormatting.DARK_PURPLE, ChatFormatting.ITALIC));
+            tooltip.accept(Component.translatable("tooltip.nameless_trinkets.eclipse_ashes_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
             if (Minecraft.getInstance().hasShiftDown()) {
                 tooltip.accept(Component.translatable("tooltip.nameless_trinkets.eclipse_ashes_1",
                         String.format("%.0f", config.activeDurationSeconds)).withStyle(ChatFormatting.GOLD));

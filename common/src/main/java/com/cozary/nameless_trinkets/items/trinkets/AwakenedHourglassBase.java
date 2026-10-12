@@ -41,7 +41,7 @@ public class AwakenedHourglassBase extends TrinketItem<AwakenedHourglassBase.Sta
             case DILATION -> "tooltip.nameless_trinkets.awakened_hourglass_dilation_lore";
             default -> "tooltip.nameless_trinkets.awakened_hourglass_lore";
         };
-        tooltip.accept(Component.translatable(loreKey).withStyle(ChatFormatting.DARK_PURPLE, ChatFormatting.ITALIC));
+        tooltip.accept(Component.translatable(loreKey).withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
 
         if (Minecraft.getInstance().hasShiftDown()) {
             if (config.isPermanent) {

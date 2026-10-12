@@ -26,7 +26,7 @@ public class ShatteredHourglassBase extends TrinketItem<ShatteredHourglassBase.S
         if (!config.isEnable) {
             tooltip.accept(Component.translatable("tooltip.nameless_trinkets.isDisabled").withStyle(ChatFormatting.RED));
         } else {
-            tooltip.accept(Component.translatable("tooltip.nameless_trinkets.shattered_hourglass_lore").withStyle(ChatFormatting.LIGHT_PURPLE, ChatFormatting.ITALIC));
+            tooltip.accept(Component.translatable("tooltip.nameless_trinkets.shattered_hourglass_lore").withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
             if (Minecraft.getInstance().hasShiftDown()) {
                 tooltip.accept(Component.translatable("tooltip.nameless_trinkets.shattered_hourglass_1",
                         String.format("%.0f", config.minEffectDurationSeconds),
