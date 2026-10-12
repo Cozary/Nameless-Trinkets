@@ -78,7 +78,7 @@ public class AwakenedHourglassBase extends TrinketItem<AwakenedHourglassBase.Sta
     public static class Stats extends TrinketsStats {
         public boolean isPermanent = true;
         public double effectDurationSeconds = 10.0;
-        public double cooldownSeconds = 45.0;
+        public double cooldownSeconds = 50.0;
         public float acceleratedTickRate = 50.0f;
         public float dilatedTickRate = 5.0f;
         public boolean isEnable = true;
