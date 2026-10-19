@@ -5,14 +5,17 @@
   "compatibilityLevel": "JAVA_25",
   "mixins": [],
   "client": [
-    "client.GameRendererMixin",
-    "client.GameRendererAccessor",
-    "client.LevelRendererMixin",
-    "client.PostChainAccessor",
-    "client.PostPassAccessor"
+    "GameRendererMixin",
+    "GameRendererAccessor",
+    "LevelRendererMixin",
+    "PostChainAccessor",
+    "PostPassAccessor"
   ],
   "server": [],
   "injectors": {
     "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
   }
 }
