@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "B": "minecraft:bone",
     "L": "minecraft:leather",
@@ -15,7 +14,6 @@
     "iBi"
   ],
   "result": {
-    "count": 1,
     "id": "nameless_trinkets:what_magnet"
   }
 }

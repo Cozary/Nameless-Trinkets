@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "#": "minecraft:dandelion",
     "F": "minecraft:fermented_spider_eye",
@@ -15,7 +14,6 @@
     "SFS"
   ],
   "result": {
-    "count": 1,
     "id": "nameless_trinkets:sleeping_pills"
   }
 }

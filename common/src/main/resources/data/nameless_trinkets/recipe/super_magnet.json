@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "D": "nameless_trinkets:glowing_dust",
     "I": "minecraft:iron_block",
@@ -14,7 +13,6 @@
     "iIi"
   ],
   "result": {
-    "count": 1,
     "id": "nameless_trinkets:super_magnet"
   }
 }

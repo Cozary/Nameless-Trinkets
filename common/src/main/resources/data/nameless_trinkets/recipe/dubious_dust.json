@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "#": "minecraft:iron_pickaxe",
     "G": "minecraft:gunpowder",
@@ -14,7 +13,6 @@
     " G "
   ],
   "result": {
-    "count": 1,
     "id": "nameless_trinkets:dubious_dust"
   }
 }

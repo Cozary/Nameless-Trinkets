@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "#": "minecraft:bone_block",
     "L": "minecraft:leather",
@@ -12,7 +11,6 @@
     "LLL"
   ],
   "result": {
-    "count": 1,
     "id": "nameless_trinkets:fertilizer"
   }
 }

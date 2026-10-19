@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "#": "minecraft:redstone_block",
     "G": "minecraft:ghast_tear",
@@ -12,7 +11,6 @@
     "#G#"
   ],
   "result": {
-    "count": 1,
     "id": "nameless_trinkets:ghast_eye"
   }
 }

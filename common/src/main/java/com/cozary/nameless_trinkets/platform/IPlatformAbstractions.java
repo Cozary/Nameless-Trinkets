@@ -106,11 +106,18 @@ public interface IPlatformAbstractions {
     Item createDyingStarItem();
 
     Item createResonantHeartItem();
+
     Item createLunarCrestItem();
+
     Item createEclipseAshesItem();
+
     Item createShatteredHourglassItem();
+
     Item createAwakenedHourglassTimeStopItem();
+
     Item createAwakenedHourglassAccelerationItem();
+
     Item createAwakenedHourglassDilationItem();
+
     Item createParasiteHiveItem();
 }

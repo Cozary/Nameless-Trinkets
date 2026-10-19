@@ -1,6 +1,5 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
-import net.minecraft.ChatFormatting;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -12,10 +11,12 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.scores.PlayerTeam;
 import net.minecraft.world.scores.Scoreboard;
+import net.minecraft.world.scores.TeamColor;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class DragonsEye extends DragonsEyeBase implements ICurioItem {
@@ -79,7 +80,7 @@ public class DragonsEye extends DragonsEyeBase implements ICurioItem {
 
         if (playerTeam == null) {
             playerTeam = scoreboard.addPlayerTeam(teamName);
-            playerTeam.setColor(ChatFormatting.LIGHT_PURPLE);
+            playerTeam.setColor(Optional.of(TeamColor.LIGHT_PURPLE));
         }
 
         List<String> validTargetUUIDs = validTargets.stream().map(Entity::getStringUUID).toList();

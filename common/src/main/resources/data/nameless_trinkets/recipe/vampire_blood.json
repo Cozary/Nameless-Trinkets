@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "#": "minecraft:redstone_block",
     "B": "minecraft:blaze_powder",
@@ -14,7 +13,6 @@
     "#Q#"
   ],
   "result": {
-    "count": 1,
     "id": "nameless_trinkets:vampire_blood"
   }
 }

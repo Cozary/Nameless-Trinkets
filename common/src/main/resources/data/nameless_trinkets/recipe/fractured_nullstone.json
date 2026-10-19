@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "#": "minecraft:glowstone",
     "&": "minecraft:lapis_block",
@@ -12,7 +11,6 @@
     "#&#"
   ],
   "result": {
-    "count": 1,
     "id": "nameless_trinkets:fractured_nullstone"
   }
 }

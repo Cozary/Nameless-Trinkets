@@ -1,74 +1,95 @@
 {
-    "targets": {
-        "swap": {}
-    },
-    "passes": [
+  "targets": {
+    "swap": {}
+  },
+  "passes": [
+    {
+      "vertex_shader": "minecraft:core/screenquad",
+      "fragment_shader": "nameless_trinkets:post/square_temporal",
+      "inputs": [
         {
-            "vertex_shader": "minecraft:core/screenquad",
-            "fragment_shader": "nameless_trinkets:post/square_temporal",
-            "inputs": [
-                {
-                    "sampler_name": "In",
-                    "target": "minecraft:main"
-                }
-            ],
-            "output": "swap",
-            "uniforms": {
-                "ColorConfig": [
-                    {
-                        "name": "RedMatrix",
-                        "type": "vec3",
-                        "value": [ 0.3, 0.59, 0.11 ]
-                    },
-                    {
-                        "name": "GreenMatrix",
-                        "type": "vec3",
-                        "value": [ 0.3, 0.59, 0.11 ]
-                    },
-                    {
-                        "name": "BlueMatrix",
-                        "type": "vec3",
-                        "value": [ 0.3, 0.59, 0.11 ]
-                    }
-                ],
-                "SquareConfig": [
-                    {
-                        "name": "Progress",
-                        "type": "float",
-                        "value": 0.0
-                    },
-                    {
-                        "name": "BorderWidth",
-                        "type": "float",
-                        "value": 0.008
-                    },
-                    {
-                        "name": "BorderColor",
-                        "type": "vec3",
-                        "value": [ 1.0, 0.9, 0.4 ]
-                    }
-                ]
-            }
-        },
-        {
-            "vertex_shader": "minecraft:core/screenquad",
-            "fragment_shader": "minecraft:post/blit",
-            "inputs": [
-                {
-                    "sampler_name": "In",
-                    "target": "swap"
-                }
-            ],
-            "uniforms": {
-                "BlitConfig": [
-                    {
-                        "name": "ColorModulate",
-                        "type": "vec4",
-                        "value": [ 1.0, 1.0, 1.0, 1.0 ]
-                    }
-                ]
-            },
-            "output": "minecraft:main"
+          "sampler_name": "In",
+          "target": "minecraft:main"
         }
-    ]
+      ],
+      "output": "swap",
+      "uniforms": {
+        "ColorConfig": [
+          {
+            "name": "RedMatrix",
+            "type": "vec3",
+            "value": [
+              0.3,
+              0.59,
+              0.11
+            ]
+          },
+          {
+            "name": "GreenMatrix",
+            "type": "vec3",
+            "value": [
+              0.3,
+              0.59,
+              0.11
+            ]
+          },
+          {
+            "name": "BlueMatrix",
+            "type": "vec3",
+            "value": [
+              0.3,
+              0.59,
+              0.11
+            ]
+          }
+        ],
+        "SquareConfig": [
+          {
+            "name": "Progress",
+            "type": "float",
+            "value": 0.0
+          },
+          {
+            "name": "BorderWidth",
+            "type": "float",
+            "value": 0.008
+          },
+          {
+            "name": "BorderColor",
+            "type": "vec3",
+            "value": [
+              1.0,
+              0.9,
+              0.4
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "vertex_shader": "minecraft:core/screenquad",
+      "fragment_shader": "minecraft:post/blit",
+      "inputs": [
+        {
+          "sampler_name": "In",
+          "target": "swap"
+        }
+      ],
+      "uniforms": {
+        "BlitConfig": [
+          {
+            "name": "ColorModulate",
+            "type": "vec4",
+            "value": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      "output": "minecraft:main"
+    }
+  ]
 }

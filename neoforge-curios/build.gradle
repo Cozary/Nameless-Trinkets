@@ -108,3 +108,28 @@ sourceSets.configureEach {
         }
     }
 }
+
+// Task to move generated resources to common module
+tasks.register('moveGeneratedResources') {
+    group = mod_id
+    description = "Moves generated resources to common module, overwriting duplicates."
+    outputs.upToDateWhen { false }
+
+    doLast {
+        def generatedDir = file('src/generated')
+        if (generatedDir.exists()) {
+            project.copy {
+                from generatedDir
+                exclude '.cache', '.cache/**'
+                into rootProject.project(':common').file('src/main/resources')
+                duplicatesStrategy = DuplicatesStrategy.INCLUDE
+            }
+            project.delete(generatedDir)
+        }
+    }
+}
+
+// Automatically run moveGeneratedResources after runData (Only works when running the Gradle task, not the IDE Run Config)
+tasks.named('runData') {
+    finalizedBy 'moveGeneratedResources'
+}

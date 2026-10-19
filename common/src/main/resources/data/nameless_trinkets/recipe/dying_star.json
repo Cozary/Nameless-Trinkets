@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "#": "minecraft:nether_star",
     "S": "nameless_trinkets:ultimate_dust"
@@ -11,7 +10,6 @@
     "###"
   ],
   "result": {
-    "count": 1,
     "id": "nameless_trinkets:dying_star"
   }
 }

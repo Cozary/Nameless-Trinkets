@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "#": "minecraft:diamond_block",
     "S": "nameless_trinkets:ultimate_dust",
@@ -12,7 +11,6 @@
     "#W#"
   ],
   "result": {
-    "count": 1,
     "id": "nameless_trinkets:four_leaf_clover"
   }
 }

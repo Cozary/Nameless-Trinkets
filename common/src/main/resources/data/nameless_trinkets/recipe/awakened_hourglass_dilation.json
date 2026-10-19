@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "H": "nameless_trinkets:shattered_hourglass",
     "I": "minecraft:blue_ice",
@@ -13,7 +12,6 @@
     "OUO"
   ],
   "result": {
-    "count": 1,
     "id": "nameless_trinkets:awakened_hourglass_dilation"
   }
 }

@@ -36,7 +36,7 @@ public class LootTableHandler {
                 continue;
 
             Optional<RegistryObject<Item>> optionalItem = ModItems.CREATIVE_TAB_ITEMS.stream()
-                    .filter(item -> getItemName((TrinketItem<?>) item.get()).equals(config.getItemId()))
+                    .filter(item -> item.get() instanceof TrinketItem<?> trinketItem && getItemName(trinketItem).equals(config.getItemId()))
                     .findFirst();
 
             if (optionalItem.isEmpty())

@@ -5,7 +5,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.AABB;
@@ -16,7 +16,7 @@ import java.util.Random;
 public class MissingPageHandler {
 
     public static boolean isValidTarget(LivingEntity ent) {
-        return (ent.getType() != EntityType.PLAYER) && (!ent.isInvulnerable());
+        return (ent.getType() != EntityTypes.PLAYER) && (!ent.isInvulnerable());
     }
 
     public static void triggerDamageReflection(Player player, DamageSource damageSource, Entity entity) {

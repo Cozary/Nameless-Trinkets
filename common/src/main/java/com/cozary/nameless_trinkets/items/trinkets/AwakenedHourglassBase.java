@@ -46,28 +46,36 @@ public class AwakenedHourglassBase extends TrinketItem<AwakenedHourglassBase.Sta
         if (Minecraft.getInstance().hasShiftDown()) {
             if (config.isPermanent) {
                 switch (temporalState) {
-                    case TIME_STOP -> tooltip.accept(Component.translatable("tooltip.nameless_trinkets.awakened_hourglass_time_stop_permanent")
-                            .withStyle(ChatFormatting.GOLD));
-                    case ACCELERATION -> tooltip.accept(Component.translatable("tooltip.nameless_trinkets.awakened_hourglass_acceleration_permanent",
-                            String.format("%.0f", config.acceleratedTickRate)).withStyle(ChatFormatting.GOLD));
-                    case DILATION -> tooltip.accept(Component.translatable("tooltip.nameless_trinkets.awakened_hourglass_dilation_permanent",
-                            String.format("%.0f", config.dilatedTickRate)).withStyle(ChatFormatting.GOLD));
-                    default -> {}
+                    case TIME_STOP ->
+                            tooltip.accept(Component.translatable("tooltip.nameless_trinkets.awakened_hourglass_time_stop_permanent")
+                                    .withStyle(ChatFormatting.GOLD));
+                    case ACCELERATION ->
+                            tooltip.accept(Component.translatable("tooltip.nameless_trinkets.awakened_hourglass_acceleration_permanent",
+                                    String.format("%.0f", config.acceleratedTickRate)).withStyle(ChatFormatting.GOLD));
+                    case DILATION ->
+                            tooltip.accept(Component.translatable("tooltip.nameless_trinkets.awakened_hourglass_dilation_permanent",
+                                    String.format("%.0f", config.dilatedTickRate)).withStyle(ChatFormatting.GOLD));
+                    default -> {
+                    }
                 }
             } else {
                 switch (temporalState) {
-                    case TIME_STOP -> tooltip.accept(Component.translatable("tooltip.nameless_trinkets.awakened_hourglass_time_stop_1",
-                            String.format("%.0f", config.effectDurationSeconds),
-                            String.format("%.0f", config.cooldownSeconds)).withStyle(ChatFormatting.GOLD));
-                    case ACCELERATION -> tooltip.accept(Component.translatable("tooltip.nameless_trinkets.awakened_hourglass_acceleration_1",
-                            String.format("%.0f", config.acceleratedTickRate),
-                            String.format("%.0f", config.effectDurationSeconds),
-                            String.format("%.0f", config.cooldownSeconds)).withStyle(ChatFormatting.GOLD));
-                    case DILATION -> tooltip.accept(Component.translatable("tooltip.nameless_trinkets.awakened_hourglass_dilation_1",
-                            String.format("%.0f", config.dilatedTickRate),
-                            String.format("%.0f", config.effectDurationSeconds),
-                            String.format("%.0f", config.cooldownSeconds)).withStyle(ChatFormatting.GOLD));
-                    default -> {}
+                    case TIME_STOP ->
+                            tooltip.accept(Component.translatable("tooltip.nameless_trinkets.awakened_hourglass_time_stop_1",
+                                    String.format("%.0f", config.effectDurationSeconds),
+                                    String.format("%.0f", config.cooldownSeconds)).withStyle(ChatFormatting.GOLD));
+                    case ACCELERATION ->
+                            tooltip.accept(Component.translatable("tooltip.nameless_trinkets.awakened_hourglass_acceleration_1",
+                                    String.format("%.0f", config.acceleratedTickRate),
+                                    String.format("%.0f", config.effectDurationSeconds),
+                                    String.format("%.0f", config.cooldownSeconds)).withStyle(ChatFormatting.GOLD));
+                    case DILATION ->
+                            tooltip.accept(Component.translatable("tooltip.nameless_trinkets.awakened_hourglass_dilation_1",
+                                    String.format("%.0f", config.dilatedTickRate),
+                                    String.format("%.0f", config.effectDurationSeconds),
+                                    String.format("%.0f", config.cooldownSeconds)).withStyle(ChatFormatting.GOLD));
+                    default -> {
+                    }
                 }
             }
         } else {

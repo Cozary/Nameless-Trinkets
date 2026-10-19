@@ -39,5 +39,6 @@ public interface IPlatformHelper {
     /**
      * Sends temporal effect packet to player.
      */
-    default void sendTemporalEffectToPlayer(ServerPlayer player, int mode, boolean isReverse) {}
+    default void sendTemporalEffectToPlayer(ServerPlayer player, int mode, boolean isReverse) {
+    }
 }

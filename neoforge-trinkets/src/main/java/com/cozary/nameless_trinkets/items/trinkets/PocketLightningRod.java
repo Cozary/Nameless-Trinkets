@@ -4,7 +4,7 @@ import eu.pb4.trinkets.api.TrinketSlotAccess;
 import eu.pb4.trinkets.api.callback.TrinketCallback;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.EntitySpawnReason;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
@@ -37,7 +37,7 @@ public class PocketLightningRod extends PocketLightningRodBase implements Trinke
                 int i = chunkpos.getMinBlockX();
                 int j = chunkpos.getMinBlockZ();
                 BlockPos blockpos = level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, level.getBlockRandomPos(i, 0, j, 15));
-                LightningBolt lightningbolt = EntityType.LIGHTNING_BOLT.create(level, EntitySpawnReason.SPAWN_ITEM_USE);
+                LightningBolt lightningbolt = EntityTypes.LIGHTNING_BOLT.create(level, EntitySpawnReason.SPAWN_ITEM_USE);
                 assert lightningbolt != null;
                 lightningbolt.snapTo(Vec3.atBottomCenterOf(blockpos));
                 level.addFreshEntity(lightningbolt);

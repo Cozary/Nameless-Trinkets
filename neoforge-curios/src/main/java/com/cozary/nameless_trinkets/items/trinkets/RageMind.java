@@ -1,7 +1,6 @@
 package com.cozary.nameless_trinkets.items.trinkets;
 
 import com.cozary.nameless_trinkets.init.ModDataComponents;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
@@ -16,11 +15,13 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.scores.PlayerTeam;
 import net.minecraft.world.scores.Scoreboard;
+import net.minecraft.world.scores.TeamColor;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class RageMind extends RageMindBase implements ICurioItem {
 
@@ -65,7 +66,7 @@ public class RageMind extends RageMindBase implements ICurioItem {
 
         if (playerTeam == null) {
             playerTeam = scoreboard.addPlayerTeam(teamName);
-            playerTeam.setColor(ChatFormatting.DARK_RED);
+            playerTeam.setColor(Optional.of(TeamColor.DARK_RED));
         }
 
         List<String> validTargetUUIDs = foundTargets.stream().map(Entity::getStringUUID).toList();

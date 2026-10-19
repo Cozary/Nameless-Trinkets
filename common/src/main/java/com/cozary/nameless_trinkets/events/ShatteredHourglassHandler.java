@@ -20,66 +20,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class ShatteredHourglassHandler {
 
-    public enum TemporalState {
-        NONE(0, null),
-        TIME_STOP(1, "message.nameless_trinkets.shattered_hourglass_stop"),
-        ACCELERATION(2, "message.nameless_trinkets.shattered_hourglass_accelerate"),
-        DILATION(3, "message.nameless_trinkets.shattered_hourglass_dilate");
-
-        private final int modeId;
-        private final String startMessageKey;
-
-        TemporalState(int modeId, String startMessageKey) {
-            this.modeId = modeId;
-            this.startMessageKey = startMessageKey;
-        }
-
-        public int getModeId() {
-            return modeId;
-        }
-
-        public String getStartMessageKey() {
-            return startMessageKey;
-        }
-    }
-
-    public static class HourglassSession {
-        public final UUID playerUUID;
-        public TemporalState currentState = TemporalState.NONE;
-        public TemporalState pendingState = TemporalState.NONE;
-        public int precastTicks = 0;
-        public int pendingDurationTicks = 0;
-        public int remainingEffectTicks = 0;
-        public int collapseTicks = 0;
-        public int cooldownTicks = 0;
-
-        public boolean isPermanent = false;
-        public float activeAcceleratedTickRate = 50.0f;
-        public float activeDilatedTickRate = 5.0f;
-        public int pendingNextCooldownTicks = 900;
-
-        public long lastTickedServerTick = -1;
-        public final Set<Item> equippedInCurrentTick = new LinkedHashSet<>();
-        public final List<Item> lastKnownEquipped = new ArrayList<>();
-        public int cycleIndex = 0;
-
-        public HourglassSession(UUID playerUUID, int initialCooldown) {
-            this.playerUUID = playerUUID;
-            this.cooldownTicks = initialCooldown;
-            this.pendingNextCooldownTicks = initialCooldown;
-        }
-
-        public void reset(int newCooldown) {
-            this.currentState = TemporalState.NONE;
-            this.pendingState = TemporalState.NONE;
-            this.isPermanent = false;
-            this.precastTicks = 0;
-            this.collapseTicks = 0;
-            this.cooldownTicks = newCooldown;
-            this.pendingNextCooldownTicks = newCooldown;
-        }
-    }
-
     private static final Map<UUID, HourglassSession> SESSIONS = new ConcurrentHashMap<>();
     private static final RandomSource RANDOM = RandomSource.create();
     private static final int PRECAST_TICKS = 50;
@@ -368,7 +308,8 @@ public class ShatteredHourglassHandler {
                 level.playSound(null, player.blockPosition(), SoundEvents.BEACON_DEACTIVATE, SoundSource.PLAYERS, 1.2f, 0.5f);
                 level.playSound(null, player.blockPosition(), SoundEvents.BELL_BLOCK, SoundSource.PLAYERS, 1.0f, 0.6f);
             }
-            default -> {}
+            default -> {
+            }
         }
 
         if (state.getStartMessageKey() != null) {
@@ -431,9 +372,12 @@ public class ShatteredHourglassHandler {
                 level.playSound(null, player.blockPosition(), SoundEvents.BEACON_DEACTIVATE, SoundSource.PLAYERS, 0.8f, 1.8f);
                 level.playSound(null, player.blockPosition(), SoundEvents.PLAYER_LEVELUP, SoundSource.PLAYERS, 0.9f, 1.9f);
             }
-            case ACCELERATION -> level.playSound(null, player.blockPosition(), SoundEvents.BEACON_DEACTIVATE, SoundSource.PLAYERS, 1.0f, 1.8f);
-            case DILATION -> level.playSound(null, player.blockPosition(), SoundEvents.BEACON_POWER_SELECT, SoundSource.PLAYERS, 1.0f, 1.4f);
-            default -> {}
+            case ACCELERATION ->
+                    level.playSound(null, player.blockPosition(), SoundEvents.BEACON_DEACTIVATE, SoundSource.PLAYERS, 1.0f, 1.8f);
+            case DILATION ->
+                    level.playSound(null, player.blockPosition(), SoundEvents.BEACON_POWER_SELECT, SoundSource.PLAYERS, 1.0f, 1.4f);
+            default -> {
+            }
         }
         player.sendSystemMessage(Component.translatable("message.nameless_trinkets.shattered_hourglass_resume"), true);
     }
@@ -469,6 +413,64 @@ public class ShatteredHourglassHandler {
                     playResumeEffects(level, player, session.currentState);
                 }
             }
+        }
+    }
+
+    public enum TemporalState {
+        NONE(0, null),
+        TIME_STOP(1, "message.nameless_trinkets.shattered_hourglass_stop"),
+        ACCELERATION(2, "message.nameless_trinkets.shattered_hourglass_accelerate"),
+        DILATION(3, "message.nameless_trinkets.shattered_hourglass_dilate");
+
+        private final int modeId;
+        private final String startMessageKey;
+
+        TemporalState(int modeId, String startMessageKey) {
+            this.modeId = modeId;
+            this.startMessageKey = startMessageKey;
+        }
+
+        public int getModeId() {
+            return modeId;
+        }
+
+        public String getStartMessageKey() {
+            return startMessageKey;
+        }
+    }
+
+    public static class HourglassSession {
+        public final UUID playerUUID;
+        public final Set<Item> equippedInCurrentTick = new LinkedHashSet<>();
+        public final List<Item> lastKnownEquipped = new ArrayList<>();
+        public TemporalState currentState = TemporalState.NONE;
+        public TemporalState pendingState = TemporalState.NONE;
+        public int precastTicks = 0;
+        public int pendingDurationTicks = 0;
+        public int remainingEffectTicks = 0;
+        public int collapseTicks = 0;
+        public int cooldownTicks = 0;
+        public boolean isPermanent = false;
+        public float activeAcceleratedTickRate = 50.0f;
+        public float activeDilatedTickRate = 5.0f;
+        public int pendingNextCooldownTicks = 900;
+        public long lastTickedServerTick = -1;
+        public int cycleIndex = 0;
+
+        public HourglassSession(UUID playerUUID, int initialCooldown) {
+            this.playerUUID = playerUUID;
+            this.cooldownTicks = initialCooldown;
+            this.pendingNextCooldownTicks = initialCooldown;
+        }
+
+        public void reset(int newCooldown) {
+            this.currentState = TemporalState.NONE;
+            this.pendingState = TemporalState.NONE;
+            this.isPermanent = false;
+            this.precastTicks = 0;
+            this.collapseTicks = 0;
+            this.cooldownTicks = newCooldown;
+            this.pendingNextCooldownTicks = newCooldown;
         }
     }
 }

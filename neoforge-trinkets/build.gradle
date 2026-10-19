@@ -30,8 +30,6 @@ neoForge {
             clientData()
 
             gameDirectory = this.mkdir(this.file('runs/data'))
-            // DataGen can be run by - "./gradlew :neoforge:runData" in Terminal.
-            // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
             programArguments = ['--mod', project.mod_id, '--all', '--output', file('src/generated/').getAbsolutePath(), '--existing', file('../common/src/main/resources/').getAbsolutePath()]
         }
         server {
@@ -58,7 +56,6 @@ dependencies {
     implementation "maven.modrinth:trinkets-updated:${project.trinkets_version}"
 }
 
-sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 publishMods {
     file = jar.archiveFile
@@ -104,3 +101,29 @@ sourceSets.configureEach {
         }
     }
 }
+
+// Task to move generated resources to common module
+tasks.register('moveGeneratedResources') {
+    group = mod_id
+    description = "Moves generated resources to common module, overwriting duplicates."
+    outputs.upToDateWhen { false }
+
+    doLast {
+        def generatedDir = file('src/generated')
+        if (generatedDir.exists()) {
+            project.copy {
+                from generatedDir
+                exclude '.cache', '.cache/**'
+                into rootProject.project(':common').file('src/main/resources')
+                duplicatesStrategy = DuplicatesStrategy.INCLUDE
+            }
+            project.delete(generatedDir)
+        }
+    }
+}
+
+// Automatically run moveGeneratedResources after runData (Only works when running the Gradle task, not the IDE Run Config)
+tasks.named('runData') {
+    finalizedBy 'moveGeneratedResources'
+}
+

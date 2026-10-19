@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "B": "minecraft:breeze_rod",
     "H": "nameless_trinkets:shattered_hourglass",
@@ -13,7 +12,6 @@
     "SUS"
   ],
   "result": {
-    "count": 1,
     "id": "nameless_trinkets:awakened_hourglass_acceleration"
   }
 }

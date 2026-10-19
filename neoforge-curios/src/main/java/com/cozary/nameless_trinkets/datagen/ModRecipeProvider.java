@@ -8,6 +8,7 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
@@ -387,7 +388,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("///")
                 .pattern("/S/")
                 .pattern("///")
-                .define('/', Blocks.WHITE_WOOL)
+                .define('/', Blocks.WOOL.pick(DyeColor.WHITE))
                 .define('S', ModItems.GLOWING_DUST.get())
                 .unlockedBy("has_glowing_dust", has(ModItems.GLOWING_DUST.get()))
                 .save(output);

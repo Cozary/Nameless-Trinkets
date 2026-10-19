@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "#": "minecraft:salmon",
     "C": "minecraft:cod",
@@ -14,7 +13,6 @@
     " W "
   ],
   "result": {
-    "count": 1,
     "id": "nameless_trinkets:tear_of_the_sea"
   }
 }

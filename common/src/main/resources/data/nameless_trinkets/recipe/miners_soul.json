@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "#": "minecraft:blackstone",
     "C": "minecraft:coal",
@@ -15,7 +14,6 @@
     "#C#"
   ],
   "result": {
-    "count": 1,
     "id": "nameless_trinkets:miners_soul"
   }
 }

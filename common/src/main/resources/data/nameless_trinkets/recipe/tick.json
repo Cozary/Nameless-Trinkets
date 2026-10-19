@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "#": "minecraft:brown_mushroom",
     "H": "minecraft:hay_block",
@@ -13,7 +12,6 @@
     "RH#"
   ],
   "result": {
-    "count": 1,
     "id": "nameless_trinkets:tick"
   }
 }

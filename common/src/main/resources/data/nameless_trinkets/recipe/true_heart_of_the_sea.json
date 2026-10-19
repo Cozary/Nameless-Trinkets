@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "#": "minecraft:heart_of_the_sea",
     "M": "nameless_trinkets:tear_of_the_sea",
@@ -14,7 +13,6 @@
     " Y "
   ],
   "result": {
-    "count": 1,
     "id": "nameless_trinkets:true_heart_of_the_sea"
   }
 }

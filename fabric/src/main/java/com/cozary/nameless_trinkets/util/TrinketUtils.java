@@ -19,8 +19,8 @@ public class TrinketUtils {
         var attachment = TrinketsApi.getAttachment(player);
 
         List<SlotEntryReference> list = new ArrayList<>();
-        for (var tuple : attachment.getEquipped(stack -> stack.is(item))) {
-            list.add(new SlotEntryReference(tuple.getB()));
+        for (var slot : attachment.equipped(item, true)) {
+            list.add(new SlotEntryReference(slot.get()));
         }
         return list;
     }

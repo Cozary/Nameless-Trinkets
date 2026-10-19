@@ -1,7 +1,6 @@
 package com.cozary.nameless_trinkets.events;
 
 import com.cozary.nameless_trinkets.items.trinkets.EclipseAshesBase;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -9,23 +8,16 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntitySpawnReason;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.OwnableEntity;
-import net.minecraft.world.entity.TraceableEntity;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.wolf.Wolf;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.scores.PlayerTeam;
 import net.minecraft.world.scores.Scoreboard;
+import net.minecraft.world.scores.TeamColor;
 
-import java.util.Collections;
-import java.util.Map;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class EclipseAshesHandler {
@@ -35,24 +27,6 @@ public class EclipseAshesHandler {
     private static final Map<UUID, EclipseSession> SESSIONS = new ConcurrentHashMap<>();
     private static final Set<UUID> PHANTOM_WOLVES = Collections.newSetFromMap(new ConcurrentHashMap<>());
     private static final Map<UUID, UUID> WOLF_OWNERS = new ConcurrentHashMap<>();
-
-    public static class EclipseSession {
-        public final UUID playerUUID;
-        public UUID targetUUID;
-        public int remainingTicks;
-        public UUID currentWolfUUID;
-        public int spawnDelayTicks;
-        public int wolfAliveTicks;
-
-        public EclipseSession(UUID playerUUID, UUID targetUUID, int remainingTicks) {
-            this.playerUUID = playerUUID;
-            this.targetUUID = targetUUID;
-            this.remainingTicks = remainingTicks;
-            this.currentWolfUUID = null;
-            this.spawnDelayTicks = 0;
-            this.wolfAliveTicks = 0;
-        }
-    }
 
     public static void onPlayerAttacked(Player player, LivingEntity attacker, ItemStack itemStack) {
         if (!player.level().isClientSide() && attacker != null) {
@@ -170,14 +144,14 @@ public class EclipseAshesHandler {
     }
 
     private static void spawnPhantomWolf(ServerLevel level, ServerPlayer player, LivingEntity target,
-            EclipseSession session, EclipseAshesBase.Stats config) {
+                                         EclipseSession session, EclipseAshesBase.Stats config) {
         double angle = level.getRandom().nextDouble() * 2 * Math.PI;
         double distance = 2.0 + level.getRandom().nextDouble() * 1.5;
         double spawnX = target.getX() + Math.cos(angle) * distance;
         double spawnZ = target.getZ() + Math.sin(angle) * distance;
         double spawnY = target.getY();
 
-        Wolf wolf = EntityType.WOLF.create(level, EntitySpawnReason.SPAWN_ITEM_USE);
+        Wolf wolf = EntityTypes.WOLF.create(level, EntitySpawnReason.SPAWN_ITEM_USE);
         if (wolf == null) {
             return;
         }
@@ -253,7 +227,7 @@ public class EclipseAshesHandler {
         PlayerTeam team = scoreboard.getPlayerTeam(ECLIPSE_TEAM_NAME);
         if (team == null) {
             team = scoreboard.addPlayerTeam(ECLIPSE_TEAM_NAME);
-            team.setColor(ChatFormatting.BLACK);
+            team.setColor(Optional.of(TeamColor.BLACK));
             team.setSeeFriendlyInvisibles(false);
         }
         scoreboard.addPlayerToTeam(wolf.getStringUUID(), team);
@@ -323,5 +297,23 @@ public class EclipseAshesHandler {
             }
         }
         SESSIONS.remove(session.playerUUID);
+    }
+
+    public static class EclipseSession {
+        public final UUID playerUUID;
+        public UUID targetUUID;
+        public int remainingTicks;
+        public UUID currentWolfUUID;
+        public int spawnDelayTicks;
+        public int wolfAliveTicks;
+
+        public EclipseSession(UUID playerUUID, UUID targetUUID, int remainingTicks) {
+            this.playerUUID = playerUUID;
+            this.targetUUID = targetUUID;
+            this.remainingTicks = remainingTicks;
+            this.currentWolfUUID = null;
+            this.spawnDelayTicks = 0;
+            this.wolfAliveTicks = 0;
+        }
     }
 }

@@ -12,8 +12,8 @@ public class TrinketUtils {
             return ItemStack.EMPTY;
         }
         var attachment = TrinketsApi.getAttachment(player);
-        for (var tuple : attachment.getEquipped(stack -> stack.is(item))) {
-            return tuple.getB();
+        for (var slot : attachment.equipped(item, true)) {
+            return slot.get();
         }
         return ItemStack.EMPTY;
     }

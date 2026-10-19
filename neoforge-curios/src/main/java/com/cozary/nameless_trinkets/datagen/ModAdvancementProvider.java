@@ -6,8 +6,8 @@ import com.cozary.nameless_trinkets.init.ModTags;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.AdvancementType;
-import net.minecraft.advancements.criterion.InventoryChangeTrigger;
-import net.minecraft.advancements.criterion.ItemPredicate;
+import net.minecraft.advancements.predicates.ItemPredicate;
+import net.minecraft.advancements.triggers.InventoryChangeTrigger;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
@@ -23,7 +23,8 @@ import java.util.function.Consumer;
 
 public class ModAdvancementProvider extends AdvancementProvider {
 
-    public ModAdvancementProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries, List<AdvancementSubProvider> subProviders) {
+    public ModAdvancementProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries,
+                                  List<AdvancementSubProvider> subProviders) {
         super(output, registries, subProviders);
     }
 
@@ -33,17 +34,14 @@ public class ModAdvancementProvider extends AdvancementProvider {
             HolderLookup.RegistryLookup<Item> itemRegistry = provider.lookupOrThrow(Registries.ITEM);
 
             AdvancementHolder root = Advancement.Builder.advancement()
-                    .display(
-                            ModItems.MYSTERIOUS_TRINKET.get(),
+                    .display(ModItems.MYSTERIOUS_TRINKET.get(),
                             Component.translatable("advancements.nameless_trinkets.root.title"),
                             Component.translatable("advancements.nameless_trinkets.root.description"),
                             Identifier.withDefaultNamespace("textures/gui/advancements/backgrounds/stone.png"),
-                            AdvancementType.CHALLENGE,
-                            true,
-                            true,
-                            false
-                    )
-                    .addCriterion("obtain", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(itemRegistry, ModTags.NAMELESS_TRINKETS_TAG)))
+                            AdvancementType.CHALLENGE, true, true, false)
+                    .addCriterion("obtain",
+                            InventoryChangeTrigger.TriggerInstance.hasItems(
+                                    ItemPredicate.Builder.item().of(itemRegistry, ModTags.NAMELESS_TRINKETS_TAG)))
                     .save(consumer, NamelessTrinkets.MOD_ID + ":root");
 
             addTrinketAdvancement(consumer, root, ModItems.TICK.get(), "tick");
@@ -101,14 +99,19 @@ public class ModAdvancementProvider extends AdvancementProvider {
             addTrinketAdvancement(consumer, root, ModItems.SPIDER_LEGS.get(), "spider_legs");
             addTrinketAdvancement(consumer, root, ModItems.LUNAR_CREST.get(), "lunar_crest");
             addTrinketAdvancement(consumer, root, ModItems.ECLIPSE_ASHES.get(), "eclipse_ashes");
-            AdvancementHolder shatteredHourglass = addTrinketAdvancement(consumer, root, ModItems.SHATTERED_HOURGLASS.get(), "shattered_hourglass");
-            addAwakenedHourglassAdvancement(consumer, shatteredHourglass, ModItems.AWAKENED_HOURGLASS_TIME_STOP.get(), "awakened_hourglass_time_stop");
-            addAwakenedHourglassAdvancement(consumer, shatteredHourglass, ModItems.AWAKENED_HOURGLASS_ACCELERATION.get(), "awakened_hourglass_acceleration");
-            addAwakenedHourglassAdvancement(consumer, shatteredHourglass, ModItems.AWAKENED_HOURGLASS_DILATION.get(), "awakened_hourglass_dilation");
+            AdvancementHolder shatteredHourglass = addTrinketAdvancement(consumer, root,
+                    ModItems.SHATTERED_HOURGLASS.get(), "shattered_hourglass");
+            addAwakenedHourglassAdvancement(consumer, shatteredHourglass, ModItems.AWAKENED_HOURGLASS_TIME_STOP.get(),
+                    "awakened_hourglass_time_stop");
+            addAwakenedHourglassAdvancement(consumer, shatteredHourglass,
+                    ModItems.AWAKENED_HOURGLASS_ACCELERATION.get(), "awakened_hourglass_acceleration");
+            addAwakenedHourglassAdvancement(consumer, shatteredHourglass, ModItems.AWAKENED_HOURGLASS_DILATION.get(),
+                    "awakened_hourglass_dilation");
             addTrinketAdvancement(consumer, root, ModItems.PARASITE_HIVE.get(), "parasite_hive");
         }
 
-        private AdvancementHolder addTrinketAdvancement(Consumer<AdvancementHolder> consumer, AdvancementHolder parent, Item item, String name) {
+        private AdvancementHolder addTrinketAdvancement(Consumer<AdvancementHolder> consumer, AdvancementHolder parent,
+                                                        Item item, String name) {
             return Advancement.Builder.advancement()
                     .parent(parent)
                     .display(
@@ -119,13 +122,13 @@ public class ModAdvancementProvider extends AdvancementProvider {
                             AdvancementType.GOAL,
                             true,
                             true,
-                            false
-                    )
+                            false)
                     .addCriterion(name, InventoryChangeTrigger.TriggerInstance.hasItems(item))
                     .save(consumer, NamelessTrinkets.MOD_ID + ":" + name);
         }
 
-        private void addAwakenedHourglassAdvancement(Consumer<AdvancementHolder> consumer, AdvancementHolder parent, Item item, String name) {
+        private void addAwakenedHourglassAdvancement(Consumer<AdvancementHolder> consumer, AdvancementHolder parent,
+                                                     Item item, String name) {
             Advancement.Builder.advancement()
                     .parent(parent)
                     .display(
@@ -136,8 +139,7 @@ public class ModAdvancementProvider extends AdvancementProvider {
                             AdvancementType.CHALLENGE,
                             true,
                             true,
-                            false
-                    )
+                            false)
                     .addCriterion(name, InventoryChangeTrigger.TriggerInstance.hasItems(item))
                     .save(consumer, NamelessTrinkets.MOD_ID + ":" + name);
         }

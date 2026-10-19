@@ -1,18 +1,12 @@
 package com.cozary.nameless_trinkets.events;
 
 import com.cozary.nameless_trinkets.items.trinkets.ParasiteHiveBase;
-
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntitySpawnReason;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.OwnableEntity;
-import net.minecraft.world.entity.TraceableEntity;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.ClimbOnTopOfPowderSnowGoal;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
@@ -21,11 +15,7 @@ import net.minecraft.world.entity.monster.Silverfish;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ParasiteHiveHandler {
@@ -59,7 +49,7 @@ public class ParasiteHiveHandler {
         int countToSpawn = config.minSilverfish + level.getRandom().nextInt(Math.max(1, config.maxSilverfish - config.minSilverfish + 1));
 
         for (int spawnIndex = 0; spawnIndex < countToSpawn; spawnIndex++) {
-            Silverfish silverfish = EntityType.SILVERFISH.create(level, EntitySpawnReason.SPAWN_ITEM_USE);
+            Silverfish silverfish = EntityTypes.SILVERFISH.create(level, EntitySpawnReason.SPAWN_ITEM_USE);
             if (silverfish == null) {
                 continue;
             }

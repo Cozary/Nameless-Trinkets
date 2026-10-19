@@ -25,25 +25,14 @@ import java.util.Set;
 
 public class ClientTemporalShaderHelper {
 
+    public static final long EXPANSION_DURATION_MS = 2500;
+    public static final long COLLAPSE_DURATION_MS = 1600;
     private static final Identifier SHADER_DESATURATE = Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "desaturate");
     private static final Identifier SHADER_VIBRANT = Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "vibrant");
     private static final Identifier SHADER_PALE = Identifier.fromNamespaceAndPath(NamelessTrinkets.MOD_ID, "pale");
     private static final Set<Identifier> MAIN_TARGETS = Set.of(PostChain.MAIN_TARGET_ID);
-
-    public static final long EXPANSION_DURATION_MS = 2500;
-    public static final long COLLAPSE_DURATION_MS = 1600;
     private static final double MAX_WORLD_RADIUS = 64.0;
-
-    private static int currentMode = 0;
-    private static long activationStartTime = 0;
-    private static boolean isReversing = false;
-    private static long reverseStartTime = 0;
-
     private static final ByteBuffer UBO_BUFFER = ByteBuffer.allocateDirect(32).order(ByteOrder.nativeOrder());
-    private static GpuBuffer dynamicSquareBuffer = null;
-
-    private record ModeVisuals(float r, float g, float b, int strokeBase, int fillBase, int innerStrokeBase) {}
-
     private static final ModeVisuals VISUALS_TIME_STOP = new ModeVisuals(
             1.0f, 0.9f, 0.35f,
             ARGB.color(255, 255, 230, 90),
@@ -62,6 +51,11 @@ public class ClientTemporalShaderHelper {
             ARGB.color(255, 242, 64, 102),
             ARGB.color(255, 255, 140, 178)
     );
+    private static int currentMode = 0;
+    private static long activationStartTime = 0;
+    private static boolean isReversing = false;
+    private static long reverseStartTime = 0;
+    private static GpuBuffer dynamicSquareBuffer = null;
 
     public static boolean isActive() {
         return currentMode != 0;
@@ -176,7 +170,7 @@ public class ClientTemporalShaderHelper {
             if (uniforms == null) return;
 
             boolean isFirstPerson = mc.options.getCameraType().isFirstPerson();
-            Vec3 cameraPos = mc.gameRenderer.getMainCamera().position();
+            Vec3 cameraPos = mc.gameRenderer.mainCamera().position();
             Vec3 center = mc.player != null ? mc.player.position() : cameraPos;
             double distToCenter = cameraPos.distanceTo(center);
 
@@ -297,5 +291,8 @@ public class ClientTemporalShaderHelper {
             }
         } catch (Throwable ignored) {
         }
+    }
+
+    private record ModeVisuals(float r, float g, float b, int strokeBase, int fillBase, int innerStrokeBase) {
     }
 }

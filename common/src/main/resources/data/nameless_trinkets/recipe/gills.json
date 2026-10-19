@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "#": "minecraft:cod",
     "K": "minecraft:salmon",
@@ -14,7 +13,6 @@
     " P "
   ],
   "result": {
-    "count": 1,
     "id": "nameless_trinkets:gills"
   }
 }

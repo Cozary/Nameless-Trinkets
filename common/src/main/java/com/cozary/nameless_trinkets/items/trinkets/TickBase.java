@@ -6,7 +6,7 @@ import com.cozary.nameless_trinkets.items.subTrinket.TrinketsStats;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -24,7 +24,7 @@ public class TickBase extends TrinketItem<TickBase.Stats> {
     }
 
     public static boolean isValidTarget(LivingEntity ent) {
-        return (ent.getType() != EntityType.PLAYER) && (!ent.isInvulnerable());
+        return (ent.getType() != EntityTypes.PLAYER) && (!ent.isInvulnerable());
     }
 
     @Override
