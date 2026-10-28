@@ -25,3 +25,4 @@ runs
 neoforge-accessories/src/generated/*
 .vscode
 .cache
+/common/src/main/resources/.cache/
