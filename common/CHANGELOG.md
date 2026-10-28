@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Fixed crash when interacting with villagers.
 - Fixed [Fate Emerald] discounts in NeoForge.
+- Fixed crash on loot table load.
+- Fixed [Lunar Crest] missing texture (#58).
 
 ## [Fabric 1.3.0 - NeoForge Curios 1.3.0 - NeoForge Trinkets 1.1.0] - 2026-10-13
 
