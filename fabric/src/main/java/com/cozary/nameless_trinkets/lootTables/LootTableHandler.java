@@ -15,8 +15,6 @@ import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 
 import java.util.Optional;
 
-import static com.cozary.nameless_trinkets.config.TrinketConfigs.getItemName;
-
 public class LootTableHandler {
 
     public static void modifyLootTable() {
@@ -29,7 +27,9 @@ public class LootTableHandler {
                     continue;
 
                 Optional<RegistryObject<Item>> optionalItem = ModItems.CREATIVE_TAB_ITEMS.stream()
-                        .filter(item -> getItemName((TrinketItem<?>) item.get()).equals(config.getItemId()))
+                        .filter(registryObject -> registryObject.get() instanceof TrinketItem<?>)
+                        .filter(registryObject -> registryObject.getId().getPath().equals(config.getItemId())
+                                || registryObject.getId().toString().equals(config.getItemId()))
                         .findFirst();
 
                 if (optionalItem.isEmpty())
