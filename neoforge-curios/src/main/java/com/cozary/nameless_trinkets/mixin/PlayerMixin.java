@@ -1,5 +1,7 @@
 package com.cozary.nameless_trinkets.mixin;
 
+import com.cozary.nameless_trinkets.events.DarkNelumboHandler;
+import com.cozary.nameless_trinkets.events.NelumboHandler;
 import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.util.TrinketUtils;
 import net.minecraft.world.entity.LivingEntity;
@@ -20,10 +22,10 @@ public abstract class PlayerMixin {
             var stackDarkNelumbo = TrinketUtils.getEquippedTrinket(player, ModItems.DARK_NELUMBO.get());
 
             if (!stackNelumbo.isEmpty())
-                PlayerMixinHandler.applyWaterWalking(player, fluidState, cir);
+                NelumboHandler.applyWaterWalking(player, fluidState, cir);
 
             if (!stackDarkNelumbo.isEmpty())
-                PlayerMixinHandler.applyLavaWalking(player, fluidState, cir);
+                DarkNelumboHandler.applyLavaWalking(player, fluidState, cir);
         }
     }
 }

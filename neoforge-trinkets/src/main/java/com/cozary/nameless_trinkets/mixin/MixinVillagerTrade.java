@@ -1,5 +1,6 @@
 package com.cozary.nameless_trinkets.mixin;
 
+import com.cozary.nameless_trinkets.events.FateEmeraldHandler;
 import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.util.TrinketUtils;
 import net.minecraft.world.entity.npc.villager.AbstractVillager;
@@ -19,10 +20,10 @@ public class MixinVillagerTrade {
 
         var stack = TrinketUtils.getEquippedTrinket(player, ModItems.FATE_EMERALD.get());
 
-        if (!stack.isEmpty())
+        if (stack.isEmpty())
             return;
 
-        MixinVillagerTradeHandler.applyVillagerDiscounts((AbstractVillager) (Object) this, player);
+        FateEmeraldHandler.applyVillagerDiscounts((AbstractVillager) (Object) this, player);
     }
 
 

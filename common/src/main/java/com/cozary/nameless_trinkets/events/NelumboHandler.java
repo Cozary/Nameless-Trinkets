@@ -1,13 +1,12 @@
-package com.cozary.nameless_trinkets.mixin;
+package com.cozary.nameless_trinkets.events;
 
-import com.cozary.nameless_trinkets.items.trinkets.DarkNelumboBase;
 import com.cozary.nameless_trinkets.items.trinkets.NelumboBase;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.material.FluidState;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-public abstract class PlayerMixinHandler {
+public class NelumboHandler {
 
     public static void applyWaterWalking(Player player, FluidState fluidState, CallbackInfoReturnable<Boolean> cir) {
         boolean canStandOnFluid = cir.getReturnValue();
@@ -23,21 +22,4 @@ public abstract class PlayerMixinHandler {
 
         cir.setReturnValue(canStandOnFluid);
     }
-
-    public static void applyLavaWalking(Player player, FluidState fluidState, CallbackInfoReturnable<Boolean> cir) {
-        boolean canStandOnFluid = cir.getReturnValue();
-
-        if (player.isShiftKeyDown())
-            return;
-
-        DarkNelumboBase.Stats config1 = DarkNelumboBase.INSTANCE.getTrinketConfig();
-
-        if (fluidState.is(FluidTags.LAVA) && !player.isEyeInFluid(FluidTags.LAVA) && config1.isEnable) {
-            player.clearFire();
-            canStandOnFluid = true;
-        }
-
-        cir.setReturnValue(canStandOnFluid);
-    }
 }
-
