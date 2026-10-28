@@ -1,5 +1,6 @@
 package com.cozary.nameless_trinkets.mixin;
 
+import com.cozary.nameless_trinkets.events.ElectricPaddleHandler;
 import com.cozary.nameless_trinkets.init.ModItems;
 import com.cozary.nameless_trinkets.util.TrinketUtils;
 import net.minecraft.world.entity.player.Player;
@@ -21,7 +22,7 @@ public class MixinBoat {
             if (stack.isEmpty())
                 return;
 
-            MixinBoatHandler.applyBoostedBoatControl((AbstractBoat) (Object) this, player);
+            ElectricPaddleHandler.applyBoostedBoatControl((AbstractBoat) (Object) this, player);
         }
     }
 }

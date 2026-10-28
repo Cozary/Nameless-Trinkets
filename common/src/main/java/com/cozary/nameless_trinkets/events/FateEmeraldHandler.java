@@ -1,4 +1,4 @@
-package com.cozary.nameless_trinkets.mixin;
+package com.cozary.nameless_trinkets.events;
 
 import com.cozary.nameless_trinkets.items.trinkets.FateEmeraldBase;
 import net.minecraft.util.Mth;
@@ -6,8 +6,7 @@ import net.minecraft.world.entity.npc.villager.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.trading.MerchantOffer;
 
-public class MixinVillagerTradeHandler {
-
+public class FateEmeraldHandler {
 
     public static void applyVillagerDiscounts(AbstractVillager villager, Player player) {
         FateEmeraldBase.Stats config = FateEmeraldBase.INSTANCE.getTrinketConfig();
@@ -22,6 +21,4 @@ public class MixinVillagerTradeHandler {
             offer.addToSpecialPriceDiff(-discount);
         }
     }
-
-
 }
