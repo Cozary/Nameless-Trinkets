@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:dying_star"
+        "recipes": "nameless_trinkets:dying_star"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

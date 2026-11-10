@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:dark_nelumbo_stripped_warped"
+        "recipes": "nameless_trinkets:dark_nelumbo_stripped_warped"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

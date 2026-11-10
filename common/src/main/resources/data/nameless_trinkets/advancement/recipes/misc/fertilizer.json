@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:fertilizer"
+        "recipes": "nameless_trinkets:fertilizer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

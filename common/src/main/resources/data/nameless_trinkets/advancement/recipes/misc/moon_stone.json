@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:moon_stone"
+        "recipes": "nameless_trinkets:moon_stone"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

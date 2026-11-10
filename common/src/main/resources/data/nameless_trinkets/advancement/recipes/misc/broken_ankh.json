@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:broken_ankh"
+        "recipes": "nameless_trinkets:broken_ankh"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

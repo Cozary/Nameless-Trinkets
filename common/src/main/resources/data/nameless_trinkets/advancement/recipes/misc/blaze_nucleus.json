@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:blaze_nucleus"
+        "recipes": "nameless_trinkets:blaze_nucleus"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

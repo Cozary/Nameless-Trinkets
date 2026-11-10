@@ -7,15 +7,15 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(GameRenderer.class)
 public interface GameRendererAccessor {
-    @Accessor("postEffectId")
+    @Accessor("spectatedEntityPostEffect")
     void nameless_trinkets$setPostEffectId(Identifier id);
 
-    @Accessor("postEffectId")
+    @Accessor("spectatedEntityPostEffect")
     Identifier nameless_trinkets$getPostEffectId();
 
-    @Accessor("effectActive")
+    @Accessor("spectatedEntityEffectActive")
     void nameless_trinkets$setEffectActive(boolean active);
 
-    @Accessor("effectActive")
+    @Accessor("spectatedEntityEffectActive")
     boolean nameless_trinkets$isEffectActive();
 }

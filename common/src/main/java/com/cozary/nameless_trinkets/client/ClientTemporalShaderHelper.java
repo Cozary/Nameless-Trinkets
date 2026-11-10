@@ -4,8 +4,8 @@ import com.cozary.nameless_trinkets.NamelessTrinkets;
 import com.cozary.nameless_trinkets.mixin.client.GameRendererAccessor;
 import com.cozary.nameless_trinkets.mixin.client.PostChainAccessor;
 import com.cozary.nameless_trinkets.mixin.client.PostPassAccessor;
-import com.mojang.blaze3d.buffers.GpuBuffer;
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.renderpearl.api.buffers.GpuBuffer;
 import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.PostChain;
@@ -102,7 +102,7 @@ public class ClientTemporalShaderHelper {
                             accessor.nameless_trinkets$setPostEffectId(targetShader);
                             accessor.nameless_trinkets$setEffectActive(true);
                         } else {
-                            mc.gameRenderer.clearPostEffect();
+                            mc.gameRenderer.clearSpectatedEntityPostEffect();
                         }
                     }
                 } catch (Throwable t) {
@@ -182,7 +182,7 @@ public class ClientTemporalShaderHelper {
                 if (elapsed >= 1.0f) {
                     currentMode = 0;
                     isReversing = false;
-                    mc.gameRenderer.clearPostEffect();
+                    mc.gameRenderer.clearSpectatedEntityPostEffect();
                     return;
                 }
 

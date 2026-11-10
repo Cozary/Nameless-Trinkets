@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:ghast_eye"
+        "recipes": "nameless_trinkets:ghast_eye"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

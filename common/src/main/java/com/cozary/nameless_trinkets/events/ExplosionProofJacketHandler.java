@@ -27,7 +27,7 @@ public class ExplosionProofJacketHandler {
                 BlockPos pos = player.blockPosition();
                 ItemEntity itementity = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), itemStack);
                 itementity.setDefaultPickUpDelay();
-                itementity.setInvulnerable(true);
+                itementity.setPermanentlyInvulnerable(true);
                 world.addFreshEntity(itementity);
                 return originalDamage * (1 - (config.blastDamagePercentageReduction / 100));
             }

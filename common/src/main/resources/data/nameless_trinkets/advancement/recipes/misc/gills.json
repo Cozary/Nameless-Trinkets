@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:gills"
+        "recipes": "nameless_trinkets:gills"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

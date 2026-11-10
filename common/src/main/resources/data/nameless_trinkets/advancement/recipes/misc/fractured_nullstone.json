@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:fractured_nullstone"
+        "recipes": "nameless_trinkets:fractured_nullstone"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

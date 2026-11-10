@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:tear_of_the_sea"
+        "recipes": "nameless_trinkets:tear_of_the_sea"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

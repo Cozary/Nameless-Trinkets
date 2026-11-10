@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:woundbearer"
+        "recipes": "nameless_trinkets:woundbearer"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

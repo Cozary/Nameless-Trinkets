@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:dark_nelumbo_crimson_nelumbo"
+        "recipes": "nameless_trinkets:dark_nelumbo_crimson_nelumbo"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

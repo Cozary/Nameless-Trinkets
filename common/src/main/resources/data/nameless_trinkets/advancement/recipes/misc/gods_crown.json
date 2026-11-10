@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:gods_crown"
+        "recipes": "nameless_trinkets:gods_crown"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

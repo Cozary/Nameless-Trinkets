@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:lucky_rock"
+        "recipes": "nameless_trinkets:lucky_rock"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

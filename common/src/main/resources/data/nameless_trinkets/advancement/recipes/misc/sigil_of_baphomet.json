@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:sigil_of_baphomet"
+        "recipes": "nameless_trinkets:sigil_of_baphomet"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

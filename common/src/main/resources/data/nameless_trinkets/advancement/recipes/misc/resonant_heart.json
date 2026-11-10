@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:resonant_heart"
+        "recipes": "nameless_trinkets:resonant_heart"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:vampire_blood"
+        "recipes": "nameless_trinkets:vampire_blood"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

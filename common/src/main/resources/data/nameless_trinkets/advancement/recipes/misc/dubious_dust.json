@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:dubious_dust"
+        "recipes": "nameless_trinkets:dubious_dust"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:ice_cube"
+        "recipes": "nameless_trinkets:ice_cube"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

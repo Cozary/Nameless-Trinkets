@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:pocket_lightning_rod"
+        "recipes": "nameless_trinkets:pocket_lightning_rod"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

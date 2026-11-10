@@ -1,7 +1,6 @@
 package com.cozary.nameless_trinkets.mixin.client;
 
 import com.cozary.nameless_trinkets.client.ClientTemporalShaderHelper;
-import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.world.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;
@@ -13,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class GameRendererMixin {
 
     @Inject(method = "render", at = @At("HEAD"))
-    private void onRender(DeltaTracker deltaTracker, boolean renderLevel, CallbackInfo ci) {
+    private void onRender(CallbackInfo ci) {
         ClientTemporalShaderHelper.updateFrame();
     }
 

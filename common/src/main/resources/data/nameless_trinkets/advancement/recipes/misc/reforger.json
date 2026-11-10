@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:reforger"
+        "recipes": "nameless_trinkets:reforger"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

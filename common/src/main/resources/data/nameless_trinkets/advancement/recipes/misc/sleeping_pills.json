@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:sleeping_pills"
+        "recipes": "nameless_trinkets:sleeping_pills"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

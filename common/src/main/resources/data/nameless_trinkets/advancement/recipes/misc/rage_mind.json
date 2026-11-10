@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:rage_mind"
+        "recipes": "nameless_trinkets:rage_mind"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

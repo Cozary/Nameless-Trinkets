@@ -29,6 +29,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BonemealSource;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
@@ -141,9 +142,9 @@ public class FertilizerBase extends TrinketItem<FertilizerBase.Stats> {
     static boolean applyBonemeal(Level level, BlockPos pos) {
         BlockState blockState = level.getBlockState(pos);
         if (blockState.getBlock() instanceof BonemealableBlock bonemealable &&
-                bonemealable.isValidBonemealTarget(level, pos, blockState)) {
-            if (level instanceof ServerLevel serverLevel && bonemealable.isBonemealSuccess(level, level.getRandom(), pos, blockState)) {
-                bonemealable.performBonemeal(serverLevel, level.getRandom(), pos, blockState);
+                bonemealable.isValidBonemealTarget(level, pos, blockState, BonemealSource.INTERACTION)) {
+            if (level instanceof ServerLevel serverLevel && bonemealable.isBonemealSuccess(level, level.getRandom(), pos, blockState, BonemealSource.INTERACTION)) {
+                bonemealable.performBonemeal(serverLevel, level.getRandom(), pos, blockState, BonemealSource.INTERACTION);
                 return true;
             }
         }
@@ -162,7 +163,7 @@ public class FertilizerBase extends TrinketItem<FertilizerBase.Stats> {
 
     private static boolean isValidBonemealTarget(Level level, BlockPos pos, BlockState state) {
         if (state.getBlock() instanceof BonemealableBlock bonemealable) {
-            return bonemealable.isValidBonemealTarget(level, pos, state);
+            return bonemealable.isValidBonemealTarget(level, pos, state, BonemealSource.INTERACTION);
         }
         return false;
     }

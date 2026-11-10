@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:cracked_crown"
+        "recipes": "nameless_trinkets:cracked_crown"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

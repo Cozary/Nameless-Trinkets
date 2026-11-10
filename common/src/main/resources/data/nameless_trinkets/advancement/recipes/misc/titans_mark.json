@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:titans_mark"
+        "recipes": "nameless_trinkets:titans_mark"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

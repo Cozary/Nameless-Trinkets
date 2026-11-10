@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:what_magnet"
+        "recipes": "nameless_trinkets:what_magnet"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

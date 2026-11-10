@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:nelumbo"
+        "recipes": "nameless_trinkets:nelumbo"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

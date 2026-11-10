@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:fate_emerald"
+        "recipes": "nameless_trinkets:fate_emerald"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

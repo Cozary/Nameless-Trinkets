@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:speed_force"
+        "recipes": "nameless_trinkets:speed_force"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

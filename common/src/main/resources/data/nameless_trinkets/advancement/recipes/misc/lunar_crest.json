@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:lunar_crest"
+        "recipes": "nameless_trinkets:lunar_crest"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

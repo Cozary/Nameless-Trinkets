@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:explosion_proof_jacket"
+        "recipes": "nameless_trinkets:explosion_proof_jacket"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

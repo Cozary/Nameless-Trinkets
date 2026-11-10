@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:blindfold"
+        "recipes": "nameless_trinkets:blindfold"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

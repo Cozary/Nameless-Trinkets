@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:shrinking_veil"
+        "recipes": "nameless_trinkets:shrinking_veil"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

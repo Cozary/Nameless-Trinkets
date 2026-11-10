@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:miners_soul"
+        "recipes": "nameless_trinkets:miners_soul"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

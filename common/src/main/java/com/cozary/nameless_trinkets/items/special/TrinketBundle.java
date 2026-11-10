@@ -8,6 +8,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.ARGB;
+import net.minecraft.util.Prediction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
@@ -51,8 +52,8 @@ public class TrinketBundle extends BundleItem {
         if (bundlecontents != null && !bundlecontents.isEmpty()) {
             itemStack.set(ModDataComponents.TRINKET_BUNDLE_CONTENTS.get(), TrinketBundleContents.EMPTY);
             if (player instanceof ServerPlayer) {
-                bundlecontents.itemsCopy().forEach((p_327106_) -> {
-                    player.drop(p_327106_, true);
+                bundlecontents.itemsCopy().forEach(itemToDrop -> {
+                    player.drop(itemToDrop, true, Prediction.PREDICTED);
                 });
             }
 

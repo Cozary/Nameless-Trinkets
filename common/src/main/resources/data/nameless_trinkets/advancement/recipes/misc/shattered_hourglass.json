@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:shattered_hourglass"
+        "recipes": "nameless_trinkets:shattered_hourglass"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

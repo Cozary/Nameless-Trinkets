@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:callus"
+        "recipes": "nameless_trinkets:callus"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

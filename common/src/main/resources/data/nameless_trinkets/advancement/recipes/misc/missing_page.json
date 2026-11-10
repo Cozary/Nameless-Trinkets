@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:missing_page"
+        "recipes": "nameless_trinkets:missing_page"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

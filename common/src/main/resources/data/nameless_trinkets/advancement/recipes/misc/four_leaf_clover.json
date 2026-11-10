@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:four_leaf_clover"
+        "recipes": "nameless_trinkets:four_leaf_clover"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

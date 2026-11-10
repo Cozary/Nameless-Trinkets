@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:puffer_fish_liver"
+        "recipes": "nameless_trinkets:puffer_fish_liver"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

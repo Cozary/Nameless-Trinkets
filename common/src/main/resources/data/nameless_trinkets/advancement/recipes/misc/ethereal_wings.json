@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:ethereal_wings"
+        "recipes": "nameless_trinkets:ethereal_wings"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

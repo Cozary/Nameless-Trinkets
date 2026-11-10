@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:trinket_bundle"
+        "recipes": "nameless_trinkets:trinket_bundle"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

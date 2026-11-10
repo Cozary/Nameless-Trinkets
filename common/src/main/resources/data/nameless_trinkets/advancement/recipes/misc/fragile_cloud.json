@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:fragile_cloud"
+        "recipes": "nameless_trinkets:fragile_cloud"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:awakened_hourglass_time_stop"
+        "recipes": "nameless_trinkets:awakened_hourglass_time_stop"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

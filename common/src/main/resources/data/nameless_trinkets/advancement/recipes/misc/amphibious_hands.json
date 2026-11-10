@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:amphibious_hands"
+        "recipes": "nameless_trinkets:amphibious_hands"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

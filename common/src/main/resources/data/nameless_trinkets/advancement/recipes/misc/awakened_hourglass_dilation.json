@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:awakened_hourglass_dilation"
+        "recipes": "nameless_trinkets:awakened_hourglass_dilation"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

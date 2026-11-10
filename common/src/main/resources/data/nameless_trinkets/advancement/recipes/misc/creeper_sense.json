@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:creeper_sense"
+        "recipes": "nameless_trinkets:creeper_sense"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

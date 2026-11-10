@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:ultimate_dust"
+        "recipes": "nameless_trinkets:ultimate_dust"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

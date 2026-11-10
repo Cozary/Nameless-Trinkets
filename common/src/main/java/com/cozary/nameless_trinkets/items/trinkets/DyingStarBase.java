@@ -100,7 +100,7 @@ public class DyingStarBase extends TrinketItem<DyingStarBase.Stats> {
                     tooltip.accept(Component.translatable("tooltip.nameless_trinkets.dying_star_1").withStyle(ChatFormatting.GOLD, ChatFormatting.OBFUSCATED));
 
                 }
-            } else if (InputConstants.isKeyDown(Minecraft.getInstance().getWindow(), InputConstants.KEY_LCONTROL)) {
+            } else if (InputConstants.isKeyDown(InputConstants.KEY_LCONTROL)) {
                 Map<String, Float> stats = new HashMap<>();
                 stats.put("Max Health: +", stack.getOrDefault(ModDataComponents.DYING_STAR_MAX_HEALTH.get(), 0.0f));
                 stats.put("Movement Speed: +",

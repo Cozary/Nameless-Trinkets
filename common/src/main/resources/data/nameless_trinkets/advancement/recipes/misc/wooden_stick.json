@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "nameless_trinkets:wooden_stick"
+        "recipes": "nameless_trinkets:wooden_stick"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
